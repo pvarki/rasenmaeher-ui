@@ -1,8 +1,16 @@
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
-import { AppView } from "./views/AppView";
-import { LoginView } from "./views/LoginView";
+import { LoginView } from "./views/login/LoginView";
 import { MassEnrollmentView } from "./views/MassEnrollmentView";
 import { SoldierView } from "./views/SoldierView";
+import { Layout } from "./components/Layout";
+import { CallsignSetupStep } from "./views/login/CallsignSetupView";
+import { EnrollmentView } from "./views/login/EnrollmentView";
+import { AdminHomeView } from "./views/AdminHomeView";
+import { UserManagementView } from "./views/UserManagementView";
+import { UserInviteView } from "./views/UserInviteView";
+import { QrCodeView } from "./views/users/invite/QrCodeView";
+import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
+import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 
 
 function Root() {
@@ -22,30 +30,54 @@ function Team() {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Layout />,
     children: [
       {
-        path: "team",
-        element: <Team />,
+        path: "/login",
+        element: <LoginView />,
       },
+      {
+        path: "/login/callsign",
+        element: <CallsignSetupStep />,
+      },
+      {
+        path: "/login/enrollment",
+        element: <EnrollmentView />,
+      },
+      {
+        path: "/app",
+        element: <AdminHomeView />,
+      },
+      {
+        path: "/app/user-management",
+        element: <UserManagementView />,
+      },
+      {
+        path: "/app/user-management/invite",
+        element: <UserInviteView />,
+      },
+      {
+        path: "/app/users/:callsign",
+        element: <SoldierView />,
+      },
+      {
+        path: "/app/user-management/code-list",
+        element: <EnrollCodeListView />,
+      },
+      {
+        path: "/app/user-management/code-list/:inviteCode",
+        element: <QrCodeView />,
+      },
+      {
+        path: "/app/user-management/approval",
+        element: <EnrollApprovalView />,
+      },
+      {
+        path: "/enrollment",
+        element: <MassEnrollmentView />,
+      }
     ],
   },
-  {
-    path: "/soldier",
-    element: <SoldierView />,
-  },
-  {
-    path: "/login",
-    element: <LoginView />,
-  },
-  {
-    path: "/app",
-    element: <AppView />,
-  },
-  {
-    path: "/enrollment",
-    element: <MassEnrollmentView />,
-  }
 ]);
 
 
