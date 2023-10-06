@@ -33,11 +33,10 @@ SHELL ["/bin/bash", "-lc"]
 FROM builder_base as production_build
 COPY ./docker/entrypoint.sh /docker-entrypoint.sh
 WORKDIR /app
-COPY ./package-lock.json ./package.json /app
-# Fixme: do whatever builds we need to do wth full build image
+COPY . /app
 RUN npm install  \
-    && echo "FIXME: Build production distribution" \
     && chmod a+x /docker-entrypoint.sh \
+    && npm run build \
     && true
 
 
@@ -45,7 +44,9 @@ RUN npm install  \
 # Main production build #
 #########################
 FROM node:18-bookworm-slim as production
+WORKDIR /app
 COPY --from=production_build /docker-entrypoint.sh /docker-entrypoint.sh
+COPY --from=production_build /app/dist /app/dist
 # Copy build things from production_build so this production image can stay minimalis
 RUN --mount=type=ssh apt-get update && apt-get install -y \
         bash \

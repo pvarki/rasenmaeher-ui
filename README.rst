@@ -38,6 +38,10 @@ Build image, create container and start it::
     docker create --name rmui_devel -v `pwd`":/app" -p 5173:5173 -it `echo $DOCKER_SSHAGENT` rasenmaeher_ui:devel_shell
     docker start -i rmui_devel
 
+Note: due to the volume mapping if you already had run "npm install" on the host you need to delete the node_modules directory
+and in any case you need to run "npm install" inside the container.
+
+
 pre-commit considerations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
