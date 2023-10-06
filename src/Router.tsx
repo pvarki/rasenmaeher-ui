@@ -12,20 +12,18 @@ import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 
-
 function Root() {
-  return ( 
+  return (
     <>
       <div>Root</div>
       <Outlet />
     </>
-  )
+  );
 }
 
 function Team() {
   return <div>Team</div>;
 }
-
 
 const router = createBrowserRouter([
   {
@@ -75,15 +73,14 @@ const router = createBrowserRouter([
       {
         path: "/enrollment",
         element: <MassEnrollmentView />,
-      }
+      },
     ],
   },
 ]);
 
-
 /*
 
-  /login 
+  /login
 
   /enrollment
 
@@ -92,7 +89,6 @@ const router = createBrowserRouter([
 
 
 */
-
 
 export default function Router() {
   return <RouterProvider router={router} />;

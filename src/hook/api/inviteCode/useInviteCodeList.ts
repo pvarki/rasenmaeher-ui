@@ -1,10 +1,10 @@
 import { UseQueryOptions, useQuery } from "react-query";
 
 export interface InviteCodeItem {
-  invitecode: string
-  active: true
-  owner_cs: string
-  created: string
+  invitecode: string;
+  active: true;
+  owner_cs: string;
+  created: string;
 }
 
 interface InviteCodeListResponse {
