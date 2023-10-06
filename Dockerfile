@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
         openssh-client \
         cargo \
         jq \
+        python3-pip \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     # githublab ssh
@@ -31,8 +32,11 @@ SHELL ["/bin/bash", "-lc"]
 ####################################
 FROM builder_base as production_build
 COPY ./docker/entrypoint.sh /docker-entrypoint.sh
+WORKDIR /app
+COPY ./package-lock.json ./package.json /app
 # Fixme: do whatever builds we need to do wth full build image
-RUN true \
+RUN npm install  \
+    && echo "FIXME: Build production distribution" \
     && chmod a+x /docker-entrypoint.sh \
     && true
 
@@ -45,19 +49,23 @@ COPY --from=production_build /docker-entrypoint.sh /docker-entrypoint.sh
 # Copy build things from production_build so this production image can stay minimalis
 RUN --mount=type=ssh apt-get update && apt-get install -y \
         bash \
-        libffi8 \
         tini \
-        jq \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     && chmod a+x /docker-entrypoint.sh \
     && true
 ENTRYPOINT ["/usr/bin/tini", "--", "/docker-entrypoint.sh"]
 
+
 #####################################
 # Base stage for development builds #
 #####################################
 FROM builder_base as devel_build
+WORKDIR /app
+COPY ./package-lock.json ./package.json /app
+RUN npm install \
+    && pip3 install --break-system-packages git-up pre-commit detect-secrets \
+    && true
 
 
 #0############
@@ -68,19 +76,20 @@ COPY . /app
 WORKDIR /app
 ENTRYPOINT ["/usr/bin/tini", "--", "docker/entrypoint-test.sh"]
 # Re run install to get the service itself installed
-RUN docker/pre_commit_init.sh \
+RUN npm install \
+    && docker/pre_commit_init.sh \
     && true
+
 
 ###########
 # Hacking #
 ###########
 FROM devel_build as devel_shell
 # Copy everything to the image
-COPY . /app
 WORKDIR /app
-RUN apt-get update && apt-get install -y zsh python3-pip \
+COPY . /app
+RUN apt-get update && apt-get install -y zsh \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     && echo "source /root/.profile" >>/root/.zshrc \
-    && pip3 install --break-system-packages git-up \
     && true
 ENTRYPOINT ["/bin/zsh", "-l"]
