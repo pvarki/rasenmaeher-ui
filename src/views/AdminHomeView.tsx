@@ -1,29 +1,20 @@
-import resursoiSrc from "../assets/resursoi.png";
+import trooper from "../assets/resursoi.png";
+import services from "../assets/byod2.png";
+import { Card } from "../components/Card"
+import { TextCard } from "../components/TextCard"
+import { CardsContainer } from "../components/CardsContainer"
+import { Layout } from "../components/Layout";
 
 export function AdminHomeView() {
   return (
+    <Layout  showNavbar={true} navbarTitle="metsa-kota.pvarki.fi">
     <div className="flex flex-col gap-3">
-      <Card title="Palvelut" />
-      <Card title="Käyttäjähallinta" image={resursoiSrc} />
+      <CardsContainer>
+        <TextCard title="Olet kirjautunut adminina." details="Tervetuloa ympäristöösi! Valitse alta <strong>Käyttäjänhallinta</strong> lisätäksesi käyttäjiä ympäristöösi. Valitse <strong>Palvelut</strong> ottaaksesi palvelut käyttöön omalla laitteellasi."/>
+        <Card title="Käyttäjähallinta" image={trooper} url="/app/user-management" />
+        <Card title="Palvelut" image={services} url="/app/services"/>
+      </CardsContainer>    
     </div>
-  );
-}
-
-function Card({ title, image }: { title: string; image?: string }) {
-  return (
-    <a
-      href="/app/user-management"
-      className="relative bg-backgroundLight rounded-lg w-full h-36 overflow-hidden"
-    >
-      {image && (
-        <img
-          src={image}
-          className="absolute top-0 left-0 w-full h-full object-contain p-3"
-        />
-      )}
-      <div className="absolute right-0 bottom-0 bg-primary p-2 rounded-tl-lg">
-        <span className="text-white">{title}</span>
-      </div>
-    </a>
+    </Layout>
   );
 }
