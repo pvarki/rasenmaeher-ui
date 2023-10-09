@@ -7,6 +7,7 @@ import { useEnrolledUsers } from "../hook/api/useEnrolledUsers";
 import { useUsers } from "../hook/api/useUsers";
 import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { Layout } from "../components/Layout"
 
 export function UserManagementView() {
   const navigate = useNavigate();
@@ -23,16 +24,18 @@ export function UserManagementView() {
   );
 
   return (
-    <main className="px-3 flex flex-col gap-3 items-center justify-start h-full">
-      <h1 className="text-white">UserManagementView</h1>
-      <Button
-        variant={{ width: "full" }}
-        onClick={() => navigate("/app/user-management/code-list")}
-      >
-        Lisää käyttäjiä
-      </Button>
-      <UserListAccordian />
-    </main>
+    <Layout showNavbar={true} navbarTitle="Käyttäjienhallinta" backUrl="/app">
+      <main className="px-3 flex flex-col gap-3 items-center justify-start h-full">
+        <h1 className="text-white">UserManagementView</h1>
+        <Button
+          variant={{ width: "full" }}
+          onClick={() => navigate("/app/user-management/code-list")}
+        >
+          Lisää käyttäjiä
+        </Button>
+        <UserListAccordian />
+      </main>
+    </Layout>
   );
 }
 

@@ -12,6 +12,8 @@ import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 import { ServicesView } from "./views/ServicesView";
 import { ServiceTakView } from "./views/ServiceTakView";
+import { SoldierServicesView } from "./views/SoldierServicesView";
+import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
 
 function Root() {
   return (
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
       {
         path: "/app/services/tak",
         element: <ServiceTakView />,
+      },
+      {
+        path: "/app/users/:callsign/services/tak",
+        element: <SoldierServiceTakView />,
+      },
+      {
+        path: "/app/users/:callsign/services",
+        element: <SoldierServicesView />,
       },
     ],
   },

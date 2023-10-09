@@ -7,11 +7,11 @@ import { CardsContainer } from "../components/CardsContainer";
 import { UnfoldableCard } from "../components/ServicesView/UnfoldableCard";
 import { Button } from "../components/Button"
 
-export function ServiceTakView() {
+export function SoldierServiceTakView() {
   const navigate = useNavigate();
 
   return (
-    <Layout showNavbar={true} navbarTitle="TAK" backUrl="/app">
+    <Layout showNavbar={true} navbarTitle="TAK" backUrl="/app/users/:callsign/services">
     <CardsContainer>
       <ServiceInfoCard title="Tilannekuvasovellus TAK" image={taklogo}/>
 
