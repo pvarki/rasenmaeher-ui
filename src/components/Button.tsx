@@ -31,7 +31,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ children, variant, styling, ...restProps }: ButtonProps) {
-  // Add the additionalClass to the className if it exists
   const combinedClassName = `${button(variant)} ${styling || ''}`;
 
   return (
