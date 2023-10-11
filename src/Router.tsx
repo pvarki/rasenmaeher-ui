@@ -11,7 +11,9 @@ import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 import { ServicesView } from "./views/ServicesView";
-import { ServiceTakView } from "./views/ServiceTakView";
+import { ServiceTakView } from "./views/servicetak/ServiceTakView";
+import { ServiceTakQuickstartView } from "./views/servicetak/ServiceTakQuickstartView";
+import { ServiceTakUsageView } from "./views/servicetak/ServiceTakUsageView";
 import { SoldierServicesView } from "./views/SoldierServicesView";
 import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
 
@@ -84,6 +86,14 @@ const router = createBrowserRouter([
       {
         path: "/app/services/tak",
         element: <ServiceTakView />,
+      },
+      {
+        path: "/app/services/tak/quickstart",
+        element: <ServiceTakQuickstartView />,
+      },
+      {
+        path: "/app/services/tak/usage",
+        element: <ServiceTakUsageView />,
       },
       {
         path: "/app/users/:callsign/services/tak",

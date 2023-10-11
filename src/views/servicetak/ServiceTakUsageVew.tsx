@@ -1,13 +1,13 @@
 import React from 'react';
 import taklogo from "../assets/taklogo.png";
 import { useNavigate } from "react-router-dom";
-import { Layout } from "../components/Layout"
-import { ServiceInfoCard } from "../components/ServicesView/ServiceInfoCard";
-import { CardsContainer } from "../components/CardsContainer";
-import { UnfoldableCard } from "../components/ServicesView/UnfoldableCard";
-import { Button } from "../components/Button"
+import { Layout } from "../../components/Layout"
+import { ServiceInfoCard } from "../../components/ServicesView/ServiceInfoCard";
+import { CardsContainer } from "../../components/CardsContainer";
+import { UnfoldableCard } from "../../components/ServicesView/UnfoldableCard";
+import { Button } from "../../components/Button"
 
-export function ServiceTakView() {
+export function ServiceTakUsageView() {
   const navigate = useNavigate();
 
   return (
