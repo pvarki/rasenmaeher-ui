@@ -1,5 +1,5 @@
 import React from 'react';
-import taklogo from "../assets/taklogo.png";
+import taklogo from "../../assets/taklogo.png";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../../components/Layout"
 import { ServiceInfoCard } from "../../components/ServicesView/ServiceInfoCard";

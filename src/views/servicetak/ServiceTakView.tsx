@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React from "react";
 import taklogo from "../assets/taklogo.png";
+=======
+import React from 'react';
+import taklogo from "../../assets/taklogo.png";
+>>>>>>> acc5a41 (fix typos and imports)
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { ServiceInfoCard } from "../components/ServicesView/ServiceInfoCard";
