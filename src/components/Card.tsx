@@ -16,7 +16,7 @@ export function Card({ title, image, url }: CardProps) {
         {image && (
           <img
             src={image}
-            className="max-w-48 max-h-48 object-contain p-3"
+            className="max-w-36 max-h-36 object-contain p-3"
           />
         )}
         <div className="absolute right-0 bottom-0 bg-primary p-2 rounded-tl-lg">

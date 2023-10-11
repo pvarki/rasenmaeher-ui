@@ -11,7 +11,7 @@ export function TakQuickstartAndroid1() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak">
+    <Layout showNavbar={true} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak/quickstart">
     <CardsContainer>
       <GuideSection
           number="1."
