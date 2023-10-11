@@ -9,21 +9,20 @@ import { CardsContainer } from "../../../components/CardsContainer";
 import { NavigateButtons } from "../../../components/NavigateButtons";
 
 
-export function ServiceTakQuickstartView() {
+export function TakQuickstartAndroid1() {
 
   return (
-    <div className="pb-10">
-    <Layout showNavbar={true} navbarTitle="Ohje käyttöönottoon: TAK" backUrl="/app/services/tak">
+    <div className="pb-32">
+    <Layout showNavbar={true} navbarTitle="Käyttöönotto-ohje TAK" backUrl="/app/services/tak">
     <Text
-        description="Mitä laitetta käytät?"
+        title="Mitä laitetta käytät?"
       />
     <CardsContainer>
       <Card title="Android" image={android} url="app/services/tak/quickstartguide/android1" />
       <Card title="iOS" image={apple} url="app/services/tak/quickstartguide/ios1" />
       <Card title="Windows" image={windows} url="app/services/tak/quickstartguide/windows1" />
-      <NavigateButtons />
     </CardsContainer>
-    
+    <NavigateButtons />
 
     
     </Layout>
