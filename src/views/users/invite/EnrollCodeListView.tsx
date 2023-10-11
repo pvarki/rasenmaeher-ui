@@ -17,39 +17,49 @@ import {
 } from "@radix-ui/react-icons";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { useAlertDialog } from "../../../components/AlertDialogService";
-import { InviteCodeItem, useInviteCodeList } from "../../../hook/api/inviteCode/useInviteCodeList";
+import {
+  InviteCodeItem,
+  useInviteCodeList,
+} from "../../../hook/api/inviteCode/useInviteCodeList";
 import { useCreateInviteCode } from "../../../hook/api/inviteCode/useCreateInviteCode";
 import { useNavigate } from "react-router-dom";
 import { useDeleteInviteCode } from "../../../hook/api/inviteCode/useDeleteInviteCode";
 
 export function EnrollCodeListView() {
-  const navigate = useNavigate()
-  const {openDialog} = useAlertDialog()
+  const navigate = useNavigate();
+  const { openDialog } = useAlertDialog();
 
   const { mutate: createInviteCode } = useCreateInviteCode({
     onSuccess: (inviteCode) => {
-      navigate('/app/users/invite/code-list/' + inviteCode)
+      navigate("/app/users/invite/code-list/" + inviteCode);
     },
-  })
+  });
 
   const onCreateInviteCode = () => {
     openDialog({
-      title: 'Luo uusi kutsukoodi',
-      description: 'Kutsukoodi on kertakäyttöinen.',
-      cancelLabel: 'Peruuta',
-      confirmLabel: 'Luo kutsukoodi',
+      title: "Luo uusi kutsukoodi",
+      description: "Kutsukoodi on kertakäyttöinen.",
+      cancelLabel: "Peruuta",
+      confirmLabel: "Luo kutsukoodi",
       onConfirm: () => createInviteCode(undefined),
-      confirmColor: 'primary',
-    })
-  }
+      confirmColor: "primary",
+    });
+  };
 
   const { data: inviteCodeList } = useInviteCodeList();
 
   return (
     <div className="flex flex-col items-center gap-3">
       <Navbar title="Kutsu koodit" backUrl="/app/user-management" />
-      <Button variant={{width: 'full'}} onClick={onCreateInviteCode}>Luo uusi Kutsukoodi</Button>
-      <Button variant={{width: 'full'}} onClick={() => navigate('/app/user-management/approval')}>Hyväksyntä sivu</Button>
+      <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
+        Luo uusi Kutsukoodi
+      </Button>
+      <Button
+        variant={{ width: "full" }}
+        onClick={() => navigate("/app/user-management/approval")}
+      >
+        Hyväksyntä sivu
+      </Button>
       <div className="relative gap-3 flex flex-row items-center w-full bg-backgroundLight p-3 rounded-lg text-white">
         <MagnifyingGlassIcon width={24} height={24} className="text-white" />
         <input
@@ -64,19 +74,21 @@ export function EnrollCodeListView() {
   );
 }
 
-function InviteCodeRow({inviteCode}: {inviteCode: string}) {
-  const navigate = useNavigate()
+function InviteCodeRow({ inviteCode }: { inviteCode: string }) {
+  const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate('/app/user-management/code-list/' + inviteCode)} className="bg-backgroundLight w-full p-3 rounded-lg flex items-center justify-between gap-5">
+    <div
+      onClick={() => navigate("/app/user-management/code-list/" + inviteCode)}
+      className="bg-backgroundLight w-full p-3 rounded-lg flex items-center justify-between gap-5"
+    >
       <span className="text-white">{inviteCode}</span>
-      <DropdownMenuDemo inviteCode={inviteCode}/>
+      <DropdownMenuDemo inviteCode={inviteCode} />
     </div>
   );
 }
 
-const DropdownMenuDemo = ({inviteCode}: {inviteCode: string}) => {
-
+const DropdownMenuDemo = ({ inviteCode }: { inviteCode: string }) => {
   const { openDialog } = useAlertDialog();
 
   const { mutate: deleteInviteCode } = useDeleteInviteCode();
@@ -89,7 +101,7 @@ const DropdownMenuDemo = ({inviteCode}: {inviteCode: string}) => {
       cancelLabel: "Peruuta",
       confirmLabel: "Poista koodi",
       onConfirm: () => {
-        deleteInviteCode(inviteCode)
+        deleteInviteCode(inviteCode);
       },
     });
   };

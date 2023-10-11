@@ -1,7 +1,5 @@
 import { ReactNode } from "react";
-import { tv, type VariantProps } from 'tailwind-variants'
-
-
+import { tv, type VariantProps } from "tailwind-variants";
 
 const button = tv({
   base: "rounded-lg px-4 py-2 font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed",
@@ -23,19 +21,21 @@ const button = tv({
     width: "auto",
   },
 });
-export type ButtonColors = VariantProps<typeof button>['color']
+
+export type ButtonColors = VariantProps<typeof button>["color"];
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
-  variant?: VariantProps<typeof button>
+  variant?: VariantProps<typeof button>;
+  styling?: string; 
 }
 
-export function Button(props: ButtonProps) {
-  const { children, variant } = props
+export function Button({ children, variant, styling, ...restProps }: ButtonProps) {
+  const combinedClassName = `${button(variant)} ${styling || ''}`;
 
   return (
-    <button className={button(variant)} {...props}>
+    <button className={combinedClassName} {...restProps}>
       {children}
     </button>
-  )
+  );
 }

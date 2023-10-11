@@ -1,6 +1,3 @@
-
-
-
 export function BookmarkRemainder() {
   return (
     <div className="bg-[#ffc929] px-3 py-2 flex justify-between">
@@ -9,5 +6,5 @@ export function BookmarkRemainder() {
         +
       </button>
     </div>
-  )
+  );
 }

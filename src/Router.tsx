@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import { LoginView } from "./views/login/LoginView";
 import { MassEnrollmentView } from "./views/MassEnrollmentView";
 import { SoldierView } from "./views/SoldierView";
-import { Layout } from "./components/Layout";
 import { CallsignSetupStep } from "./views/login/CallsignSetupView";
 import { EnrollmentView } from "./views/login/EnrollmentView";
 import { AdminHomeView } from "./views/AdminHomeView";
@@ -11,26 +10,28 @@ import { UserInviteView } from "./views/UserInviteView";
 import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
-
+import { ServicesView } from "./views/ServicesView";
+import { ServiceTakView } from "./views/ServiceTakView";
+import { SoldierServicesView } from "./views/SoldierServicesView";
+import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
 
 function Root() {
-  return ( 
+  return (
     <>
       <div>Root</div>
       <Outlet />
     </>
-  )
+  );
 }
 
 function Team() {
   return <div>Team</div>;
 }
 
-
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+   
     children: [
       {
         path: "/login",
@@ -75,15 +76,30 @@ const router = createBrowserRouter([
       {
         path: "/enrollment",
         element: <MassEnrollmentView />,
-      }
+      },
+      {
+        path: "/app/services",
+        element: <ServicesView />,
+      },
+      {
+        path: "/app/services/tak",
+        element: <ServiceTakView />,
+      },
+      {
+        path: "/app/users/:callsign/services/tak",
+        element: <SoldierServiceTakView />,
+      },
+      {
+        path: "/app/users/:callsign/services",
+        element: <SoldierServicesView />,
+      },
     ],
   },
 ]);
 
-
 /*
 
-  /login 
+  /login
 
   /enrollment
 
@@ -92,7 +108,6 @@ const router = createBrowserRouter([
 
 
 */
-
 
 export default function Router() {
   return <RouterProvider router={router} />;

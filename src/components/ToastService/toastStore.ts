@@ -1,17 +1,17 @@
-import { create } from "zustand"
-import { ButtonColors } from "../Button"
+import { create } from "zustand";
+import { ButtonColors } from "../Button";
 
 export interface ToastStoreProps {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 export interface ToastStore {
-  open: boolean
-  props?: ToastStoreProps
+  open: boolean;
+  props?: ToastStoreProps;
 
-  openToast: (props: ToastStoreProps) => void
-  closeDialog: () => void
+  openToast: (props: ToastStoreProps) => void;
+  closeDialog: () => void;
 }
 
 export const useToastStore = create<ToastStore>((set) => ({
@@ -19,11 +19,11 @@ export const useToastStore = create<ToastStore>((set) => ({
   props: undefined,
 
   openDialog: (props: ToastStoreProps) => set({ open: true, props }),
-  closeDialog: () => set({ open: false, props: undefined })
-}))
+  closeDialog: () => set({ open: false, props: undefined }),
+}));
 
 export const useToast = () => {
-  const { open, openDialog, closeDialog } = useToastStore()
+  const { open, openDialog, closeDialog } = useToastStore();
 
   const eventDateRef = React.useRef(new Date());
   const timerRef = React.useRef(0);
@@ -36,5 +36,5 @@ export const useToast = () => {
     open,
     openDialog,
     closeDialog,
-  }
-}
+  };
+};
