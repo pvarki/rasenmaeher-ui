@@ -13,6 +13,7 @@ import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 import { ServicesView } from "./views/ServicesView";
 import { ServiceTakView } from "./views/servicetak/ServiceTakView";
 import { ServiceTakQuickstartView } from "./views/servicetak/quickstartguide/ServiceTakQuickstartView";
+import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/TakQuickstartAndroid1";
 import { ServiceTakUsageView } from "./views/servicetak/ServiceTakUsageView";
 import { SoldierServicesView } from "./views/SoldierServicesView";
 import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
         path: "/app/services/tak/quickstart",
         element: <ServiceTakQuickstartView />,
       },
+        {
+          path: "/app/services/tak/app/services/tak/quickstartguide/android1",
+          element: <TakQuickstartAndroid1 />,
+        },
       {
         path: "/app/services/tak/usage",
         element: <ServiceTakUsageView />,
