@@ -5,7 +5,7 @@ import { CardsContainer } from "../../../components/CardsContainer";
 import { NavigateButtons } from "../../../components/NavigateButtons";
 
 
-export function TakQuickstartAndroid1() {
+export function TakQuickstartAndroid2() {
 
   return (
     <div className="pb-32">
@@ -28,13 +28,11 @@ export function TakQuickstartAndroid1() {
           description2='<em>Jos applikaatio antaa virheilmoituksen, valitse Wait. </em>'     
         />
 
-    </CardsContainer>
+      </CardsContainer>
       <NavigateButtons 
-        backUrl="/app/services/tak/quickstart" 
-        forwardUrl="/app/services/tak/quickstart/android2" 
-      />
-
-    
+        backUrl="/app/services/tak/quickstart/android1" 
+        forwardUrl="/app/services/tak/quickstart/android3" 
+      /> 
     </Layout>
     </div>
   );

@@ -14,6 +14,8 @@ import { ServicesView } from "./views/ServicesView";
 import { ServiceTakView } from "./views/servicetak/ServiceTakView";
 import { ServiceTakQuickstartView } from "./views/servicetak/quickstartguide/ServiceTakQuickstartView";
 import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/TakQuickstartAndroid1";
+import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/TakQuickstartAndroid2";
+import { TakQuickstartAndroid3 } from "./views/servicetak/quickstartguide/TakQuickstartAndroid3";
 import { ServiceTakUsageView } from "./views/servicetak/ServiceTakUsageView";
 import { SoldierServicesView } from "./views/SoldierServicesView";
 import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
@@ -92,10 +94,18 @@ const router = createBrowserRouter([
         path: "/app/services/tak/quickstart",
         element: <ServiceTakQuickstartView />,
       },
-        {
-          path: "/app/services/tak/app/services/tak/quickstartguide/android1",
-          element: <TakQuickstartAndroid1 />,
-        },
+            {
+              path: "/app/services/tak/quickstart/android1",
+              element: <TakQuickstartAndroid1 />,
+            },
+            {
+              path: "/app/services/tak/quickstart/android2",
+              element: <TakQuickstartAndroid2 />,
+            },
+            {
+              path: "/app/services/tak/quickstart/android3",
+              element: <TakQuickstartAndroid3 />,
+            },
       {
         path: "/app/services/tak/usage",
         element: <ServiceTakUsageView />,
