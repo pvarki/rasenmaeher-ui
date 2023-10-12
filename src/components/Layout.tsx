@@ -1,6 +1,7 @@
-import { Header } from "./Header";
-import { Navbar } from "./Navbar";
-import { Outlet } from "react-router-dom";
+
+import { Header } from './Header';
+import { Navbar } from './Navbar';
+import { Outlet } from 'react-router-dom';
 
 interface LayoutProps {
   showNavbar?: boolean;
