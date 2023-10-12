@@ -14,13 +14,13 @@ interface NavigateButtonsProps {
     const handleBackClick = () => {
       setBackClicked(true);
       navigate(backUrl);
-      setBackClicked(false);  // Resetting to the original state after click
+      setBackClicked(false);
     };
   
     const handleContinueClick = () => {
       setContinueClicked(true);
       navigate(forwardUrl);
-      setContinueClicked(false);  // Resetting to the original state after click
+      setContinueClicked(false);
     };
 
   return (
