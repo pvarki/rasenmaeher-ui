@@ -22,7 +22,7 @@ export function Layout({
     <div className="layout">
       {showNavbar && <Navbar title={navbarTitle} backUrl={backUrl} />}
       {showHeader && !showNavbar && <Header />}
-      <div className="content pt-5"> 
+      <div className="content pt-20"> 
         {children || <Outlet />}
       </div>
     </div>
