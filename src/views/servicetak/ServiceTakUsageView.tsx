@@ -39,14 +39,14 @@ export function ServiceTakUsageView() {
         onClick={() => navigate("/app/services/tak")}
         styling="m-2"
       >
-        Käyttöönotto-ohje
+        Ota TAK käyttöön - Quickstart-ohje
     </Button>
     <Button
         variant={{ width: "full" }}
         onClick={() => navigate("/app/services/tak")}
         styling="m-2"
       >
-        Käyttötarkoitus-ohje
+        Käyttö joukossa
     </Button>
 
     </CardsContainer>
