@@ -31,7 +31,8 @@ export function TakQuickstartAndroid3() {
       </CardsContainer>
       <NavigateButtons 
         backUrl="/app/services/tak/quickstart/android2" 
-        forwardUrl="/app/services/tak/quickstart/android3" 
+        forwardUrl="/app/services/tak"
+        alterForward="Valmis!" 
       /> 
     </Layout>
     </div>
