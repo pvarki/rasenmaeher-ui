@@ -13,7 +13,10 @@ export function SoldierServiceTakView() {
   return (
     <Layout showNavbar={true} navbarTitle="TAK" backUrl="/app/users/:callsign/services">
     <CardsContainer>
-      <ServiceInfoCard title="Tilannekuvasovellus TAK" image={taklogo}/>
+      <ServiceInfoCard
+       title="Tilannekuvasovellus TAK" 
+       image={taklogo}
+       details="bober"/>
 
       <Button
         variant={{ width: "full" }}
