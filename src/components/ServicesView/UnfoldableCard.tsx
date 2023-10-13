@@ -10,15 +10,13 @@ export function UnfoldableCard({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation(); // Stop the event from propagating up to parent components
     setIsOpen(!isOpen);
   };
 
   return (
-    <div
-      className="flex flex-col w-full p-4  rounded-md cursor-pointer m-2 bg-backgroundLight"
-      onClick={handleClick}
-    >
+    <div className="flex flex-col w-full p-4 rounded-md cursor-pointer m-2 bg-background" onClick={handleClick}>
       <div className="flex justify-between items-center">
         <h3 className="text-l text-white font-bold">{title}</h3>
         <span

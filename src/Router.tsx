@@ -11,16 +11,24 @@ import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 import { ServicesView } from "./views/ServicesView";
-import { ServiceTakView } from "./views/servicetak/ServiceTakView";
 import { ServiceTakQuickstartView } from "./views/servicetak/quickstartguide/ServiceTakQuickstartView";
 import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid1";
 import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid2";
 import { TakQuickstartAndroid3 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid3";
-import { ServiceTakUsageView } from "./views/servicetak/ServiceTakUsageView";
 import { SoldierServicesView } from "./views/SoldierServicesView";
-import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
-import { MtlsTestView } from "./views/MtlsTestView";
-import { ErrorView } from "./views/ErrorView";
+
+function Root() {
+  return (
+    <>
+      <div>Root</div>
+      <Outlet />
+    </>
+  );
+}
+
+function Team() {
+  return <div>Team</div>;
+}
 
 const router = createBrowserRouter([
   {
@@ -75,10 +83,6 @@ const router = createBrowserRouter([
         element: <ServicesView />,
       },
       {
-        path: "/app/services/tak",
-        element: <ServiceTakView />,
-      },
-      {
         path: "/app/services/tak/quickstart",
         element: <ServiceTakQuickstartView />,
       },
@@ -94,22 +98,6 @@ const router = createBrowserRouter([
               path: "/app/services/tak/quickstart/android3",
               element: <TakQuickstartAndroid3 />,
             },
-      {
-        path: "/app/services/tak/usage",
-        element: <ServiceTakUsageView />,
-      },
-      {
-        path: "/app/users/:callsign/services/tak",
-        element: <SoldierServiceTakView />,
-      },
-      {
-        path: "/app/users/:callsign/services",
-        element: <SoldierServicesView />,
-      },
-      {
-        path: "/app/mtls-test",
-        element: <MtlsTestView />,
-      },
       {
         path: "/error",
         element: <ErrorView />,
