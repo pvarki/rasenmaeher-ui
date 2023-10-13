@@ -1,15 +1,18 @@
-import { Layout } from "../../../components/Layout"
-import wait from "../../../assets/takguides/atak/wait.png"
-import { GuideSection} from "../../../components/TakGuides/GuideSection";
-import { CardsContainer } from "../../../components/CardsContainer";
-import { NavigateButtons } from "../../../components/NavigateButtons";
+import { Layout } from "../../../../components/Layout"
+import { StatusBar } from "../../../../components/StatusBar"
+import wait from "../../../../assets/takguides/atak/wait.png"
+import { GuideSection} from "../../../../components/TakGuides/GuideSection";
+import { CardsContainer } from "../../../../components/CardsContainer";
+import { NavigateButtons } from "../../../../components/NavigateButtons";
 
 
-export function TakQuickstartAndroid2() {
+export function TakQuickstartAndroid3() {
 
   return (
     <div className="pb-32">
     <Layout showNavbar={true} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak/quickstart">
+    <StatusBar title="Tee kuperkeikka" progressMax={3} progressNow={3} />
+    <div className="flex justify-center items-center w-full">
     <CardsContainer>
       <GuideSection
           number="1."
@@ -29,9 +32,11 @@ export function TakQuickstartAndroid2() {
         />
 
       </CardsContainer>
+      </div>
       <NavigateButtons 
-        backUrl="/app/services/tak/quickstart/android1" 
-        forwardUrl="/app/services/tak/quickstart/android3" 
+        backUrl="/app/services/tak/quickstart/android2" 
+        forwardUrl="/app/services/tak"
+        alterForward="Valmis!" 
       /> 
     </Layout>
     </div>
