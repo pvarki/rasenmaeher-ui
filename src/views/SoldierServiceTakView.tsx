@@ -11,13 +11,12 @@ export function SoldierServiceTakView() {
   const navigate = useNavigate();
 
   return (
-    <Layout
-      showNavbar={true}
-      navbarTitle="TAK"
-      backUrl="/app/users/:callsign/services"
-    >
-      <CardsContainer>
-        <ServiceInfoCard title="Tilannekuvasovellus TAK" image={taklogo} />
+    <Layout showNavbar={true} navbarTitle="TAK" backUrl="/app/users/:callsign/services">
+    <CardsContainer>
+      <ServiceInfoCard
+       title="Tilannekuvasovellus TAK" 
+       image={taklogo}
+       details="bober"/>
 
         <Button
           variant={{ width: "full" }}
