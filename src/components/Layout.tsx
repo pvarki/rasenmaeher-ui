@@ -1,5 +1,6 @@
 import { Header } from './Header';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 import { Outlet } from 'react-router-dom';
 
 interface LayoutProps {
@@ -19,7 +20,6 @@ export function Layout({
   children,
   heroImage,
 }: LayoutProps) {
-
   return (
     <div className={`layout flex flex-col min-h-screen ${showNavbar ? 'pt-16' : 'pt-0'}`}>
       {showNavbar && <Navbar title={navbarTitle} backUrl={backUrl} />}
@@ -28,17 +28,17 @@ export function Layout({
       <div className="relative flex-grow">
         {heroImage && (
           <div 
-            className={`hero bg-cover bg-center w-full h-[30vh] md:h-[50vh] lg:h-[90vh] relative`}
+            className={`hero bg-cover bg-center w-full h-[30vh] md:h-[50vh] lg:h-[70vh]`}
             style={{ backgroundImage: `url(${heroImage})` }}
           ></div>
         )}
 
-        <div className={`content absolute w-full  left-1/2 transform -translate-x-1/2 top-0 mt-[calc(30vh/1.5)] md:mt-[calc(50vh/1.5)] lg:mt-[calc(75vh/4)]`}>
+        <div className="content mt-[calc(-30vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]">
           {children || <Outlet />}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
-
-
