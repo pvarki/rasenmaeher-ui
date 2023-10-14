@@ -10,12 +10,10 @@ import { UserInviteView } from "./views/UserInviteView";
 import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
-import { ServicesView } from "./views/ServicesView";
 import { ServiceTakQuickstartView } from "./views/servicetak/quickstartguide/ServiceTakQuickstartView";
 import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid1";
 import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid2";
 import { TakQuickstartAndroid3 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid3";
-import { SoldierServicesView } from "./views/SoldierServicesView";
 
 function Root() {
   return (
@@ -79,14 +77,11 @@ const router = createBrowserRouter([
         path: "/enrollment",
         element: <MassEnrollmentView />,
       },
-      {
-        path: "/app/services",
-        element: <ServicesView />,
-      },
-      {
-        path: "/app/services/tak/quickstart",
-        element: <ServiceTakQuickstartView />,
-      },
+      {/*As of 1.0 directly integrated to RM UI, instead of html fragment design*/}, 
+            {
+              path: "/app/services/tak/quickstart",
+              element: <ServiceTakQuickstartView />,
+            },
             {
               path: "/app/services/tak/quickstart/android1",
               element: <TakQuickstartAndroid1 />,
@@ -99,10 +94,6 @@ const router = createBrowserRouter([
               path: "/app/services/tak/quickstart/android3",
               element: <TakQuickstartAndroid3 />,
             },
-      {
-        path: "/app/users/:callsign/services",
-        element: <SoldierServicesView />,
-      },
     ],
   },
 ]);

@@ -1,8 +1,8 @@
-import taklogo from "../assets/taklogo.png";
-import { Card } from "../components/Card"
-import { TextCard } from "../components/TextCard"
-import { CardsContainer } from "../components/CardsContainer"
-import { Layout } from "../components/Layout";
+import taklogo from "../../assets/taklogo.png";
+import { Card } from "../../components/Card"
+import { TextCard } from "../../components/TextCard"
+import { CardsContainer } from "../../components/CardsContainer"
+import { Layout } from "../../components/Layout";
 
 export function ServicesView() {
   return (

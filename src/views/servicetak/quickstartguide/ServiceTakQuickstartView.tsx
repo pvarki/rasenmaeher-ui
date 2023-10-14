@@ -13,7 +13,7 @@ export function ServiceTakQuickstartView() {
 
   return (
     <div className="pb-10">
-    <Layout showNavbar={true} navbarTitle="Ohje käyttöönottoon: TAK" backUrl="/app/services/tak">
+    <Layout showNavbar={true} navbarTitle="Ohje käyttöönottoon: TAK" backUrl="/app">
     <Text
         description="Mitä laitetta käytät?"
       />
