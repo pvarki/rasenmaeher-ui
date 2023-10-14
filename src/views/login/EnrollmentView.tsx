@@ -14,7 +14,7 @@ export function EnrollmentView() {
     if (!approveCode || !callsign) {
       navigate("/login");
     }
-  }, [approveCode]);
+  }, [approveCode, callsign, navigate]);
 
   const [isEnrolled, setIsEnrolled] = useState(false);
   useOwnEnrollmentStatus({

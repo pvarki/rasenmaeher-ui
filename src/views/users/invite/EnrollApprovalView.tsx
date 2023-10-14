@@ -1,15 +1,14 @@
-import QRCode from "react-qr-code";
 import { Navbar } from "../../../components/Navbar";
 import { Button } from "../../../components/Button";
 
-import { useLocation, useParams } from "react-router-dom";
+// import { useLocation, useParams } from "react-router-dom";
 import { ErrorMessage, Field, FormikProvider, useFormik } from "formik";
 
 export function EnrollApprovalView() {
-  const { inviteCode } = useParams();
+  // const { inviteCode } = useParams();
 
-  const inviteUrl =
-    window.location.origin + "/login?code=" + (inviteCode ?? "");
+  // const inviteUrl =
+  //   window.location.origin + "/login?code=" + (inviteCode ?? "");
 
   const formik = useFormik({
     initialValues: {

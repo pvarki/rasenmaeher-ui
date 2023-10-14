@@ -2,7 +2,7 @@ import QRCode from "react-qr-code";
 import { Navbar } from "../../../components/Navbar";
 import { Button } from "../../../components/Button";
 
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export function QrCodeView() {
   const { inviteCode } = useParams();

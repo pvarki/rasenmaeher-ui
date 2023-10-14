@@ -1,9 +1,4 @@
-import {
-  UseMutationOptions,
-  UseQueryOptions,
-  useMutation,
-  useQuery,
-} from "react-query";
+import { UseMutationOptions, useMutation } from "react-query";
 import { downloadBlob } from "../../utils/downloadBlob";
 
 async function getCertificate(callsign: string) {

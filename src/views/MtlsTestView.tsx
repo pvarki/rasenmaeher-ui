@@ -1,7 +1,5 @@
-import { useLocation } from "react-router-dom";
 import { Button } from "../components/Button";
 import { useGetCertificate } from "../hook/api/useGetCertificate";
-import { useTestCertificate } from "../hook/api/useTestCertificate";
 
 export function MtlsTestView() {
   const { mutate: downloadCert } = useGetCertificate();

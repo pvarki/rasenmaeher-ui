@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { LoginView } from "./views/login/LoginView";
 import { MassEnrollmentView } from "./views/MassEnrollmentView";
 import { SoldierView } from "./views/SoldierView";

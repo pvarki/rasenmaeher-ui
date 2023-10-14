@@ -1,9 +1,4 @@
-import {
-  UseMutationOptions,
-  UseQueryOptions,
-  useMutation,
-  useQuery,
-} from "react-query";
+import { UseMutationOptions, useMutation } from "react-query";
 
 async function testCertificate() {
   const res = await fetch(

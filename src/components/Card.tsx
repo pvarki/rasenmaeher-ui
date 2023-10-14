@@ -1,11 +1,9 @@
-import React, { ReactNode } from "react";
-
-interface CardProps {
-  title: string;
-  image?: string;
-  url?: string;
-  children?: ReactNode;
-}
+// interface CardProps {
+//   title: string;
+//   image?: string;
+//   url?: string;
+//   children?: ReactNode;
+// }
 
 export function Card({
   title,
