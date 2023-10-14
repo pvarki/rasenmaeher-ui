@@ -26,7 +26,7 @@ export function TakQuickstartAndroid3() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak/quickstart">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Tee asetukset" progressMax={3} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>

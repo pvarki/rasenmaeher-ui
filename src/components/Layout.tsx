@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 interface LayoutProps {
   showNavbar?: boolean;
   showHeader?: boolean;
+  showFooter?: boolean; 
   navbarTitle?: string;
   backUrl?: string;
   children?: React.ReactNode;
@@ -15,11 +16,17 @@ interface LayoutProps {
 export function Layout({
   showNavbar = false,
   showHeader = true,
+  showFooter = true,
   navbarTitle,
   backUrl,
   children,
   heroImage,
 }: LayoutProps) {
+
+  const marginTopValue = heroImage 
+    ? 'mt-[calc(-30vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]' 
+    : 'mt-4';  // a default margin if there's no hero image
+
   return (
     <div className={`layout flex flex-col min-h-screen ${showNavbar ? 'pt-16' : 'pt-0'}`}>
       {showNavbar && <Navbar title={navbarTitle} backUrl={backUrl} />}
@@ -33,12 +40,12 @@ export function Layout({
           ></div>
         )}
 
-        <div className="content mt-[calc(-30vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]">
+        <div className={`content ${marginTopValue}`}>
           {children || <Outlet />}
         </div>
       </div>
 
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   );
 }
