@@ -14,8 +14,6 @@ export function ServiceTak() {
 return (
     <div>
     <CardsContainer>
-    <Text title="Palvelusi"/>
-
     <FoldableCard title="TAK" imageSrc={tak}>
     <div className="flex flex-col items-center justify-center p-5">
     <ServiceInfoCard 
