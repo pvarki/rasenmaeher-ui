@@ -7,7 +7,7 @@ import { useEnrolledUsers } from "../hook/api/useEnrolledUsers";
 import { useUsers } from "../hook/api/useUsers";
 import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import { Layout } from "../components/Layout"
+import { Layout } from "../components/Layout";
 
 export function UserManagementView() {
   const navigate = useNavigate();

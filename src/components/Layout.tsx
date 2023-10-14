@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
-import { Header } from './Header';
-import { Navbar } from './Navbar';
-import { Outlet } from 'react-router-dom';
+import { ReactNode } from "react";
+import { Header } from "./Header";
+import { Navbar } from "./Navbar";
+import { Outlet } from "react-router-dom";
 
 interface LayoutProps {
   showNavbar?: boolean;
@@ -22,9 +22,7 @@ export function Layout({
     <div className="layout">
       {showNavbar && <Navbar title={navbarTitle} backUrl={backUrl} />}
       {showHeader && !showNavbar && <Header />}
-      <div className="content pt-5"> 
-        {children || <Outlet />}
-      </div>
+      <div className="content pt-5">{children || <Outlet />}</div>
     </div>
   );
 }

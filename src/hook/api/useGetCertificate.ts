@@ -6,8 +6,6 @@ import {
 } from "react-query";
 import { downloadBlob } from "../../utils/downloadBlob";
 
-
-
 async function getCertificate(callsign: string) {
   const jwt = localStorage.getItem("token");
   if (!jwt) {

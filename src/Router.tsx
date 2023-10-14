@@ -17,7 +17,6 @@ import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
 import { MtlsTestView } from "./views/MtlsTestView";
 import { ErrorView } from "./views/ErrorView";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -89,7 +88,7 @@ const router = createBrowserRouter([
       {
         path: "/error",
         element: <ErrorView />,
-      }
+      },
     ],
   },
 ]);
