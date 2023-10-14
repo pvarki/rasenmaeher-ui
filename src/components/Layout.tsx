@@ -25,21 +25,20 @@ export function Layout({
       {showNavbar && <Navbar title={navbarTitle} backUrl={backUrl} />}
       {showHeader && !showNavbar && <Header />}
 
-      <div className="relative">
+      <div className="relative flex-grow">
         {heroImage && (
           <div 
-            className="hero bg-cover bg-center"
-            style={{ height: '30vh', backgroundImage: `url(${heroImage})` }}
+            className={`hero bg-cover bg-center w-full h-[30vh] md:h-[50vh] lg:h-[90vh] relative`}
+            style={{ backgroundImage: `url(${heroImage})` }}
           ></div>
         )}
 
-        <div className="content absolute top-0 mt-[calc(30vh/1.5)] w-full">
+        <div className={`content absolute w-full  left-1/2 transform -translate-x-1/2 top-0 mt-[calc(30vh/1.5)] md:mt-[calc(50vh/1.5)] lg:mt-[calc(75vh/4)]`}>
           {children || <Outlet />}
         </div>
       </div>
     </div>
   );
 }
-
 
 
