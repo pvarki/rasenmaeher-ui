@@ -13,9 +13,9 @@ export function ServiceTakQuickstartView() {
 
   return (
     <div className="pb-10">
-    <Layout showNavbar={true} navbarTitle="Ohje käyttöönottoon: TAK" backUrl="/app">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="Ohje käyttöönottoon: TAK" backUrl="/app">
     <Text
-        description="Mitä laitetta käytät?"
+        title="Mitä laitetta käytät?"
       />
     <CardsContainer>
       <Card title="Android" image={android} url="/app/services/tak/quickstart/android1" />
