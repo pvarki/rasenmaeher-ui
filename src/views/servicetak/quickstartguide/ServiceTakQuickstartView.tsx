@@ -1,5 +1,6 @@
 
 import android from "../../../assets/android.svg";
+import sanla from "../../../assets/heroimages/sanla.jpeg";
 import apple from "../../../assets/apple.svg";
 import windows from "../../../assets/windows.svg";
 import { Text } from "../../../components/Text"
@@ -13,7 +14,7 @@ export function ServiceTakQuickstartView() {
 
   return (
     <div className="pb-10">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="Ohje käyttöönottoon: TAK" backUrl="/app">
+    <Layout showNavbar={true} showFooter={true} heroImage={sanla} navbarTitle="TAK: käyttöönotto-ohje" backUrl="/app">
     <Text
         title="Mitä laitetta käytät?"
       />
