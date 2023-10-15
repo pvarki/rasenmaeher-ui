@@ -21,7 +21,7 @@ export function ServiceTakQuickstartView() {
     <CardsContainer>
       <Card title="Android" image={android} url="/app/services/tak/quickstart/android1" />
       <Card title="iOS" image={apple} url="/app/services/tak/quickstart/ios1" />
-      <Card title="Windows" image={windows} url="/app/services/tak/quickstart/windows1" />
+      <Card title="Windows" image={windows} url="/app/services/tak/quickstart/win1" />
       
     </CardsContainer>
     
