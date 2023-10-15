@@ -69,8 +69,9 @@ export function TakQuickstartAndroid5() {
       </CardsContainer>
       </div>
       <NavigateButtons 
-        backUrl="/app/services/tak/quickstart/android2" 
-        forwardUrl="/app/services/tak/quickstart/android4"
+        backUrl="/app/services/tak/quickstart/android4" 
+        forwardUrl="/app/"
+        alterForward="Valmis! Palaa kotiin tästä."
       /> 
     </Layout>
     </div>

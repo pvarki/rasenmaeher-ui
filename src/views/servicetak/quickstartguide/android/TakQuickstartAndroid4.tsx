@@ -41,7 +41,7 @@ export function TakQuickstartAndroid4() {
       </CardsContainer>
       </div>
       <NavigateButtons 
-        backUrl="/app/services/tak/quickstart/android2" 
+        backUrl="/app/services/tak/quickstart/android3" 
         forwardUrl="/app/services/tak/quickstart/android5"
       /> 
     </Layout>
