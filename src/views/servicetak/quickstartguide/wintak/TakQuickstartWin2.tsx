@@ -89,8 +89,8 @@ export function TakQuickstartWin2() {
     </CardsContainer>
     </div>
       <NavigateButtons 
-        backUrl="/app/services/tak/quickstart/ios1" 
-        forwardUrl="/app/services/tak/quickstart/ios3" 
+        backUrl="/app/services/tak/quickstart/win1" 
+        forwardUrl="/app/services/tak/quickstart/win3" 
       />
 
     
