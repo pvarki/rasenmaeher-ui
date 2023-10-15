@@ -9,6 +9,8 @@ import pic3 from "../../../../assets/takguides/wintak/Kuva3.png";
 import pic4 from "../../../../assets/takguides/wintak/Kuva4.png";
 import pic5 from "../../../../assets/takguides/wintak/Kuva5.png";
 import pic6 from "../../../../assets/takguides/wintak/Kuva6.png";
+import pic7 from "../../../../assets/takguides/wintak/Kuva7.png";
+import pic8 from "../../../../assets/takguides/wintak/Kuva8.png";
 
 
 export function TakQuickstartWin1() {
@@ -54,6 +56,14 @@ export function TakQuickstartWin1() {
           description2='Valitse Windowsin näyttökieleksi <strong>englanti (Yhdysvallat)</strong>.' 
           image2Src={pic5}
           image2Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description3='Päätä näyttökielen vaihto kirjautumalla ulos ja uudelleen sisään.'
+
+          image3Src={pic8}
+          image3Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description4='<small><em>Mikäli onnistuit nyt asettamaan näyttökieleksi englannin, kieliasetukset ovat valmiit. Ohjeen seuraava askel koskee tilannetta, missä englannin kieli puuttuu näyttökielivalikosta.</em></small>'
+
        
        
       
@@ -63,11 +73,21 @@ export function TakQuickstartWin1() {
           description='Jos englannin kieltä ei löydy näyttökielivalikosta, paina <strong>Lisää kieli</strong> ja etsi se.'
 
           imageSrc={pic6}
-          imageClasses="mx-auto pr-5 w-[240px] p-4"
+          imageClasses="mx-auto pr-5 w-[400px] p-4"
 
-          description2='Paina <strong>Asenna kielipaketti.</strong> Odota kielipaketin asentumista.
-          <br></br>
-          Kieliasetukset ovat valmiit. Seuraavaksi asennetaan itse WinTAK-sovellus.'
+          description2='Paina <strong>Asenna kielipaketti.</strong> Odota kielipaketin asentumista.'
+
+          image2Src={pic7}
+          image2Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description3='Tämän jälkeen voit valita näyttökieleksi englannin. 
+          <br></br>Päätä näyttökielen vaihto kirjautumalla ulos ja uudelleen sisään.'
+
+          image3Src={pic8}
+          image3Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description4='
+          Kieliasetukset ovat valmiit. Seuraavaksi asennetaan itse WinTAK-sovellus. '      
         />
       
     </CardsContainer>
