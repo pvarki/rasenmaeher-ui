@@ -20,6 +20,11 @@ import { TakQuickstartIos1 } from "./views/servicetak/quickstartguide/ios/TakQui
 import { TakQuickstartIos2 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos2";
 import { TakQuickstartIos3 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos3";
 import { TakQuickstartIos4 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos4";
+import { TakQuickstartWin1 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin1";
+import { TakQuickstartWin2 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin2";
+import { TakQuickstartWin3 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin3";
+import { TakQuickstartWin4 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin4";
+
 
 
 
@@ -111,7 +116,7 @@ const router = createBrowserRouter([
                   path: "/app/services/tak/quickstart/android5",
                   element: <TakQuickstartAndroid5 />,
                 },
-            {/*AiOSquickstart guide views*/},
+            {/*iTAK quickstart guide views*/},
                 {
                   path: "/app/services/tak/quickstart/ios1",
                   element: <TakQuickstartIos1 />,
@@ -128,6 +133,24 @@ const router = createBrowserRouter([
                   path: "/app/services/tak/quickstart/ios4",
                   element: <TakQuickstartIos4 />,
                 },
+            {/*WinTAK quickstart guide views*/},
+              {
+                path: "/app/services/tak/quickstart/win1",
+                element: <TakQuickstartWin1 />,
+              },
+              {
+                path: "/app/services/tak/quickstart/win2",
+                element: <TakQuickstartWin2 />,
+              },
+              {
+                path: "/app/services/tak/quickstart/win3",
+                element: <TakQuickstartWin3 />,
+              },
+              {
+                path: "/app/services/tak/quickstart/win4",
+                element: <TakQuickstartWin4 />,
+              },
+    
       
         ],
   },
