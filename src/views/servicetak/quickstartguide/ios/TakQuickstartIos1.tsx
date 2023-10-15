@@ -1,6 +1,5 @@
 import { Layout } from "../../../../components/Layout"
 import { StatusBar } from "../../../../components/StatusBar"
-import wait from "../../../../assets/takguides/atak/wait.png"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
@@ -11,7 +10,7 @@ export function TakQuickstartIos1() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK Quickstart" backUrl="/app/services/tak/quickstart">
-    <StatusBar title="Asenna sovellukset (1/3)" progressMax={5} progressNow={1} />
+    <StatusBar title="Asenna sovellus" progressMax={4} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
@@ -27,7 +26,7 @@ export function TakQuickstartIos1() {
         />
         <GuideSection
           number="2."
-          description="Lataa viestiperusteesi Palvelut/TAK-sivulta. Tallenna .zip-tiedosto."
+          description="Lataa viestiperusteesi valmiiksi Palvelut/TAK-sivulta. Tallenna .zip-tiedosto."
           note="HUOMAA! Tiedostoa ei saa purkaa!"
         />
       
