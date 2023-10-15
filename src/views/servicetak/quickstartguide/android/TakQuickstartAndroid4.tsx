@@ -7,7 +7,7 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 
 import pic07 from "../../../../assets/takguides/atak/07-Kartta1.png"
 import pic08 from "../../../../assets/takguides/atak/08-OK1.png"
-import pic09 from "../../../../assets/takguides/atak/09-GoogleHybrid-1.png"
+
 
 
 export function TakQuickstartAndroid4() {

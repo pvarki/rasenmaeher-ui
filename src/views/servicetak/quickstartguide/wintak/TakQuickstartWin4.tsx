@@ -1,6 +1,5 @@
 import { Layout } from "../../../../components/Layout"
 import { StatusBar } from "../../../../components/StatusBar"
-import wait from "../../../../assets/takguides/atak/wait.png"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
@@ -8,9 +7,6 @@ import pic28 from "../../../../assets/takguides/wintak/Kuva28.png";
 import pic29 from "../../../../assets/takguides/wintak/Kuva29.png";
 import pic30 from "../../../../assets/takguides/wintak/Kuva30.png";
 import pic31 from "../../../../assets/takguides/wintak/Kuva31.png";
-
-
-
 
 
 export function TakQuickstartWin4() {

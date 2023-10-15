@@ -1,11 +1,9 @@
 import { Layout } from "../../../../components/Layout"
 import { StatusBar } from "../../../../components/StatusBar"
-import wait from "../../../../assets/takguides/atak/wait.png"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import pic14 from "../../../../assets/takguides/wintak/Kuva14.png";
-import pic15 from "../../../../assets/takguides/wintak/Kuva15.png";
 import pic16 from "../../../../assets/takguides/wintak/Kuva16.png";
 import pic17 from "../../../../assets/takguides/wintak/Kuva17.png";
 import pic18 from "../../../../assets/takguides/wintak/Kuva18.png";
