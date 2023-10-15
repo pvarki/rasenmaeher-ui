@@ -5,43 +5,66 @@ import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 
-import pic07 from "../../../../assets/takguides/atak/07-Kartta1.png"
-import pic08 from "../../../../assets/takguides/atak/08-OK1.png"
-import pic09 from "../../../../assets/takguides/atak/09-GoogleHybrid-1.png"
-
+import pic27 from "../../../../assets/takguides/atak/27-BaseMap.png"
+import pic28 from "../../../../assets/takguides/atak/28-Map.png"
+import frame1 from "../../../../assets/takguides/atak/Frame-1.png"
+import frame2 from "../../../../assets/takguides/atak/Frame-2.png"
+import frame3 from "../../../../assets/takguides/atak/Frame-3.png"
+import frame4 from "../../../../assets/takguides/atak/Frame-4.png"
+import frame5 from "../../../../assets/takguides/atak/Frame-5.png"
+import frame from "../../../../assets/takguides/atak/Frame.png"
 
 export function TakQuickstartAndroid5() {
 
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak/quickstart">
-    <StatusBar title="Vaihda karttapohjaa" progressMax={3} progressNow={3} />
+    <StatusBar title="Kartan perusominaisuuksia" progressMax={5} progressNow={5} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       <GuideSection
           number="1."
-          description="Valitse työkalurivistä (oikea yläkulma) <strong> Kartat </strong>."
-          imageSrc={pic07}
-          imageClasses='m-3 w-[250px]'
-          description2="Mene valikon alareunaan, valitse <strong>Settings</strong>"
+          description="<strong>Navigaationapit</strong> ovat vasemmassa yläkulmassa:"
+          imageSrc={pic27}
+          imageClasses='m-3 w-[300px]'
           />   
         <GuideSection
           number="2."
-          description="Valitse <strong>Callsign and Device Preferences.</strong>"
-          imageSrc={pic08}
-          imageClasses='m-3 w-[300px]'
-        />
+          description="Liikuta karttapohjaa <strong>sormella.</strong>"
+          imageSrc={frame}
+          imageClasses='align-right w-[50px]'
+        />    
         <GuideSection
           number="3."
-          description="Valitse <strong>Callsign Preferences.</strong>"
-          imageSrc={pic08}
-          imageClasses='m-3 w-[300px]'
-        />
+          description="Zoomaa karttaa <strong>nipistysotteella.</strong>"
+          imageSrc={frame1}
+          imageClasses='align-right w-[35px]'
+        />   
         <GuideSection
           number="4."
-          description="Valitse <strong>My Callsign.</strong>"
-          imageSrc={pic09}
-          imageClasses='m-3 w-[300px]'
+          description="Käännä karttapohjaa <strong>kahdella sormella.</strong>"
+          imageSrc={frame2}
+          imageClasses='align-right w-[50px]'
+        />
+        <GuideSection
+          number="5."
+          description="Oma sijaintisi näkyy <strong>nuolenpäänä.</strong>"
+          imageSrc={frame3}
+          imageClasses='align-right w-[40px]'
+        />
+        <GuideSection
+          number="6."
+          description="Muiden käyttäjien peitenimet alkavat näkyä zoomatessa."
+          imageSrc={frame4}
+          imageClasses='align-right w-[50px]'
+        />
+        <GuideSection
+          number="7."
+          description="Muiden käyttäjien pallokuvakkeen väri kuvaa joukkueen väriä (tai muuta käskettyä merkitystä)."
+          imageSrc={frame5}
+          imageClasses='align-right w-[50px]'
+          image2Src={pic28}
+          image2Classes='w-[300px]'
         />
       </CardsContainer>
       </div>
