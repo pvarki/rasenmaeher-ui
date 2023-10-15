@@ -9,8 +9,7 @@ import pic2 from "../../../../assets/takguides/itak/itakquickstart2.png";
 import pic3 from "../../../../assets/takguides/itak/itakquickstart3.png";
 import pic4 from "../../../../assets/takguides/itak/itakquickstart4.png";
 import pic5 from "../../../../assets/takguides/itak/itakquickstart5.png";
-import pic6 from "../../../../assets/takguides/itak/itakquickstart6.png";
-
+import pic7 from "../../../../assets/takguides/itak/itakquickstart7.png";
 
 
 
@@ -20,18 +19,18 @@ export function TakQuickstartIos2() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK Quickstart" backUrl="/app/services/tak/quickstart">
-    <StatusBar title="Tee perusasetukset" progressMax={5} progressNow={2} />
+    <StatusBar title="Tee perusasetukset" progressMax={4} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
       <GuideSection
           number="1."
-          description='Avaa <strong>iTAK</strong>-sovellus.'
+          description='Avaa <strong>iTAK</strong>-sovellus.
+          <br></br>
+          Kun sovellus kysyy: <em>"iTAK haluaa etsiä lähiverkossa..."</em>, valitse <strong>Älä salli</strong>.'
 
           imageSrc={pic1}
           imageClasses="mx-auto pr-5 w-[240px] p-4"
-
-          description2='Kun sovellus kysyy: <em>"iTAK haluaa etsiä lähiverkossa..."</em>, valitse <strong>Älä salli</strong>.'
         />
         <GuideSection
           number="2."
@@ -40,13 +39,11 @@ export function TakQuickstartIos2() {
           imageSrc={pic2}
           imageClasses="mx-auto pr-5 w-[240px] p-4"
 
-          description2='<ul>
-          <li> - Anna <strong>Callsign-kenttään</strong> oma peitteesi,
-          esimerkiksi <em>Rambo</em>.</li>
-          <li> - Phone-kenttää <strong>ei täytetä</strong>
-          </li></ul>'
-
-          description3='
+          description2='Anna <strong>Callsign-kenttään</strong> oma peitteesi,
+          esimerkiksi <em>Rambo</em>.
+          <br></br>
+          Phone-kenttää <strong>ei täytetä</strong>
+          <br></br>
           Paina lopuksi <strong>Next.</strong>'
       
         />
@@ -76,23 +73,25 @@ export function TakQuickstartIos2() {
 
           description2='
           iOS kysyy tämän jälkeen, sallitko iTAKin lähettävän sinulle <strong>ilmoituksia</strong> ja <strong>käyttää sijaintiasi</strong>.
+          <br></br>
+          Valitse ilmoituksiin <strong>Salli</strong>.
           '
           image2Src={pic5}
           image2Classes="mx-auto pr-5 w-[240px] p-4"
 
-          description3='Valitse ilmoituksiin <strong>Salli</strong>.'
+          description3='Valitse sijaintiin <strong>Salli käytettäessä</strong>.'
 
-          image3Src={pic6}
+          image3Src={pic7}
           image3Classes="mx-auto pr-5 w-[240px] p-4"
 
-          description4='Valitse sijaintiin <strong>Salli käytettäessä</strong>.'
+          description4='Tämän jälkeen muodostetaan palvelinyhteys.'
         />
       
     </CardsContainer>
     </div>
       <NavigateButtons 
-        backUrl="/app/services/tak/quickstart" 
-        forwardUrl="/app/services/tak/quickstart/android2" 
+        backUrl="/app/services/tak/quickstart/ios1" 
+        forwardUrl="/app/services/tak/quickstart/ios3" 
       />
 
     
