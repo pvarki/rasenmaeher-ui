@@ -16,7 +16,7 @@ interface LayoutProps {
 export function Layout({
   showNavbar = false,
   showHeader = true,
-  showFooter = true,
+  showFooter = false,
   navbarTitle,
   backUrl,
   children,
