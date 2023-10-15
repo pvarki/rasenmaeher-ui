@@ -18,7 +18,7 @@ export function TakQuickstartAndroid5() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak/quickstart">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK pikaohje" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Kartan perusominaisuuksia" progressMax={5} progressNow={5} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
