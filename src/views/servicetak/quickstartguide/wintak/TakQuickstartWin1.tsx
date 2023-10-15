@@ -9,21 +9,14 @@ import pic3 from "../../../../assets/takguides/wintak/Kuva3.png";
 import pic4 from "../../../../assets/takguides/wintak/Kuva4.png";
 import pic5 from "../../../../assets/takguides/wintak/Kuva5.png";
 import pic6 from "../../../../assets/takguides/wintak/Kuva6.png";
-import pic7 from "../../../../assets/takguides/wintak/Kuva7.png";
-import pic8 from "../../../../assets/takguides/wintak/Kuva8.png";
-
-
-
-
-
 
 
 export function TakQuickstartWin1() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="WinTak pikaohje" backUrl="/app/services/tak/quickstart">
-    <StatusBar title="Valitse kieleksi englanti" progressMax={4} progressNow={1} />
+    <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK pikaohje" backUrl="/app/services/tak/quickstart">
+    <StatusBar title="Työaseman kieleksi englanti" progressMax={4} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
@@ -38,18 +31,18 @@ export function TakQuickstartWin1() {
           imageClasses="mx-auto pr-12 w-[240px] p-4"
           
           description2='
-          Valitse <strong>Aika ja kieli</strong>.'
+          Kirjoita hakuun <strong>Aika ja kieli</strong>.'
 
           image2Src={pic2}
           image2Classes="mx-auto pr-12 w-[240px] p-4"
 
-          description3='Valitse ensin sivupalkista valikko <strong>Alue</strong>. 
+          description3='Vaihdetaan ensin alueasetus. Valitse Aika ja kieli-valikon sivupalkista <strong>Alue</strong>. 
           '
 
           image3Src={pic3}
           image3Classes="mx-auto pr-12 w-[400px] p-4"
 
-          description4='Valitse kohtaan maa tai alue <strong>Yhdysvallat</strong>. Varmista, että alueasetuksissa on valittuna myös <strong>englanti (Yhdysvallat)</strong>'
+          description4='Valitse kohtaan maa tai alue <strong>Yhdysvallat</strong>. Varmista, että alueasetuksissa on valittuna myös <strong>englanti (Yhdysvallat).</strong>'
         />
         <GuideSection
           number="2."
@@ -61,28 +54,20 @@ export function TakQuickstartWin1() {
           description2='Valitse Windowsin näyttökieleksi <strong>englanti (Yhdysvallat)</strong>.' 
           image2Src={pic5}
           image2Classes="mx-auto pr-5 w-[400px] p-4"
-          description3='Jos tätä ei löydy näyttökielivalikosta, paina Lisää kieli ja etsi se.'
-          image3Src={pic6}
-          image3Classes="mx-auto pr-5 w-[400px] p-4"
-          description4='Paina <strong>Asenna kielipaketti.</strong> Odota kielipaketin asentumista.'
+       
+       
       
         />
         <GuideSection
           number="3."
-          description='Täytä <strong>Team Settings:</strong>'
+          description='Jos englannin kieltä ei löydy näyttökielivalikosta, paina <strong>Lisää kieli</strong> ja etsi se.'
 
-          imageSrc={pic3}
+          imageSrc={pic6}
           imageClasses="mx-auto pr-5 w-[240px] p-4"
 
-          description2='<ul>
-          Valitse <strong>Select Team</strong>-kenttään rullavalikosta joukkosi (käsketty) väri.
+          description2='Paina <strong>Asenna kielipaketti.</strong> Odota kielipaketin asentumista.
           <br></br>
-           Valitse <strong>Select Team Role</strong>-kenttään rullavalikosta rooli <strong>Team Member</strong>, ellei muuta ole käsketty.
-          <br></br>
-          <small><em>Komentopaikkakäyttäjät asettavat roolin HQ.</em></small>
-          <br></br>
-          Paina lopuksi <strong>Next.</strong>
-          '
+          Kieliasetukset ovat valmiit. Seuraavaksi asennetaan itse WinTAK-sovellus.'
         />
       
     </CardsContainer>
