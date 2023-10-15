@@ -14,6 +14,8 @@ import { ServiceTakQuickstartView } from "./views/servicetak/quickstartguide/Ser
 import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid1";
 import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid2";
 import { TakQuickstartAndroid3 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid3";
+import { TakQuickstartAndroid4 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid4";
+import { TakQuickstartAndroid5 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid5";
 
 function Root() {
   return (
@@ -82,19 +84,28 @@ const router = createBrowserRouter([
               path: "/app/services/tak/quickstart",
               element: <ServiceTakQuickstartView />,
             },
-            {
-              path: "/app/services/tak/quickstart/android1",
-              element: <TakQuickstartAndroid1 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/android2",
-              element: <TakQuickstartAndroid2 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/android3",
-              element: <TakQuickstartAndroid3 />,
-            },
-    ],
+            {/*Android quickstart guide views*/},
+                {
+                  path: "/app/services/tak/quickstart/android1",
+                  element: <TakQuickstartAndroid1 />,
+                },
+                {
+                  path: "/app/services/tak/quickstart/android2",
+                  element: <TakQuickstartAndroid2 />,
+                },
+                {
+                  path: "/app/services/tak/quickstart/android3",
+                  element: <TakQuickstartAndroid3 />,
+                },
+                {
+                  path: "/app/services/tak/quickstart/android4",
+                  element: <TakQuickstartAndroid4 />,
+                },
+                {
+                  path: "/app/services/tak/quickstart/android6",
+                  element: <TakQuickstartAndroid5 />,
+                },
+        ],
   },
 ]);
 
