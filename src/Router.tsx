@@ -102,7 +102,7 @@ const router = createBrowserRouter([
                   element: <TakQuickstartAndroid4 />,
                 },
                 {
-                  path: "/app/services/tak/quickstart/android6",
+                  path: "/app/services/tak/quickstart/android5",
                   element: <TakQuickstartAndroid5 />,
                 },
         ],

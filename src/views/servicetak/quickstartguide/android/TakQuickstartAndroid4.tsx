@@ -15,39 +15,34 @@ export function TakQuickstartAndroid4() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="TAK-käyttöönotto Android" backUrl="/app/services/tak/quickstart">
-    <StatusBar title="Vaihda karttapohjaa" progressMax={3} progressNow={3} />
+    <StatusBar title="Vaihda karttapohjaa" progressMax={5} progressNow={4} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       <GuideSection
           number="1."
           description="Valitse työkalurivistä (oikea yläkulma) <strong> Kartat </strong>."
           imageSrc={pic07}
-          imageClasses='m-3 w-[250px]'
-          description2="Mene valikon alareunaan, valitse <strong>Settings</strong>"
+          imageClasses='m-3 w-[300px]'
           />   
         <GuideSection
           number="2."
-          description="Valitse <strong>Callsign and Device Preferences.</strong>"
+          description="Totea <strong>OK</strong> muutamaan ilmoitukseen."
           imageSrc={pic08}
           imageClasses='m-3 w-[300px]'
         />
         <GuideSection
           number="3."
-          description="Valitse <strong>Callsign Preferences.</strong>"
+          description="Valitse <strong>Mobile</strong> välilehdeltä <strong>02 Google Hybrid</strong>
+          Karttapohja aktivoituu."
           imageSrc={pic08}
           imageClasses='m-3 w-[300px]'
-        />
-        <GuideSection
-          number="4."
-          description="Valitse <strong>My Callsign.</strong>"
-          imageSrc={pic09}
-          imageClasses='m-3 w-[300px]'
+          description2="Pääset pois valikosta painamalla muutamia kertoja <strong>Back</strong>-nappia."
         />
       </CardsContainer>
       </div>
       <NavigateButtons 
         backUrl="/app/services/tak/quickstart/android2" 
-        forwardUrl="/app/services/tak/quickstart/android4"
+        forwardUrl="/app/services/tak/quickstart/android5"
       /> 
     </Layout>
     </div>
