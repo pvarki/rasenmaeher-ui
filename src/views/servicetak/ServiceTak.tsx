@@ -1,6 +1,5 @@
 import tak from "../../assets/taklogo.png";
 import { CardsContainer } from "../../components/CardsContainer"
-import { Text } from "../../components/Text";
 import { FoldableCard } from "../../components/FoldableCard";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import { UnfoldableCard } from "../../components/ServicesView/UnfoldableCard";
