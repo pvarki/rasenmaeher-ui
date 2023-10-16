@@ -19,7 +19,7 @@ import pic9 from "../../../../assets/takguides/atak/atakusage9.png"
 
 
 
-export function TakUsageAndroid3() {
+export function TakUsageAndroid4() {
 
   return (
     <div className="pb-32">
