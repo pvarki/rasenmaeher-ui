@@ -1,12 +1,21 @@
 import { Layout } from "../../../../components/Layout"
 import { StatusBar } from "../../../../components/StatusBar"
-import wait from "../../../../assets/takguides/atak/wait.png"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageCard } from "../../ServiceTakUsageCard";
+
+import pic27 from "../../../../assets/takguides/atak/27-BaseMap.png"
+import pic28 from "../../../../assets/takguides/atak/28-Map.png"
+import frame1 from "../../../../assets/takguides/atak/Frame-1.png"
+import frame2 from "../../../../assets/takguides/atak/Frame-2.png"
+import frame3 from "../../../../assets/takguides/atak/Frame-3.png"
+import frame4 from "../../../../assets/takguides/atak/Frame-4.png"
+import frame5 from "../../../../assets/takguides/atak/Frame-5.png"
+import frame from "../../../../assets/takguides/atak/Frame.png"
+
 
 export function TakUsageAndroid1() {
 
@@ -27,39 +36,53 @@ export function TakUsageAndroid1() {
         </ServiceInfoCard>
       </UnfoldableCard>
     </CardsContainer>
-    <StatusBar title="Ota käyttöön Data Sync" progressMax={4} progressNow={1} />
+    <StatusBar title="Liikuta karttaa ja näe omat" progressMax={4} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
     
-      <GuideSection 
-      description=''
-
-      />
-      <GuideSection
+    <GuideSection
           number="1."
-          description='Lataa ATAK-CIV sovellus Play Storesta ja asenna se.
-          
-          <a href="https://play.google.com/store/apps/details?id=com.atakmap.app.civ" style="color: SteelBlue; text-decoration: underline;">ATAK-CIV - Paina tästä ladataksesi Google Playsta</a>
-          <br></br>'
-      
-          description2='Tämän jälkeen lataa ATAK Data Sync-plugin, ja asenna se.
-         
-          <a href="https://play.google.com/store/apps/details?id=com.atakmap.android.datasync.plugin" style="color: SteelBlue; text-decoration: underline;">ATAK Datasync Plugin - Paina tästä ladataksesi Google Playsta</a>
-          <br></br>'
-
-          description3="Olet nyt ladannut tarvittavat sovellukset."
-        />
+          description="<strong>Navigaationapit</strong> ovat vasemmassa yläkulmassa:"
+          imageSrc={pic27}
+          imageClasses='m-3 w-[300px]'
+          />   
         <GuideSection
           number="2."
-          description="Lataa viestiperusteesi Palvelut/TAK-sivulta. Tallenna .zip-tiedosto."
-          note="HUOMAA! Tiedostoa ei saa purkaa!"
-        />
+          description="Liikuta karttapohjaa <strong>sormella.</strong>"
+          imageSrc={frame}
+          imageClasses='align-right w-[50px]'
+        />    
         <GuideSection
           number="3."
-          description="Avaa sovellus. Anna kaikki oikeudet, mitä applikaatio pyytää."
-          imageSrc={wait}         
-          imageClasses='m-3 w-[200px]'
-          description2='<em>Jos applikaatio antaa virheilmoituksen, valitse Wait. </em>'     
+          description="Zoomaa karttaa <strong>nipistysotteella.</strong>"
+          imageSrc={frame1}
+          imageClasses='align-right w-[35px]'
+        />   
+        <GuideSection
+          number="4."
+          description="Käännä karttapohjaa <strong>kahdella sormella.</strong>"
+          imageSrc={frame2}
+          imageClasses='align-right w-[50px]'
+        />
+        <GuideSection
+          number="5."
+          description="Oma sijaintisi näkyy <strong>nuolenpäänä.</strong>"
+          imageSrc={frame3}
+          imageClasses='align-right w-[40px]'
+        />
+        <GuideSection
+          number="6."
+          description="Muiden käyttäjien peitenimet alkavat näkyä zoomatessa."
+          imageSrc={frame4}
+          imageClasses='align-right w-[50px]'
+        />
+        <GuideSection
+          number="7."
+          description="Muiden käyttäjien pallokuvakkeen väri kuvaa joukkueen väriä (tai muuta käskettyä merkitystä)."
+          imageSrc={frame5}
+          imageClasses='align-right w-[50px]'
+          image2Src={pic28}
+          image2Classes='w-[300px]'
         />
       
     </CardsContainer>
