@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 interface FoldableCardProps {
   title: string;
@@ -8,9 +8,23 @@ interface FoldableCardProps {
 
 export function FoldableCard({ title, imageSrc, children }: FoldableCardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = () => {
+    setIsOpen(prev => !prev);
+
+    if (!isOpen) {
+      // Delay to make sure the content has been rendered and the size calculated.
+      requestAnimationFrame(() => {
+        if (bottomRef.current) {
+          bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+      });
+    }
+  };
 
   return (
-    <div className="relative flex flex-col w-full p-0 rounded-md cursor-pointer m-2 bg-backgroundLight" onClick={() => setIsOpen(!isOpen)}>
+    <div className="relative flex flex-col w-full p-0 rounded-md cursor-pointer m-2 bg-backgroundLight" onClick={handleClick}>
       
       {!isOpen && imageSrc && <img src={imageSrc} alt={title} className="w-16 h-16 object-contain self-center mt-2 mb-2" />}
 
@@ -26,6 +40,7 @@ export function FoldableCard({ title, imageSrc, children }: FoldableCardProps) {
       {isOpen && (
         <div className="mt-6">
           {children}
+          <div ref={bottomRef}></div>
         </div>
       )}
 
