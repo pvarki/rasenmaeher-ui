@@ -25,7 +25,7 @@ export function TakUsageWin1() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Liikuta karttaa ja merkkaa sijaintisi" progressMax={3} progressNow={1} />
+    <StatusBar title="Liikuta karttaa ja merkkaa sijaintisi" progressMax={5} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       

@@ -6,20 +6,17 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
-import pic14 from "../../../../assets/takguides/wintak/Kuva14.png";
-import pic16 from "../../../../assets/takguides/wintak/Kuva16.png";
-import pic17 from "../../../../assets/takguides/wintak/Kuva17.png";
-import pic18 from "../../../../assets/takguides/wintak/Kuva18.png";
-import pic19 from "../../../../assets/takguides/wintak/Kuva19.png";
-import pic20 from "../../../../assets/takguides/wintak/Kuva20.png";
-import pic21 from "../../../../assets/takguides/wintak/Kuva21.png";
-import pic23 from "../../../../assets/takguides/wintak/Kuva23.png";
-import pic24 from "../../../../assets/takguides/wintak/Kuva24.png";
-import pic25 from "../../../../assets/takguides/wintak/Kuva25.png";
-import pic26 from "../../../../assets/takguides/wintak/Kuva26.png";
-import pic27 from "../../../../assets/takguides/wintak/Kuva27.png";
-
-
+import pic15 from "../../../../assets/takguides/wintak/Kuva45.png";
+import pic17 from "../../../../assets/takguides/wintak/Kuva47.png";
+import pic18 from "../../../../assets/takguides/wintak/Kuva48.png";
+import pic19 from "../../../../assets/takguides/wintak/Kuva49.png";
+import pic20 from "../../../../assets/takguides/wintak/Kuva50.png";
+import pic23 from "../../../../assets/takguides/wintak/Kuva53.png";
+import pic24 from "../../../../assets/takguides/wintak/Kuva54.png";
+import pic25 from "../../../../assets/takguides/wintak/Kuva55.png";
+import pic26 from "../../../../assets/takguides/wintak/Kuva56.png";
+import pic27 from "../../../../assets/takguides/wintak/Kuva57.png";
+import pic28 from "../../../../assets/takguides/wintak/Kuva58.png";
 
 
 
@@ -27,116 +24,144 @@ export function TakUsageWin3() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK pikaohje" backUrl="/app/services/tak/Usage">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="Käyttö joukossa: WinTAK" backUrl="/app/services/tak/Usage">
       <CardsContainer>
         <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Aseta WinTAK" progressMax={3} progressNow={3} />
+    <StatusBar title="Tulkitse havaintoja, ylläpidä Feediä" progressMax={5} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
         <GuideSection
           number="1."
-          description='Avaa <strong>WinTAK</strong>-sovellus työpöydältä.'
+          description='WinTAK tekee ilmoituksia kuvan mukaisilla notifikaatioilla.'
 
-          imageSrc={pic14}
-          imageClasses="mx-auto pr-5 w-[90px] p-4" 
+          imageSrc={pic15}
+          imageClasses="mx-auto pr-5 w-[400px] p-4"
+          
+          description2='Painamalla keltaisen lipun symbolia, avautuu <strong>Notifications</strong>-näkymä.'
+
+          image2Src={pic17}
+          image2Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description3='Komentopaikalla käsiteltäviä havaintoja ovat <strong>Map Markers</strong>-havainnot ja <strong>Quick Picit.</strong> Ainoastaan ATAK-käyttäjät kykenevät lähettämään Quick Picejä.
+          <br></br>Havainnon nimi on automaattinen: <strong>"havainnon lähettäjän peite.havainnon pvm (pp).havainnon ajankohta(hhmmss)</strong>:
+          <br></br> Esimerkki: <em>iTAK002.01.123045</em>: kuun 1. päivänä klo 12:30:45 luotu havainto käyttäjältä iTAK002.'
+
         />
         <GuideSection
           number="2."
-          description='Hetken kuluttua aukaa <strong>Device Setup Wizard</strong>.
-          <br></br>
-          Sen ensimmäisenä askeleena hyväksy <strong>EULA.</strong>'
+          description='Havainnot <strong>avataan ja käsitellään</strong> näin:<br></br>
+          <ul>
+          <li>1. Paina ilmoitusnäkymästä ilmoitusta, jonka haluat käsitellä.</li>
+          <li>2. Karttanäkymä keskittyy havaintoon.</li>
+          <li>3. Klikkaa kartalla olevaa havaintoa.</li>
+          <li>4. Aukeaa <strong>ympyrävalikko</strong> (alla kuvassa).</li>'
+          imageSrc={pic18}
+          imageClasses="mx-auto pr-5 w-[400px] p-4"
 
-          imageSrc={pic16}
-          imageClasses="mx-auto pr-5 w-[300px] p-4"
+          description2='<ul>
+          <li>5. Aukeaa <strong>Marker Details</strong>-näkymä (alla kuvassa)'
+        
+
+          image2Src={pic19}
+          image2Classes="mx-auto pr-8 w-[300px] p-4"
+
+          description3='<strong>Käsittele havainto seuraavasti:</strong>
+          <li>Lue kommentit</li>
+          <li>Katso mahdollinen liite</li>
+          <li>Vertaa tietoihisi komentopaikalla</li
+          <li>Varmista havainto joukolta.</li>
+          <li>Jos et voi tehdä varmaa johtopäätöstä, jätä havainnoksi (tuntematon=keltainen)</li>
+          <li>Kirjaa tulkintasi ja muutokset <strong>Remarks</strong>eihin.
+          <br></br>
+          Perusmallin mukaisesti joukon tulisi ilmoittaa havainnosta myös sanomalla (välitettynä soveltuvalla tavalla).
+          '
+          note3='Kun kirjaat tulkintoja, muista erottaa johtopäätös alkuperäisestä kuvauksesta. Tee tämä merkinnällä <strong>HQ JP: (arvio tai johtopäätös)</strong>. <br></br> Muista myös TL JULK: käytä peitteistöä.'
         />
         <GuideSection
           number="3."
-          description='Seuraavaksi muodostetaan palvelinyhteys.
-          <br></br>
-          Sovellus kysyy, haluatko tuoda data packagen.'
+          description='Kun olet tehnyt johtopäätöksen, muuta havainnon tyyppiä (tuntematon, vih, oma, neutr) Marker Details-näkymässä kohdassa <strong>Type</strong>.'
 
-          imageSrc={pic17}
+          imageSrc={pic23}
           imageClasses="mx-auto pr-5 w-[300px] p-4"
 
+          note='Huomioi TL Julk - SALPID. Älä tuo käytössäsi olevaa yläjopon vihollistietoa tähän - käytä peitteitä.<br></br>'
+
           description2='
-          Tämä tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>, ja osoita sovellukselle paketti latauskansiostasi/muualta.'
+          Quick Pic-havainnot tulevat ilman tyyppiä - muuta vastaavasti niiden tyyppi arvion tai johtopäätöksen mukaiseksi.'
 
-          image2Src={pic18}
+          image2Src={pic20}
           image2Classes="mx-auto pr-5 w-[300px] p-4"
-          note2='Huomaa, että tässä vaiheessa sinulla tulee olla viestiperustetiedosto <strong>Nimi.zip</strong> ladattuna puhelimeesi. 
-          <br></br>
-          Mikäli et jo ladannut sitä, lataat viestiperustepakettisi Rasenmaeherin TAK-päävalikosta napista <strong>Lataa viestiperusteesi</strong>. Palaa tämän jälkeen tähän vaiheeseen.<br></br>'
-          description3='Kun olet valinnut paketin ja painanut Open, aukeaa <strong>Select Import Strategy</strong>.'
+     
+          description3='Esimerkin (ks. kohta 1) ajoneuvohavainnossa vaihdetaan tyypiksi <em>Ground track->Equipment->Ground vehicle->Civilian->Multi passenger->Van</em.'
 
-          image3Src={pic19}
+          image3Src={pic24}
           image3Classes="mx-auto pr-5 w-[300px] p-4"
 
-          description4='Valitse <strong>UserPreferenceImportStrategy</strong>, ja paina OK.'
+          description4='Merkki päivittyy.'
         />
         <GuideSection
           number="4."
-          description='Viestiperustepaketin kanssa voi tulla erilaisia karttapohjia.'
+          description='Jatka havainnon käsittelyä Marker Details-valikossa muuttamalla sen nimeä merkiksi siitä, että se on HQ:n käsittelemä.<br></br>
+          Lisää nimen alkuun <strong>alaviiva</strong>.'
         
-          imageSrc={pic20}
+          imageSrc={pic25}
           imageClasses="mx-auto pr-5 w-[400px] p-4"
         
-          description2='Valitse haluamasi karttapohja. Huomaa, että karttapohjaa voi vaihtaa myöhemmin.'        
+          description2='Käsittelytoimenpiteet suoritettu - seuraavaksi päätökset jakamisesta.'
+          note2='Muista ylläpitää kaikista lähteistä saatuja havaintoja tiedusteludiaariin.'        
         />
         <GuideSection
           number="5."
-          description='Device Setup Wizard kysyy, haluatko määrittää peitenimesi (Callsign).'
+          description='Päätä, jaetaanko havainto omalle joukolle <strong>erityisen ilmoituksen</strong> kanssa, vai ilman erityistä ilmoitusta:<br></br>
+          <li><strong>Tee erityinen ilmoitus</strong> ja lisää Recon Feediin ja sinulle käsketyn hälytystaulukon mukaan <strong>heti ilmoitettavista asioista.</strong></li>
+          <li>Lisää Recon Feediin ilman erityistä ilmoitusta muissa tapauksissa.</div>
+          <li>Lähtökohtaisesti kaikki havainnot ilmoitetaan yläjohtoportaalle taistelunjohtojärjestelmässä</li>'
         
-          imageSrc={pic21}
-          imageClasses="mx-auto pr-5 w-[400px] p-4"
-        
-          description2='Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
-          <br></br>
-          Sovellus kysyy ylimääräisiä WMS (kartta)-palvelulähteitä. Näitä ei tarvita, tyhjennä ruudut ja paina OK.' 
+          note='Erityinen ilmoitus tehdään hälytystaulukossa käsketyin välinein.<br></br>'
+          description2='Molemmissa tapauksissa lähetä havainto joukon <strong>Recon Feediin</strong>, jolloin kaikki tilaajat näkevät sen. <br></br>Tee niin painamalla <strong>Marker Details</strong>-valikossa kuvan mukaista <strong>Send</strong>-nappia.' 
           
-          image2Src={pic23}
-          image2Classes="mx-auto pr-5 w-[400px] p-4"
+          image2Src={pic26}
+          image2Classes="mx-auto pr-10 w-[200px] p-4"
 
-          description3='Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.'
+          description3='Valitse Include Attachments-kysymykseen <strong>Yes</strong>.'
+
+          image3Src={pic27}
+          image3Classes="mx-auto pr-10 w-[300px] p-4"
         />
         <GuideSection
           number="6."
-          description='Sovellus kysyy, asennetaako plugineja. Valitse <strong>DataSync</strong> ja paina OK.'
+          description='Oikeaan reunaan aukeaa painamalla Send-nappia Marker Details-valikossa <strong>Send To</strong>-valikko.'
         
-          imageSrc={pic24}
-          imageClasses="mx-auto pr-5 w-[400px] p-4"
+          imageSrc={pic28}
+          imageClasses="mx-auto pr-8 w-[300px] p-4"
         
-          description2='Seuraavaksi sovellus kysyy, ladataanko automaattisesti DTED-0-korkeusmallit. Paina <strong>Yes</strong>.' 
-          
-          image2Src={pic25}
-          image2Classes="mx-auto pr-5 w-[400px] p-4"
-
-          description3='Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.'
+          description2='
+          <li>Avaa <strong>Data Sync Feeds-valinta.</strong>.</li>
+          <li>Valitse Recon Feed.</li>
+          <li>Paina alareunasta <strong>Send</strong>-nappia.</li>
+          <br></br>
+          Havainto on käsitelty ja jaettu joukolle.' 
         />
         <GuideSection
           number="7."
-          description='Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä My Preferences.'
-        
-          imageSrc={pic26}
-          imageClasses="mx-auto pr-5 w-[400px] p-4"
-        
-          description2='Peite (<strong>Callsign</strong>), joukon väri (<strong>My Team</strong>) ja rooli (<strong>My Role</strong>) tulee olla käsketyt. <strong>My Display Type</strong> on Ground.
-          
-          <br></br>
-          Tarkista <strong>TAK Network Status.</strong> Vihreä pilvi tarkoittaa, että palvelinyhteys on OK, punainen, että yhteys on poikki.'
+          description='<strong>Komentopaikan tehtävä kokonaisuutena:</strong><br></br>'
 
-          note='Komentopaikkakäyttäjänä roolisi tulee olla HQ.<br></br>'
-          
-          image2Src={pic27}
-          image2Classes="mx-auto pr-10 w-[200px] p-4"
-
-          description3='Jos yhteys ei ole muodostunut, tarkista ensin, onko internetyhteytesi kunnossa. Jos on, ja TAK Network Status on silti punainen, käynnistä sovellus uudelleen.
-          <br></br>
-          Vianselvitysapua on tämän ohjeen lopussa.
-        '
+          description2='Komentopaikalla tulee tehdä jatkuvasti muun muassa seuraavia tehtäviä:
+          <br></br><ul>
+          <li>- <strong>1. Tunne</strong> tarkoin joukon tehtävä ja sen suoritusvaihe joukkueen ja ryhmän tarkkuudella.</li>
+          <li>- <strong>2. Vastaanota</strong> joukolta heti ilmoitettavat asiat.</li>
+          <li>- <strong>3. Vastaanota</strong> joukolta määräaikaiset ja -muotoiset (tiettyyn kellonaikaan saapuvat) tilanneilmoitukset.<li>
+          <li>- <strong>4. Ylläpidä</strong> viestipäiväkirjaa kaikin välinein tulleista ilmoituksista.</li>
+          <li>- <strong>5. Ylläpidä</strong> numeroitua tiedusteludiaaria omalta joukolta, naapureilta ja ylhäältä tulleista havainnoista ja vihollistiedoista.</li> 
+          <li>- <strong>6. Ylläpidä</strong> tietojärjestelmiä, joista TAK on yksi.</li>
+          <br></br>'
+          note2='
+          Käyttämällä</strong> näitä tietolähteitä ja etsimällä <strong>itse</strong> aktiivisesti tietoa, tehtäsi on muodostaa tilannekuva - eli käsittää, mitä ympärillä tapahtuu <em>nyt</em>, <em>6 tunnin</em> ja <em>24 tunnin</em> päästä.</li><br></br>'
+          description3='Tässä TAK-palvelu <em>on vain yksi väline</em>. Älä anna järjestelmän ja ilmoitusten viedä huomiota - käytä niitä kerätäksesi tietoa, ja jakaaksesi sitä joukolle. <br></br>Näin luodaan joukon tietoylivoima omassa ympäristössä.' 
         />
       
     </CardsContainer>

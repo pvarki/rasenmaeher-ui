@@ -36,6 +36,8 @@ import { TakUsageIos3 } from "./views/servicetak/usage/ios/TakUsageIos3";
 import { TakUsageWin1 } from "./views/servicetak/usage/wintak/TakUsageWin1";
 import { TakUsageWin2 } from "./views/servicetak/usage/wintak/TakUsageWin2";
 import { TakUsageWin3 } from "./views/servicetak/usage/wintak/TakUsageWin3";
+import { TakUsageWin4 } from "./views/servicetak/usage/wintak/TakUsageWin4";
+import { TakUsageWin5 } from "./views/servicetak/usage/wintak/TakUsageWin5";
 
 
 
@@ -205,6 +207,14 @@ const router = createBrowserRouter([
                     {
                       path: "/app/services/tak/usage/win3",
                       element: <TakUsageWin3 />,
+                    },
+                    {
+                      path: "/app/services/tak/usage/win4",
+                      element: <TakUsageWin4 />,
+                    },
+                    {
+                      path: "/app/services/tak/usage/win5",
+                      element: <TakUsageWin5 />,
                     },
         
         ],
