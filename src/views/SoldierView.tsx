@@ -10,7 +10,7 @@ export function SoldierView() {
   return (
     <Layout showNavbar={true} navbarTitle="metsa-kota.pvarki.fi" heroImage={taistelija} showFooter={true}>
       <CardsContainer>
-        <TextCard title="Kirjautunut käyttäjänä [user]" details="Tervetuloa joukkosi PVARKI-ympäristöön! Alla käytössäsi olevat <strong>Palvelut.</strong> Avaa ottaaksesi ne käyttöön laitteellasi."/>
+        <TextCard title="Kirjautunut käyttäjänä [user]" details="Joukkosi käytössä olevat palvelut ovat ohessa. <strong>Avaa palvelun kortti</strong> ottaaksesi sen käyttöön omalla laitteellasi."/>
       </CardsContainer>
       <ServiceTak />  
       <CardsContainer>

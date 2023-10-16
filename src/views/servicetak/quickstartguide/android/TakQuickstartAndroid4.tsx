@@ -15,7 +15,7 @@ export function TakQuickstartAndroid4() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK pikaohje" backUrl="/app/services/tak/quickstart">
-    <StatusBar title="Vaihda karttapohjaa" progressMax={5} progressNow={4} />
+    <StatusBar title="Vaihda karttapohjaa" progressMax={4} progressNow={4} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       <GuideSection

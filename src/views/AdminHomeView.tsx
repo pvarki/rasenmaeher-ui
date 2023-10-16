@@ -12,7 +12,7 @@ export function AdminHomeView() {
     <Layout showNavbar={true} navbarTitle="metsa-kota.pvarki.fi" heroImage={taistelija} showFooter={true}>
     <div className="flex flex-col flex-shrink-0 gap-3">
       <CardsContainer>
-        <TextCard title="Olet kirjautunut adminina." details="<strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita ympäristöösi. Joukkosi käytössä olevat palvelut ovat ohessa. <strong>Avaa palvelun kortti</strong> ottaaksesi sen käyttöön omalle laitteellesi."/>
+        <TextCard title="Olet kirjautunut adminina." details="<strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita ympäristöösi. Joukkosi käytössä olevat palvelut ovat ohessa. <strong>Avaa palvelun kortti</strong> ottaaksesi sen käyttöön omalla laitteellasi."/>
         
         <Card title="Hallitse käyttäjiä" image={trooper} url="/app/user-management" />
       </CardsContainer>

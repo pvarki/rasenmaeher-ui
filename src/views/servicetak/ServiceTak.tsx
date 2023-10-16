@@ -19,7 +19,7 @@ return (
         title="Tilannekuvasovellus TAK" 
         image={tak}
         details="<ul>
-        <li><strong>Käyttöönotto-ojhe</strong> opastaa palvelun käyttöönoton laitteellesi.</li>
+        <li><strong>Käyttöönotto-ohje</strong> opastaa palvelun käyttöönoton laitteellesi.</li>
         <li>Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät sovellusta perusmallin mukaisesti.
         <li><strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi. 
         <br></br>Aloita käyttöönotto-ohjeesta.</strong>
