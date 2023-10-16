@@ -1,18 +1,18 @@
 import { Layout } from "../../../../components/Layout"
 import { StatusBar } from "../../../../components/StatusBar"
-import data2 from "../../../../assets/takguides/atak/02-DataPackage.png"
-import etsi3 from "../../../../assets/takguides/atak/03-EtsiKansio.png"
-import done4 from "../../../../assets/takguides/atak/04-Done.png"
-import ilmo5 from "../../../../assets/takguides/atak/05-SaatIlmoituksen.png"
-import yhteys6 from "../../../../assets/takguides/atak/06-VarmistaYhteys.png"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
+import pic1 from "../../../../assets/takguides/atak/atakdatasync1.png"
+import pic2 from "../../../../assets/takguides/atak/atakdatasync2.png"
+import pic3 from "../../../../assets/takguides/atak/atakdatasync3.png"
+import pic4 from "../../../../assets/takguides/atak/atakdatasync4.png"
+import pic5 from "../../../../assets/takguides/atak/atakdatasync5.png"
 
-//
+
 
 export function TakUsageAndroid2() {
 
@@ -24,38 +24,48 @@ export function TakUsageAndroid2() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Aseta viestiperusteet" progressMax={5} progressNow={2} />
+    <StatusBar title="Ota käyttöön Data Sync" progressMax={4} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
+
       <GuideSection
           number="1."
           imageClasses='m-3 w-[300px]'
-          description="Valitse <strong>Data Package</strong>."
-          imageSrc={data2}
-          description2='<em>Select Data Package</em>-valikko aukeaa.'
+          description="Avaa kolme viivaa (hampurilais-)valikko."
+          imageSrc={pic1}
+          description2='Etsi valikosta <strong>Data Sync</strong> ja valitse se.'
         />
           <GuideSection
           number="2."
-          imageSrc={etsi3}
+          imageSrc={pic2}
           imageClasses='m-3 w-[300px]'
-          description="Etsi kansio, johon latasit viestiperustetiedostosi <strong>Nimi.zip</strong>
-          <br></br>
-         Vinkki: Paina <strong>Date</strong> nähdäksesi viimeisimpänä ladatun tiedoston, todennäköisesti viestiperusteesi."
+          description="Avautuu näkymä, jossa palvelimelta saatavilla olevat syötteet (feed)."
           
-          description2='Valitse tiedosto.'
+          description2='Valitse ohjeistettu syöte (kuvassa <strong>RECON</strong>).'
+
+          image2Src={pic3}
+          image2Classes='m-3 w-[300px]'
+
+          description3='Valitse aukeavasta ikkunasta <strong> Download & Sync</strong>.'
+
         />
         <GuideSection
           number="3."
-          description="Paina <strong>Done</strong>."
-          imageSrc={done4}   
+          description="Varmistetaan, että Auto Download on päällä. Palaa hampurilaisvalikon päänäkymään (kolme viivaa oikealla ylhäällä).
+          <br></br>
+          Etsi <strong>Settings</strong>."
+          imageSrc={pic4}   
           imageClasses='m-3 w-[300px]'
-          description2="Saat muutaman ilmoituksen konfiguraatiotiedostojen latautumisesta."
-          image2Src={ilmo5}   
+          description2="Varmista avautuvasta valikosta, että <strong>Auto Download Updates</strong> on päällä."
+          image2Src={pic5}   
           image2Classes='m-3 w-[300px]'
-          description4='Alkukonfiguraatio on valmis.'
-          image3Src={yhteys6}
-          image3Classes='m-3 w-[300px]'     
-          description3="Tarkista oikeasta alakulmasta, että palvelinyhteytesi on aktivoitunut (vihreä merkkivalo)"
+          description4='Nyt käytössäsi on käsketyt syötteet (feedit). <br></br>
+          <Perusmallissa komentopaikka (HQ) tuottaa feedien sisällön joukon ilmoitusten perusteella. <ul>
+          <small>Tämä ohje kuvaa perustoimintamallin. Siinä RECON-feed sisältää tiedustelutilannekuvan, joka muodostuu näin:
+          <br></br>
+          <li>Lähetät ilmoituksesi komentopaikalle (HQ)</li>
+          <li>HQ tulkitsee, varmistaa ja lisää RECON-feediin</li>
+          <li> Lopputulos: Havainto tiedustelutilannekuvassa.</li></small>'
         />
 
       </CardsContainer>

@@ -33,7 +33,7 @@ export function TakUsageWin3() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Aseta WinTAK" progressMax={4} progressNow={3} />
+    <StatusBar title="Aseta WinTAK" progressMax={3} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       

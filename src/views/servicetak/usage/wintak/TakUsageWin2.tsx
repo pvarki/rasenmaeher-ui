@@ -26,7 +26,7 @@ export function TakUsageWin2() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Lataa ja asenna WinTAK" progressMax={4} progressNow={2} />
+    <StatusBar title="Lataa ja asenna WinTAK" progressMax={3} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
