@@ -24,7 +24,7 @@ export function TakUsageAndroid2() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Ota käyttöön Data Sync" progressMax={4} progressNow={2} />
+    <StatusBar title="Ota käyttöön Recon Feed" progressMax={4} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
 
