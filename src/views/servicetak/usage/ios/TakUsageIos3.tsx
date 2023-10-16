@@ -3,6 +3,10 @@ import { StatusBar } from "../../../../components/StatusBar"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
+import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
+
+
 import pic15 from "../../../../assets/takguides/itak/itakquickstart15.png";
 import pic16 from "../../../../assets/takguides/itak/itakquickstart16.png";
 import pic17 from "../../../../assets/takguides/itak/itakquickstart17.png";
@@ -18,6 +22,11 @@ export function TakUsageIos3() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK pikaohje" backUrl="/app/services/tak/usage">
+      <CardsContainer>
+        <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>
+          <ServiceTakUsageContents />
+        </UnfoldableCard>
+      </CardsContainer>
     <StatusBar title="Muodosta palvelinyhteys" progressMax={4} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>

@@ -4,6 +4,10 @@ import { StatusBar } from "../../../../components/StatusBar"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
+import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
+
+
 
 import Settings10 from "../../../../assets/takguides/atak/10-Settings1.png"
 import Callsign11 from "../../../../assets/takguides/atak/11-Callsign1.png"
@@ -27,6 +31,11 @@ export function TakUsageAndroid3() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK pikaohje" backUrl="/app/services/tak/Usage">
+      <CardsContainer>
+        <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>
+          <ServiceTakUsageContents />
+        </UnfoldableCard>
+      </CardsContainer>
     <StatusBar title="Tee asetukset" progressMax={5} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
