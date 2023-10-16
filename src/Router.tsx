@@ -29,6 +29,7 @@ import { ServiceTakUsageView } from "./views/servicetak/usage/ServiceTakUsageVie
 import { TakUsageAndroid1 } from "./views/servicetak/usage/android/TakUsageAndroid1";
 import { TakUsageAndroid2 } from "./views/servicetak/usage/android/TakUsageAndroid2";
 import { TakUsageAndroid3 } from "./views/servicetak/usage/android/TakUsageAndroid3";
+import { TakUsageAndroid4 } from "./views/servicetak/usage/android/TakUsageAndroid4";
 import { TakUsageIos1 } from "./views/servicetak/usage/ios/TakUsageIos1";
 import { TakUsageIos2 } from "./views/servicetak/usage/ios/TakUsageIos2";
 import { TakUsageIos3 } from "./views/servicetak/usage/ios/TakUsageIos3";
@@ -175,6 +176,10 @@ const router = createBrowserRouter([
                     {
                       path: "/app/services/tak/usage/android3",
                       element: <TakUsageAndroid3 />,
+                    },
+                    {
+                      path: "/app/services/tak/usage/android4",
+                      element: <TakUsageAndroid4 />,
                     },
                 {/*iTAK usage views*/},
                     {
