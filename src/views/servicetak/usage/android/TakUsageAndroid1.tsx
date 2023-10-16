@@ -2,19 +2,39 @@ import { Layout } from "../../../../components/Layout"
 import { StatusBar } from "../../../../components/StatusBar"
 import wait from "../../../../assets/takguides/atak/wait.png"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
+import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-
+import { ServiceTakUsageCard } from "../../ServiceTakUsageCard";
 
 export function TakUsageAndroid1() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK pikaohje" backUrl="/app/services/tak/Usage">
-    <StatusBar title="Asenna sovellukset" progressMax={5} progressNow={1} />
+    <Layout showNavbar={true} showFooter={false} navbarTitle="Käyttö joukossa - ATAK" backUrl="/app/services/tak/Usage">
+    <CardsContainer>
+      <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={true}>
+        <ServiceInfoCard
+          title = 'Ohjeen osat'
+          details ='<ul>
+          <li>Liikuta karttaa ja näe omat</li>
+          <li>Ota käyttöön Data Sync</li>
+          <li>Tee havaintoja</li>
+          <li>Vastaanota Recon Feed</li>'
+          >
+          <ServiceTakUsageCard />
+        </ServiceInfoCard>
+      </UnfoldableCard>
+    </CardsContainer>
+    <StatusBar title="Ota käyttöön Data Sync" progressMax={4} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
-      
+    
+      <GuideSection 
+      description=''
+
+      />
       <GuideSection
           number="1."
           description='Lataa ATAK-CIV sovellus Play Storesta ja asenna se.
