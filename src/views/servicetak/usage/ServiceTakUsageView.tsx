@@ -20,7 +20,7 @@ export function ServiceTakUsageView() {
     <CardsContainer>
       <ServiceInfoCard
         title="TAK - Käyttö joukossa"
-        details="Ohjeet käyttötarkoituksen mukaiseen käyttöön kullekin alustalle alla. Alustat ovat yhteensopivia, eli joukkosi ATAK, iTAK ja WinTAK -käyttäjät toimivat yhdessä."
+        details="Ohjeet perusmallin mukaiseen käyttöön kullekin alustalle alla. Alustat ovat yhteensopivia, eli joukkosi ATAK, iTAK ja WinTAK -käyttäjät toimivat yhdessä."
         >
         <ServiceTakUsageCard/>
       </ServiceInfoCard>
