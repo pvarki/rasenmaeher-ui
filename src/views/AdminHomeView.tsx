@@ -1,5 +1,5 @@
 import trooper from "../assets/trooper3.png";
-import taistelija from "../assets/heroimages/taistelija.jpeg";
+import taistelija from "../assets/heroimages/sanla.jpeg";
 import { Card } from "../components/Card"
 import { TextCard } from "../components/TextCard"
 import { CardsContainer } from "../components/CardsContainer"

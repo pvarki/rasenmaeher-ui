@@ -1,6 +1,6 @@
 
 import android from "../../../assets/android.svg";
-import sanla from "../../../assets/heroimages/sanla.jpeg";
+import sanla from "../../../assets/heroimages/kiikarit.jpeg";
 import apple from "../../../assets/apple.svg";
 import windows from "../../../assets/windows.svg";
 import { Layout } from "../../../components/Layout"
