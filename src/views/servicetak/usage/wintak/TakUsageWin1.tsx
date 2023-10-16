@@ -7,96 +7,75 @@ import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
 
-import pic1 from "../../../../assets/takguides/wintak/Kuva1.png";
-import pic2 from "../../../../assets/takguides/wintak/Kuva2.png";
-import pic3 from "../../../../assets/takguides/wintak/Kuva3.png";
-import pic4 from "../../../../assets/takguides/wintak/Kuva4.png";
-import pic5 from "../../../../assets/takguides/wintak/Kuva5.png";
-import pic6 from "../../../../assets/takguides/wintak/Kuva6.png";
-import pic7 from "../../../../assets/takguides/wintak/Kuva7.png";
-import pic8 from "../../../../assets/takguides/wintak/Kuva8.png";
-
+import pic1 from "../../../../assets/takguides/wintak/Kuva32.png";
+import pic2 from "../../../../assets/takguides/wintak/Kuva33.png";
+import pic3 from "../../../../assets/takguides/wintak/Kuva34.png";
+import pic4 from "../../../../assets/takguides/wintak/Kuva35.png";
+import pic5 from "../../../../assets/takguides/wintak/Kuva36.png";
+import pic6 from "../../../../assets/takguides/wintak/Kuva37.png";
+import pic7 from "../../../../assets/takguides/wintak/Kuva38.png";
 
 export function TakUsageWin1() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK pikaohje" backUrl="/app/services/tak/usage">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="Käyttö joukossa: WinTAK" backUrl="/app/services/tak/usage">
       <CardsContainer>
         <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Työaseman kieleksi englanti" progressMax={3} progressNow={1} />
+    <StatusBar title="Liikuta karttaa ja merkkaa sijaintisi" progressMax={3} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
       <GuideSection
           number="1."
-          description='WinTAKin toiminta edellyttää, että työaseman kieli on <strong>englanti</strong> ja alueasetus <strong>Yhdysvallat.</strong>
-          <br></br>
-          Ennen sovelluksen asentamista, hae hakupalkista (vasen alakulma) asetusta <strong>Aika ja kieli</strong>.
+          description='Jos PC:ssä ei ole GPS:ää, niin WinTAK määrittää alkupisteeksi 0-koordinatit.
           '
-
           imageSrc={pic1}
-          imageClasses="mx-auto pr-12 w-[240px] p-4"
+          imageClasses="mx-auto pr-12 w-[400px] p-4"
           
           description2='
-          Kirjoita hakuun <strong>Aika ja kieli</strong>.'
+          Liikuta hiirellä karttapohjaa kohti Suomea. Voit zoomata karttaa hiiren rullalla, plus- ja miinusnäppäimillä ja ruudun painikkeilla.'
 
           image2Src={pic2}
-          image2Classes="mx-auto pr-12 w-[240px] p-4"
+          image2Classes="mx-auto pr-12 w-[400px] p-4"
 
-          description3='Vaihdetaan ensin alueasetus. Valitse Aika ja kieli-valikon sivupalkista <strong>Alue</strong>. 
+          description3='Klikkaa kompassikuvaketta (N) suoristaaksesi kartan. 
           '
 
           image3Src={pic3}
           image3Classes="mx-auto pr-12 w-[400px] p-4"
 
-          description4='Valitse kohtaan maa tai alue <strong>Yhdysvallat</strong>. Varmista, että alueasetuksissa on valittuna myös <strong>englanti (Yhdysvallat).</strong>'
+          description4='Muut joukkosi käyttäjät näkyvät erivärisinä kuvakkeina. Kuvakkeiden väri tulee jokaisen itselleen asettamasta väristä.'
         />
         <GuideSection
           number="2."
-          description='Valitse Aika ja kieli -valikon sivupalkista <strong>Kieli.</strong> Vaihdetaan näyttökieli.'
+          description='Määritä oma sijainti manuaalisesti, jos laitteellasi ei ole GPS:ää. Tämä tapahtuu painamalla oikean alakulman punaisen väristä tietokenttää.'
 
           imageSrc={pic4}
-          imageClasses="mx-auto pr-5 w-[400px] p-4"
+          imageClasses="mx-auto pr-5 w-[200px] p-4"
 
-          description2='Valitse Windowsin näyttökieleksi <strong>englanti (Yhdysvallat)</strong>.' 
+          description2='Etsi karttapohjalta oma sijainti ja klikkaa sitä.' 
           image2Src={pic5}
           image2Classes="mx-auto pr-5 w-[400px] p-4"
 
-          description3='Päätä näyttökielen vaihto kirjautumalla ulos ja uudelleen sisään.'
-
-          image3Src={pic8}
-          image3Classes="mx-auto pr-5 w-[400px] p-4"
-
-          description4='<small><em>Mikäli onnistuit nyt asettamaan näyttökieleksi englannin, kieliasetukset ovat valmiit. Ohjeen seuraava askel koskee tilannetta, missä englannin kieli puuttuu näyttökielivalikosta.</em></small>'
-
-       
-       
-      
+          description3='Tällöin oma merkkisi ilmestyy kartalle. Se tulee näkyviin myös muille käyttäjille.'
+          
         />
         <GuideSection
           number="3."
-          description='Jos englannin kieltä ei löydy näyttökielivalikosta, paina <strong>Lisää kieli</strong> ja etsi se.'
+          description='Kun haluat muuttaa omaa sijaintiasi, klikkaa oikealla omaa merkkiäsi (nuoli)'
 
           imageSrc={pic6}
           imageClasses="mx-auto pr-5 w-[400px] p-4"
 
-          description2='Paina <strong>Asenna kielipaketti.</strong> Odota kielipaketin asentumista.'
-
           image2Src={pic7}
           image2Classes="mx-auto pr-5 w-[400px] p-4"
 
-          description3='Tämän jälkeen voit valita näyttökieleksi englannin. 
-          <br></br>Päätä näyttökielen vaihto kirjautumalla ulos ja uudelleen sisään.'
 
-          image3Src={pic8}
-          image3Classes="mx-auto pr-5 w-[400px] p-4"
-
-          description4='
-          Kieliasetukset ovat valmiit. Seuraavaksi asennetaan itse WinTAK-sovellus. '      
+          description2='Tämän jälkeen voit valita uuden sijainnin klikkaamalla.'
         />
       
     </CardsContainer>
