@@ -1,15 +1,19 @@
 import React from 'react';
 import parse from 'html-react-parser';
 
+interface ServiceInfoCardProps {
+  title?: string;
+  image?: string;
+  details?: string;
+  children?: React.ReactNode;
+}
+
 export function ServiceInfoCard({ 
   title, 
   image, 
   details, 
-}: { 
-  title?: string; 
-  image?: string;
-  details?: string; 
-}) {
+  children 
+}: ServiceInfoCardProps) {
   return (
     <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full p-2 mb-2 overflow-hidden">
       {title && (
@@ -28,6 +32,7 @@ export function ServiceInfoCard({
           {parse(details)}
         </p>
       )}
+      {children}
     </div>
   );
 }
