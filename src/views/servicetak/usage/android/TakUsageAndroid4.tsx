@@ -14,7 +14,6 @@ import pic4 from "../../../../assets/takguides/atak/atakusage13.png"
 import pic5 from "../../../../assets/takguides/atak/atakusage14.png"
 import pic6 from "../../../../assets/takguides/atak/atakusage15.png"
 import pic7 from "../../../../assets/takguides/atak/atakusage16.png"
-import pic8 from "../../../../assets/takguides/atak/atakusage17.png"
 
 
 
