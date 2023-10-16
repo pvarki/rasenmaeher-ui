@@ -11,10 +11,7 @@ import pic10 from "../../../../assets/takguides/wintak/Kuva40.png";
 import pic11 from "../../../../assets/takguides/wintak/Kuva41.png";
 import pic12 from "../../../../assets/takguides/wintak/Kuva42.png";
 import pic13 from "../../../../assets/takguides/wintak/Kuva43.png";
-import pic14 from "../../../../assets/takguides/wintak/Kuva44.png";
-import pic15 from "../../../../assets/takguides/wintak/Kuva45.png";
-import pic16 from "../../../../assets/takguides/wintak/Kuva46.png";
-import pic17 from "../../../../assets/takguides/wintak/Kuva47.png";
+
 
 
 
@@ -30,7 +27,7 @@ export function TakUsageWin2() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Luo ja hallitse Recon Feediä" progressMax={3} progressNow={2} />
+    <StatusBar title="Luo ja hallitse Recon Feediä" progressMax={5} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
