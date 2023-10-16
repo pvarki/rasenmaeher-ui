@@ -1,15 +1,19 @@
-import React from "react";
-import parse from "html-react-parser";
+import React from 'react';
+import parse from 'html-react-parser';
 
-export function ServiceInfoCard({
-  title,
-  image,
-  details,
-}: {
+interface ServiceInfoCardProps {
   title?: string;
   image?: string;
   details?: string;
-}) {
+  children?: React.ReactNode;
+}
+
+export function ServiceInfoCard({ 
+  title, 
+  image, 
+  details, 
+  children 
+}: ServiceInfoCardProps) {
   return (
     <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full p-2 mb-2 overflow-hidden">
       {title && (
@@ -24,6 +28,7 @@ export function ServiceInfoCard({
       {details && (
         <p className="text-white text-center mt-1 mb-1">{parse(details)}</p>
       )}
+      {children}
     </div>
   );
 }
