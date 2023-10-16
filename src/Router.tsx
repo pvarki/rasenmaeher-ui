@@ -16,7 +16,6 @@ import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/androi
 import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid2";
 import { TakQuickstartAndroid3 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid3";
 import { TakQuickstartAndroid4 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid4";
-import { TakQuickstartAndroid5 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid5";
 import { TakQuickstartIos1 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos1";
 import { TakQuickstartIos2 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos2";
 import { TakQuickstartIos3 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos3";
@@ -123,10 +122,6 @@ const router = createBrowserRouter([
                   {
                     path: "/app/services/tak/quickstart/android4",
                     element: <TakQuickstartAndroid4 />,
-                  },
-                  {
-                    path: "/app/services/tak/quickstart/android5",
-                    element: <TakQuickstartAndroid5 />,
                   },
               {/*iTAK quickstart guide views*/},
                   {
