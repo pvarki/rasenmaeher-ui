@@ -20,7 +20,7 @@ export function TakUsageAndroid1() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="Käyttö joukossa - ATAK" backUrl="/app/services/tak/Usage">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK: Käyttö joukossa" backUrl="/app/services/tak/Usage">
       <CardsContainer>
         <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={true}>
           <ServiceTakUsageContents />
