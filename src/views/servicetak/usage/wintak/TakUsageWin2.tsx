@@ -6,12 +6,16 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
-import pic9 from "../../../../assets/takguides/wintak/Kuva9.png";
-import pic10 from "../../../../assets/takguides/wintak/Kuva10.png";
-import pic11 from "../../../../assets/takguides/wintak/Kuva11.png";
-import pic12 from "../../../../assets/takguides/wintak/Kuva12.png";
-import pic13 from "../../../../assets/takguides/wintak/Kuva13.png";
-import pic14 from "../../../../assets/takguides/wintak/Kuva13-1.png";
+import pic9 from "../../../../assets/takguides/wintak/Kuva39.png";
+import pic10 from "../../../../assets/takguides/wintak/Kuva40.png";
+import pic11 from "../../../../assets/takguides/wintak/Kuva41.png";
+import pic12 from "../../../../assets/takguides/wintak/Kuva42.png";
+import pic13 from "../../../../assets/takguides/wintak/Kuva43.png";
+import pic14 from "../../../../assets/takguides/wintak/Kuva44.png";
+import pic15 from "../../../../assets/takguides/wintak/Kuva45.png";
+import pic16 from "../../../../assets/takguides/wintak/Kuva46.png";
+import pic17 from "../../../../assets/takguides/wintak/Kuva47.png";
+
 
 
 
@@ -20,84 +24,73 @@ export function TakUsageWin2() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK pikaohje" backUrl="/app/services/tak/Usage">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="Käyttö joukossa: WinTAK" backUrl="/app/services/tak/Usage">
       <CardsContainer>
         <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Lataa ja asenna WinTAK" progressMax={3} progressNow={2} />
+    <StatusBar title="Luo ja hallitse Recon Feediä" progressMax={3} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
       <GuideSection
           number="1."
-          description='Ladataan <strong>WinTAK</strong>-sovellus.
+          description='WinTAKin työkalurivillä <strong>Home Tab</strong>issä on Data Sync-työkalut.'
+
+          imageSrc={pic9}
+          imageClasses="mx-auto pr-10 w-[230px] p-4"
+
+          description2='Tämä ohje olettaa, että toimit WinTAKilla <strong>komentopaikkana</strong> ja siksi luot tarvittavat feedit. <br></br>Paina <strong>New Feed</strong>.'
+
+          note='Huom. Komentopaikalla <strong>yksi käyttäjä</strong> luo tarvittavat feedit, ja muut ottavat ne käyttöön. <br></br>'
+        
+          image2Src={pic10}
+          image2Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description3='Luo uusi <strong>Feed</strong> seuraavilla tiedoilla:
+          <ul>
           <br></br>
-          WinTAK-sovelluksen käytettävä versio <strong> Puolustusvoimien osoittamasta paikasta</strong>.
-          <br></br>
-          <a href="https://arkipublic.blob.core.windows.net/ohjelmistot/WinTAK-CIV-latest.zip" style="color: SteelBlue; text-decoration: underline;">WinTAK - Lataa tästä WinTAK Puolustusvoimien jakelupisteestä.</a>
-          <br></br>'
-          note='Tärkeää! Lataa Windows-sovelluksia vain ohjeistetusta paikasta.'
-          description2='<small><em><br></br>WinTAK-sovelluksen toimittaja jakelee sovellusta tak.gov -sivustolta, mikä edellyttää kirjautumista. </em></small>'
+          <li><strong>Name</strong>: Recon</li>
+          <li><strong>Group</strong>: Public</li>
+          <li><strong>Default Role</strong>: Read Only</li>
+
+          '
+          note3='<em>(HUOMAA: Groupin oletusasetus pitää vaihtaa asetukseen <strong>Read Only</strong>.)</em>'
+
+          image3Src={pic11}
+          image3Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description4='Uusi feed on luotu. Feedin luojalla se näkyy heti tilattuna Data Sync-valikossa.'
+          
         />
         <GuideSection
           number="2."
-          description='Etsi latamaasi sovellus latauskansiosta.'
+          description='Muut komentopaikan (WinTAKin) käyttäjät tilaavat itselleen luodut feedit, perusmallissa <strong>RECON</stron>-feedin.'
 
-          imageSrc={pic9}
-          imageClasses="mx-auto pr-5 w-[290px] p-4"
+          imageSrc={pic12}
+          imageClasses="mx-auto pr-5 w-[400px] p-4"
 
-          description2='Avaa sovellus. Aukeaa asennusohjelma.'
-      
+          description2='Avautuvasta näkymästä valitse <strong>Download and stay synced.</strong>'
+
+          image2Src={pic13}
+          image2Classes="mx-auto pr-5 w-[400px] p-4"
+
+          description3='Feed näkyy tällöin käyttäjän Data Sync-valikossa.'
+
         />
         <GuideSection
           number="3."
-          description='Asenna WinTAK käyttäen Setup Wizardia.'
+          description='Lisää muille komentopaikan käyttäjille muokkausoikeus feediin'
 
-          imageSrc={pic10}
-          imageClasses="mx-auto pr-5 w-[300px] p-4"
-
-          description2='Paina <strong>Next</strong>. Valitse sovelluksen asennuskansio.'
-
-          image2Src={pic11}
-          image2Classes="mx-auto pr-5 w-[300px] p-4"
-
-          description3='Vaihda halutessasi asennuskansiota <strong>Browse</strong>-napin kautta. Paina <strong>Next</strong>.'
-
-        />
-        <GuideSection
-          number="4."
-          description='Valitse Setup Wizardissa asennettavat lisäosat.
-          <br></br>
-          Valitse ainakin seuraavat lisäosat:
-          <ul>
-          <li>- <strong>Data Sync</strong> </li>
-          </ul>'
-
-          imageSrc={pic12}
-          imageClasses="mx-auto pr-5 w-[300px] p-4"
-
-          description2='
-          Paina <strong>Next</strong>. Wizard on valmis aloittamaan asennuksen, paina <strong>Install</strong>. '
-
-          image2Src={pic13}
-          image2Classes="mx-auto pr-5 w-[300px] p-4"
-          description3='Paina <strong>Next</strong>.'
-
-          image3Src={pic14}
-          image3Classes="mx-auto pr-5 w-[300px] p-4"
-
-          description4='Sovellus on nyt asennettu.
-          <br></br>
-          Seuraavaksi avataan asennettu sovellus.'
+          note='Kesken.'
         />
       
     </CardsContainer>
     </div>
       <NavigateButtons 
-        backUrl="/app/services/tak/Usage/win1" 
-        forwardUrl="/app/services/tak/Usage/win3" 
+        backUrl="/app/services/tak/usage/win1" 
+        forwardUrl="/app/services/tak/usage/win3" 
       />
 
     
