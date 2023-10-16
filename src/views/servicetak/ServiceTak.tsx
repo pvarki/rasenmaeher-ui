@@ -2,7 +2,6 @@ import tak from "../../assets/taklogo.png";
 import { CardsContainer } from "../../components/CardsContainer"
 import { FoldableCard } from "../../components/FoldableCard";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
-import { UnfoldableCard } from "../../components/ServicesView/UnfoldableCard";
 import { Button } from "../../components/Button"
 import { useNavigate } from "react-router-dom";
 import { ServiceTakUsageCard} from "./ServiceTakUsageCard"
