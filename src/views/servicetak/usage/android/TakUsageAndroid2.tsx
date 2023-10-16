@@ -31,7 +31,7 @@ export function TakUsageAndroid2() {
       <GuideSection
           number="1."
           imageClasses='m-3 w-[300px]'
-          description="Avaa kolme viivaa (hampurilais-)valikko."
+          description="Avaa kolme viivaa-valikko (hampurilaisvalikko)."
           imageSrc={pic1}
           description2='Etsi valikosta <strong>Data Sync</strong> ja valitse se.'
         />
