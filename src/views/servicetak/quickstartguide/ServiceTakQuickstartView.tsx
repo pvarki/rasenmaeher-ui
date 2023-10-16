@@ -18,8 +18,10 @@ export function ServiceTakQuickstartView() {
     <CardsContainer>
       <ServiceInfoCard
         title="Ota TAK käyttöön!"
-        details="Valitse käyttöönotto-ohje laitteesi mukaan. Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen pari näyttää ohjetta ja toinen tekee."
-        >
+        details='Valitse käyttöönotto-ohje <strong>laitteesi</strong> mukaan. 
+        <br></br>
+        <span style="color:lightcoral"></ServiceInfoCard>Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.</span>'>
+
       </ServiceInfoCard>
        
       <Card title="Android" image={android} url="/app/services/tak/quickstart/android1" />

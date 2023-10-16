@@ -14,7 +14,6 @@ export function FoldableCard({ title, imageSrc, children }: FoldableCardProps) {
     setIsOpen(prev => !prev);
 
     if (!isOpen) {
-      // Delay to make sure the content has been rendered and the size calculated.
       requestAnimationFrame(() => {
         if (bottomRef.current) {
           bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });

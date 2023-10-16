@@ -22,7 +22,7 @@ export function TakQuickstartIos1() {
           <br></br>'
     
 
-          description3="Olet nyt ladannut tarvittavan sovelluksen."
+          description3="Jatka ladattuasi sovellus."
         />
         <GuideSection
           number="2."
