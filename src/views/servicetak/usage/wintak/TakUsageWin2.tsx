@@ -3,6 +3,9 @@ import { StatusBar } from "../../../../components/StatusBar"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
+import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
+
 import pic9 from "../../../../assets/takguides/wintak/Kuva9.png";
 import pic10 from "../../../../assets/takguides/wintak/Kuva10.png";
 import pic11 from "../../../../assets/takguides/wintak/Kuva11.png";
@@ -18,6 +21,11 @@ export function TakUsageWin2() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK pikaohje" backUrl="/app/services/tak/Usage">
+      <CardsContainer>
+        <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>
+          <ServiceTakUsageContents />
+        </UnfoldableCard>
+      </CardsContainer>
     <StatusBar title="Lataa ja asenna WinTAK" progressMax={4} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
