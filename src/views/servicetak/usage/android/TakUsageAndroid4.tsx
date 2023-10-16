@@ -79,7 +79,7 @@ export function TakUsageAndroid4() {
       <NavigateButtons 
         backUrl="/app/services/tak/usage/android2" 
         forwardUrl="/app"
-        alterForward="Valmis! Siirry tästä kotinäkymään."
+        alterForward="Valmis! Palaa kotinäkymään tästä."
       /> 
     </Layout>
     </div>

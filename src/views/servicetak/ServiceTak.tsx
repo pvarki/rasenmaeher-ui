@@ -19,9 +19,10 @@ return (
         title="Tilannekuvasovellus TAK" 
         image={tak}
         details="<ul>
-        <li><strong>Pikaohje</strong> opastaa käyttöönoton.</li>
-        <li><strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi. Aseta viestiperusteet pikaohjeen avulla.</strong>
-        <li>Ohje <strong>Käyttö joukossa</strong> opastaa sovelluksen käytön.
+        <li><strong>Käyttöönotto-ojhe</strong> opastaa palvelun käyttöönoton laitteellesi.</li>
+        <li>Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät sovellusta perusmallin mukaisesti.
+        <li><strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi. 
+        <br></br>Aloita käyttöönotto-ohjeesta.</strong>
         </ul>" 
         />
 
@@ -32,7 +33,7 @@ return (
         onClick={() => navigate("/app/services/tak/quickstart")}
         styling="m-2"
         >
-        Pikaohje: Käyttöönotto
+        Käyttöönotto-ohje
     </Button>
     <Button
         variant={{ width: "full" }}
@@ -47,7 +48,7 @@ return (
         styling="bg-success-700 m-2"
         >
         
-        Lataa viestiperusteet
+        Lataa viestiperustepaketti
     </Button>
     </div>
     </FoldableCard> 

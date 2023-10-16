@@ -59,7 +59,7 @@ export function TakQuickstartWin4() {
       <NavigateButtons 
         backUrl="/app/services/tak/quickstart/win3" 
         forwardUrl="/app" 
-        alterForward="Valmis! Palaa tästä kotinäkymään."
+        alterForward="Valmis! Palaa kotinäkymään tästä."
       />
 
     
