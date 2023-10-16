@@ -3,7 +3,6 @@ import android from "../../../assets/android.svg";
 import sanla from "../../../assets/heroimages/sanla.jpeg";
 import apple from "../../../assets/apple.svg";
 import windows from "../../../assets/windows.svg";
-import { Text } from "../../../components/Text"
 import { Layout } from "../../../components/Layout"
 import { Card } from "../../../components/Card";
 import { CardsContainer } from "../../../components/CardsContainer";
