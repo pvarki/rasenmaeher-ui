@@ -8,9 +8,8 @@ interface ServiceTakUsageContentsProps {
 export function ServiceTakUsageContents({ details }: ServiceTakUsageContentsProps) {
   const defaultDetails = '<ul>\
     <li>Liikuta karttaa ja näe omat</li>\
-    <li>Ota käyttöön Data Sync</li>\
-    <li>Tee havaintoja</li>\
-    <li>Vastaanota Recon Feed</li>\
+    <li>Ota käyttöön Recon Feed</li>\
+    <li>Tee havaintoja merkein</li>\
   </ul>';
 
   return (
