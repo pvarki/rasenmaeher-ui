@@ -29,7 +29,7 @@ export function TakUsageAndroid3() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Tee havaintoja merkein" progressMax={4} progressNow={3} />
+    <StatusBar title="Tee havaintoja merkein: Point Dropper" progressMax={4} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       <GuideSection
