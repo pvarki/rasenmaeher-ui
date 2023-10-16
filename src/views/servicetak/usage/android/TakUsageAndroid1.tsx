@@ -21,11 +21,11 @@ export function TakUsageAndroid1() {
   return (
     <div className="pb-32">
     <Layout showNavbar={true} showFooter={false} navbarTitle="Käyttö joukossa - ATAK" backUrl="/app/services/tak/Usage">
-    <CardsContainer>
-      <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={true}>
-        <ServiceTakUsageContents />
-      </UnfoldableCard>
-    </CardsContainer>
+      <CardsContainer>
+        <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={true}>
+          <ServiceTakUsageContents />
+        </UnfoldableCard>
+      </CardsContainer>
     <StatusBar title="Liikuta karttaa ja näe omat" progressMax={4} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>

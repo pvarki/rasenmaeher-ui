@@ -27,7 +27,7 @@ export function TakUsageWin1() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Työaseman kieleksi englanti" progressMax={4} progressNow={1} />
+    <StatusBar title="Työaseman kieleksi englanti" progressMax={3} progressNow={1} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
