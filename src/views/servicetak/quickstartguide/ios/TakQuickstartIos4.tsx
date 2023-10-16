@@ -13,7 +13,7 @@ export function TakQuickstartIos4() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK pikaohje" backUrl="/app/services/tak/quickstart">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Aseta mittayksiköt" progressMax={4} progressNow={4} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
@@ -69,7 +69,7 @@ export function TakQuickstartIos4() {
       <NavigateButtons 
         backUrl="/app/services/tak/quickstart/ios1" 
         forwardUrl="/app"
-        alterForward="Valmis! Palaa kotiin tästä." 
+        alterForward="Valmis! Palaa kotinäkymään tästä." 
       />
 
     

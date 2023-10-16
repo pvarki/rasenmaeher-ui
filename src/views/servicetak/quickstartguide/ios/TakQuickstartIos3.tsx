@@ -17,7 +17,7 @@ export function TakQuickstartIos3() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK pikaohje" backUrl="/app/services/tak/quickstart">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Muodosta palvelinyhteys" progressMax={4} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>

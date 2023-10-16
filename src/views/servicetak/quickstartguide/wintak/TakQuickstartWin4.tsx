@@ -13,7 +13,7 @@ export function TakQuickstartWin4() {
 
   return (
     <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK pikaohje" backUrl="/app/services/tak/quickstart">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Mittayksiköt oikeiksi" progressMax={4} progressNow={4} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
