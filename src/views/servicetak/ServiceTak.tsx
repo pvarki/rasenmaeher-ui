@@ -5,6 +5,7 @@ import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import { UnfoldableCard } from "../../components/ServicesView/UnfoldableCard";
 import { Button } from "../../components/Button"
 import { useNavigate } from "react-router-dom";
+import { ServiceTakUsageCard} from "./ServiceTakUsageCard"
 
 
 export function ServiceTak() {
@@ -24,13 +25,8 @@ return (
         <li>Ohje <strong>Käyttö joukossa</strong> opastaa sovelluksen käytön.
         </ul>" 
         />
-        <UnfoldableCard title="Käyttötarkoitus" content="<ul>
-        <li>- Käyttäjiesi seuranta reaaliajassa <strong>(GPS)</strong></li>
-        <li>- Lähetä havaintoja <strong>komentopaikalle (HQ)</strong> tulkittavaksi</li>
-        <li>- Seuraa <strong>Recon Feediä</strong>, mitä komentopaikka (HQ) muodostaa joukollesi</li>
-        </ul>
-        "
-        />
+
+        <ServiceTakUsageCard />
 
     <Button
         variant={{ width: "full" }}
