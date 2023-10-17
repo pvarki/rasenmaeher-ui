@@ -69,7 +69,7 @@ export function TakQuickstartIos4() {
       <NavigateButtons 
         backUrl="/app/services/tak/quickstart/ios1" 
         forwardUrl="/app"
-        alterForward="Valmis! Palaa kotinäkymään tästä." 
+        alterForward="Valmis! Palaa kotiin." 
       />
 
     

@@ -17,12 +17,23 @@ export function TakUsageWin4() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Toimi komentopaikkana" progressMax={5} progressNow={4} />
+    <StatusBar title="Toimi komentopaikkana" progressMax={6} progressNow={5} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
   
         <GuideSection
-          number="7."
+          number="1."
+          description="
+            Mikäli olet seurannut ohjeita, tiedät nyt, miten toiminta WinTAKilla komentopaikkana tapahtuu.
+            <br></br>
+            Seuraa Käyttö joukossa-etusivun <strong>Käyttömallia</strong> jatkuvassa toiminnassa.
+            <br></br>
+            Seuraavalla sivulla kuvataan tietohuolto.
+            <br></br>
+            Alla muistilista komentopaikan tehtävistä kokonaisuudessaan."
+        />
+        <GuideSection
+          number="2."
           description='<strong>Komentopaikan tehtävä kokonaisuutena:</strong><br></br>'
 
           description2='Komentopaikalla tulee tehdä jatkuvasti muun muassa seuraavia tehtäviä:

@@ -27,7 +27,7 @@ export function TakUsageWin2() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Luo ja hallitse Recon Feediä" progressMax={5} progressNow={2} />
+    <StatusBar title="Luo ja hallitse Recon Feediä" progressMax={6} progressNow={2} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       

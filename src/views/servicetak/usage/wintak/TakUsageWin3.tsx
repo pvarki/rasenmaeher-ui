@@ -30,7 +30,7 @@ export function TakUsageWin3() {
           <ServiceTakUsageContents />
         </UnfoldableCard>
       </CardsContainer>
-    <StatusBar title="Tulkitse havaintoja, ylläpidä Feediä" progressMax={5} progressNow={3} />
+    <StatusBar title="Tulkitse havaintoja, ylläpidä Feediä" progressMax={6} progressNow={3} />
     <div className="flex justify-center items-center w-full">
     <CardsContainer>
       
@@ -146,23 +146,7 @@ export function TakUsageWin3() {
           <br></br>
           Havainto on käsitelty ja jaettu joukolle.' 
         />
-        <GuideSection
-          number="7."
-          description='<strong>Komentopaikan tehtävä kokonaisuutena:</strong><br></br>'
-
-          description2='Komentopaikalla tulee tehdä jatkuvasti muun muassa seuraavia tehtäviä:
-          <br></br><ul>
-          <li>- <strong>1. Tunne</strong> tarkoin joukon tehtävä ja sen suoritusvaihe joukkueen ja ryhmän tarkkuudella.</li>
-          <li>- <strong>2. Vastaanota</strong> joukolta heti ilmoitettavat asiat.</li>
-          <li>- <strong>3. Vastaanota</strong> joukolta määräaikaiset ja -muotoiset (tiettyyn kellonaikaan saapuvat) tilanneilmoitukset.<li>
-          <li>- <strong>4. Ylläpidä</strong> viestipäiväkirjaa kaikin välinein tulleista ilmoituksista.</li>
-          <li>- <strong>5. Ylläpidä</strong> numeroitua tiedusteludiaaria omalta joukolta, naapureilta ja ylhäältä tulleista havainnoista ja vihollistiedoista.</li> 
-          <li>- <strong>6. Ylläpidä</strong> tietojärjestelmiä, joista TAK on yksi.</li>
-          <br></br>'
-          note2='
-          Käyttämällä</strong> näitä tietolähteitä ja etsimällä <strong>itse</strong> aktiivisesti tietoa, tehtäsi on muodostaa tilannekuva - eli käsittää, mitä ympärillä tapahtuu <em>nyt</em>, <em>6 tunnin</em> ja <em>24 tunnin</em> päästä.</li><br></br>'
-          description3='Tässä TAK-palvelu <em>on vain yksi väline</em>. Älä anna järjestelmän ja ilmoitusten viedä huomiota - käytä niitä kerätäksesi tietoa, ja jakaaksesi sitä joukolle. <br></br>Näin luodaan joukon tietoylivoima omassa ympäristössä.' 
-        />
+      
       
     </CardsContainer>
     </div>
