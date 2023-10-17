@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import logo from '../assets/jellona.png';
+import logo from '../assets/icons/jellona.png';
 
 interface NavbarProps {
   backUrl?: string;

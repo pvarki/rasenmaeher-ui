@@ -1,4 +1,4 @@
-import tak from "../../assets/taklogo.png";
+import tak from "../../assets/icons/taklogo.png";
 import { CardsContainer } from "../../components/CardsContainer"
 import { FoldableCard } from "../../components/FoldableCard";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";

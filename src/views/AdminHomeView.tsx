@@ -1,4 +1,4 @@
-import trooper from "../assets/trooper3.png";
+import trooper from "../assets/icons/trooper3.png";
 import taistelija from "../assets/heroimages/sanla.jpeg";
 import { Card } from "../components/Card"
 import { TextCard } from "../components/TextCard"

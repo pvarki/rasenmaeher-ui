@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import pvarkiLogo from "../../assets/pvarki.png";
+import pvarkiLogo from "../../assets/icons/pvarki.png";
 import { useCheckCode } from "../../hook/api/useCheckCode";
 import { useLoginCodeStore } from "../../store/LoginCodeStore";
 import { Button } from "../../components/Button";
