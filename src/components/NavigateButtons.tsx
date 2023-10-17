@@ -11,7 +11,7 @@ interface NavigateButtonsProps {
 
 export function NavigateButtons({ backUrl, forwardUrl, alterBack, alterForward }: NavigateButtonsProps) {
   const navigate = useNavigate();
-  const [BackClicked, setBackClicked] = useState(false);
+  const [backClicked, setBackClicked] = useState(false);
   const [ContinueClicked, setContinueClicked] = useState(false);
 
   const handleBackClick = () => {
@@ -30,9 +30,9 @@ export function NavigateButtons({ backUrl, forwardUrl, alterBack, alterForward }
     <div className="fixed bottom-2 left-0 right-0 flex justify-center">
       <section className="items-start rounded bg-zinc-900 flex rounded-lg max-w min-h-[75px] max-w-full gap-2.5 mt-24 p-2.5 max-md:justify-center">
         <Button
-          styling={`transform transition-transform duration-200 justify-center items-center rounded ${BackClicked ? "scale-95" : "scale-100"} self-stretch flex min-w-[150px] flex-col px-6 py-3 ${BackClicked ? "bg-blue-900" : "bg-zinc-800"}`}
-          onMouseDown={() => setBackClicked(true)}
-          onMouseUp={() => setBackClicked(false)}
+          styling={`transform transition-transform duration-200 justify-center items-center rounded ${backClicked ? "scale-95" : "scale-100"} self-stretch flex min-w-[150px] flex-col px-6 py-3 ${backClicked ? "bg-blue-900" : "bg-zinc-800"}`}
+          onPointerDown={() => setBackClicked(true)}
+          onPointerUp={() => setBackClicked(false)}
           onClick={handleBackClick}
         >
           {alterBack || 'Takaisin'}
@@ -42,8 +42,8 @@ export function NavigateButtons({ backUrl, forwardUrl, alterBack, alterForward }
 
         <Button
           styling={`transform transition-transform duration-200 bg-blue-900 justify-center items-center ${ContinueClicked ? "scale-25" : "scale-100"} self-stretch flex min-w-[150px] flex-col px-6 py-3`}
-          onMouseDown={() => setContinueClicked(true)}
-          onMouseUp={() => setContinueClicked(false)}
+          onPointerDown={() => setContinueClicked(true)}
+          onPointerUp={() => setContinueClicked(false)}
           onClick={handleContinueClick}
         >
           {alterForward || 'Jatka'}
