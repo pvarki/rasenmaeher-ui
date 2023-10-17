@@ -7,9 +7,19 @@ interface UnfoldableCardProps {
   children?: React.ReactNode;
   styling?: string;
   initialOpen?: boolean;
+  imageSrc?: string;
+  imageClasses?: string;
 }
 
-export function UnfoldableCard({ title, content, children, styling = '', initialOpen = false }: UnfoldableCardProps) {
+export function UnfoldableCard({ 
+  title, 
+  content, 
+  children, 
+  styling = '', 
+  initialOpen = false,
+  imageSrc,
+  imageClasses = ''
+}: UnfoldableCardProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -30,6 +40,7 @@ export function UnfoldableCard({ title, content, children, styling = '', initial
       </div>
       {isOpen && (
         <>
+          {imageSrc && <img src={imageSrc} className={`mx-auto ${imageClasses}`} alt="Unfoldable card content" />}
           {content && <p className="mt-2 text-white">{parse(content)}</p>}
           {children}
         </>

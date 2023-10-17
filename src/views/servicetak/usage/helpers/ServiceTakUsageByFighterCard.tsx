@@ -1,10 +1,11 @@
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
-export function ServiceTakUsageCard() {
+export function ServiceTakUsageByFighterCard() {
     return (
         <div className="w-full m-0 p-0">  
 
-            <UnfoldableCard title="Käyttötarkoitus lyhyesti" initialOpen={false} 
+            <UnfoldableCard title="TAK ja taistelija" 
+            initialOpen={false} 
             content="<ul>
             <li>- Käyttäjiesi seuranta reaaliajassa <strong>(GPS)</strong></li>
             <li>- Lähetä havaintoja <strong>komentopaikalle (HQ)</strong> tulkittavaksi</li>
