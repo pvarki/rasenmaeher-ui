@@ -1,8 +1,8 @@
-import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 
 export function ServiceTakUsageCard() {
     return (
-        <div className="w-full m-0 p-0">  
+        <div className="w-full m-1 p-0">  
 
             <UnfoldableCard title="Käyttötarkoitus lyhyesti" initialOpen={false} 
             content="<ul>

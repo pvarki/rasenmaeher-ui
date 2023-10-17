@@ -5,7 +5,7 @@ import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
-import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 
 import pic1 from "../../../../assets/takguides/atak/atakusage1.png"
 import pic3 from "../../../../assets/takguides/atak/atakusage3.png"
@@ -22,7 +22,7 @@ import pic9 from "../../../../assets/takguides/atak/atakusage9.png"
 export function TakUsageAndroid3() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="Käyttö joukossa: ATAK" backUrl="/app/services/tak/Usage">
       <CardsContainer>
         <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>

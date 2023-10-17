@@ -32,9 +32,9 @@ export function ServiceTakUsageView() {
 
       <ServiceUsageCard>
         <ServiceTakUsageCard/>
-        <ServiceTakUsageFlowCard />
         <ServiceTakUsageByFighterCard />
         <ServiceTakUsageAtCPCard />
+        <ServiceTakUsageFlowCard />
       </ServiceUsageCard>
 
       <CardsContainer>
