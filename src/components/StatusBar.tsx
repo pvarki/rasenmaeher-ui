@@ -14,7 +14,7 @@ export function StatusBar(props: StatusBarProps) {
                 {Array.from({ length: props.progressMax }).map((_, index) => (
                     <React.Fragment key={index}>
                         <div 
-                            className={`w-6 h-6 rounded-full border ${index < props.progressNow ? 'bg-blue-800' : 'bg-white'} ${index !== props.progressMax - 1 ? 'mr-5' : ''}`} 
+                            className={`w-6 h-6 rounded-full border ${index < props.progressNow ? 'bg-blue-900' : 'bg-white'} ${index !== props.progressMax - 1 ? 'mr-5' : ''}`} 
                         />
                     </React.Fragment>
                 ))}
