@@ -16,7 +16,7 @@ import pic7 from "../../../../assets/takguides/itak/itakquickstart7.png";
 export function TakQuickstartIos2() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Tee perusasetukset" progressMax={4} progressNow={2} />
     <div className="flex justify-center items-center w-full">

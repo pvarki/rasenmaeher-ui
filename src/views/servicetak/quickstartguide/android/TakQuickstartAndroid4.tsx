@@ -13,7 +13,7 @@ import pic08 from "../../../../assets/takguides/atak/08-OK1.png"
 export function TakQuickstartAndroid4() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Vaihda karttapohjaa" progressMax={4} progressNow={4} />
     <div className="flex justify-center items-center w-full">

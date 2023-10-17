@@ -3,7 +3,7 @@ import { StatusBar } from "../../../../components/StatusBar"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
+import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
 import pic9 from "../../../../assets/takguides/wintak/Kuva39.png";

@@ -7,7 +7,8 @@ import { Layout } from "../../../components/Layout"
 import { Card } from "../../../components/Card";
 import { CardsContainer } from "../../../components/CardsContainer";
 import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
-import { ServiceTakUsageCard } from "../ServiceTakUsageCard";
+import { ServiceTakUsageCard } from "./helpers/ServiceTakUsageCard";
+import { ServiceTakUsageFlowCard } from "./helpers/ServiceTakUsageFlowCard";
 
 
 
@@ -16,6 +17,7 @@ export function ServiceTakUsageView() {
   return (
     <div className="pb-10">
     <Layout showNavbar={true} showFooter={true} heroImage={sanla} navbarTitle="TAK: Käyttö joukossa" backUrl="/app">
+    <div className="flex flex-col flex-shrink-0">
 
     <CardsContainer>
       <ServiceInfoCard
@@ -31,6 +33,8 @@ export function ServiceTakUsageView() {
       <Card title="Windows" image={windows} url="/app/services/tak/usage/win1" />
       
     </CardsContainer>
+    <ServiceTakUsageFlowCard/>
+    </div>
     
 
     

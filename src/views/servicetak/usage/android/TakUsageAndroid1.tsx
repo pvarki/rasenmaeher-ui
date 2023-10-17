@@ -4,7 +4,7 @@ import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
+import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
 
 import pic27 from "../../../../assets/takguides/atak/27-BaseMap.png"
 import pic28 from "../../../../assets/takguides/atak/28-Map.png"
@@ -19,7 +19,7 @@ import frame from "../../../../assets/takguides/atak/Frame.png"
 export function TakUsageAndroid1() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK: Käyttö joukossa" backUrl="/app/services/tak/Usage">
       <CardsContainer>
         <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={true}>
@@ -27,7 +27,7 @@ export function TakUsageAndroid1() {
         </UnfoldableCard>
       </CardsContainer>
     <StatusBar title="Liikuta karttaa ja näe omat" progressMax={4} progressNow={1} />
-    <div className="flex justify-center items-center w-full">
+    
     <CardsContainer>
     
     <GuideSection
@@ -74,15 +74,11 @@ export function TakUsageAndroid1() {
           image2Src={pic28}
           image2Classes='w-[300px]'
         />
-      
-    </CardsContainer>
-    </div>
       <NavigateButtons 
         backUrl="/app/services/tak/Usage" 
         forwardUrl="/app/services/tak/Usage/android2" 
       />
-
-    
+    </CardsContainer>
     </Layout>
     </div>
   );

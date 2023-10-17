@@ -3,7 +3,7 @@ import { StatusBar } from "../../../../components/StatusBar"
 import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageContents } from "../../ServiceTakUsageContents";
+import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
 import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
 import pic15 from "../../../../assets/takguides/wintak/Kuva45.png";
@@ -60,14 +60,14 @@ export function TakUsageWin3() {
           <li>3. Klikkaa kartalla olevaa havaintoa.</li>
           <li>4. Aukeaa <strong>ympyrävalikko</strong> (alla kuvassa).</li>'
           imageSrc={pic18}
-          imageClasses="mx-auto pr-5 w-[400px] p-4"
+          imageClasses="mx-auto pr-5 w-[500px] p-4"
 
           description2='<ul>
           <li>5. Aukeaa <strong>Marker Details</strong>-näkymä (alla kuvassa)'
         
 
           image2Src={pic19}
-          image2Classes="mx-auto pr-8 w-[300px] p-4"
+          image2Classes="mx-auto pr-8 w-[350px] p-4"
 
           description3='<strong>Käsittele havainto seuraavasti:</strong>
           <li>Lue kommentit</li>
