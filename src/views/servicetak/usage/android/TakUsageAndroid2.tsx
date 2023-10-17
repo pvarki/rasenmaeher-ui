@@ -4,7 +4,7 @@ import { GuideSection} from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
-import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 
 import pic1 from "../../../../assets/takguides/atak/atakdatasync1.png"
 import pic2 from "../../../../assets/takguides/atak/atakdatasync2.png"
