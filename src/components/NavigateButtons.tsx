@@ -28,7 +28,7 @@ export function NavigateButtons({ backUrl, forwardUrl, alterBack, alterForward }
 
   return (
     <div className="fixed bottom-2 left-0 right-0 flex justify-center">
-      <section className="items-start rounded bg-zinc-900 flex w-[420px] min-h-[75px] max-w-full gap-2.5 mt-24 p-2.5 max-md:justify-center">
+      <section className="items-start rounded bg-zinc-900 flex rounded-lg max-w min-h-[75px] max-w-full gap-2.5 mt-24 p-2.5 max-md:justify-center">
         <Button
           styling={`transform transition-transform duration-200 justify-center items-center rounded ${BackClicked ? "scale-95" : "scale-100"} self-stretch flex min-w-[150px] flex-col px-6 py-3 ${BackClicked ? "bg-blue-900" : "bg-zinc-800"}`}
           onMouseDown={() => setBackClicked(true)}

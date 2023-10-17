@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import parse from 'html-react-parser';  // Importing parse function directly
 
 interface CardProps {
@@ -13,7 +13,7 @@ export function Card({ title, details, image, url }: CardProps) {
     return (
       <a
         href={url}
-        className="relative bg-backgroundLight rounded-lg w-full w-[380px] max-w-full h-17 md:h-17 lg:h-36 m-2 overflow-hidden flex items-center justify-center"
+        className="relative bg-backgroundLight rounded-lg w-full w-full p-2 mb-2 max-w-full h-17 md:h-17 lg:h-36 m-2 overflow-hidden flex items-center justify-center"
       >
         {image && (
           <img
