@@ -1,4 +1,3 @@
-import parser from 'html-react-parser';
 
 export function Footer() {
   return (
@@ -6,18 +5,19 @@ export function Footer() {
       <hr className="mx-auto" />
 
       <div className="py-5">
-        {parser("RASENMAEHER v0.1.0")}
+      RASENMAEHER v0.1.0
         
       </div>
 
       <hr className="mx-auto w-56" />
 
       <div className="py-5 text-xs">
-        {parser("Proudly served by PVATK")}
-        <br />
-        {parser("&copy; Puolustusvoimat")}
-        <br />
-        {parser("Yhteys: <p class='underline'>helpdesk@pvarki.fi</p>")}
+      Proudly served by PVATK
+      <br />
+      &copy; Puolustusvoimat
+      <br />
+      Yhteys: <p className="underline">helpdesk@pvarki.fi</p>
+
       </div>
 
       <hr className="mx-auto w-56" />
