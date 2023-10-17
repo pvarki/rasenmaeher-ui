@@ -1,8 +1,8 @@
 
-import android from "../../../assets/android.svg";
+import android from "../../../assets/icons/android.svg";
 import sanla from "../../../assets/heroimages/kiikarit.jpeg";
-import apple from "../../../assets/apple.svg";
-import windows from "../../../assets/windows.svg";
+import apple from "../../../assets/icons/apple.svg";
+import windows from "../../../assets/icons/windows.svg";
 import { Layout } from "../../../components/Layout"
 import { Card } from "../../../components/Card";
 import { CardsContainer } from "../../../components/CardsContainer";
@@ -25,7 +25,10 @@ export function ServiceTakUsageView() {
     <CardsContainer>
       <ServiceInfoCard
         title="TAK - Käyttö joukossa"
-        details="Ohjeet perusmallin mukaiseen käyttöön kullekin alustalle alla. Alustat ovat yhteensopivia, eli joukkosi ATAK, iTAK ja WinTAK -käyttäjät toimivat yhdessä."
+        details='Ota TAK perusmallin mukaiseen käyttöön kullekin alustalle alla olevien ohjeiden avulla. Alustat ovat yhteensopivia, eli joukkosi ATAK, iTAK ja WinTAK -käyttäjät toimivat yhdessä.
+        <br></br>
+        <span style="color:lightcoral"></ServiceInfoCard>Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.</span>
+        '
         >
       </ServiceInfoCard>
       </CardsContainer>

@@ -1,8 +1,8 @@
 
-import android from "../../../assets/android.svg";
+import android from "../../../assets/icons/android.svg";
 import sanla from "../../../assets/heroimages/rakennettu3.jpeg";
-import apple from "../../../assets/apple.svg";
-import windows from "../../../assets/windows.svg";
+import apple from "../../../assets/icons/apple.svg";
+import windows from "../../../assets/icons/windows.svg";
 import { Layout } from "../../../components/Layout"
 import { Card } from "../../../components/Card";
 import { CardsContainer } from "../../../components/CardsContainer";
