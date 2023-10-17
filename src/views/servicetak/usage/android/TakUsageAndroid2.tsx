@@ -17,7 +17,7 @@ import pic5 from "../../../../assets/takguides/atak/atakdatasync5.png"
 export function TakUsageAndroid2() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK pikaohje" backUrl="/app/services/tak/usage">
       <CardsContainer>
         <UnfoldableCard title="Ohjeen kokoonpano" styling='bg-background' initialOpen={false}>
