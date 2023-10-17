@@ -12,7 +12,7 @@ import pic31 from "../../../../assets/takguides/wintak/Kuva31.png";
 export function TakQuickstartWin4() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Aseta mittayksiköt" progressMax={4} progressNow={4} />
     <div className="flex justify-center items-center w-full">

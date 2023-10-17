@@ -1,4 +1,4 @@
-import { ServiceInfoCard } from "../../components/ServiceInfoCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { ServiceTakUsageCard } from "./ServiceTakUsageCard";
 
 interface ServiceTakUsageContentsProps {

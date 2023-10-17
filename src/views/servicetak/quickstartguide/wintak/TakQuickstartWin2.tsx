@@ -16,7 +16,7 @@ import pic14 from "../../../../assets/takguides/wintak/Kuva13-1.png";
 export function TakQuickstartWin2() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Lataa ja asenna WinTAK" progressMax={4} progressNow={2} />
     <div className="flex justify-center items-center w-full">

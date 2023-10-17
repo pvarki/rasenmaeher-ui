@@ -25,7 +25,7 @@ import Meterskmunits26 from "../../../../assets/takguides/atak/26-10001.png"
 export function TakQuickstartAndroid3() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Tee asetukset" progressMax={4} progressNow={3} />
     <div className="flex justify-center items-center w-full">

@@ -4,7 +4,7 @@ import { FoldableCard } from "../../components/FoldableCard";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import { Button } from "../../components/Button"
 import { useNavigate } from "react-router-dom";
-import { ServiceTakUsageCard} from "./ServiceTakUsageCard"
+import { ServiceTakUsageCard} from "./usage/helpers/ServiceTakUsageCard"
 
 
 export function ServiceTak() {

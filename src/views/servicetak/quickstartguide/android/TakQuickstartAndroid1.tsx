@@ -9,11 +9,12 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 export function TakQuickstartAndroid1() {
 
   return (
-    <div className="pb-32">
-    <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK pikaohje" backUrl="/app/services/tak/quickstart">
+    <div className="pb-20">
+    <Layout showNavbar={true} showFooter={false} navbarTitle="ATAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Asenna sovellukset" progressMax={4} progressNow={1} />
-    <div className="flex justify-center items-center w-full">
+    
     <CardsContainer>
+    <div className="flex flex-col items-center justify-center p-5">
       
       <GuideSection
           number="1."
@@ -41,9 +42,9 @@ export function TakQuickstartAndroid1() {
           imageClasses='m-3 w-[200px]'
           description2='<em>Jos applikaatio antaa virheilmoituksen, valitse Wait. </em>'     
         />
-      
+      </div>
     </CardsContainer>
-    </div>
+    
       <NavigateButtons 
         backUrl="/app/services/tak/quickstart" 
         forwardUrl="/app/services/tak/quickstart/android2" 

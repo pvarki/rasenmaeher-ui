@@ -1,4 +1,4 @@
-import { UnfoldableCard } from "../../components/ServicesView/UnfoldableCard";
+import { UnfoldableCard } from "../../../../components/ServicesView/UnfoldableCard";
 
 export function ServiceTakUsageCard() {
     return (

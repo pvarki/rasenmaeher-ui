@@ -23,7 +23,7 @@ import pic27 from "../../../../assets/takguides/wintak/Kuva27.png";
 export function TakQuickstartWin3() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Aseta WinTAK" progressMax={4} progressNow={3} />
     <div className="flex justify-center items-center w-full">

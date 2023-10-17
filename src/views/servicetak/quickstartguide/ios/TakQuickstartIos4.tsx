@@ -12,7 +12,7 @@ import pic24 from "../../../../assets/takguides/itak/itakqucikstart22.png";
 export function TakQuickstartIos4() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Aseta mittayksiköt" progressMax={4} progressNow={4} />
     <div className="flex justify-center items-center w-full">

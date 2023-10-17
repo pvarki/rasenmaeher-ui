@@ -8,7 +8,7 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 export function TakQuickstartIos1() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="iTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Asenna sovellus" progressMax={4} progressNow={1} />
     <div className="flex justify-center items-center w-full">

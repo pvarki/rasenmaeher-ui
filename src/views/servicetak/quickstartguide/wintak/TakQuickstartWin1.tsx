@@ -16,7 +16,7 @@ import pic8 from "../../../../assets/takguides/wintak/Kuva8.png";
 export function TakQuickstartWin1() {
 
   return (
-    <div className="pb-32">
+    <div className="pb-20">
     <Layout showNavbar={true} showFooter={false} navbarTitle="WinTAK käyttöönotto" backUrl="/app/services/tak/quickstart">
     <StatusBar title="Työaseman kieleksi englanti" progressMax={4} progressNow={1} />
     <div className="flex justify-center items-center w-full">
