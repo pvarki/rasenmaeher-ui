@@ -43,7 +43,7 @@ export function TakQuickstartAndroid4() {
       <NavigateButtons 
         backUrl="/app/services/tak/quickstart/android3" 
         forwardUrl="/app/"
-        alterForward="Valmis! Palaa kotinäkymään tästä."
+        alterForward="Valmis! Palaa kotiin."
       /> 
     </Layout>
     </div>
