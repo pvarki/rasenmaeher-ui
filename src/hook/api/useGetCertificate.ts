@@ -1,9 +1,5 @@
-import {
-  UseMutationOptions,
-  UseQueryOptions,
-  useMutation,
-  useQuery,
-} from "react-query";
+import { UseMutationOptions, useMutation } from "react-query";
+import { downloadBlob } from "../../utils/downloadBlob";
 
 async function getCertificate(callsign: string) {
   const jwt = localStorage.getItem("token");
@@ -12,10 +8,10 @@ async function getCertificate(callsign: string) {
   }
 
   const res = await fetch("/api/v1/enduserpfx/" + callsign, {
-    method: "POST",
+    method: "GET",
 
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     },
   });
@@ -24,6 +20,8 @@ async function getCertificate(callsign: string) {
   }
 
   const blob = await res.blob();
+
+  downloadBlob(blob, callsign + ".pfx");
 
   return blob;
 }

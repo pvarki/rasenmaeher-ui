@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { LoginView } from "./views/login/LoginView";
 import { MassEnrollmentView } from "./views/MassEnrollmentView";
 import { SoldierView } from "./views/SoldierView";
@@ -14,24 +14,12 @@ import { ServicesView } from "./views/ServicesView";
 import { ServiceTakView } from "./views/ServiceTakView";
 import { SoldierServicesView } from "./views/SoldierServicesView";
 import { SoldierServiceTakView } from "./views/SoldierServiceTakView";
-
-function Root() {
-  return (
-    <>
-      <div>Root</div>
-      <Outlet />
-    </>
-  );
-}
-
-function Team() {
-  return <div>Team</div>;
-}
+import { MtlsTestView } from "./views/MtlsTestView";
+import { ErrorView } from "./views/ErrorView";
 
 const router = createBrowserRouter([
   {
     path: "/",
-   
     children: [
       {
         path: "/login",
@@ -92,6 +80,14 @@ const router = createBrowserRouter([
       {
         path: "/app/users/:callsign/services",
         element: <SoldierServicesView />,
+      },
+      {
+        path: "/app/mtls-test",
+        element: <MtlsTestView />,
+      },
+      {
+        path: "/error",
+        element: <ErrorView />,
       },
     ],
   },

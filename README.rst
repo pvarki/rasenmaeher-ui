@@ -35,7 +35,7 @@ Creating a development container
 Build image, create container and start it::
 
     docker build --ssh default --target devel_shell -t rasenmaeher_ui:devel_shell .
-    docker create --name rmui_devel -v `pwd`":/app" -p 5173:5173 -it `echo $DOCKER_SSHAGENT` rasenmaeher_ui:devel_shell
+    docker create --name rmui_devel -v `pwd`":/app" -p 8002:8002 -it `echo $DOCKER_SSHAGENT` rasenmaeher_ui:devel_shell
     docker start -i rmui_devel
 
 Note: due to the volume mapping if you already had run "npm install" on the host you need to delete the node_modules directory
