@@ -23,7 +23,7 @@ export function TakUsageAndroid2() {
       >
         <CardsContainer>
           <UnfoldableCard
-            title="Ohjeen kokoonpano"
+            title="Sisältö"
             styling="bg-background"
             initialOpen={false}
           >

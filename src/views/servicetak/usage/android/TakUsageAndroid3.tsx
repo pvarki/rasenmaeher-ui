@@ -26,7 +26,7 @@ export function TakUsageAndroid3() {
         backUrl="/app/services/tak/Usage"
       >
         <CardsContainer>
-          <UnfoldableCard title="Ohjeen kokoonpano" styling="bg-background" initialOpen={false}>
+          <UnfoldableCard title="Sisältö" styling="bg-background" initialOpen={false}>
             <ServiceTakUsageContents />
           </UnfoldableCard>
         </CardsContainer>
