@@ -1,6 +1,5 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-
 import { GuideSection } from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
@@ -26,23 +25,38 @@ export function TakQuickstartAndroid4() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description="Valitse työkalurivistä (oikea yläkulma) <strong> Kartat </strong>."
+              description={
+                <>
+                  Valitse työkalurivistä (oikea yläkulma) <strong> Kartat </strong>.
+                </>
+              }
               imageSrc={pic07}
               imageClasses="m-3 w-[300px]"
             />
             <GuideSection
               number="2."
-              description="Totea <strong>OK</strong> muutamaan ilmoitukseen."
+              description={
+                <>
+                  Totea <strong>OK</strong> muutamaan ilmoitukseen.
+                </>
+              }
               imageSrc={pic08}
               imageClasses="m-3 w-[300px]"
             />
             <GuideSection
               number="3."
-              description="Valitse <strong>Mobile</strong> välilehdeltä <strong>02 Google Hybrid</strong>
-          Karttapohja aktivoituu."
+              description={
+                <>
+                  Valitse <strong>Mobile</strong> välilehdeltä <strong>02 Google Hybrid</strong> Karttapohja aktivoituu.
+                </>
+              }
               imageSrc={pic08}
               imageClasses="m-3 w-[300px]"
-              description2="Pääset pois valikosta painamalla muutamia kertoja <strong>Back</strong>-nappia."
+              description2={
+                <>
+                  Pääset pois valikosta painamalla muutamia kertoja <strong>Back</strong>-nappia.
+                </>
+              }
             />
           </CardsContainer>
         </div>

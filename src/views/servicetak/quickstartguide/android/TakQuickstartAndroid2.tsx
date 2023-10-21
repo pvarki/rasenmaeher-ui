@@ -9,8 +9,6 @@ import { GuideSection } from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 
-//
-
 export function TakQuickstartAndroid2() {
   return (
     <div className="pb-20">
@@ -30,31 +28,63 @@ export function TakQuickstartAndroid2() {
             <GuideSection
               number="1."
               imageClasses="m-3 w-[300px]"
-              description="Valitse <strong>Data Package</strong>."
+              description={
+                <>
+                  Valitse <strong>Data Package</strong>.
+                </>
+              }
               imageSrc={data2}
-              description2="<em>Select Data Package</em>-valikko aukeaa."
+              description2={
+                <>
+                  <em>Select Data Package</em>-valikko aukeaa.
+                </>
+              }
             />
             <GuideSection
               number="2."
               imageSrc={etsi3}
               imageClasses="m-3 w-[300px]"
-              description="Etsi kansio, johon latasit viestiperustetiedostosi <strong>Nimi.zip</strong>
-          <br></br>
-         Vinkki: Paina <strong>Date</strong> nähdäksesi viimeisimpänä ladatun tiedoston, todennäköisesti viestiperusteesi."
-              description2="Valitse tiedosto."
+              description={
+                <>
+                  Etsi kansio, johon latasit viestiperustetiedostosi <strong>Nimi.zip</strong>
+                  <br />
+                  Vinkki: Paina <strong>Date</strong> nähdäksesi viimeisimpänä ladatun tiedoston, todennäköisesti viestiperusteesi.
+                </>
+              }
+              description2={
+                <>
+                  Valitse tiedosto.
+                </>
+              }
             />
             <GuideSection
               number="3."
-              description="Paina <strong>Done</strong>."
+              description={
+                <>
+                  Paina <strong>Done</strong>.
+                </>
+              }
               imageSrc={done4}
               imageClasses="m-3 w-[300px]"
-              description2="Saat muutaman ilmoituksen konfiguraatiotiedostojen latautumisesta."
+              description2={
+                <>
+                  Saat muutaman ilmoituksen konfiguraatiotiedostojen latautumisesta.
+                </>
+              }
               image2Src={ilmo5}
               image2Classes="m-3 w-[300px]"
-              description4="Alkukonfiguraatio on valmis."
+              description4={
+                <>
+                  Alkukonfiguraatio on valmis.
+                </>
+              }
               image3Src={yhteys6}
               image3Classes="m-3 w-[300px]"
-              description3="Tarkista oikeasta alakulmasta, että palvelinyhteytesi on aktivoitunut (vihreä merkkivalo)"
+              description3={
+                <>
+                  Tarkista oikeasta alakulmasta, että palvelinyhteytesi on aktivoitunut (vihreä merkkivalo)
+                </>
+              }
             />
           </CardsContainer>
         </div>
@@ -66,3 +96,5 @@ export function TakQuickstartAndroid2() {
     </div>
   );
 }
+
+
