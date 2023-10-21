@@ -45,12 +45,13 @@ export function TakQuickstartIos3() {
               image2Src={pic17}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description3={<>
-                Avautuu tyhjä ruutu "Servers." Muodostetaan palvelinyhteys lisäämällä viestiperusteesi tähän.
+                Avautuu tyhjä ruutu "Servers."
               </>}
             />
             <GuideSection
               number="4."
-              description={<>Paina <strong>Plus</strong>-symbolia <em>(Add TAK Server)</em> oikeassa alakulmassa.</>}
+              description={<>
+              Ladataan viestiperustepakettisi iTAKiin. Paina <strong>Plus</strong>-symbolia <em>(Add TAK Server)</em> oikeassa alakulmassa.</>}
               imageSrc={pic18}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
               description2={<>Sovellus kysyy, miten palvelin lisätään. Valitse <strong>Upload Server Package</strong>.</>}

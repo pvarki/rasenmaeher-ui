@@ -46,17 +46,6 @@ export function TakQuickstartWin2() {
                 </>
               }
               note="Tärkeää! Lataa Windows-sovelluksia vain ohjeistetusta paikasta."
-              description2={
-                <>
-                  <br />
-                  <small>
-                    <em>
-                      WinTAK-sovelluksen toimittaja jakelee sovellusta tak.gov
-                      -sivustolta, mikä edellyttää kirjautumista.
-                    </em>
-                  </small>
-                </>
-              }
             />
             <GuideSection
               number="2."

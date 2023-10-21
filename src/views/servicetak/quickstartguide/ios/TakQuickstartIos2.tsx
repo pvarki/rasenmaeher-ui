@@ -78,7 +78,7 @@ export function TakQuickstartIos2() {
               number="4."
               description={
                 <>
-                  Aseta <strong>Privacy Settings</strong> sallimaan ilmoitukset (notifications) ja sijainnin (location services.)
+                  Aseta <strong>Privacy Settings</strong> sallimaan ilmoitukset (notifications) ja sijainnin (location services).
                 </>
               }
               imageSrc={pic4}
@@ -87,15 +87,23 @@ export function TakQuickstartIos2() {
                 <>
                   iOS kysyy tämän jälkeen, sallitko iTAKin lähettävän sinulle <strong>ilmoituksia</strong> ja <strong>käyttää sijaintiasi</strong>.
                   <br />
+                  <br />
                   Valitse ilmoituksiin <strong>Salli</strong>.
                 </>
               }
               image2Src={pic5}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
-              description3="Valitse sijaintiin <strong>Salli käytettäessä</strong>."
+              description3={
+                <>
+                Valitse sijaintiin <strong>Salli käytettäessä</strong>.
+                </>}
               image3Src={pic7}
               image3Classes="mx-auto pr-5 w-[240px] p-4"
-              description4="Tämän jälkeen muodostetaan palvelinyhteys."
+              description4={
+                <>
+                Tämän jälkeen muodostetaan palvelinyhteys.
+                </>
+              }
             />
           </CardsContainer>
         </div>

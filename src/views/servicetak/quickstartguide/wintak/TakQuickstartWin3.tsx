@@ -40,7 +40,7 @@ export function TakQuickstartWin3() {
                 <>
                   Hetken kuluttua aukaa <strong>Device Setup Wizard</strong>.
                   <br />
-                  <br />
+                  
                   Sen ensimmäisenä askeleena hyväksy <strong>EULA.</strong>
                 </>
               }
@@ -61,7 +61,7 @@ export function TakQuickstartWin3() {
               imageClasses="mx-auto pr-5 w-[300px] p-4"
               description2={
                 <>
-                  Tämä tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>, ja osoita sovellukselle paketti latauskansiostasi/muualta.
+                  Tämä tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>. <br/><br/>Osoita sovellukselle paketti latauskansiostasi/muualta.
                 </>
               }
               image2Src={pic18}
