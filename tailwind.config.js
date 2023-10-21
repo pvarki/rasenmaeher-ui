@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -42,7 +42,25 @@ export default {
           900: "#653C48",
         },
       },
+      typography: /** @type {any} */(theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.backgroundLight'),
+            a: {
+              color: theme('colors.primary.DEFAULT'),
+              '&:hover': {
+                color: theme('colors.primary.500'),
+              },
+            },
+            strong: {
+              color: theme('colors.success.DEFAULT'),
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
