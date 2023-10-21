@@ -7,6 +7,11 @@ module.exports = {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
+      utilities: {
+        '.strong2': {
+          fontWeight: 'bold',
+        },
+      },
       colors: {
         background: "#222",
         backgroundLight: "#333",
@@ -55,6 +60,9 @@ module.exports = {
             },
             strong: {
               color: theme('colors.success.DEFAULT'),
+            },
+            strong2: {
+              fontWeight: 'bold',
             },
           },
         },

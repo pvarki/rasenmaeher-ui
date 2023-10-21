@@ -26,10 +26,12 @@ export function ServiceTakUsageView() {
           <CardsContainer>
             <ServiceInfoCard
               title="TAK - Käyttö joukossa"
-              details='Ota TAK perusmallin mukaiseen käyttöön kullekin alustalle alla olevien ohjeiden avulla. Alustat ovat yhteensopivia, eli joukkosi ATAK, iTAK ja WinTAK -käyttäjät toimivat yhdessä.
-        <br></br>
-        <span style="color:lightcoral"></ServiceInfoCard>Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.</span>
-        '
+              details={<>
+              Ota TAK perusmallin mukaiseen käyttöön kullekin alustalle alla olevien ohjeiden avulla.
+              <br/>
+              <br/>
+              Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.
+              </>}
             ></ServiceInfoCard>
           </CardsContainer>
 

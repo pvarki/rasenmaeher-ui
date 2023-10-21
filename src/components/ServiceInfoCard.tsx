@@ -1,10 +1,9 @@
 import React from "react";
-import parse from "html-react-parser";
 
 interface ServiceInfoCardProps {
   title?: string;
   image?: string;
-  details?: string;
+  details?: React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -26,7 +25,7 @@ export function ServiceInfoCard({
         />
       )}
       {details && (
-        <p className="text-white text-center mt-1 mb-1">{parse(details)}</p>
+        <div className="prose prose-white text-center mt-1 mb-1">{details}</div>
       )}
       {children}
     </div>
