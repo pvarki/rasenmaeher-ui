@@ -15,8 +15,12 @@ export function SoldierView() {
     >
       <CardsContainer>
         <TextCard
-          title="Kirjautunut käyttäjänä [user]"
-          details="Joukkosi käytössä olevat palvelut ovat ohessa. <strong>Avaa palvelun kortti</strong> ottaaksesi sen käyttöön omalla laitteellasi."
+          title={<>
+          Kirjautunut käyttäjänä [user]
+          </>}
+          details={<>
+          Joukkosi käytössä olevat palvelut ovat ohessa. Avaa palvelun <strong>kortti</strong> ottaaksesi sen käyttöön omalla laitteellasi.
+          </>}
         />
       </CardsContainer>
       <ServiceTak />

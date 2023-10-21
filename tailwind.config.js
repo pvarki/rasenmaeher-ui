@@ -58,6 +58,9 @@ module.exports = {
                 color: theme('colors.primary.500'),
               },
             },
+            h3: {
+              color: theme('colors.textLight'),
+            },
             strong: {
               color: theme('colors.success.DEFAULT'),
             },
