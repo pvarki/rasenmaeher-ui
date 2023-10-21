@@ -30,82 +30,149 @@ export function TakQuickstartWin3() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description="Avaa <strong>WinTAK</strong>-sovellus työpöydältä."
+              description={<><span>Avaa <strong>WinTAK</strong>-sovellus työpöydältä.</span></>}
               imageSrc={pic14}
               imageClasses="mx-auto pr-5 w-[90px] p-4"
             />
             <GuideSection
               number="2."
-              description="Hetken kuluttua aukaa <strong>Device Setup Wizard</strong>.
-          <br></br>
-          Sen ensimmäisenä askeleena hyväksy <strong>EULA.</strong>"
+              description={
+                <>
+                  Hetken kuluttua aukaa <strong>Device Setup Wizard</strong>.
+                  <br />
+                  <br />
+                  Sen ensimmäisenä askeleena hyväksy <strong>EULA.</strong>
+                </>
+              }
               imageSrc={pic16}
               imageClasses="mx-auto pr-5 w-[300px] p-4"
             />
             <GuideSection
               number="3."
-              description="Seuraavaksi muodostetaan palvelinyhteys.
-          <br></br>
-          Sovellus kysyy, haluatko tuoda data packagen."
+              description={
+                <>
+                  Seuraavaksi muodostetaan palvelinyhteys.
+                  <br />
+                  <br />
+                  Sovellus kysyy, haluatko tuoda data packagen.
+                </>
+              }
               imageSrc={pic17}
               imageClasses="mx-auto pr-5 w-[300px] p-4"
-              description2="
-          Tämä tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>, ja osoita sovellukselle paketti latauskansiostasi/muualta."
+              description2={
+                <>
+                  Tämä tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>, ja osoita sovellukselle paketti latauskansiostasi/muualta.
+                </>
+              }
               image2Src={pic18}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
-              note2="Huomaa, että tässä vaiheessa sinulla tulee olla viestiperustetiedosto <strong>Nimi.zip</strong> ladattuna puhelimeesi.
-          <br></br>
-          Mikäli et jo ladannut sitä, lataat viestiperustepakettisi Rasenmaeherin TAK-päävalikosta napista <strong>Lataa viestiperusteesi</strong>. Palaa tämän jälkeen tähän vaiheeseen.<br></br>"
-              description3="Kun olet valinnut paketin ja painanut Open, aukeaa <strong>Select Import Strategy</strong>."
+              description3={
+                <>
+                  Kun olet valinnut paketin ja painanut Open, aukeaa <strong>Select Import Strategy</strong>.
+                </>
+              }
               image3Src={pic19}
               image3Classes="mx-auto pr-5 w-[300px] p-4"
-              description4="Valitse <strong>UserPreferenceImportStrategy</strong>, ja paina OK."
+              description4={
+                <>
+                  Valitse <strong>UserPreferenceImportStrategy</strong>, ja paina OK.
+                </>
+              }
             />
             <GuideSection
               number="4."
-              description="Viestiperustepaketin kanssa voi tulla erilaisia karttapohjia."
+              description={
+                <>
+                  Viestiperustepaketin kanssa voi tulla erilaisia karttapohjia.
+                </>
+              }
               imageSrc={pic20}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
-              description2="Valitse haluamasi karttapohja. Huomaa, että karttapohjaa voi vaihtaa myöhemmin."
+              description2={
+                <>
+                  Valitse haluamasi karttapohja. Huomaa, että karttapohjaa voi vaihtaa myöhemmin.
+                </>
+              }
             />
             <GuideSection
               number="5."
-              description="Device Setup Wizard kysyy, haluatko määrittää peitenimesi (Callsign)."
+              description={
+                <>
+                  Device Setup Wizard kysyy, haluatko määrittää peitenimesi (Callsign).
+                </>
+              }
               imageSrc={pic21}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
-              description2="Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
-          <br></br>
-          Sovellus kysyy ylimääräisiä WMS (kartta)-palvelulähteitä. Näitä ei tarvita, tyhjennä ruudut ja paina OK."
+              description2={
+                <>
+                  Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
+                  <br />
+                  <br />
+                  Sovellus kysyy ylimääräisiä WMS (kartta)-palvelulähteitä. Näitä ei tarvita, tyhjennä ruudut ja paina OK.
+                </>
+              }
               image2Src={pic23}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description3="Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi."
+              description3={
+                <>
+                  Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
+                </>
+              }
             />
             <GuideSection
               number="6."
-              description="Sovellus kysyy, asennetaako plugineja. Valitse <strong>DataSync</strong> ja paina OK."
+              description={
+                <>
+                  Sovellus kysyy, asennetaako plugineja. Valitse <strong>DataSync</strong> ja paina OK.
+                </>
+              }
               imageSrc={pic24}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
-              description2="Seuraavaksi sovellus kysyy, ladataanko automaattisesti DTED-0-korkeusmallit. Paina <strong>Yes</strong>."
+              description2={
+                <>
+                  Seuraavaksi sovellus kysyy, ladataanko automaattisesti DTED-0-korkeusmallit. Paina <strong>Yes</strong>.
+                </>
+              }
               image2Src={pic25}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description3="Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi."
+              description3={
+                <>
+                  Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
+                </>
+              }
             />
             <GuideSection
               number="7."
-              description="Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä My Preferences."
+              description={
+                <>
+                  Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä My Preferences.
+                </>
+              }
               imageSrc={pic26}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
-              description2="Peite (<strong>Callsign</strong>), joukon väri (<strong>My Team</strong>) ja rooli (<strong>My Role</strong>) tulee olla käsketyt. <strong>My Display Type</strong> on Ground.
-
-          <br></br>
-          Tarkista <strong>TAK Network Status.</strong> Vihreä pilvi tarkoittaa, että palvelinyhteys on OK, punainen, että yhteys on poikki."
-              note="Komentopaikkakäyttäjänä roolisi tulee olla HQ.<br></br>"
+              description2={
+                <>
+                  Peite (<strong>Callsign</strong>), joukon väri (<strong>My Team</strong>) ja rooli (<strong>My Role</strong>) tulee olla käsketyt. <strong>My Display Type</strong> on Ground.
+                  <br />
+                  <br />
+                  Tarkista <strong>TAK Network Status.</strong> Vihreä pilvi tarkoittaa, että palvelinyhteys on OK, punainen, että yhteys on poikki.
+                </>
+              }
+              note={
+                <>
+                  Komentopaikkakäyttäjänä roolisi tulee olla HQ.
+                </>
+              }
               image2Src={pic27}
               image2Classes="mx-auto pr-10 w-[200px] p-4"
-              description3="Jos yhteys ei ole muodostunut, tarkista ensin, onko internetyhteytesi kunnossa. Jos on, ja TAK Network Status on silti punainen, käynnistä sovellus uudelleen.
-          <br></br>
-          Vianselvitysapua on tämän ohjeen lopussa.
-        "
+              description3={
+                <>
+                  Jos yhteys ei ole muodostunut, tarkista ensin, onko internetyhteytesi kunnossa. Jos on, ja TAK Network Status on silti punainen, käynnistä sovellus uudelleen.
+                  <br />
+                  <br />
+                  Vianselvitysapua on tämän ohjeen lopussa.
+                </>
+              }
             />
           </CardsContainer>
         </div>

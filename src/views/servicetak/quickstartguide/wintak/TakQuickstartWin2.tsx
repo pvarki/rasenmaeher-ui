@@ -28,14 +28,35 @@ export function TakQuickstartWin2() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description='Ladataan <strong>WinTAK</strong>-sovellus.
-          <br></br>
-          WinTAK-sovelluksen käytettävä versio <strong> Puolustusvoimien osoittamasta paikasta</strong>.
-          <br></br>
-          <a href="https://arkipublic.blob.core.windows.net/ohjelmistot/WinTAK-CIV-latest.zip" style="color: SteelBlue; text-decoration: underline;">WinTAK - Lataa tästä WinTAK Puolustusvoimien jakelupisteestä.</a>
-          <br></br>'
+              description={
+                <>
+                  Ladataan <strong>WinTAK</strong>-sovellus.
+                  <br />
+                  <br />
+                  WinTAK-sovelluksen käytettävä versio{" "}
+                  <strong>Puolustusvoimien osoittamasta paikasta</strong>.
+                  <br />
+                  <br />
+                  <a
+                    href="https://arkipublic.blob.core.windows.net/ohjelmistot/WinTAK-CIV-latest.zip"
+                    style={{ color: "SteelBlue", textDecoration: "underline" }}
+                  >
+                    WinTAK - Lataa tästä WinTAK Puolustusvoimien jakelupisteestä.
+                  </a>
+                </>
+              }
               note="Tärkeää! Lataa Windows-sovelluksia vain ohjeistetusta paikasta."
-              description2="<small><em><br></br>WinTAK-sovelluksen toimittaja jakelee sovellusta tak.gov -sivustolta, mikä edellyttää kirjautumista. </em></small>"
+              description2={
+                <>
+                  <br />
+                  <small>
+                    <em>
+                      WinTAK-sovelluksen toimittaja jakelee sovellusta tak.gov
+                      -sivustolta, mikä edellyttää kirjautumista.
+                    </em>
+                  </small>
+                </>
+              }
             />
             <GuideSection
               number="2."
@@ -49,31 +70,59 @@ export function TakQuickstartWin2() {
               description="Asenna WinTAK käyttäen Setup Wizardia."
               imageSrc={pic10}
               imageClasses="mx-auto pr-5 w-[300px] p-4"
-              description2="Paina <strong>Next</strong>. Valitse sovelluksen asennuskansio."
+              description2={
+                <>
+                  Paina <strong>Next</strong>. Valitse sovelluksen asennuskansio.
+                </>
+              }
               image2Src={pic11}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
-              description3="Vaihda halutessasi asennuskansiota <strong>Browse</strong>-napin kautta. Paina <strong>Next</strong>."
+              description3={
+                <>
+                  Vaihda halutessasi asennuskansiota{" "}
+                  <strong>Browse</strong>-napin kautta. Paina{" "}
+                  <strong>Next</strong>.
+                </>
+              }
             />
             <GuideSection
               number="4."
-              description="Valitse Setup Wizardissa asennettavat lisäosat.
-          <br></br>
-          Valitse ainakin seuraavat lisäosat:
-          <ul>
-          <li>- <strong>Data Sync</strong> </li>
-          </ul>"
+              description={
+                <>
+                  Valitse Setup Wizardissa asennettavat lisäosat.
+                  <br />
+                  Valitse ainakin seuraavat lisäosat:
+                  <ul>
+                    <li>
+                      <strong>Data Sync</strong>{" "}
+                    </li>
+                  </ul>
+                </>
+              }
               imageSrc={pic12}
               imageClasses="mx-auto pr-5 w-[300px] p-4"
-              description2="
-          Paina <strong>Next</strong>. Wizard on valmis aloittamaan asennuksen, paina <strong>Install</strong>. "
+              description2={
+                <>
+                  Paina <strong>Next</strong>. Wizard on valmis aloittamaan
+                  asennuksen, paina <strong>Install</strong>.
+                </>
+              }
               image2Src={pic13}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
-              description3="Paina <strong>Next</strong>."
+              description3={
+                <>
+                  Paina <strong>Next</strong>.
+                </>
+              }
               image3Src={pic14}
               image3Classes="mx-auto pr-5 w-[300px] p-4"
-              description4="Sovellus on nyt asennettu.
-          <br></br>
-          Seuraavaksi avataan asennettu sovellus."
+              description4={
+                <>
+                  Sovellus on nyt asennettu.
+                  <br />
+                  Seuraavaksi avataan asennettu sovellus.
+                </>
+              }
             />
           </CardsContainer>
         </div>
@@ -85,3 +134,5 @@ export function TakQuickstartWin2() {
     </div>
   );
 }
+
+
