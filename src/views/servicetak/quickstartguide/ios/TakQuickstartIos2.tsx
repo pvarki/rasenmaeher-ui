@@ -24,49 +24,72 @@ export function TakQuickstartIos2() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description='Avaa <strong>iTAK</strong>-sovellus.
-          <br></br>
-          Kun sovellus kysyy: <em>"iTAK haluaa etsiä lähiverkossa..."</em>, valitse <strong>Älä salli</strong>.'
+              description={
+                <>
+                  Avaa <strong>iTAK</strong>-sovellus.
+                  <br />
+                  Kun sovellus kysyy: <em>"iTAK haluaa etsiä lähiverkossa..."</em>, valitse <strong>Älä salli</strong>.
+                </>
+              }
               imageSrc={pic1}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
             />
             <GuideSection
               number="2."
-              description="Täytä <strong>Profile Settings</strong>:"
+              description={
+                <>
+                  Täytä <strong>Profile Settings</strong>:
+                </>
+              }
               imageSrc={pic2}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
-              description2="Anna <strong>Callsign-kenttään</strong> oma peitteesi,
-          esimerkiksi <em>Rambo</em>.
-          <br></br>
-          Phone-kenttää <strong>ei täytetä</strong>
-          <br></br>
-          Paina lopuksi <strong>Next.</strong>"
+              description2={
+                <>
+                  Anna <strong>Callsign-kenttään</strong> oma peitteesi, esimerkiksi <em>Rambo</em>.
+                  <br />
+                  Phone-kenttää <strong>ei täytetä</strong>
+                  <br />
+                  Paina lopuksi <strong>Next.</strong>
+                </>
+              }
             />
             <GuideSection
               number="3."
-              description="Täytä <strong>Team Settings:</strong>"
+              description={
+                <>
+                  Täytä <strong>Team Settings:</strong>
+                </>
+              }
               imageSrc={pic3}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
-              description2="<ul>
-          Valitse <strong>Select Team</strong>-kenttään rullavalikosta joukkosi (käsketty) väri.
-          <br></br>
-           Valitse <strong>Select Team Role</strong>-kenttään rullavalikosta rooli <strong>Team Member</strong>, ellei muuta ole käsketty.
-          <br></br>
-          <small><em>Komentopaikkakäyttäjät asettavat roolin HQ.</em></small>
-          <br></br>
-          Paina lopuksi <strong>Next.</strong>
-          "
+              description2={
+                <>
+                  Valitse <strong>Select Team</strong>-kenttään rullavalikosta joukkosi (käsketty) väri.
+                  <br />
+                  Valitse <strong>Select Team Role</strong>-kenttään rullavalikosta rooli <strong>Team Member</strong>, ellei muuta ole käsketty.
+                  <br />
+                  <small><em>Komentopaikkakäyttäjät asettavat roolin HQ.</em></small>
+                  <br />
+                  Paina lopuksi <strong>Next.</strong>
+                </>
+              }
             />
             <GuideSection
               number="4."
-              description="Aseta  <strong>Privacy Settings</strong> sallimaan ilmoitukset (notifications) ja sijainnin (location services.)"
+              description={
+                <>
+                  Aseta <strong>Privacy Settings</strong> sallimaan ilmoitukset (notifications) ja sijainnin (location services.)
+                </>
+              }
               imageSrc={pic4}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
-              description2="
-          iOS kysyy tämän jälkeen, sallitko iTAKin lähettävän sinulle <strong>ilmoituksia</strong> ja <strong>käyttää sijaintiasi</strong>.
-          <br></br>
-          Valitse ilmoituksiin <strong>Salli</strong>.
-          "
+              description2={
+                <>
+                  iOS kysyy tämän jälkeen, sallitko iTAKin lähettävän sinulle <strong>ilmoituksia</strong> ja <strong>käyttää sijaintiasi</strong>.
+                  <br />
+                  Valitse ilmoituksiin <strong>Salli</strong>.
+                </>
+              }
               image2Src={pic5}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description3="Valitse sijaintiin <strong>Salli käytettäessä</strong>."

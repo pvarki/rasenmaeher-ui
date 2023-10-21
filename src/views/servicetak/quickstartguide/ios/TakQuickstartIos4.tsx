@@ -22,34 +22,57 @@ export function TakQuickstartIos4() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description="Avaa jälleen <strong>Asetukset</strong> vasemman yläkulman hammasrataskuvakkeesta."
+              description={
+                <>
+                  Avaa jälleen <strong>Asetukset</strong> vasemman yläkulman hammasrataskuvakkeesta.
+                </>
+              }
               imageSrc={pic21}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
-              description2="Valitse Settings-päävalikosta <strong>Preferences.</strong>"
+              description2={
+                <>
+                  Valitse Settings-päävalikosta <strong>Preferences.</strong>
+                </>
+              }
               image2Src={pic22}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description3="Asetetaan oikeat mittayksiköt ja koordinattijärjestelmä."
             />
             <GuideSection
               number="2."
-              description="Valitse <strong>Units of Measure</strong>."
-              description2="Valitse Coordinate Formatiksi <strong>MGRS</strong>, ja Distance Formatiksi <strong>Meters</strong>.
-          <br></br>"
+              description={
+                <>
+                  Valitse <strong>Units of Measure</strong>.
+                </>
+              }
+              description2={
+                <>
+                  Valitse Coordinate Formatiksi <strong>MGRS</strong>, ja Distance Formatiksi <strong>Meters</strong>.
+                  <br />
+                </>
+              }
               imageSrc={pic23}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
             />
             <GuideSection
               number="3."
-              description="Halutessasi vaihda karttapohja Settings-päävalikosta painamalla <strong>Map Sourcea</strong>."
+              description={
+                <>
+                  Halutessasi vaihda karttapohja Settings-päävalikosta painamalla <strong>Map Sourcea</strong>.
+                </>
+              }
               imageSrc={pic21}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
-              description2="Valitse haluamasi karttapohja. Huom! Saatavuus vaihtelee.
-          "
+              description2="Valitse haluamasi karttapohja. Huom! Saatavuus vaihtelee."
               image2Src={pic24}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
-              description3="Hienoa! Olet nyt asettanut iTAKin käyttökuntoon.
-          <br></br>
-          <em><small>Mikäli sinun tarvitsee tehdä muutoksia peitenimeesi, onnistuu se Settings-valikosta klikkaamalla peitenimeäsi.</small></em>"
+              description3={
+                <>
+                  Hienoa! Olet nyt asettanut iTAKin käyttökuntoon.
+                  <br />
+                  <em><small>Mikäli sinun tarvitsee tehdä muutoksia peitenimeesi, onnistuu se Settings-valikosta klikkaamalla peitenimeäsi.</small></em>
+                </>
+              }
             />
           </CardsContainer>
         </div>
@@ -62,3 +85,4 @@ export function TakQuickstartIos4() {
     </div>
   );
 }
+

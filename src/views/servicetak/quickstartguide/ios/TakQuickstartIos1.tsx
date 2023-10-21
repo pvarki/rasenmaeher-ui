@@ -18,15 +18,25 @@ export function TakQuickstartIos1() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description='Lataa sovellus <strong>iTAK</strong> App Storesta ja asenna se.
-
-          <a href="https://apps.apple.com/us/app/itak/id1561656396" style="color: SteelBlue; text-decoration: underline;">iTAK - Paina tästä ladataksesi App Storesta</a>
-          <br></br>'
+              description={
+                <>
+                  Lataa sovellus <strong>iTAK</strong> App Storesta ja asenna se.
+                  <br />
+                  <a href="https://apps.apple.com/us/app/itak/id1561656396" style={{ color: 'SteelBlue', textDecoration: 'underline' }}>
+                    iTAK - Paina tästä ladataksesi App Storesta
+                  </a>
+                  <br />
+                </>
+              }
               description3="Jatka ladattuasi sovellus."
             />
             <GuideSection
               number="2."
-              description="Lataa viestiperusteesi valmiiksi Palvelut/TAK-sivulta. Tallenna .zip-tiedosto."
+              description={
+                <>
+                  Lataa viestiperusteesi valmiiksi Palvelut/TAK-sivulta. Tallenna .zip-tiedosto.
+                </>
+              }
               note="HUOMAA! Tiedostoa ei saa purkaa!"
             />
           </CardsContainer>

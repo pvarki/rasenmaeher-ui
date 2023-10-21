@@ -5,19 +5,19 @@ interface GuideSectionProps {
   description?: React.ReactNode;
   imageSrc?: string;
   imageLink?: string;
-  note?: string;
+  note?: React.ReactNode;
   imageClasses?: string;
 
   description2?: React.ReactNode;
   image2Src?: string;
   image2Link?: string;
-  note2?: string;
+  note2?: React.ReactNode;
   image2Classes?: string;
 
   description3?: React.ReactNode;
   image3Src?: string;
   image3Link?: string;
-  note3?: string;
+  note3?: React.ReactNode;
   image3Classes?: string;
 
   description4?: React.ReactNode;
@@ -45,7 +45,7 @@ export function GuideSection(props: GuideSectionProps) {
 );
 
 
-  const renderNote = (note?: string) => (
+  const renderNote = (note?: React.ReactNode) => (
     <div className="prose prose-white max-w-none text-red-400 mt-2">
       {note}
     </div>
