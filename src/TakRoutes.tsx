@@ -27,116 +27,132 @@ import { TakUsageWin4 } from "./views/servicetak/usage/wintak/TakUsageWin4";
 import { TakUsageWin5 } from "./views/servicetak/usage/wintak/TakUsageWin5";
 
 export const TakRoutes = [
-{/*As of 1.0 directly integrated to RM UI, instead of html fragment design*/}, 
-      {
-        path: "/app/services/tak/quickstart",
-        element: <ServiceTakQuickstartView />,
-      }, 
-        {/*Android quickstart guide views*/},
-            {
-              path: "/app/services/tak/quickstart/android1",
-              element: <TakQuickstartAndroid1 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/android2",
-              element: <TakQuickstartAndroid2 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/android3",
-              element: <TakQuickstartAndroid3 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/android4",
-              element: <TakQuickstartAndroid4 />,
-            },
-        {/*iTAK quickstart guide views*/},
-            {
-              path: "/app/services/tak/quickstart/ios1",
-              element: <TakQuickstartIos1 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/ios2",
-              element: <TakQuickstartIos2 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/ios3",
-              element: <TakQuickstartIos3 />,
-            },
-            {
-              path: "/app/services/tak/quickstart/ios4",
-              element: <TakQuickstartIos4 />,
-            },
-        {/*WinTAK quickstart guide views*/},
-          {
-            path: "/app/services/tak/quickstart/win1",
-            element: <TakQuickstartWin1 />,
-          },
-          {
-            path: "/app/services/tak/quickstart/win2",
-            element: <TakQuickstartWin2 />,
-          },
-          {
-            path: "/app/services/tak/quickstart/win3",
-            element: <TakQuickstartWin3 />,
-          },
-          {
-            path: "/app/services/tak/quickstart/win4",
-            element: <TakQuickstartWin4 />,
-          },
-    {/*TAK usage views, aka when set up, how do you use it*/},
-    {
-        path: "/app/services/tak/usage",
-        element: <ServiceTakUsageView />,
-      },
-        {/*Android usage views*/},
-              {
-                path: "/app/services/tak/usage/android1",
-                element: <TakUsageAndroid1 />,
-              },
-              {
-                path: "/app/services/tak/usage/android2",
-                element: <TakUsageAndroid2 />,
-              },
-              {
-                path: "/app/services/tak/usage/android3",
-                element: <TakUsageAndroid3 />,
-              },
-              {
-                path: "/app/services/tak/usage/android4",
-                element: <TakUsageAndroid4 />,
-              },
-        {/*iTAK usage views*/},
-              {
-                path: "/app/services/tak/usage/ios1",
-                element: <TakUsageIos1 />,
-              },
-              {
-                path: "/app/services/tak/usage/ios2",
-                element: <TakUsageIos2 />,
-              },
-              {
-                path: "/app/services/tak/usage/ios3",
-                element: <TakUsageIos3 />,
-              },
-         {/*WinTAK usage views*/},
-              {
-                path: "/app/services/tak/usage/win1",
-                element: <TakUsageWin1 />,
-              },
-              {
-                path: "/app/services/tak/usage/win2",
-                element: <TakUsageWin2 />,
-              },
-              {
-                path: "/app/services/tak/usage/win3",
-                element: <TakUsageWin3 />,
-              },
-              {
-                path: "/app/services/tak/usage/win4",
-                element: <TakUsageWin4 />,
-              },
-              {
-                path: "/app/services/tak/usage/win5",
-                element: <TakUsageWin5 />,
-              },
-            ]
+  {
+    /*As of 1.0 directly integrated to RM UI, instead of html fragment design*/
+  },
+  {
+    path: "/app/services/tak/quickstart",
+    element: <ServiceTakQuickstartView />,
+  },
+  {
+    /*Android quickstart guide views*/
+  },
+  {
+    path: "/app/services/tak/quickstart/android1",
+    element: <TakQuickstartAndroid1 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/android2",
+    element: <TakQuickstartAndroid2 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/android3",
+    element: <TakQuickstartAndroid3 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/android4",
+    element: <TakQuickstartAndroid4 />,
+  },
+  {
+    /*iTAK quickstart guide views*/
+  },
+  {
+    path: "/app/services/tak/quickstart/ios1",
+    element: <TakQuickstartIos1 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/ios2",
+    element: <TakQuickstartIos2 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/ios3",
+    element: <TakQuickstartIos3 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/ios4",
+    element: <TakQuickstartIos4 />,
+  },
+  {
+    /*WinTAK quickstart guide views*/
+  },
+  {
+    path: "/app/services/tak/quickstart/win1",
+    element: <TakQuickstartWin1 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/win2",
+    element: <TakQuickstartWin2 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/win3",
+    element: <TakQuickstartWin3 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/win4",
+    element: <TakQuickstartWin4 />,
+  },
+  {
+    /*TAK usage views, aka when set up, how do you use it*/
+  },
+  {
+    path: "/app/services/tak/usage",
+    element: <ServiceTakUsageView />,
+  },
+  {
+    /*Android usage views*/
+  },
+  {
+    path: "/app/services/tak/usage/android1",
+    element: <TakUsageAndroid1 />,
+  },
+  {
+    path: "/app/services/tak/usage/android2",
+    element: <TakUsageAndroid2 />,
+  },
+  {
+    path: "/app/services/tak/usage/android3",
+    element: <TakUsageAndroid3 />,
+  },
+  {
+    path: "/app/services/tak/usage/android4",
+    element: <TakUsageAndroid4 />,
+  },
+  {
+    /*iTAK usage views*/
+  },
+  {
+    path: "/app/services/tak/usage/ios1",
+    element: <TakUsageIos1 />,
+  },
+  {
+    path: "/app/services/tak/usage/ios2",
+    element: <TakUsageIos2 />,
+  },
+  {
+    path: "/app/services/tak/usage/ios3",
+    element: <TakUsageIos3 />,
+  },
+  {
+    /*WinTAK usage views*/
+  },
+  {
+    path: "/app/services/tak/usage/win1",
+    element: <TakUsageWin1 />,
+  },
+  {
+    path: "/app/services/tak/usage/win2",
+    element: <TakUsageWin2 />,
+  },
+  {
+    path: "/app/services/tak/usage/win3",
+    element: <TakUsageWin3 />,
+  },
+  {
+    path: "/app/services/tak/usage/win4",
+    element: <TakUsageWin4 />,
+  },
+  {
+    path: "/app/services/tak/usage/win5",
+    element: <TakUsageWin5 />,
+  },
+];

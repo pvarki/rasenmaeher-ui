@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import logo from '../assets/icons/jellona.png';
+import logo from "../assets/icons/jellona.png";
 
 interface NavbarProps {
   backUrl?: string;
@@ -10,8 +10,7 @@ interface NavbarProps {
 export function Navbar({ backUrl, title }: NavbarProps) {
   return (
     <div className="h-16 flex items-center justify-center w-full p-3 bg-backgroundLight fixed top-0 left-0 right-0 z-10">
-
-      <img 
+      <img
         src={logo}
         alt="Logo"
         className="absolute left-3 w-9 h-11 object-cover"

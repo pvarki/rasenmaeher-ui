@@ -7,33 +7,47 @@ interface ButtonCardProps {
   children?: React.ReactNode;
 }
 
-export function ButtonFoldableCard({ title, children, classes }: ButtonCardProps) {
+export function ButtonFoldableCard({
+  title,
+  children,
+  classes,
+}: ButtonCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
 
     if (!isOpen) {
       requestAnimationFrame(() => {
         if (bottomRef.current) {
-          bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+          bottomRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+          });
         }
       });
     }
   };
 
   return (
-    <div className={`relative flex flex-col w-full rounded-md cursor-pointer m-2 ${isOpen ? "bg-backgroundLight" : ""}`} onClick={handleClick}>
+    <div
+      className={`relative flex flex-col w-full rounded-md cursor-pointer m-2 ${
+        isOpen ? "bg-backgroundLight" : ""
+      }`}
+      onClick={handleClick}
+    >
       <Button styling={classes}>
         {title}
-        <span 
-          className={`ml-2 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+        <span
+          className={`ml-2 transform transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
         >
           ▼
         </span>
       </Button>
-      
+
       {isOpen && (
         <div className="mt-0">
           {children}

@@ -1,4 +1,4 @@
-import { CardsContainer } from "./CardsContainer"
+import { CardsContainer } from "./CardsContainer";
 import { ButtonFoldableCard } from "./ButtonFoldableCard";
 
 interface ServiceUsageCardProps {
@@ -11,11 +11,10 @@ export function ServiceUsageCard({ children }: ServiceUsageCardProps) {
       <CardsContainer>
         <ButtonFoldableCard title="Käyttömalli">
           <div className="flex flex-col items-center justify-center p-5">
-            {children}     
+            {children}
           </div>
         </ButtonFoldableCard>
       </CardsContainer>
     </div>
   );
 }
-

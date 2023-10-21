@@ -10,8 +10,7 @@ import { UserInviteView } from "./views/UserInviteView";
 import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
-import { TakRoutes } from './TakRoutes';
-
+import { TakRoutes } from "./TakRoutes";
 
 function Root() {
   return (
@@ -29,6 +28,7 @@ function Team() {
 const router = createBrowserRouter([
   {
     path: "/",
+
     children: [
       {
         path: "/login",
@@ -73,11 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/enrollment",
         element: <MassEnrollmentView />,
-      }, 
-    ...TakRoutes
-  ],
-}
-
+      },
+      ...TakRoutes,
+    ],
+  },
 ]);
 
 /*
