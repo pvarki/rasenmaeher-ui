@@ -40,37 +40,51 @@ export function TakUsageAndroid2() {
             <GuideSection
               number="1."
               imageClasses="m-3 w-[300px]"
-              description="Avaa kolme viivaa-valikko (hampurilaisvalikko)."
+              description={<span>Avaa kolme viivaa-valikko (hampurilaisvalikko).</span>}
               imageSrc={pic1}
-              description2="Etsi valikosta <strong>Data Sync</strong> ja valitse se."
+              description2={<span>Etsi valikosta <strong>Data Sync</strong> ja valitse se.</span>}
             />
             <GuideSection
               number="2."
               imageSrc={pic2}
               imageClasses="m-3 w-[300px]"
-              description="Avautuu näkymä, jossa palvelimelta saatavilla olevat syötteet (feed)."
-              description2="Valitse ohjeistettu syöte (kuvassa <strong>RECON</strong>)."
+              description={<span>Avautuu näkymä, jossa palvelimelta saatavilla olevat syötteet (feed).</span>}
+              description2={<span>Valitse ohjeistettu syöte (kuvassa <strong>RECON</strong>).</span>}
               image2Src={pic3}
               image2Classes="m-3 w-[300px]"
-              description3="Valitse aukeavasta ikkunasta <strong> Download & Sync</strong>."
+              description3={<span>Valitse aukeavasta ikkunasta <strong> Download & Sync</strong>.</span>}
             />
             <GuideSection
               number="3."
-              description="Varmistetaan, että Auto Download on päällä. Palaa hampurilaisvalikon päänäkymään (kolme viivaa oikealla ylhäällä).
-          <br></br>
-          Etsi <strong>Settings</strong>."
+              description={
+                <>
+                  Varmistetaan, että Auto Download on päällä. Palaa hampurilaisvalikon päänäkymään (kolme viivaa oikealla ylhäällä).
+                  <br />
+                  <br />
+                  Etsi <strong>Settings</strong>.
+                </>
+              }
               imageSrc={pic4}
               imageClasses="m-3 w-[300px]"
-              description2="Varmista avautuvasta valikosta, että <strong>Auto Download Updates</strong> on päällä."
+              description2={<span>Varmista avautuvasta valikosta, että <strong>Auto Download Updates</strong> on päällä.</span>}
               image2Src={pic5}
               image2Classes="m-3 w-[300px]"
-              description4="Nyt käytössäsi on käsketyt syötteet (feedit). <br></br>
-          <Perusmallissa komentopaikka (HQ) tuottaa feedien sisällön joukon ilmoitusten perusteella. <ul>
-          <small>Tämä ohje kuvaa perustoimintamallin. Siinä RECON-feed sisältää tiedustelutilannekuvan, joka muodostuu näin:
-          <br></br>
-          <li>Lähetät ilmoituksesi komentopaikalle (HQ)</li>
-          <li>HQ tulkitsee, varmistaa ja lisää RECON-feediin</li>
-          <li> Lopputulos: Havainto tiedustelutilannekuvassa.</li></small>"
+              description4={
+                <>
+                  Nyt käytössäsi on käsketyt syötteet (feedit). <br />
+                  <span>Perusmallissa komentopaikka (HQ) tuottaa feedien sisällön joukon ilmoitusten perusteella. </span>
+                  <br />
+                  <ul>
+                    <small>
+                      HUOMAA: Tämä ohje kuvaa perustoimintamallin. Siinä RECON-feed sisältää tiedustelutilannekuvan, joka muodostuu näin:
+                      <br />
+                      <li>Lähetät ilmoituksesi komentopaikalle (HQ)</li>
+                      <li>HQ tulkitsee, varmistaa ja lisää RECON-feediin</li>
+                      <li> Lopputulos: Havainto tiedustelutilannekuvassa.</li>
+                    </small>
+                  </ul>
+                </>
+              }
             />
           </CardsContainer>
         </div>
@@ -82,3 +96,6 @@ export function TakUsageAndroid2() {
     </div>
   );
 }
+
+
+

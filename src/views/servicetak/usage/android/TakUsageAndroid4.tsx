@@ -42,43 +42,91 @@ export function TakUsageAndroid4() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description="ATAKissa havaintoja voi tehdä kahdella eri tavalla: <strong>Point Dropper</strong> ja <strong>Quick Pic</strong>. Point Dropperilla merkitään havainto, johon voi liittää liitteitä, ml. kuvia laitteen galleriasta. Quick Picillä otetaan kuva suoraan TAKiin ja täydennetään tietoja.
-          <br></br>
-          Toiseksi tarkastellaan <strong>Quick Pic</strong>iä."
+              description={(
+                <>
+                ATAKissa havaintoja voi tehdä kahdella eri tavalla: <strong>Point Dropper</strong> ja <strong>Quick Pic</strong>. <br /> <br /> <strong>Point Dropperilla</strong> merkitään havainto, johon voi liittää liitteitä, ml. kuvia laitteen galleriasta. <strong>Quick Picillä</strong> otetaan kuva suoraan TAKiin ja täydennetään tietoja.
+                    <br />
+                    <br />
+                Tarkastellaan toiseksi Point Dropperia.
+               </>)}
+
               imageSrc={pic1}
               imageClasses="m-3 w-[300px]"
-              description2="Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse <strong>Quick Pic</strong> (kameran kuvake)."
+
+              description2={(
+                <>
+                Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse <strong>Quick Pic</strong> (kameran kuvake).
+                </>
+              )}
             />
             <GuideSection
               number="2."
-              description="Kamera avautuu. Ota kuva ja hyväksy se."
+
+              description={(
+                <>
+                Kamera avautuu. Ota kuva ja hyväksy se.
+                </>
+              )}
+
               imageSrc={pic2}
               imageClasses="m-3 pl-10 w-[200px]"
             />
             <GuideSection
               number="3."
-              description="Täppää kartalle tullutta havaintoa, jolloin se muuttuu aktiiviseksi ja ympyrävalikko aukeaa."
+              description={(
+                <>
+                Täppää kartalle tullutta havaintoa, jolloin se muuttuu aktiiviseksi ja ympyrävalikko aukeaa.
+                </>
+              )}
+
               imageSrc={pic3}
               imageClasses="m-3 w-[300px]"
-              description2="<strong>Muokkaa</strong> merkin tietoja painamalla ympyrävalikossa roskakorin oikealla puolella olevaa <strong>edit</strong>-kuvaketta."
-              description3="Kuvan yläpuolella oikealla on <strong>Edit caption</strong>-symboli <strong>(kynä)</strong>. Paina sitä syöttääksesi tekstiä."
+
+              description2={(
+              <>
+              <strong>Muokkaa</strong> merkin tietoja painamalla ympyrävalikossa roskakorin oikealla puolella olevaa <strong>edit</strong>-kuvaketta.
+              </>
+              )}
+
+              description3={(
+                <>
+                Kuvan yläpuolella oikealla on <strong>Edit caption</strong>-symboli <strong>(kynä)</strong>. Paina sitä syöttääksesi tekstiä.
+              </>
+              )}
               image2Src={pic4}
               image2Classes="m-3 w-[300px]"
-              description4="Syötä tekstiä."
+              description4={(
+                <>
+                Syötä tekstiä.
+                </>
+              )}
               image3Src={pic5}
               image3Classes="m-3 w-[300px]"
             />
             <GuideSection
               number="3."
-              description="Kun olet täydentänyt tiedot, lähetä se <strong>Send</strong>-napilla HQ:lle (Send oikeassa alakulmassa)."
+              description={(
+                <>
+                Kun olet täydentänyt tiedot, lähetä se <strong>Send</strong>-napilla HQ:lle (Send oikeassa alakulmassa).
+                </>
+              )}
               imageSrc={pic6}
               imageClasses="m-3 w-[300px]"
-              description2="Valitse aukeavasta valikosta <strong>Contact</strong>. "
+              description2={(
+                <>
+                Valitse aukeavasta valikosta <strong>Contact</strong>.
+                </>
+              )}
               image2Src={pic7}
               image2Classes="m-3 w-[300px]"
-              description3="Valitse vastaanottajaksi <strong>HQ</strong> ja lähetä.
-          <br></br>
-          Hienoa! Tunnet nyt ATAK-sovelluksen käytön perustoimintamallin mukaisesti."
+              description3={(
+                <>
+                Valitse vastaanottajaksi <strong>HQ</strong> ja lähetä.    
+              <br />
+              <br />
+              Hienoa! Tunnet nyt ATAK-sovelluksen käytön perustoimintamallin mukaisesti.
+          </>
+              )}
             />
           </CardsContainer>
         </div>

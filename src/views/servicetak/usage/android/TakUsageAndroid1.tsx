@@ -42,43 +42,43 @@ export function TakUsageAndroid1() {
         <CardsContainer>
           <GuideSection
             number="1."
-            description="<strong>Navigaationapit</strong> ovat vasemmassa yläkulmassa:"
+            description={<span><strong>Navigaationapit</strong> ovat vasemmassa yläkulmassa:</span>}
             imageSrc={pic27}
             imageClasses="m-3 w-[300px]"
           />
           <GuideSection
             number="2."
-            description="Liikuta karttapohjaa <strong>sormella.</strong>"
+            description={<span>Liikuta karttapohjaa <strong>sormella.</strong></span>}
             imageSrc={frame}
             imageClasses="align-right w-[50px]"
           />
           <GuideSection
             number="3."
-            description="Zoomaa karttaa <strong>nipistysotteella.</strong>"
+            description={<span>Zoomaa karttaa <strong>nipistysotteella.</strong></span>}
             imageSrc={frame1}
             imageClasses="align-right w-[35px]"
           />
           <GuideSection
             number="4."
-            description="Käännä karttapohjaa <strong>kahdella sormella.</strong>"
+            description={<span>Käännä karttapohjaa <strong>kahdella sormella.</strong></span>}
             imageSrc={frame2}
             imageClasses="align-right w-[50px]"
           />
           <GuideSection
             number="5."
-            description="Oma sijaintisi näkyy <strong>nuolenpäänä.</strong>"
+            description={<span>Oma sijaintisi näkyy <strong>nuolenpäänä.</strong></span>}
             imageSrc={frame3}
             imageClasses="align-right w-[40px]"
           />
           <GuideSection
             number="6."
-            description="Muiden käyttäjien peitenimet alkavat näkyä zoomatessa."
+            description={<span>Muiden käyttäjien peitenimet alkavat näkyä zoomatessa.</span>}
             imageSrc={frame4}
             imageClasses="align-right w-[50px]"
           />
           <GuideSection
             number="7."
-            description="Muiden käyttäjien pallokuvakkeen väri kuvaa joukkueen väriä (tai muuta käskettyä merkitystä)."
+            description={<span>Muiden käyttäjien pallokuvakkeen väri kuvaa joukkueen väriä (tai muuta käskettyä merkitystä).</span>}
             imageSrc={frame5}
             imageClasses="align-right w-[50px]"
             image2Src={pic28}
@@ -93,3 +93,4 @@ export function TakUsageAndroid1() {
     </div>
   );
 }
+
