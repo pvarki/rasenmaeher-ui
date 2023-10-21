@@ -20,10 +20,17 @@ export function ServiceTakQuickstartView() {
         <CardsContainer>
           <ServiceInfoCard
             title="Ota TAK käyttöön!"
-            details={<>Valitse käyttöönotto-ohje laitteesi mukaan. 
-            <br/>
-            <span>Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.</span>
-            </>}
+            details={
+              <>
+                Valitse käyttöönotto-ohje laitteesi mukaan.
+                <br />
+                <span>
+                  Helpoin tapa tehdä käyttöönotto on{" "}
+                  <strong>parin kanssa</strong> siten, että toinen taistelija
+                  näyttää ohjetta ja toinen tekee.
+                </span>
+              </>
+            }
           ></ServiceInfoCard>
 
           <Card

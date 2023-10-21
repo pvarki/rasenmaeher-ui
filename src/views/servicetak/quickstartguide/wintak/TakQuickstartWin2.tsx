@@ -41,7 +41,8 @@ export function TakQuickstartWin2() {
                     href="https://arkipublic.blob.core.windows.net/ohjelmistot/WinTAK-CIV-latest.zip"
                     style={{ color: "SteelBlue", textDecoration: "underline" }}
                   >
-                    WinTAK - Lataa tästä WinTAK Puolustusvoimien jakelupisteestä.
+                    WinTAK - Lataa tästä WinTAK Puolustusvoimien
+                    jakelupisteestä.
                   </a>
                 </>
               }
@@ -61,16 +62,16 @@ export function TakQuickstartWin2() {
               imageClasses="mx-auto pr-5 w-[300px] p-4"
               description2={
                 <>
-                  Paina <strong>Next</strong>. Valitse sovelluksen asennuskansio.
+                  Paina <strong>Next</strong>. Valitse sovelluksen
+                  asennuskansio.
                 </>
               }
               image2Src={pic11}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
               description3={
                 <>
-                  Vaihda halutessasi asennuskansiota{" "}
-                  <strong>Browse</strong>-napin kautta. Paina{" "}
-                  <strong>Next</strong>.
+                  Vaihda halutessasi asennuskansiota <strong>Browse</strong>
+                  -napin kautta. Paina <strong>Next</strong>.
                 </>
               }
             />
@@ -123,5 +124,3 @@ export function TakQuickstartWin2() {
     </div>
   );
 }
-
-

@@ -24,7 +24,8 @@ export function TakQuickstartIos4() {
               number="1."
               description={
                 <>
-                  Avaa jälleen <strong>Asetukset</strong> vasemman yläkulman hammasrataskuvakkeesta.
+                  Avaa jälleen <strong>Asetukset</strong> vasemman yläkulman
+                  hammasrataskuvakkeesta.
                 </>
               }
               imageSrc={pic21}
@@ -47,7 +48,8 @@ export function TakQuickstartIos4() {
               }
               description2={
                 <>
-                  Valitse Coordinate Formatiksi <strong>MGRS</strong>, ja Distance Formatiksi <strong>Meters</strong>.
+                  Valitse Coordinate Formatiksi <strong>MGRS</strong>, ja
+                  Distance Formatiksi <strong>Meters</strong>.
                   <br />
                 </>
               }
@@ -58,7 +60,8 @@ export function TakQuickstartIos4() {
               number="3."
               description={
                 <>
-                  Halutessasi vaihda karttapohja Settings-päävalikosta painamalla <strong>Map Sourcea</strong>.
+                  Halutessasi vaihda karttapohja Settings-päävalikosta
+                  painamalla <strong>Map Sourcea</strong>.
                 </>
               }
               imageSrc={pic21}
@@ -70,7 +73,12 @@ export function TakQuickstartIos4() {
                 <>
                   Hienoa! Olet nyt asettanut iTAKin käyttökuntoon.
                   <br />
-                  <em><small>Mikäli sinun tarvitsee tehdä muutoksia peitenimeesi, onnistuu se Settings-valikosta klikkaamalla peitenimeäsi.</small></em>
+                  <em>
+                    <small>
+                      Mikäli sinun tarvitsee tehdä muutoksia peitenimeesi,
+                      onnistuu se Settings-valikosta klikkaamalla peitenimeäsi.
+                    </small>
+                  </em>
                 </>
               }
             />
@@ -85,4 +93,3 @@ export function TakQuickstartIos4() {
     </div>
   );
 }
-

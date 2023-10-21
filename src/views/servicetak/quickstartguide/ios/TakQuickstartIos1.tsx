@@ -20,9 +20,13 @@ export function TakQuickstartIos1() {
               number="1."
               description={
                 <>
-                  Lataa sovellus <strong>iTAK</strong> App Storesta ja asenna se.
+                  Lataa sovellus <strong>iTAK</strong> App Storesta ja asenna
+                  se.
                   <br />
-                  <a href="https://apps.apple.com/us/app/itak/id1561656396" style={{ color: 'SteelBlue', textDecoration: 'underline' }}>
+                  <a
+                    href="https://apps.apple.com/us/app/itak/id1561656396"
+                    style={{ color: "SteelBlue", textDecoration: "underline" }}
+                  >
                     iTAK - Paina tästä ladataksesi App Storesta
                   </a>
                   <br />
@@ -34,7 +38,8 @@ export function TakQuickstartIos1() {
               number="2."
               description={
                 <>
-                  Lataa viestiperusteesi valmiiksi Palvelut/TAK-sivulta. Tallenna .zip-tiedosto.
+                  Lataa viestiperusteesi valmiiksi Palvelut/TAK-sivulta.
+                  Tallenna .zip-tiedosto.
                 </>
               }
               note="HUOMAA! Tiedostoa ei saa purkaa!"

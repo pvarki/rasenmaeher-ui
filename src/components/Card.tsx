@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface CardProps {
   title: React.ReactNode;
-  details?: React.ReactNode; 
+  details?: React.ReactNode;
   image?: string;
   url?: string;
   children?: ReactNode;

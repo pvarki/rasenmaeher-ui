@@ -37,7 +37,8 @@ export function TakQuickstartAndroid3() {
               number="1."
               description={
                 <>
-                  Paina oikeassa yläkulmassa olevaa <strong>kolmea viivaa</strong> (hampurilaispainike).
+                  Paina oikeassa yläkulmassa olevaa{" "}
+                  <strong>kolmea viivaa</strong> (hampurilaispainike).
                 </>
               }
               imageSrc={Settings10}
@@ -82,7 +83,9 @@ export function TakQuickstartAndroid3() {
               number="5."
               description={
                 <>
-                  Anna omaksi tunnukseksi <strong>sinulle käsketty peite,</strong> esimerkiksi <em>Rambo</em>.
+                  Anna omaksi tunnukseksi{" "}
+                  <strong>sinulle käsketty peite,</strong> esimerkiksi{" "}
+                  <em>Rambo</em>.
                 </>
               }
               imageSrc={Omapeite14}
@@ -97,7 +100,8 @@ export function TakQuickstartAndroid3() {
               number="6."
               description={
                 <>
-                  Valitse <strong>My Team</strong> ja valitse sinulle käsketty väri.
+                  Valitse <strong>My Team</strong> ja valitse sinulle käsketty
+                  väri.
                 </>
               }
               imageSrc={MyTeam15}
@@ -107,7 +111,8 @@ export function TakQuickstartAndroid3() {
               number="7."
               description={
                 <>
-                  Valitse <strong>My Role.</strong> Kaikki paitsi komentopaikka käyttävät <strong>Team Member</strong>-roolia.
+                  Valitse <strong>My Role.</strong> Kaikki paitsi komentopaikka
+                  käyttävät <strong>Team Member</strong>-roolia.
                 </>
               }
               imageSrc={MyRole16}
@@ -117,7 +122,8 @@ export function TakQuickstartAndroid3() {
               number="8."
               description={
                 <>
-                  Palaa takaisin <strong>Settings</strong>-päävalikkoon peruuttamalla.
+                  Palaa takaisin <strong>Settings</strong>-päävalikkoon
+                  peruuttamalla.
                 </>
               }
               imageSrc={Settings17}
@@ -177,7 +183,8 @@ export function TakQuickstartAndroid3() {
               number="14."
               description={
                 <>
-                  Valitse <strong>Speed Units</strong>. Valitse yksiköksi <strong>KM per Hour (kmph)</strong>
+                  Valitse <strong>Speed Units</strong>. Valitse yksiköksi{" "}
+                  <strong>KM per Hour (kmph)</strong>
                 </>
               }
               imageSrc={Speedunits24}
@@ -187,7 +194,8 @@ export function TakQuickstartAndroid3() {
               number="15."
               description={
                 <>
-                  Vieritä valikko alas kohtaan <strong>UNIT TRESHOLD</strong>. Valitse yksiköksi <strong>Meters to Kilometers.</strong>
+                  Vieritä valikko alas kohtaan <strong>UNIT TRESHOLD</strong>.
+                  Valitse yksiköksi <strong>Meters to Kilometers.</strong>
                 </>
               }
               imageSrc={Meterstokilo25}
@@ -197,15 +205,14 @@ export function TakQuickstartAndroid3() {
               number="16."
               description={
                 <>
-                  Vaihda arvoksi <strong>1000</strong>. Paina <strong>OK.</strong>
+                  Vaihda arvoksi <strong>1000</strong>. Paina{" "}
+                  <strong>OK.</strong>
                 </>
               }
               imageSrc={Meterskmunits26}
               imageClasses="m-3 w-[300px]"
               description2={
-                <>
-                  Poistu valikosta painamalla back-nappia useita kertoja.
-                </>
+                <>Poistu valikosta painamalla back-nappia useita kertoja.</>
               }
             />
           </CardsContainer>

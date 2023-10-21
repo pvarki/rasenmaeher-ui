@@ -41,71 +41,76 @@ export function TakUsageWin1() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description={(
+              description={
                 <>
-                  Jos PC:ssä ei ole GPS:ää, niin WinTAK määrittää alkupisteeksi 0-koordinatit.
+                  Jos PC:ssä ei ole GPS:ää, niin WinTAK määrittää alkupisteeksi
+                  0-koordinatit.
                 </>
-              )}
+              }
               imageSrc={pic1}
               imageClasses="mx-auto pr-12 w-[400px] p-4"
-              description2={(
+              description2={
                 <>
-                  Liikuta <strong>hiirellä</strong> karttapohjaa kohti Suomea. Voit zoomata karttaa hiiren rullalla, plus- ja miinusnäppäimillä ja ruudun painikkeilla.
+                  Liikuta <strong>hiirellä</strong> karttapohjaa kohti Suomea.
+                  Voit zoomata karttaa hiiren rullalla, plus- ja
+                  miinusnäppäimillä ja ruudun painikkeilla.
                 </>
-              )}
+              }
               image2Src={pic2}
               image2Classes="mx-auto pr-12 w-[400px] p-4"
-              description3={(
+              description3={
                 <>
-                  Klikkaa <strong>kompassikuvaketta</strong> (N) suoristaaksesi kartan.
+                  Klikkaa <strong>kompassikuvaketta</strong> (N) suoristaaksesi
+                  kartan.
                 </>
-              )}
+              }
               image3Src={pic3}
               image3Classes="mx-auto pr-12 w-[400px] p-4"
-              description4={(
+              description4={
                 <>
-                  Muut joukkosi käyttäjät näkyvät erivärisinä kuvakkeina. Kuvakkeiden väri tulee jokaisen itselleen asettamasta väristä.
+                  Muut joukkosi käyttäjät näkyvät erivärisinä kuvakkeina.
+                  Kuvakkeiden väri tulee jokaisen itselleen asettamasta väristä.
                 </>
-              )}
+              }
             />
             <GuideSection
               number="2."
-              description={(
+              description={
                 <>
-                  Määritä oma sijainti manuaalisesti, jos laitteellasi ei ole GPS:ää. Tämä tapahtuu painamalla oikean alakulman punaisen väristä tietokenttää.
+                  Määritä oma sijainti manuaalisesti, jos laitteellasi ei ole
+                  GPS:ää. Tämä tapahtuu painamalla oikean alakulman punaisen
+                  väristä tietokenttää.
                 </>
-              )}
+              }
               imageSrc={pic4}
               imageClasses="mx-auto pr-5 w-[200px] p-4"
-              description2={(
-                <>
-                  Etsi karttapohjalta oma sijainti ja klikkaa sitä.
-                </>
-              )}
+              description2={
+                <>Etsi karttapohjalta oma sijainti ja klikkaa sitä.</>
+              }
               image2Src={pic5}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description3={(
+              description3={
                 <>
-                  Tällöin oma merkkisi ilmestyy kartalle. Se tulee näkyviin myös muille käyttäjille.
+                  Tällöin oma merkkisi ilmestyy kartalle. Se tulee näkyviin myös
+                  muille käyttäjille.
                 </>
-              )}
+              }
             />
             <GuideSection
               number="3."
-              description={(
+              description={
                 <>
-                  Kun haluat muuttaa omaa sijaintiasi, klikkaa oikealla omaa merkkiäsi <strong>(nuoli)</strong>
+                  Kun haluat muuttaa omaa sijaintiasi, klikkaa oikealla omaa
+                  merkkiäsi <strong>(nuoli)</strong>
                 </>
-              )}
+              }
               imageSrc={pic6}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
               image2Src={pic7}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description2={(
-                <>
-                  Tämän jälkeen voit valita uuden sijainnin klikkaamalla.
-                </>
-              )}
+              description2={
+                <>Tämän jälkeen voit valita uuden sijainnin klikkaamalla.</>
+              }
             />
           </CardsContainer>
         </div>

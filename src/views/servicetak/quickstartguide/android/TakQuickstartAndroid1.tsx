@@ -20,22 +20,33 @@ export function TakQuickstartAndroid1() {
           <div className="flex flex-col items-center justify-center p-5">
             <GuideSection
               number="1."
-              description={(
+              description={
                 <>
                   Lataa ATAK-CIV sovellus Play Storesta ja asenna se.
                   <br />
-                  <a href="https://play.google.com/store/apps/details?id=com.atakmap.app.civ" className="text-steel-blue underline">ATAK-CIV - Paina tästä ladataksesi Google Playsta</a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.atakmap.app.civ"
+                    className="text-steel-blue underline"
+                  >
+                    ATAK-CIV - Paina tästä ladataksesi Google Playsta
+                  </a>
                   <br />
                 </>
-              )}
-              description2={(
+              }
+              description2={
                 <>
                   Tämän jälkeen lataa ATAK Data Sync-plugin, ja asenna se.
                   <br />
-                  <a href="https://play.google.com/store/apps/details?id=com.atakmap.android.datasync.plugin" className="text-steel-blue underline">ATAK Datasync Plugin - Paina tästä ladataksesi Google Playsta</a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.atakmap.android.datasync.plugin"
+                    className="text-steel-blue underline"
+                  >
+                    ATAK Datasync Plugin - Paina tästä ladataksesi Google
+                    Playsta
+                  </a>
                   <br />
                 </>
-              )}
+              }
               description3="Olet nyt ladannut tarvittavat sovellukset."
             />
             <GuideSection
@@ -48,9 +59,9 @@ export function TakQuickstartAndroid1() {
               description="Avaa sovellus. Anna kaikki oikeudet, mitä applikaatio pyytää."
               imageSrc={wait}
               imageClasses="m-3 w-[200px]"
-              description2={(
+              description2={
                 <em>Jos applikaatio antaa virheilmoituksen, valitse Wait. </em>
-              )}
+              }
             />
           </div>
         </CardsContainer>

@@ -40,25 +40,47 @@ export function TakUsageAndroid2() {
             <GuideSection
               number="1."
               imageClasses="m-3 w-[300px]"
-              description={<span>Avaa kolme viivaa-valikko (hampurilaisvalikko).</span>}
+              description={
+                <span>Avaa kolme viivaa-valikko (hampurilaisvalikko).</span>
+              }
               imageSrc={pic1}
-              description2={<span>Etsi valikosta <strong>Data Sync</strong> ja valitse se.</span>}
+              description2={
+                <span>
+                  Etsi valikosta <strong>Data Sync</strong> ja valitse se.
+                </span>
+              }
             />
             <GuideSection
               number="2."
               imageSrc={pic2}
               imageClasses="m-3 w-[300px]"
-              description={<span>Avautuu näkymä, jossa palvelimelta saatavilla olevat syötteet (feed).</span>}
-              description2={<span>Valitse ohjeistettu syöte (kuvassa <strong>RECON</strong>).</span>}
+              description={
+                <span>
+                  Avautuu näkymä, jossa palvelimelta saatavilla olevat syötteet
+                  (feed).
+                </span>
+              }
+              description2={
+                <span>
+                  Valitse ohjeistettu syöte (kuvassa <strong>RECON</strong>).
+                </span>
+              }
               image2Src={pic3}
               image2Classes="m-3 w-[300px]"
-              description3={<span>Valitse aukeavasta ikkunasta <strong> Download & Sync</strong>.</span>}
+              description3={
+                <span>
+                  Valitse aukeavasta ikkunasta <strong> Download & Sync</strong>
+                  .
+                </span>
+              }
             />
             <GuideSection
               number="3."
               description={
                 <>
-                  Varmistetaan, että Auto Download on päällä. Palaa hampurilaisvalikon päänäkymään (kolme viivaa oikealla ylhäällä).
+                  Varmistetaan, että Auto Download on päällä. Palaa
+                  hampurilaisvalikon päänäkymään (kolme viivaa oikealla
+                  ylhäällä).
                   <br />
                   <br />
                   Etsi <strong>Settings</strong>.
@@ -66,17 +88,27 @@ export function TakUsageAndroid2() {
               }
               imageSrc={pic4}
               imageClasses="m-3 w-[300px]"
-              description2={<span>Varmista avautuvasta valikosta, että <strong>Auto Download Updates</strong> on päällä.</span>}
+              description2={
+                <span>
+                  Varmista avautuvasta valikosta, että{" "}
+                  <strong>Auto Download Updates</strong> on päällä.
+                </span>
+              }
               image2Src={pic5}
               image2Classes="m-3 w-[300px]"
               description4={
                 <>
                   Nyt käytössäsi on käsketyt syötteet (feedit). <br />
-                  <span>Perusmallissa komentopaikka (HQ) tuottaa feedien sisällön joukon ilmoitusten perusteella. </span>
+                  <span>
+                    Perusmallissa komentopaikka (HQ) tuottaa feedien sisällön
+                    joukon ilmoitusten perusteella.{" "}
+                  </span>
                   <br />
                   <ul>
                     <small>
-                      HUOMAA: Tämä ohje kuvaa perustoimintamallin. Siinä RECON-feed sisältää tiedustelutilannekuvan, joka muodostuu näin:
+                      HUOMAA: Tämä ohje kuvaa perustoimintamallin. Siinä
+                      RECON-feed sisältää tiedustelutilannekuvan, joka muodostuu
+                      näin:
                       <br />
                       <li>Lähetät ilmoituksesi komentopaikalle (HQ)</li>
                       <li>HQ tulkitsee, varmistaa ja lisää RECON-feediin</li>
@@ -96,6 +128,3 @@ export function TakUsageAndroid2() {
     </div>
   );
 }
-
-
-

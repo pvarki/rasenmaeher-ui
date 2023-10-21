@@ -27,7 +27,8 @@ export function TakQuickstartAndroid4() {
               number="1."
               description={
                 <>
-                  Valitse työkalurivistä (oikea yläkulma) <strong> Kartat </strong>.
+                  Valitse työkalurivistä (oikea yläkulma){" "}
+                  <strong> Kartat </strong>.
                 </>
               }
               imageSrc={pic07}
@@ -47,14 +48,16 @@ export function TakQuickstartAndroid4() {
               number="3."
               description={
                 <>
-                  Valitse <strong>Mobile</strong> välilehdeltä <strong>02 Google Hybrid</strong> Karttapohja aktivoituu.
+                  Valitse <strong>Mobile</strong> välilehdeltä{" "}
+                  <strong>02 Google Hybrid</strong> Karttapohja aktivoituu.
                 </>
               }
               imageSrc={pic08}
               imageClasses="m-3 w-[300px]"
               description2={
                 <>
-                  Pääset pois valikosta painamalla muutamia kertoja <strong>Back</strong>-nappia.
+                  Pääset pois valikosta painamalla muutamia kertoja{" "}
+                  <strong>Back</strong>-nappia.
                 </>
               }
             />

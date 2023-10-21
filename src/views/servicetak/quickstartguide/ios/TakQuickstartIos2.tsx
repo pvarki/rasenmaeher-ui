@@ -28,7 +28,9 @@ export function TakQuickstartIos2() {
                 <>
                   Avaa <strong>iTAK</strong>-sovellus.
                   <br />
-                  Kun sovellus kysyy: <em>"iTAK haluaa etsiä lähiverkossa..."</em>, valitse <strong>Älä salli</strong>.
+                  Kun sovellus kysyy:{" "}
+                  <em>"iTAK haluaa etsiä lähiverkossa..."</em>, valitse{" "}
+                  <strong>Älä salli</strong>.
                 </>
               }
               imageSrc={pic1}
@@ -45,7 +47,8 @@ export function TakQuickstartIos2() {
               imageClasses="mx-auto pr-5 w-[240px] p-4"
               description2={
                 <>
-                  Anna <strong>Callsign-kenttään</strong> oma peitteesi, esimerkiksi <em>Rambo</em>.
+                  Anna <strong>Callsign-kenttään</strong> oma peitteesi,
+                  esimerkiksi <em>Rambo</em>.
                   <br />
                   Phone-kenttää <strong>ei täytetä</strong>
                   <br />
@@ -64,11 +67,16 @@ export function TakQuickstartIos2() {
               imageClasses="mx-auto pr-5 w-[240px] p-4"
               description2={
                 <>
-                  Valitse <strong>Select Team</strong>-kenttään rullavalikosta joukkosi (käsketty) väri.
+                  Valitse <strong>Select Team</strong>-kenttään rullavalikosta
+                  joukkosi (käsketty) väri.
                   <br />
-                  Valitse <strong>Select Team Role</strong>-kenttään rullavalikosta rooli <strong>Team Member</strong>, ellei muuta ole käsketty.
+                  Valitse <strong>Select Team Role</strong>-kenttään
+                  rullavalikosta rooli <strong>Team Member</strong>, ellei muuta
+                  ole käsketty.
                   <br />
-                  <small><em>Komentopaikkakäyttäjät asettavat roolin HQ.</em></small>
+                  <small>
+                    <em>Komentopaikkakäyttäjät asettavat roolin HQ.</em>
+                  </small>
                   <br />
                   Paina lopuksi <strong>Next.</strong>
                 </>
@@ -78,14 +86,17 @@ export function TakQuickstartIos2() {
               number="4."
               description={
                 <>
-                  Aseta <strong>Privacy Settings</strong> sallimaan ilmoitukset (notifications) ja sijainnin (location services).
+                  Aseta <strong>Privacy Settings</strong> sallimaan ilmoitukset
+                  (notifications) ja sijainnin (location services).
                 </>
               }
               imageSrc={pic4}
               imageClasses="mx-auto pr-5 w-[240px] p-4"
               description2={
                 <>
-                  iOS kysyy tämän jälkeen, sallitko iTAKin lähettävän sinulle <strong>ilmoituksia</strong> ja <strong>käyttää sijaintiasi</strong>.
+                  iOS kysyy tämän jälkeen, sallitko iTAKin lähettävän sinulle{" "}
+                  <strong>ilmoituksia</strong> ja{" "}
+                  <strong>käyttää sijaintiasi</strong>.
                   <br />
                   <br />
                   Valitse ilmoituksiin <strong>Salli</strong>.
@@ -95,15 +106,12 @@ export function TakQuickstartIos2() {
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description3={
                 <>
-                Valitse sijaintiin <strong>Salli käytettäessä</strong>.
-                </>}
-              image3Src={pic7}
-              image3Classes="mx-auto pr-5 w-[240px] p-4"
-              description4={
-                <>
-                Tämän jälkeen muodostetaan palvelinyhteys.
+                  Valitse sijaintiin <strong>Salli käytettäessä</strong>.
                 </>
               }
+              image3Src={pic7}
+              image3Classes="mx-auto pr-5 w-[240px] p-4"
+              description4={<>Tämän jälkeen muodostetaan palvelinyhteys.</>}
             />
           </CardsContainer>
         </div>

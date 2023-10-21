@@ -42,43 +42,72 @@ export function TakUsageAndroid1() {
         <CardsContainer>
           <GuideSection
             number="1."
-            description={<span><strong>Navigaationapit</strong> ovat vasemmassa yläkulmassa:</span>}
+            description={
+              <span>
+                <strong>Navigaationapit</strong> ovat vasemmassa yläkulmassa:
+              </span>
+            }
             imageSrc={pic27}
             imageClasses="m-3 w-[300px]"
           />
           <GuideSection
             number="2."
-            description={<span>Liikuta karttapohjaa <strong>sormella.</strong></span>}
+            description={
+              <span>
+                Liikuta karttapohjaa <strong>sormella.</strong>
+              </span>
+            }
             imageSrc={frame}
             imageClasses="align-right w-[50px]"
           />
           <GuideSection
             number="3."
-            description={<span>Zoomaa karttaa <strong>nipistysotteella.</strong></span>}
+            description={
+              <span>
+                Zoomaa karttaa <strong>nipistysotteella.</strong>
+              </span>
+            }
             imageSrc={frame1}
             imageClasses="align-right w-[35px]"
           />
           <GuideSection
             number="4."
-            description={<span>Käännä karttapohjaa <strong>kahdella sormella.</strong></span>}
+            description={
+              <span>
+                Käännä karttapohjaa <strong>kahdella sormella.</strong>
+              </span>
+            }
             imageSrc={frame2}
             imageClasses="align-right w-[50px]"
           />
           <GuideSection
             number="5."
-            description={<span>Oma sijaintisi näkyy <strong>nuolenpäänä.</strong></span>}
+            description={
+              <span>
+                Oma sijaintisi näkyy <strong>nuolenpäänä.</strong>
+              </span>
+            }
             imageSrc={frame3}
             imageClasses="align-right w-[40px]"
           />
           <GuideSection
             number="6."
-            description={<span>Muiden käyttäjien peitenimet alkavat näkyä zoomatessa.</span>}
+            description={
+              <span>
+                Muiden käyttäjien peitenimet alkavat näkyä zoomatessa.
+              </span>
+            }
             imageSrc={frame4}
             imageClasses="align-right w-[50px]"
           />
           <GuideSection
             number="7."
-            description={<span>Muiden käyttäjien pallokuvakkeen väri kuvaa joukkueen väriä (tai muuta käskettyä merkitystä).</span>}
+            description={
+              <span>
+                Muiden käyttäjien pallokuvakkeen väri kuvaa joukkueen väriä (tai
+                muuta käskettyä merkitystä).
+              </span>
+            }
             imageSrc={frame5}
             imageClasses="align-right w-[50px]"
             image2Src={pic28}
@@ -93,4 +122,3 @@ export function TakUsageAndroid1() {
     </div>
   );
 }
-

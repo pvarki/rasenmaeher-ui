@@ -30,7 +30,13 @@ export function TakQuickstartWin3() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description={<><span>Avaa <strong>WinTAK</strong>-sovellus työpöydältä.</span></>}
+              description={
+                <>
+                  <span>
+                    Avaa <strong>WinTAK</strong>-sovellus työpöydältä.
+                  </span>
+                </>
+              }
               imageSrc={pic14}
               imageClasses="mx-auto pr-5 w-[90px] p-4"
             />
@@ -40,7 +46,6 @@ export function TakQuickstartWin3() {
                 <>
                   Hetken kuluttua aukaa <strong>Device Setup Wizard</strong>.
                   <br />
-                  
                   Sen ensimmäisenä askeleena hyväksy <strong>EULA.</strong>
                 </>
               }
@@ -61,21 +66,27 @@ export function TakQuickstartWin3() {
               imageClasses="mx-auto pr-5 w-[300px] p-4"
               description2={
                 <>
-                  Tämä tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>. <br/><br/>Osoita sovellukselle paketti latauskansiostasi/muualta.
+                  Tämä tarkoittaa viestiperustepakettiasi{" "}
+                  <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>.{" "}
+                  <br />
+                  <br />
+                  Osoita sovellukselle paketti latauskansiostasi/muualta.
                 </>
               }
               image2Src={pic18}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
               description3={
                 <>
-                  Kun olet valinnut paketin ja painanut Open, aukeaa <strong>Select Import Strategy</strong>.
+                  Kun olet valinnut paketin ja painanut Open, aukeaa{" "}
+                  <strong>Select Import Strategy</strong>.
                 </>
               }
               image3Src={pic19}
               image3Classes="mx-auto pr-5 w-[300px] p-4"
               description4={
                 <>
-                  Valitse <strong>UserPreferenceImportStrategy</strong>, ja paina OK.
+                  Valitse <strong>UserPreferenceImportStrategy</strong>, ja
+                  paina OK.
                 </>
               }
             />
@@ -90,7 +101,8 @@ export function TakQuickstartWin3() {
               imageClasses="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
-                  Valitse haluamasi karttapohja. Huomaa, että karttapohjaa voi vaihtaa myöhemmin.
+                  Valitse haluamasi karttapohja. Huomaa, että karttapohjaa voi
+                  vaihtaa myöhemmin.
                 </>
               }
             />
@@ -98,24 +110,28 @@ export function TakQuickstartWin3() {
               number="5."
               description={
                 <>
-                  Device Setup Wizard kysyy, haluatko määrittää peitenimesi (Callsign).
+                  Device Setup Wizard kysyy, haluatko määrittää peitenimesi
+                  (Callsign).
                 </>
               }
               imageSrc={pic21}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
-                  Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
+                  Valitse <strong>Yes</strong> ja anna sinulle käsketty
+                  peitenimi.
                   <br />
                   <br />
-                  Sovellus kysyy ylimääräisiä WMS (kartta)-palvelulähteitä. Näitä ei tarvita, tyhjennä ruudut ja paina OK.
+                  Sovellus kysyy ylimääräisiä WMS (kartta)-palvelulähteitä.
+                  Näitä ei tarvita, tyhjennä ruudut ja paina OK.
                 </>
               }
               image2Src={pic23}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description3={
                 <>
-                  Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
+                  Valitse <strong>Yes</strong> ja anna sinulle käsketty
+                  peitenimi.
                 </>
               }
             />
@@ -123,21 +139,24 @@ export function TakQuickstartWin3() {
               number="6."
               description={
                 <>
-                  Sovellus kysyy, asennetaako plugineja. Valitse <strong>DataSync</strong> ja paina OK.
+                  Sovellus kysyy, asennetaako plugineja. Valitse{" "}
+                  <strong>DataSync</strong> ja paina OK.
                 </>
               }
               imageSrc={pic24}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
-                  Seuraavaksi sovellus kysyy, ladataanko automaattisesti DTED-0-korkeusmallit. Paina <strong>Yes</strong>.
+                  Seuraavaksi sovellus kysyy, ladataanko automaattisesti
+                  DTED-0-korkeusmallit. Paina <strong>Yes</strong>.
                 </>
               }
               image2Src={pic25}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description3={
                 <>
-                  Valitse <strong>Yes</strong> ja anna sinulle käsketty peitenimi.
+                  Valitse <strong>Yes</strong> ja anna sinulle käsketty
+                  peitenimi.
                 </>
               }
             />
@@ -145,29 +164,33 @@ export function TakQuickstartWin3() {
               number="7."
               description={
                 <>
-                  Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä My Preferences.
+                  Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä My
+                  Preferences.
                 </>
               }
               imageSrc={pic26}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
-                  Peite (<strong>Callsign</strong>), joukon väri (<strong>My Team</strong>) ja rooli (<strong>My Role</strong>) tulee olla käsketyt. <strong>My Display Type</strong> on Ground.
+                  Peite (<strong>Callsign</strong>), joukon väri (
+                  <strong>My Team</strong>) ja rooli (<strong>My Role</strong>)
+                  tulee olla käsketyt. <strong>My Display Type</strong> on
+                  Ground.
                   <br />
                   <br />
-                  Tarkista <strong>TAK Network Status.</strong> Vihreä pilvi tarkoittaa, että palvelinyhteys on OK, punainen, että yhteys on poikki.
+                  Tarkista <strong>TAK Network Status.</strong> Vihreä pilvi
+                  tarkoittaa, että palvelinyhteys on OK, punainen, että yhteys
+                  on poikki.
                 </>
               }
-              note={
-                <>
-                  Komentopaikkakäyttäjänä roolisi tulee olla HQ.
-                </>
-              }
+              note={<>Komentopaikkakäyttäjänä roolisi tulee olla HQ.</>}
               image2Src={pic27}
               image2Classes="mx-auto pr-10 w-[200px] p-4"
               description3={
                 <>
-                  Jos yhteys ei ole muodostunut, tarkista ensin, onko internetyhteytesi kunnossa. Jos on, ja TAK Network Status on silti punainen, käynnistä sovellus uudelleen.
+                  Jos yhteys ei ole muodostunut, tarkista ensin, onko
+                  internetyhteytesi kunnossa. Jos on, ja TAK Network Status on
+                  silti punainen, käynnistä sovellus uudelleen.
                   <br />
                   <br />
                   Vianselvitysapua on tämän ohjeen lopussa.

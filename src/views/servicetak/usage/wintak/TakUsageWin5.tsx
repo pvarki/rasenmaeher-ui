@@ -33,36 +33,51 @@ export function TakUsageWin5() {
           <CardsContainer>
             <GuideSection
               number="1."
-              description={<>
-              Palauta WinTAK tehdasasetuksille seuraavasti.
-              <br/>
-              <br/>Paina kolme päällekkäistä viivaa -symbolia (hampurilaisvalikko) vasemmassa yläkulmassa.
-              </>}
+              description={
+                <>
+                  Palauta WinTAK tehdasasetuksille seuraavasti.
+                  <br />
+                  <br />
+                  Paina kolme päällekkäistä viivaa -symbolia
+                  (hampurilaisvalikko) vasemmassa yläkulmassa.
+                </>
+              }
               imageSrc={pic61}
               imageClasses="mx-auto pr-10 w-[200px] p-4"
-              description2={<>
-              Paina <strong>Roskakori</strong>-kuvaketta (<strong>Clear Content)</strong>.
-              </>}
+              description2={
+                <>
+                  Paina <strong>Roskakori</strong>-kuvaketta (
+                  <strong>Clear Content)</strong>.
+                </>
+              }
             />
 
             <GuideSection
               number="2."
-              description={<>
-              Tee Clear Content-valikossa kuvan mukaiset valinnat:
-              </>}
+              description={
+                <>Tee Clear Content-valikossa kuvan mukaiset valinnat:</>
+              }
               imageSrc={pic62}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
-              description2={<>
-              <strong>Clear Now</strong>-nappi ilmestyy, kun <strong>OFF-</strong>kytkimet on vedetty Locked-asentoon.
-              </>}
+              description2={
+                <>
+                  <strong>Clear Now</strong>-nappi ilmestyy, kun{" "}
+                  <strong>OFF-</strong>kytkimet on vedetty Locked-asentoon.
+                </>
+              }
               image2Src={pic63}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description3={<>
-              Paina <strong>Clear Now!</strong>.
-              </>}
-              note3={<>
-              Muista poistaa laitteelta käsin viestiperustepakettisi <em>Nimi.zip</em>.
-              </>}
+              description3={
+                <>
+                  Paina <strong>Clear Now!</strong>.
+                </>
+              }
+              note3={
+                <>
+                  Muista poistaa laitteelta käsin viestiperustepakettisi{" "}
+                  <em>Nimi.zip</em>.
+                </>
+              }
             />
           </CardsContainer>
         </div>

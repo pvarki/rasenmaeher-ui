@@ -26,98 +26,156 @@ export function TakUsageAndroid3() {
         backUrl="/app/services/tak/Usage"
       >
         <CardsContainer>
-          <UnfoldableCard title="Sisältö" styling="bg-background" initialOpen={false}>
+          <UnfoldableCard
+            title="Sisältö"
+            styling="bg-background"
+            initialOpen={false}
+          >
             <ServiceTakUsageContents />
           </UnfoldableCard>
         </CardsContainer>
 
-        <StatusBar title="Tee havaintoja merkein: Point Dropper" progressMax={4} progressNow={3} />
+        <StatusBar
+          title="Tee havaintoja merkein: Point Dropper"
+          progressMax={4}
+          progressNow={3}
+        />
 
         <div className="flex justify-center items-center w-full">
           <CardsContainer>
             <>
               <GuideSection
                 number="1."
-                description={(
+                description={
                   <>
-                    ATAKissa havaintoja voi tehdä kahdella eri tavalla: <strong>Point Dropper</strong> ja <strong>Quick Pic</strong>. <br /> <br /> <strong>Point Dropperilla</strong> merkitään havainto, johon voi liittää liitteitä, ml. kuvia laitteen galleriasta. <strong>Quick Picillä</strong> otetaan kuva suoraan TAKiin ja täydennetään tietoja.
+                    ATAKissa havaintoja voi tehdä kahdella eri tavalla:{" "}
+                    <strong>Point Dropper</strong> ja <strong>Quick Pic</strong>
+                    . <br /> <br /> <strong>Point Dropperilla</strong> merkitään
+                    havainto, johon voi liittää liitteitä, ml. kuvia laitteen
+                    galleriasta. <strong>Quick Picillä</strong> otetaan kuva
+                    suoraan TAKiin ja täydennetään tietoja.
                     <br />
                     <br />
                     Tarkastellaan ensin Point Dropperia.
                   </>
-                )}
+                }
                 imageSrc={pic1}
                 imageClasses="m-3 w-[300px]"
-                description2={(
+                description2={
                   <>
-                    Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse <strong>Point Dropper</strong>.
+                    Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse{" "}
+                    <strong>Point Dropper</strong>.
                     <br />
                     <br />
-                    Tai paina haluamaasi kohtaa kartalla pitkään ja valitse Point Dropperin symboli avautuvasta ympyrävalikosta.
+                    Tai paina haluamaasi kohtaa kartalla pitkään ja valitse
+                    Point Dropperin symboli avautuvasta ympyrävalikosta.
                   </>
-                )}
+                }
               />
 
               <GuideSection
                 number="2."
-                description={(<>Valitse lisättävän merkin tyyppi: havainto <strong>keltainen</strong> merkki.</>)}
+                description={
+                  <>
+                    Valitse lisättävän merkin tyyppi: havainto{" "}
+                    <strong>keltainen</strong> merkki.
+                  </>
+                }
                 imageSrc={pic3}
                 imageClasses="m-3 w-[300px]"
-                description2={(
+                description2={
                   <>
-                    Jos valitsit Point Dropperin hampurilaisvalikosta, täppää karttaa valitaksesi havainnolle sijainnin.
+                    Jos valitsit Point Dropperin hampurilaisvalikosta, täppää
+                    karttaa valitaksesi havainnolle sijainnin.
                     <br />
                     <br />
                     Havaintomerkki ilmestyy kartalle.
                   </>
-                )}
+                }
                 image2Src={pic31}
                 image2Classes="m-3 w-[300px]"
               />
 
               <GuideSection
                 number="3."
-                description={(<>Poista valinta merkistä täppäämällä karttaa. Täppää merkkiä uudelleen, jotta ympyrävalikko aukeaa.</>)}
+                description={
+                  <>
+                    Poista valinta merkistä täppäämällä karttaa. Täppää merkkiä
+                    uudelleen, jotta ympyrävalikko aukeaa.
+                  </>
+                }
                 imageSrc={pic4}
                 imageClasses="m-3 w-[300px]"
-                description2={(<>Muokkaa merkin tietoja painamalla ympyrävalikossa roskakorin oikealla puolella olevaa <strong>edit</strong>-kuvaketta.</>)}
-                description3={(
+                description2={
                   <>
-                    Aukeaa Havainnon tiedot-näkymä. Kelaa sen pohjalle. Alimmaisena on kenttä <strong>Remarks</strong>, jonne voi syöttää tekstiä painamalla <strong>kynäsymbolia</strong>.
+                    Muokkaa merkin tietoja painamalla ympyrävalikossa roskakorin
+                    oikealla puolella olevaa <strong>edit</strong>-kuvaketta.
                   </>
-                )}
+                }
+                description3={
+                  <>
+                    Aukeaa Havainnon tiedot-näkymä. Kelaa sen pohjalle.
+                    Alimmaisena on kenttä <strong>Remarks</strong>, jonne voi
+                    syöttää tekstiä painamalla <strong>kynäsymbolia</strong>.
+                  </>
+                }
                 image2Src={pic5}
                 image2Classes="m-3 w-[300px]"
-                description4={(<>Syötä tekstiä.</>)}
+                description4={<>Syötä tekstiä.</>}
                 image3Src={pic6}
                 image3Classes="m-3 w-[300px]"
               />
 
               <GuideSection
                 number="3."
-                description={(<>Samassa Havainnon tiedot -valikossa painamalla <strong>klemmari</strong>-kuvaketta näet havainnon liitteet.</>)}
+                description={
+                  <>
+                    Samassa Havainnon tiedot -valikossa painamalla{" "}
+                    <strong>klemmari</strong>-kuvaketta näet havainnon liitteet.
+                  </>
+                }
                 imageSrc={pic7}
                 imageClasses="m-3 w-[300px]"
-                description2={(<>Lisää uusia liitteitä painamalla <strong>+</strong> -kuvaketta valikon ylärivistä:</>)}
+                description2={
+                  <>
+                    Lisää uusia liitteitä painamalla <strong>+</strong>{" "}
+                    -kuvaketta valikon ylärivistä:
+                  </>
+                }
                 image2Src={pic8}
                 image2Classes="m-3 w-[300px]"
-                description3={(<>Valitse haluamasi liitetyyppi.</>)}
+                description3={<>Valitse haluamasi liitetyyppi.</>}
               />
 
               <GuideSection
                 number="4."
-                description={(<>Kun olet täydentänyt havainnon tiedot, lähetä se <strong>Send</strong>-napilla HQ:lle:</>)}
+                description={
+                  <>
+                    Kun olet täydentänyt havainnon tiedot, lähetä se{" "}
+                    <strong>Send</strong>-napilla HQ:lle:
+                  </>
+                }
                 imageSrc={pic9}
                 imageClasses="m-3 w-[300px]"
-                description2={(
+                description2={
                   <>
-                    Tämän ohjeen opastaman perusmallin mukaisesti lähettämällä HQ:lle, HQ-käyttäjät (komentopaikalla) vastaanottavat merkin.
+                    Tämän ohjeen opastaman perusmallin mukaisesti lähettämällä
+                    HQ:lle, HQ-käyttäjät (komentopaikalla) vastaanottavat
+                    merkin.
                     <br />
-                    Tämän jälkeen komentopaikka <strong>vahvistaa ja tulkitsee</strong> ilmoituksen, ja lisää sen <strong>RECON-feediin</strong>. Havainto tulee näin osaksi joukon tiedustelutilannekuvaa.
+                    Tämän jälkeen komentopaikka{" "}
+                    <strong>vahvistaa ja tulkitsee</strong> ilmoituksen, ja
+                    lisää sen <strong>RECON-feediin</strong>. Havainto tulee
+                    näin osaksi joukon tiedustelutilannekuvaa.
                     <br />
                   </>
-                )}
-                note2={(<>Muista, että merkki ei ole koskaan riittävä ilmoitus. Varmenna lähettämällä käsketyllä tavalla sanoma.</>)}
+                }
+                note2={
+                  <>
+                    Muista, että merkki ei ole koskaan riittävä ilmoitus.
+                    Varmenna lähettämällä käsketyllä tavalla sanoma.
+                  </>
+                }
               />
             </>
           </CardsContainer>
@@ -131,4 +189,3 @@ export function TakUsageAndroid3() {
     </div>
   );
 }
-

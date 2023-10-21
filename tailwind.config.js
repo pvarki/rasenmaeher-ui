@@ -8,14 +8,14 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       utilities: {
-        '.strong2': {
-          fontWeight: 'bold',
+        ".strong2": {
+          fontWeight: "bold",
         },
       },
       colors: {
         background: "#222",
         backgroundLight: "#333",
-        textLight:"#E4E4E4",
+        textLight: "#E4E4E4",
         primary: {
           DEFAULT: "#42687D",
           200: "#A2BBCB",
@@ -48,31 +48,29 @@ module.exports = {
           900: "#653C48",
         },
       },
-      typography: /** @type {any} */(theme) => ({
+      typography: /** @type {any} */ (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.textLight'),
+            color: theme("colors.textLight"),
             a: {
-              color: theme('colors.primary.DEFAULT'),
-              '&:hover': {
-                color: theme('colors.primary.500'),
+              color: theme("colors.primary.DEFAULT"),
+              "&:hover": {
+                color: theme("colors.primary.500"),
               },
             },
             h3: {
-              color: theme('colors.textLight'),
+              color: theme("colors.textLight"),
             },
             strong: {
-              color: theme('colors.success.DEFAULT'),
+              color: theme("colors.success.DEFAULT"),
             },
             strong2: {
-              fontWeight: 'bold',
+              fontWeight: "bold",
             },
           },
         },
       }),
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };

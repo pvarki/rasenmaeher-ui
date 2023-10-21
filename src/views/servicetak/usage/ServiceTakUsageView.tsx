@@ -26,12 +26,17 @@ export function ServiceTakUsageView() {
           <CardsContainer>
             <ServiceInfoCard
               title="TAK - Käyttö joukossa"
-              details={<>
-              Ota TAK perusmallin mukaiseen käyttöön kullekin alustalle alla olevien ohjeiden avulla.
-              <br/>
-              <br/>
-              Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.
-              </>}
+              details={
+                <>
+                  Ota TAK perusmallin mukaiseen käyttöön kullekin alustalle alla
+                  olevien ohjeiden avulla.
+                  <br />
+                  <br />
+                  Helpoin tapa tehdä käyttöönotto on{" "}
+                  <strong>parin kanssa</strong> siten, että toinen taistelija
+                  näyttää ohjetta ja toinen tekee.
+                </>
+              }
             ></ServiceInfoCard>
           </CardsContainer>
 

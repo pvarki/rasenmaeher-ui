@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface GuideSectionProps {
   number?: string;
@@ -23,7 +23,6 @@ interface GuideSectionProps {
   description4?: React.ReactNode;
 }
 
-
 export function GuideSection(props: GuideSectionProps) {
   const defaultImageClasses =
     "object-cover object-center w-[135px] bg-blend-normal border shrink-0 mt-2.5 rounded-md border-solid border-neutral-400";
@@ -31,7 +30,7 @@ export function GuideSection(props: GuideSectionProps) {
   const renderImage = (
     imageSrc: string,
     imageLink: string,
-    imageClasses: string
+    imageClasses: string,
   ) => (
     <a href={imageLink} target="_blank" rel="noopener noreferrer">
       <img loading="lazy" src={imageSrc} className={imageClasses} alt="Image" />
@@ -39,16 +38,11 @@ export function GuideSection(props: GuideSectionProps) {
   );
 
   const renderDescription = (description?: React.ReactNode) => (
-    <div className="prose prose-white max-w-none">
-      {description}
-    </div>
-);
-
+    <div className="prose prose-white max-w-none">{description}</div>
+  );
 
   const renderNote = (note?: React.ReactNode) => (
-    <div className="prose prose-white max-w-none text-red-400 mt-2">
-      {note}
-    </div>
+    <div className="prose prose-white max-w-none text-red-400 mt-2">{note}</div>
   );
 
   return (
@@ -65,7 +59,7 @@ export function GuideSection(props: GuideSectionProps) {
           renderImage(
             props.imageSrc,
             props.imageLink || "#",
-            props.imageClasses || defaultImageClasses
+            props.imageClasses || defaultImageClasses,
           )}
         {renderNote(props.note)}
 
@@ -74,7 +68,7 @@ export function GuideSection(props: GuideSectionProps) {
           renderImage(
             props.image2Src,
             props.image2Link || "#",
-            props.image2Classes || defaultImageClasses
+            props.image2Classes || defaultImageClasses,
           )}
         {renderNote(props.note2)}
 
@@ -83,7 +77,7 @@ export function GuideSection(props: GuideSectionProps) {
           renderImage(
             props.image3Src,
             props.image3Link || "#",
-            props.image3Classes || defaultImageClasses
+            props.image3Classes || defaultImageClasses,
           )}
         {renderNote(props.note3)}
 

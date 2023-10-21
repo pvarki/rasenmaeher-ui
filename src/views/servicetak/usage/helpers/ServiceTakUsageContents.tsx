@@ -5,7 +5,9 @@ interface ServiceTakUsageContentsProps {
   details?: React.ReactNode;
 }
 
-export function ServiceTakUsageContents({ details }: ServiceTakUsageContentsProps) {
+export function ServiceTakUsageContents({
+  details,
+}: ServiceTakUsageContentsProps) {
   const defaultDetails = (
     <ul>
       <li>Liikuta karttaa ja näe omat</li>

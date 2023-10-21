@@ -59,11 +59,21 @@ export function UnfoldableCard({
               alt="Unfoldable card content"
             />
           )}
-          {description1 && <p className="m-2 text-white prose prose-white">{description1}</p>}
-          {description2 && <p className="m-2 text-white prose prose-white">{description2}</p>}
-          {description3 && <p className="m-2 text-white prose prose-white">{description3}</p>}
-          {description4 && <p className="m-2 text-white prose prose-white">{description4}</p>}
-          {content && <p className="mt-2 text-white prose prose-white">{content}</p>}
+          {description1 && (
+            <p className="m-2 text-white prose prose-white">{description1}</p>
+          )}
+          {description2 && (
+            <p className="m-2 text-white prose prose-white">{description2}</p>
+          )}
+          {description3 && (
+            <p className="m-2 text-white prose prose-white">{description3}</p>
+          )}
+          {description4 && (
+            <p className="m-2 text-white prose prose-white">{description4}</p>
+          )}
+          {content && (
+            <p className="mt-2 text-white prose prose-white">{content}</p>
+          )}
           {children}
         </>
       )}

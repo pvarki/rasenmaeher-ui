@@ -17,13 +17,15 @@ export function AdminHomeView() {
       <div className="flex flex-col flex-shrink-0 gap-3">
         <CardsContainer>
           <TextCard
-            title={<>
-            Olet kirjautunut adminina.
-            </>}
-
-            details={<>
-            <strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita ympäristöösi. Joukkosi käytössä olevat palvelut ovat ohessa. Avaa palvelun <strong>kortti</strong> ottaaksesi sen käyttöön omalla laitteellasi.
-           </>}
+            title={<>Olet kirjautunut adminina.</>}
+            details={
+              <>
+                <strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita
+                ympäristöösi. Joukkosi käytössä olevat palvelut ovat ohessa.
+                Avaa palvelun <strong>kortti</strong> ottaaksesi sen käyttöön
+                omalla laitteellasi.
+              </>
+            }
           />
 
           <Card
@@ -37,4 +39,3 @@ export function AdminHomeView() {
     </Layout>
   );
 }
-

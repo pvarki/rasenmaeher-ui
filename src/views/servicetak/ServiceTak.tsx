@@ -17,14 +17,23 @@ export function ServiceTak() {
             <ServiceInfoCard
               title="Tilannekuvasovellus TAK"
               image={tak}
-              details={<>
-             
-                <li><strong>Käyttöönotto-ohje</strong> opastaa palvelun käyttöönoton laitteellesi.</li>
-                <li>Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät sovellusta perusmallin mukaisesti.</li>
-                <li><strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi.</li>
-                <br></br>Aloita käyttöönotto-ohjeesta.
-   
-            </>}
+              details={
+                <>
+                  <li>
+                    <strong>Käyttöönotto-ohje</strong> opastaa palvelun
+                    käyttöönoton laitteellesi.
+                  </li>
+                  <li>
+                    Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät
+                    sovellusta perusmallin mukaisesti.
+                  </li>
+                  <li>
+                    <strong>Viestiperustepaketti</strong> sisältää ladattavat
+                    henkilökohtaiset perusteesi.
+                  </li>
+                  <br></br>Aloita käyttöönotto-ohjeesta.
+                </>
+              }
             />
 
             <ServiceTakUsageCard />

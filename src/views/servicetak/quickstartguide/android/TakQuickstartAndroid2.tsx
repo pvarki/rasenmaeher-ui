@@ -46,16 +46,14 @@ export function TakQuickstartAndroid2() {
               imageClasses="m-3 w-[300px]"
               description={
                 <>
-                  Etsi kansio, johon latasit viestiperustetiedostosi <strong>Nimi.zip</strong>
+                  Etsi kansio, johon latasit viestiperustetiedostosi{" "}
+                  <strong>Nimi.zip</strong>
                   <br />
-                  Vinkki: Paina <strong>Date</strong> nähdäksesi viimeisimpänä ladatun tiedoston, todennäköisesti viestiperusteesi.
+                  Vinkki: Paina <strong>Date</strong> nähdäksesi viimeisimpänä
+                  ladatun tiedoston, todennäköisesti viestiperusteesi.
                 </>
               }
-              description2={
-                <>
-                  Valitse tiedosto.
-                </>
-              }
+              description2={<>Valitse tiedosto.</>}
             />
             <GuideSection
               number="3."
@@ -68,21 +66,19 @@ export function TakQuickstartAndroid2() {
               imageClasses="m-3 w-[300px]"
               description2={
                 <>
-                  Saat muutaman ilmoituksen konfiguraatiotiedostojen latautumisesta.
+                  Saat muutaman ilmoituksen konfiguraatiotiedostojen
+                  latautumisesta.
                 </>
               }
               image2Src={ilmo5}
               image2Classes="m-3 w-[300px]"
-              description4={
-                <>
-                  Alkukonfiguraatio on valmis.
-                </>
-              }
+              description4={<>Alkukonfiguraatio on valmis.</>}
               image3Src={yhteys6}
               image3Classes="m-3 w-[300px]"
               description3={
                 <>
-                  Tarkista oikeasta alakulmasta, että palvelinyhteytesi on aktivoitunut (vihreä merkkivalo)
+                  Tarkista oikeasta alakulmasta, että palvelinyhteytesi on
+                  aktivoitunut (vihreä merkkivalo)
                 </>
               }
             />
@@ -96,5 +92,3 @@ export function TakQuickstartAndroid2() {
     </div>
   );
 }
-
-
