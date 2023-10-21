@@ -1,27 +1,28 @@
-import parse from "html-react-parser";
+import React from 'react';
 
 interface GuideSectionProps {
   number?: string;
-  description?: string;
+  description?: React.ReactNode;
   imageSrc?: string;
   imageLink?: string;
   note?: string;
   imageClasses?: string;
 
-  description2?: string;
+  description2?: React.ReactNode;
   image2Src?: string;
   image2Link?: string;
   note2?: string;
   image2Classes?: string;
 
-  description3?: string;
+  description3?: React.ReactNode;
   image3Src?: string;
   image3Link?: string;
   note3?: string;
   image3Classes?: string;
 
-  description4?: string;
+  description4?: React.ReactNode;
 }
+
 
 export function GuideSection(props: GuideSectionProps) {
   const defaultImageClasses =
@@ -30,11 +31,24 @@ export function GuideSection(props: GuideSectionProps) {
   const renderImage = (
     imageSrc: string,
     imageLink: string,
-    imageClasses: string,
+    imageClasses: string
   ) => (
     <a href={imageLink} target="_blank" rel="noopener noreferrer">
       <img loading="lazy" src={imageSrc} className={imageClasses} alt="Image" />
     </a>
+  );
+
+  const renderDescription = (description?: React.ReactNode) => (
+    <div className="prose prose-white max-w-none">
+      {description}
+    </div>
+);
+
+
+  const renderNote = (note?: string) => (
+    <div className="prose prose-white max-w-none text-red-400 mt-2">
+      {note}
+    </div>
   );
 
   return (
@@ -46,56 +60,34 @@ export function GuideSection(props: GuideSectionProps) {
       </div>
 
       <div className="flex-grow relative flex flex-col justify-start">
-        {props.description && (
-          <p className="text-white text-l leading-6 w-full">
-            {parse(props.description)}
-          </p>
-        )}
+        {renderDescription(props.description)}
         {props.imageSrc &&
           renderImage(
             props.imageSrc,
             props.imageLink || "#",
-            props.imageClasses || defaultImageClasses,
+            props.imageClasses || defaultImageClasses
           )}
-        {props.note && (
-          <p className="text-red-400 mt-2 w-full">{parse(props.note)}</p>
-        )}
+        {renderNote(props.note)}
 
-        {props.description2 && (
-          <p className="text-white text-l leading-6 w-full">
-            {parse(props.description2)}
-          </p>
-        )}
+        {renderDescription(props.description2)}
         {props.image2Src &&
           renderImage(
             props.image2Src,
             props.image2Link || "#",
-            props.image2Classes || defaultImageClasses,
+            props.image2Classes || defaultImageClasses
           )}
-        {props.note2 && (
-          <p className="text-red-400 mt-2 w-full">{parse(props.note2)}</p>
-        )}
+        {renderNote(props.note2)}
 
-        {props.description3 && (
-          <p className="text-white text-l leading-6 w-full">
-            {parse(props.description3)}
-          </p>
-        )}
+        {renderDescription(props.description3)}
         {props.image3Src &&
           renderImage(
             props.image3Src,
             props.image3Link || "#",
-            props.image3Classes || defaultImageClasses,
+            props.image3Classes || defaultImageClasses
           )}
-        {props.note3 && (
-          <p className="text-red-400 mt-2 w-full">{parse(props.note3)}</p>
-        )}
+        {renderNote(props.note3)}
 
-        {props.description4 && (
-          <p className="text-white text-l leading-6 w-full">
-            {parse(props.description4)}
-          </p>
-        )}
+        {renderDescription(props.description4)}
       </div>
     </div>
   );

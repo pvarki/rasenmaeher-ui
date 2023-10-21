@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         background: "#222",
         backgroundLight: "#333",
+        textLight:"#E4E4E4",
         primary: {
           DEFAULT: "#42687D",
           200: "#A2BBCB",
@@ -45,7 +46,7 @@ module.exports = {
       typography: /** @type {any} */(theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.backgroundLight'),
+            color: theme('colors.textLight'),
             a: {
               color: theme('colors.primary.DEFAULT'),
               '&:hover': {
