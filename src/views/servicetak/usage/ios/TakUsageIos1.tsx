@@ -30,7 +30,7 @@ export function TakUsageIos1() {
             <GuideSection
               number="1."
               description='Lataa sovellus <strong>iTAK</strong> App Storesta ja asenna se.
-          
+
           <a href="https://apps.apple.com/us/app/itak/id1561656396" style="color: SteelBlue; text-decoration: underline;">iTAK - Paina tästä ladataksesi App Storesta</a>
           <br></br>'
               description3="Olet nyt ladannut tarvittavan sovelluksen."

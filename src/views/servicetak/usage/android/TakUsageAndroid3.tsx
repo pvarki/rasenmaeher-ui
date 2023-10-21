@@ -49,7 +49,7 @@ export function TakUsageAndroid3() {
           Tarkastellaan ensin Point Dropperia."
               imageSrc={pic1}
               imageClasses="m-3 w-[300px]"
-              description2="Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse <strong>Point Dropper</strong>. 
+              description2="Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse <strong>Point Dropper</strong>.
           <br></br>Tai paina haluamaasi kohtaa kartalla pitkään ja valitse Point Dropperin symboli avautuvasta ympyrävalikosta."
             />
             <GuideSection
@@ -65,7 +65,7 @@ export function TakUsageAndroid3() {
             <GuideSection
               number="3."
               description="Poista valinta merkistä täppäämällä karttaa.
-         
+
           Täppää merkkiä uudelleen, jotta ympyrävalikko aukeaa."
               imageSrc={pic4}
               imageClasses="m-3 w-[300px]"

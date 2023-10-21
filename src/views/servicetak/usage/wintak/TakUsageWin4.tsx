@@ -51,7 +51,7 @@ export function TakUsageWin4() {
           <li>- <strong>2. Vastaanota</strong> joukolta heti ilmoitettavat asiat.</li>
           <li>- <strong>3. Vastaanota</strong> joukolta määräaikaiset ja -muotoiset (tiettyyn kellonaikaan saapuvat) tilanneilmoitukset.<li>
           <li>- <strong>4. Ylläpidä</strong> viestipäiväkirjaa kaikin välinein tulleista ilmoituksista.</li>
-          <li>- <strong>5. Ylläpidä</strong> numeroitua tiedusteludiaaria omalta joukolta, naapureilta ja ylhäältä tulleista havainnoista ja vihollistiedoista.</li> 
+          <li>- <strong>5. Ylläpidä</strong> numeroitua tiedusteludiaaria omalta joukolta, naapureilta ja ylhäältä tulleista havainnoista ja vihollistiedoista.</li>
           <li>- <strong>6. Ylläpidä</strong> tietojärjestelmiä, joista TAK on yksi.</li>
           <br></br>"
               note2="

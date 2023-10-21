@@ -20,7 +20,7 @@ export function ServiceTak() {
               details="<ul>
         <li><strong>Käyttöönotto-ohje</strong> opastaa palvelun käyttöönoton laitteellesi.</li>
         <li>Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät sovellusta perusmallin mukaisesti.
-        <li><strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi. 
+        <li><strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi.
         <br></br>Aloita käyttöönotto-ohjeesta.</strong>
         </ul>"
             />

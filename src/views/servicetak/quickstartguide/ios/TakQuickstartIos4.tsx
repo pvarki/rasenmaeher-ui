@@ -48,7 +48,7 @@ export function TakQuickstartIos4() {
               image2Src={pic24}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description3="Hienoa! Olet nyt asettanut iTAKin käyttökuntoon.
-          <br></br> 
+          <br></br>
           <em><small>Mikäli sinun tarvitsee tehdä muutoksia peitenimeesi, onnistuu se Settings-valikosta klikkaamalla peitenimeäsi.</small></em>"
             />
           </CardsContainer>

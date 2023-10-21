@@ -66,7 +66,7 @@ export function TakUsageIos3() {
           "
               image2Src={pic19}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
-              note3="Huomaa, että tässä vaiheessa sinulla tulee olla viestiperustetiedosto <strong>Nimi.zip</strong> ladattuna puhelimeesi. 
+              note3="Huomaa, että tässä vaiheessa sinulla tulee olla viestiperustetiedosto <strong>Nimi.zip</strong> ladattuna puhelimeesi.
           <br></br>
           Mikäli et jo ladannut sitä, lataat viestiperustepakettisi Rasenmaeherin TAK-päävalikosta napista <strong>Lataa viestiperusteesi</strong>."
               description3="Aukeaa Selaa-valikko. Etsi kansio, johon latasit viestiperustetiedostosi <strong>Nimi.zip</strong>. "

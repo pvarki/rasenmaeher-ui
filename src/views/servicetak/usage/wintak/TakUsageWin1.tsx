@@ -49,7 +49,7 @@ export function TakUsageWin1() {
           Liikuta hiirellä karttapohjaa kohti Suomea. Voit zoomata karttaa hiiren rullalla, plus- ja miinusnäppäimillä ja ruudun painikkeilla."
               image2Src={pic2}
               image2Classes="mx-auto pr-12 w-[400px] p-4"
-              description3="Klikkaa kompassikuvaketta (N) suoristaaksesi kartan. 
+              description3="Klikkaa kompassikuvaketta (N) suoristaaksesi kartan.
           "
               image3Src={pic3}
               image3Classes="mx-auto pr-12 w-[400px] p-4"

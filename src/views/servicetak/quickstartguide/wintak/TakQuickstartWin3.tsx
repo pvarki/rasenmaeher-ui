@@ -53,7 +53,7 @@ export function TakQuickstartWin3() {
           Tämä tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>, ja osoita sovellukselle paketti latauskansiostasi/muualta."
               image2Src={pic18}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
-              note2="Huomaa, että tässä vaiheessa sinulla tulee olla viestiperustetiedosto <strong>Nimi.zip</strong> ladattuna puhelimeesi. 
+              note2="Huomaa, että tässä vaiheessa sinulla tulee olla viestiperustetiedosto <strong>Nimi.zip</strong> ladattuna puhelimeesi.
           <br></br>
           Mikäli et jo ladannut sitä, lataat viestiperustepakettisi Rasenmaeherin TAK-päävalikosta napista <strong>Lataa viestiperusteesi</strong>. Palaa tämän jälkeen tähän vaiheeseen.<br></br>"
               description3="Kun olet valinnut paketin ja painanut Open, aukeaa <strong>Select Import Strategy</strong>."
@@ -96,7 +96,7 @@ export function TakQuickstartWin3() {
               imageSrc={pic26}
               imageClasses="mx-auto pr-5 w-[400px] p-4"
               description2="Peite (<strong>Callsign</strong>), joukon väri (<strong>My Team</strong>) ja rooli (<strong>My Role</strong>) tulee olla käsketyt. <strong>My Display Type</strong> on Ground.
-          
+
           <br></br>
           Tarkista <strong>TAK Network Status.</strong> Vihreä pilvi tarkoittaa, että palvelinyhteys on OK, punainen, että yhteys on poikki."
               note="Komentopaikkakäyttäjänä roolisi tulee olla HQ.<br></br>"

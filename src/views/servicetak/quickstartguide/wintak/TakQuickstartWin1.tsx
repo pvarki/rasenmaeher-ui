@@ -40,7 +40,7 @@ export function TakQuickstartWin1() {
           Kirjoita hakuun <strong>Aika ja kieli</strong>."
               image2Src={pic2}
               image2Classes="mx-auto pr-12 w-[240px] p-4"
-              description3="Vaihdetaan ensin alueasetus. Valitse Aika ja kieli-valikon sivupalkista <strong>Alue</strong>. 
+              description3="Vaihdetaan ensin alueasetus. Valitse Aika ja kieli-valikon sivupalkista <strong>Alue</strong>.
           "
               image3Src={pic3}
               image3Classes="mx-auto pr-12 w-[400px] p-4"
@@ -67,7 +67,7 @@ export function TakQuickstartWin1() {
               description2="Paina <strong>Asenna kielipaketti.</strong> Odota kielipaketin asentumista."
               image2Src={pic7}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description3="Tämän jälkeen voit valita näyttökieleksi englannin. 
+              description3="Tämän jälkeen voit valita näyttökieleksi englannin.
           <br></br>Päätä näyttökielen vaihto kirjautumalla ulos ja uudelleen sisään."
               image3Src={pic8}
               image3Classes="mx-auto pr-5 w-[400px] p-4"

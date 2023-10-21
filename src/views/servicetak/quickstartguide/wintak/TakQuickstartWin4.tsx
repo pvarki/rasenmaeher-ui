@@ -23,7 +23,7 @@ export function TakQuickstartWin4() {
             <GuideSection
               number="1."
               description="Tarkista WinTAKin mittayksikköasetukset.<br></br>
-          
+
           Paina vasemmasta yläkulmasta kolmea päällekkäistä viivaa, <strong>hampurilaisvalikkoa</strong>."
               imageSrc={pic28}
               imageClasses="mx-auto pr-12 w-[200px] p-4"
@@ -40,7 +40,7 @@ export function TakQuickstartWin4() {
               description3="Tarkista, että asetukset ovat kuvan mukaiset. Vaihda tarvittaessa."
               image3Src={pic31}
               image3Classes="mx-auto pr-5 w-[300px] p-4"
-              description4="WinTAK on nyt asetettu! 
+              description4="WinTAK on nyt asetettu!
           <br></br>Mallin mukaisen käytön ohjeet löydät Rasenmaeherin TAK-valikon etusivulta <strong>Käyttö joukossa</strong>."
             />
             <GuideSection number="3." description="TBD: TroubleShoot." />

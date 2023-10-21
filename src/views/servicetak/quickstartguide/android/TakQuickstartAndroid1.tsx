@@ -21,11 +21,11 @@ export function TakQuickstartAndroid1() {
             <GuideSection
               number="1."
               description='Lataa ATAK-CIV sovellus Play Storesta ja asenna se.
-          
+
           <a href="https://play.google.com/store/apps/details?id=com.atakmap.app.civ" style="color: SteelBlue; text-decoration: underline;">ATAK-CIV - Paina tästä ladataksesi Google Playsta</a>
           <br></br>'
               description2='Tämän jälkeen lataa ATAK Data Sync-plugin, ja asenna se.
-         
+
           <a href="https://play.google.com/store/apps/details?id=com.atakmap.android.datasync.plugin" style="color: SteelBlue; text-decoration: underline;">ATAK Datasync Plugin - Paina tästä ladataksesi Google Playsta</a>
           <br></br>'
               description3="Olet nyt ladannut tarvittavat sovellukset."
