@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import android from "../../../assets/icons/android.svg";
 import sanla from "../../../assets/heroimages/kiikarit.jpeg";
 import apple from "../../../assets/icons/apple.svg";
@@ -13,6 +14,17 @@ import { ServiceTakUsageByFighterCard } from "./helpers/ServiceTakUsageByFighter
 import { ServiceTakUsageFlowCard } from "./helpers/ServiceTakUsageFlowCard";
 
 export function ServiceTakUsageView() {
+  const cardContentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (cardContentRef.current) {
+      cardContentRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, []);
+
   return (
     <div className="pb-10">
       <Layout
@@ -22,7 +34,7 @@ export function ServiceTakUsageView() {
         navbarTitle="TAK: Käyttö joukossa"
         backUrl="/app"
       >
-        <div className="flex flex-col flex-shrink-0">
+        <div className="flex flex-col flex-shrink-0" ref={cardContentRef}>
           <CardsContainer>
             <ServiceInfoCard
               title="TAK - Käyttö joukossa"

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import android from "../../../assets/icons/android.svg";
 import sanla from "../../../assets/heroimages/rakennettu3.jpeg";
 import apple from "../../../assets/icons/apple.svg";
@@ -8,6 +9,17 @@ import { CardsContainer } from "../../../components/CardsContainer";
 import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
 
 export function ServiceTakQuickstartView() {
+  const cardContentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (cardContentRef.current) {
+      cardContentRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, []);
+
   return (
     <div className="pb-10">
       <Layout
@@ -17,38 +29,40 @@ export function ServiceTakQuickstartView() {
         navbarTitle="TAK: Käyttö joukossa"
         backUrl="/app"
       >
-        <CardsContainer>
-          <ServiceInfoCard
-            title="Ota TAK käyttöön!"
-            details={
-              <>
-                Valitse käyttöönotto-ohje laitteesi mukaan.
-                <br />
-                <span>
-                  Helpoin tapa tehdä käyttöönotto on{" "}
-                  <strong>parin kanssa</strong> siten, että toinen taistelija
-                  näyttää ohjetta ja toinen tekee.
-                </span>
-              </>
-            }
-          ></ServiceInfoCard>
+        <div ref={cardContentRef}>
+          <CardsContainer>
+            <ServiceInfoCard
+              title="Ota TAK käyttöön!"
+              details={
+                <>
+                  Valitse käyttöönotto-ohje laitteesi mukaan.
+                  <br />
+                  <span>
+                    Helpoin tapa tehdä käyttöönotto on{" "}
+                    <strong>parin kanssa</strong> siten, että toinen taistelija
+                    näyttää ohjetta ja toinen tekee.
+                  </span>
+                </>
+              }
+            ></ServiceInfoCard>
 
-          <Card
-            title="Android"
-            image={android}
-            url="/app/services/tak/quickstart/android1"
-          />
-          <Card
-            title="iOS"
-            image={apple}
-            url="/app/services/tak/quickstart/ios1"
-          />
-          <Card
-            title="Windows"
-            image={windows}
-            url="/app/services/tak/quickstart/win1"
-          />
-        </CardsContainer>
+            <Card
+              title="Android"
+              image={android}
+              url="/app/services/tak/quickstart/android1"
+            />
+            <Card
+              title="iOS"
+              image={apple}
+              url="/app/services/tak/quickstart/ios1"
+            />
+            <Card
+              title="Windows"
+              image={windows}
+              url="/app/services/tak/quickstart/win1"
+            />
+          </CardsContainer>
+        </div>
       </Layout>
     </div>
   );
