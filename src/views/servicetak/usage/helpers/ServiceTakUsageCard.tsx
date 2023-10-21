@@ -6,12 +6,13 @@ export function ServiceTakUsageCard() {
       <UnfoldableCard
         title="Käyttötarkoitus lyhyesti"
         initialOpen={false}
-        content="<ul>
-            <li>- Käyttäjiesi seuranta reaaliajassa <strong>(GPS)</strong></li>
-            <li>- Lähetä havaintoja <strong>komentopaikalle (HQ)</strong> tulkittavaksi</li>
-            <li>- Seuraa <strong>Recon Feediä</strong>, mitä komentopaikka (HQ) muodostaa joukollesi</li>
-            </ul>
-            "
+        content={<>  
+        <ul>
+            <li>Käyttäjiesi seuranta reaaliajassa <em>(GPS)</em></li>
+            <li>Lähetä havaintoja komentopaikalle (HQ) tulkittavaksi</li>
+            <li>Seuraa <strong>Recon Feediä</strong>, mitä komentopaikka (HQ) muodostaa joukollesi</li>
+        </ul>
+        </>}
       />
     </div>
   );

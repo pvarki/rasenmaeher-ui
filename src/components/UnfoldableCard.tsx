@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import parse from "html-react-parser";
 
 interface UnfoldableCardProps {
   title: string;
-  content?: string;
+  content?: React.ReactNode;
   children?: React.ReactNode;
   styling?: string;
   initialOpen?: boolean;
   imageSrc?: string;
   imageClasses?: string;
-  description1?: string;
-  description2?: string;
-  description3?: string;
-  description4?: string;
+  description1?: React.ReactNode;
+  description2?: React.ReactNode;
+  description3?: React.ReactNode;
+  description4?: React.ReactNode;
 }
 
 export function UnfoldableCard({
@@ -60,19 +59,11 @@ export function UnfoldableCard({
               alt="Unfoldable card content"
             />
           )}
-          {description1 && (
-            <p className="m-2 text-white">{parse(description1)}</p>
-          )}
-          {description2 && (
-            <p className="m-2 text-white">{parse(description2)}</p>
-          )}
-          {description3 && (
-            <p className="m-2 text-white">{parse(description3)}</p>
-          )}
-          {description4 && (
-            <p className="m-2 text-white">{parse(description4)}</p>
-          )}
-          {content && <p className="mt-2 text-white">{parse(content)}</p>}
+          {description1 && <p className="m-2 text-white prose prose-white">{description1}</p>}
+          {description2 && <p className="m-2 text-white prose prose-white">{description2}</p>}
+          {description3 && <p className="m-2 text-white prose prose-white">{description3}</p>}
+          {description4 && <p className="m-2 text-white prose prose-white">{description4}</p>}
+          {content && <p className="mt-2 text-white prose prose-white">{content}</p>}
           {children}
         </>
       )}
