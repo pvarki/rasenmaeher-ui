@@ -31,7 +31,7 @@ export function AdminHomeView() {
           <Card
             title="Hallitse käyttäjiä"
             image={trooper}
-            url="/app/user-management"
+            url="/app/admin/user-management"
           />
         </CardsContainer>
         <ServiceTak />

@@ -32,15 +32,15 @@ const router = createBrowserRouter([
         element: <EnrollmentView />,
       },
       {
-        path: "/app",
+        path: "/app/admin",
         element: <AdminHomeView />,
       },
       {
-        path: "/app/user-management",
+        path: "/app/admin/user-management",
         element: <UserManagementView />,
       },
       {
-        path: "/app/user-management/invite",
+        path: "/app/admin/user-management/invite",
         element: <UserInviteView />,
       },
       {
@@ -48,19 +48,19 @@ const router = createBrowserRouter([
         element: <SoldierView />,
       },
       {
-        path: "/app/user-management/code-list",
+        path: "/app/admin/user-management/code-list",
         element: <EnrollCodeListView />,
       },
       {
-        path: "/app/user-management/code-list/:inviteCode",
+        path: "/app/admin/user-management/code-list/:inviteCode",
         element: <QrCodeView />,
       },
       {
-        path: "/app/user-management/approval",
+        path: "/app/admin/user-management/approval",
         element: <EnrollApprovalView />,
       },
       {
-        path: "/enrollment",
+        path: "/app/admin/enrollment",
         element: <MassEnrollmentView />,
       },
       {

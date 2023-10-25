@@ -26,7 +26,7 @@ export function UserManagementView() {
         <h1 className="text-white">UserManagementView</h1>
         <Button
           variant={{ width: "full" }}
-          onClick={() => navigate("/app/user-management/code-list")}
+          onClick={() => navigate("/app/admin/user-management/code-list")}
         >
           Lisää käyttäjiä
         </Button>

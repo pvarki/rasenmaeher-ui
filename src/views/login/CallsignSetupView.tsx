@@ -26,7 +26,7 @@ export function CallsignSetupStep() {
     onSuccess: (jwt) => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("callsign", formik.values.callsign);
-      navigate("/app");
+      navigate("/app/admin");
     },
     onError: () => {
       loginCodeStore.reset();
@@ -81,7 +81,7 @@ export function CallsignSetupStep() {
       <FormikProvider value={formik}>
         <Form className="flex flex-col items-center gap-3 w-full">
           <label className="flex flex-col gap-3 w-full text-white">
-            Käyttätunnus
+            Käyttäjätunnus:
             <Field
               type="text"
               name="callsign"

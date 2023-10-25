@@ -44,10 +44,10 @@ export function LoginView() {
       loginCodeStore.setCode(formik.values.code);
       if (data.isAdminCodeValid) {
         loginCodeStore.setCodeType("admin");
-        navigate("/login/callsign");
+        navigate("/app/admin");
       } else if (data.isEnrollmentCodeValid) {
         loginCodeStore.setCodeType("user");
-        navigate("/login/callsign");
+        navigate("/app/users/:callsign");
       } else {
         loginCodeStore.setCodeType("unknown");
       }
@@ -58,7 +58,7 @@ export function LoginView() {
     <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
       <img className="h-32" src={pvarkiLogo} />
       <h1 className="text-white text-center font-oswald font-bold text-2xl">
-        Kirjaudu palveluun käyttäen kertakäyttö koodia
+        Kirjaudu palveluun käyttäen kertakäyttökoodia
       </h1>
       <span className="text-white text-center font-oswald font-bold text-3xl">
         metsa-kota
@@ -66,7 +66,7 @@ export function LoginView() {
       <FormikProvider value={formik}>
         <Form className="flex flex-col items-center gap-3 w-full">
           <label className="flex flex-col gap-3 w-full text-white">
-            Kertakäyttö koodi
+            Kertakäyttökoodi:
             <Field
               type="text"
               name="code"
