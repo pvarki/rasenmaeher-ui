@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUserType } from './useUserType';
+import { useUserType } from "./useUserType";
 
 export function RootRedirector() {
   const navigate = useNavigate();
@@ -15,10 +15,10 @@ export function RootRedirector() {
     }
 
     switch (userType) {
-      case 'admin':
+      case "admin":
         navigate("/app/admin");
         break;
-      case 'user':
+      case "user":
         navigate("/app/users");
         break;
       default:

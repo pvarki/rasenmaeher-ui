@@ -13,7 +13,7 @@ interface AdminResponse {
 }
 
 interface UserTypeContextProps {
-  userType: 'admin' | 'user' | null;
+  userType: "admin" | "user" | null;
   isLoading: boolean;
   error: string | null;
 }
@@ -25,7 +25,7 @@ export const UserTypeContext = createContext<UserTypeContextProps>({
 });
 
 export function UserTypeFetcher({ children }: { children: React.ReactNode }) {
-  const [userType, setUserType] = useState<'admin' | 'user' | null>(null);
+  const [userType, setUserType] = useState<"admin" | "user" | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,21 +33,25 @@ export function UserTypeFetcher({ children }: { children: React.ReactNode }) {
     async function fetchUserType() {
       try {
         const response = await fetch("/api/v1/check-auth/mtls_or_jwt");
-        const authData = await response.json() as AuthResponse;
+        const authData = (await response.json()) as AuthResponse;
 
         if (authData.auth === "mtls") {
           const userResponse = await fetch("/api/v1/check-auth/validuser");
-          const validUserData = await userResponse.json() as ValidUserResponse;
+          const validUserData =
+            (await userResponse.json()) as ValidUserResponse;
 
           if (validUserData.isValidUser) {
-            const adminResponse = await fetch("/api/v1/check-auth/validuser/admin");
-            const adminData = await adminResponse.json() as AdminResponse;
-            setUserType(adminData.isAdmin ? 'admin' : 'user');
+            const adminResponse = await fetch(
+              "/api/v1/check-auth/validuser/admin",
+            );
+            const adminData = (await adminResponse.json()) as AdminResponse;
+            setUserType(adminData.isAdmin ? "admin" : "user");
           }
         }
       } catch (err) {
-        if (err instanceof Error) { // Type check before using
-          setError(err.message); 
+        if (err instanceof Error) {
+          // Type check before using
+          setError(err.message);
         } else {
           setError("An error occurred.");
         }
