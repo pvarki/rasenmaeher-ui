@@ -22,7 +22,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login/callsign",
-    element: <CallsignSetupStep />,
+    element: (
+      <ProtectedRoute requireAuthType="jwt">
+        <CallsignSetupStep />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/login/enrollment",
