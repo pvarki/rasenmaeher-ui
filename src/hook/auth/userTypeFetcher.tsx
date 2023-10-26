@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 
 interface AuthResponse {
   auth: "mtls" | "jwt" | string;
@@ -6,6 +6,7 @@ interface AuthResponse {
 
 interface ValidUserResponse {
   isValidUser: boolean;
+  callsign: string;
 }
 
 interface AdminResponse {
@@ -17,6 +18,8 @@ interface UserTypeContextProps {
   isLoading: boolean;
   error: string | null;
   authType: "mtls" | "jwt" | null;
+  redirectTo: string | null;
+  callsign: string | null;
 }
 
 export const UserTypeContext = createContext<UserTypeContextProps>({
@@ -24,13 +27,17 @@ export const UserTypeContext = createContext<UserTypeContextProps>({
   isLoading: true,
   error: null,
   authType: null,
+  redirectTo: null,
+  callsign: null,
 });
 
-export function UserTypeFetcher({ children }: { children: React.ReactNode }) {
+export function UserTypeFetcher({ children }: { children: ReactNode }) {
   const [userType, setUserType] = useState<"admin" | "user" | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [authType, setAuthType] = useState<"mtls" | "jwt" | null>(null);
+  const [redirectTo, setRedirectTo] = useState<string | null>(null);
+  const [callsign, setCallsign] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchUserType() {
@@ -41,34 +48,39 @@ export function UserTypeFetcher({ children }: { children: React.ReactNode }) {
         if (authData.auth === "mtls" || authData.auth === "jwt") {
           setAuthType(authData.auth);
         } else {
-          throw new Error("Invalid auth type received from the server.");
+          // If the auth type is neither 'mtls' nor 'jwt', redirect to '/login'
+          setRedirectTo("/login");
+          return; // Return early to avoid further processing for invalid auth types
         }
-
         if (authData.auth === "mtls") {
           const userResponse = await fetch("/api/v1/check-auth/validuser");
           const validUserData =
             (await userResponse.json()) as ValidUserResponse;
 
           if (validUserData.isValidUser) {
+            setCallsign(validUserData.callsign);
+
             const adminResponse = await fetch(
               "/api/v1/check-auth/validuser/admin",
             );
             const adminData = (await adminResponse.json()) as AdminResponse;
             setUserType(adminData.isAdmin ? "admin" : "user");
           } else {
-            setUserType(null); // They have mTLS but not valid user
+            setRedirectTo("/login/createmtls");
           }
         } else if (authData.auth === "jwt") {
           const validUserResponse = await fetch("/api/v1/check-auth/validuser");
           const validUserData =
             (await validUserResponse.json()) as ValidUserResponse;
+
           if (validUserData.isValidUser) {
-            setUserType("user"); // They have JWT and are valid users
+            setCallsign(validUserData.callsign);
+            setRedirectTo("/login/createmtls");
           } else {
-            setUserType(null); // They have JWT but not valid user
+            setRedirectTo("/login/callsign");
           }
         } else {
-          setUserType(null); // They neither have mTLS nor JWT
+          setRedirectTo("/login");
         }
       } catch (err) {
         if (err instanceof Error) {
@@ -85,7 +97,9 @@ export function UserTypeFetcher({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <UserTypeContext.Provider value={{ userType, isLoading, error, authType }}>
+    <UserTypeContext.Provider
+      value={{ userType, isLoading, error, authType, redirectTo, callsign }} // Add callsign to the provided context
+    >
       {children}
     </UserTypeContext.Provider>
   );

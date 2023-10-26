@@ -2,18 +2,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserType } from "./useUserType";
 
-interface AuthData {
-  auth: string;
-}
-
-interface ValidUserData {
-  isValidUser: boolean;
-  callsign: string;
-}
-
 export function RootRedirector() {
   const navigate = useNavigate();
-  const { userType, isLoading, error } = useUserType();
+  const { userType, isLoading, error, redirectTo, callsign } = useUserType();
 
   useEffect(() => {
     if (isLoading) return;
@@ -23,57 +14,28 @@ export function RootRedirector() {
       return;
     }
 
+    if (redirectTo) {
+      navigate(redirectTo);
+      return;
+    }
+
     switch (userType) {
       case "admin":
         navigate("/app/admin");
         break;
       case "user":
-        (async () => {
-          try {
-            const validUserResponse = await fetch(
-              "/api/v1/check-auth/validuser",
-            );
-            const validUserData =
-              (await validUserResponse.json()) as ValidUserData;
-
-            if (validUserData.isValidUser && validUserData.callsign) {
-              navigate(`/app/users/${validUserData.callsign}`);
-            } else {
-              navigate("/login/enrollment");
-            }
-          } catch (err) {
-            navigate("/error");
-          }
-        })().catch((err) => console.error("Error fetching valid user:", err));
+        if (callsign) {
+          navigate(`/app/users/${callsign}`);
+        } else {
+          // Handle the case where callsign is null or not provided
+          navigate("/login");
+        }
         break;
       default:
-        (async () => {
-          try {
-            const authResponse = await fetch("/api/v1/check-auth/mtls_or_jwt");
-            const authData = (await authResponse.json()) as AuthData;
-
-            if (authData.auth === "jwt") {
-              const validUserResponse = await fetch(
-                "/api/v1/check-auth/validuser",
-              );
-              const validUserData =
-                (await validUserResponse.json()) as ValidUserData;
-
-              if (validUserData.isValidUser) {
-                navigate("/login/createmtls");
-              } else {
-                navigate("/login/enrollment");
-              }
-            } else {
-              navigate("/login");
-            }
-          } catch (err) {
-            navigate("/error");
-          }
-        })().catch((err) => console.error("Error in default case:", err));
+        navigate("/login");
         break;
     }
-  }, [userType, isLoading, error, navigate]);
+  }, [userType, isLoading, error, navigate, redirectTo, callsign]);
 
   return null;
 }

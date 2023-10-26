@@ -10,6 +10,3 @@ export function UserRouteWrapper() {
     </Routes>
   );
 }
-
-
-  
