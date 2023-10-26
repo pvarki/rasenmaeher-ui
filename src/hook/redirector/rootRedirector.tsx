@@ -22,18 +22,21 @@ export function RootRedirector() {
     async function checkAuthenticationStatus() {
       try {
         const authResponse = await fetch("/api/v1/check-auth/mtls_or_jwt");
-        const data = await authResponse.json() as AuthResponse;
-  
+        const data = (await authResponse.json()) as AuthResponse;
+
         if (data.auth === "jwt") {
           navigate("/login/createmtls");
         } else if (data.auth === "mtls") {
           const validUserResponse = await fetch("/api/v1/check-auth/validuser");
-          const validUserData = await validUserResponse.json() as ValidUserResponse;
-          
+          const validUserData =
+            (await validUserResponse.json()) as ValidUserResponse;
+
           if (validUserData.isValidUser) {
-            const adminResponse = await fetch("/api/v1/check-auth/validuser/admin");
-            const adminData = await adminResponse.json() as AdminResponse;
-            
+            const adminResponse = await fetch(
+              "/api/v1/check-auth/validuser/admin",
+            );
+            const adminData = (await adminResponse.json()) as AdminResponse;
+
             if (adminData.isAdmin) {
               navigate("/app/admin");
             } else if (validUserData.callsign) {
@@ -52,10 +55,9 @@ export function RootRedirector() {
         setIsLoading(false);
       }
     }
-  
+
     void checkAuthenticationStatus();
   }, [navigate]);
-  
 
   if (isLoading) {
     return <p>Loading...</p>;
