@@ -14,7 +14,7 @@ export const handlers = [
   }),
   http.get("/api/v1/check-auth/validuser/admin", () => {
     return HttpResponse.json({
-      isAdmin: true,
+      isAdmin: false,
     });
   }),
 ];

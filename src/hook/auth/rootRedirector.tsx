@@ -23,44 +23,56 @@ export function RootRedirector() {
       return;
     }
 
-    async function handleRedirection() {
-      const authResponse = await fetch("/api/v1/check-auth/mtls_or_jwt");
-      if (!authResponse.ok) throw new Error("Failed to fetch auth data");
-      const authData = (await authResponse.json()) as AuthData;
+    switch (userType) {
+      case "admin":
+        navigate("/app/admin");
+        break;
+      case "user":
+        (async () => {
+          try {
+            const validUserResponse = await fetch(
+              "/api/v1/check-auth/validuser",
+            );
+            const validUserData =
+              (await validUserResponse.json()) as ValidUserData;
 
-      let validUserResponse: Response;
-      let validUserData: ValidUserData;
+            if (validUserData.isValidUser && validUserData.callsign) {
+              navigate(`/app/users/${validUserData.callsign}`);
+            } else {
+              navigate("/login/enrollment");
+            }
+          } catch (err) {
+            navigate("/error");
+          }
+        })().catch((err) => console.error("Error fetching valid user:", err));
+        break;
+      default:
+        (async () => {
+          try {
+            const authResponse = await fetch("/api/v1/check-auth/mtls_or_jwt");
+            const authData = (await authResponse.json()) as AuthData;
 
-      switch (authData.auth) {
-        case "mtls":
-          if (userType === "admin") {
-            navigate("/app/admin");
-          } else if (userType === "user") {
-            validUserResponse = await fetch("/api/v1/check-auth/validuser");
-            if (!validUserResponse.ok)
-              throw new Error("Failed to fetch valid user data");
-            validUserData = (await validUserResponse.json()) as ValidUserData;
-            navigate(`/app/users/${validUserData.callsign}`);
+            if (authData.auth === "jwt") {
+              const validUserResponse = await fetch(
+                "/api/v1/check-auth/validuser",
+              );
+              const validUserData =
+                (await validUserResponse.json()) as ValidUserData;
+
+              if (validUserData.isValidUser) {
+                navigate("/login/createmtls");
+              } else {
+                navigate("/login/enrollment");
+              }
+            } else {
+              navigate("/login");
+            }
+          } catch (err) {
+            navigate("/error");
           }
-          break;
-        case "jwt":
-          validUserResponse = await fetch("/api/v1/check-auth/validuser");
-          if (!validUserResponse.ok)
-            throw new Error("Failed to fetch valid user data");
-          validUserData = (await validUserResponse.json()) as ValidUserData;
-          if (validUserData.isValidUser) {
-            navigate("/login/createmtls");
-          } else {
-            navigate("/login");
-          }
-          break;
-        default:
-          navigate("/login");
-          break;
-      }
+        })().catch((err) => console.error("Error in default case:", err));
+        break;
     }
-
-    void handleRedirection();
   }, [userType, isLoading, error, navigate]);
 
   return null;

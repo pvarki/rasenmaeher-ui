@@ -1,10 +1,10 @@
-import { AdminRoutes } from "./AdminRoutes";
+import { TakRoutes } from "./TakRoutes";
 import { Routes, Route } from "react-router-dom";
 
-export function AdminRouteWrapper() {
+export function TakRouteWrapper() {
   return (
     <Routes>
-      {AdminRoutes.map((route, index) => (
+      {TakRoutes.map((route, index) => (
         <Route key={index} path={route.path} element={route.element} />
       ))}
     </Routes>

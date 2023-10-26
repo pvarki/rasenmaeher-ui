@@ -1,12 +1,15 @@
-import { AdminRoutes } from "./AdminRoutes";
+import { UserRoutes } from "./UserRoutes";
 import { Routes, Route } from "react-router-dom";
 
-export function AdminRouteWrapper() {
+export function UserRouteWrapper() {
   return (
     <Routes>
-      {AdminRoutes.map((route, index) => (
+      {UserRoutes.map((route, index) => (
         <Route key={index} path={route.path} element={route.element} />
       ))}
     </Routes>
   );
 }
+
+
+  
