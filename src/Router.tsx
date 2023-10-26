@@ -1,4 +1,3 @@
-import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ProtectedRoute } from "./hook/auth/ProtectedRoute";
 import { LoginView } from "./views/login/LoginView";
@@ -8,7 +7,7 @@ import { EnrollmentView } from "./views/login/EnrollmentView";
 import { ErrorView } from "./views/ErrorView";
 import { TakRoutes } from "./TakRoutes";
 import { MtlsTestView } from "./views/MtlsTestView";
-import { AdminRoutes } from "./AdminRoutes";
+import { AdminRouteWrapper } from "./AdminRouteWrapper";
 import { RootRedirector } from "./hook/auth/rootRedirector";
 
 const router = createBrowserRouter([
@@ -32,9 +31,7 @@ const router = createBrowserRouter([
     path: "/app/admin/*",
     element: (
       <ProtectedRoute allowedUserTypes={["admin"]}>
-        {AdminRoutes.map((route, index) =>
-          React.cloneElement(route.element, { key: index }),
-        )}
+        <AdminRouteWrapper />
       </ProtectedRoute>
     ),
   },
