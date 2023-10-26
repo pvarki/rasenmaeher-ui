@@ -26,7 +26,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login/enrollment",
-    element: <EnrollmentView />,
+    element: (
+      <ProtectedRoute requireAuthType="jwt">
+        <EnrollmentView />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/app/admin/*",
@@ -54,7 +58,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login/createmtls",
-    element: <MtlsTestView />,
+    element: (
+      <ProtectedRoute requireAuthType="jwt" requireValidUser={true}>
+        <MtlsTestView />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/error",

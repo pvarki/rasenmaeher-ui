@@ -20,6 +20,7 @@ interface UserTypeContextProps {
   authType: "mtls" | "jwt" | null;
   redirectTo: string | null;
   callsign: string | null;
+  isValidUser: boolean;
 }
 
 export const UserTypeContext = createContext<UserTypeContextProps>({
@@ -29,6 +30,7 @@ export const UserTypeContext = createContext<UserTypeContextProps>({
   authType: null,
   redirectTo: null,
   callsign: null,
+  isValidUser: false,
 });
 
 export function UserTypeFetcher({ children }: { children: ReactNode }) {
@@ -38,6 +40,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
   const [authType, setAuthType] = useState<"mtls" | "jwt" | null>(null);
   const [redirectTo, setRedirectTo] = useState<string | null>(null);
   const [callsign, setCallsign] = useState<string | null>(null);
+  const [isValidUser, setIsValidUser] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchUserType() {
@@ -59,6 +62,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
 
           if (validUserData.isValidUser) {
             setCallsign(validUserData.callsign);
+            setIsValidUser(validUserData.isValidUser);
 
             const adminResponse = await fetch(
               "/api/v1/check-auth/validuser/admin",
@@ -98,7 +102,15 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
 
   return (
     <UserTypeContext.Provider
-      value={{ userType, isLoading, error, authType, redirectTo, callsign }} // Add callsign to the provided context
+      value={{
+        userType,
+        isLoading,
+        error,
+        authType,
+        redirectTo,
+        callsign,
+        isValidUser,
+      }}
     >
       {children}
     </UserTypeContext.Provider>

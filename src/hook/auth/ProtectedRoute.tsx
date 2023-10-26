@@ -1,52 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Navigate } from "react-router-dom";
 import { useUserType } from "./useUserType";
 
 interface Props {
   children: React.ReactNode;
-  allowedUserTypes: Array<"admin" | "user">;
+  allowedUserTypes?: Array<"admin" | "user">;
+  requireAuthType?: "jwt" | "mtls";
+  requireValidUser?: boolean;
 }
 
-interface AuthData {
-  auth: string;
-}
+export function ProtectedRoute({
+  children,
+  allowedUserTypes = [],
+  requireAuthType,
+  requireValidUser = false,
+}: Props) {
+  const { userType, isLoading, error, authType, isValidUser } = useUserType();
 
-export function ProtectedRoute({ children, allowedUserTypes }: Props) {
-  const { userType, isLoading, error } = useUserType();
-  const [authType, setAuthType] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchAuthType() {
-      try {
-        const response = await fetch("/api/v1/check-auth/mtls_or_jwt");
-        const data = (await response.json()) as AuthData;
-        setAuthType(data.auth);
-      } catch (err) {
-        // Handle fetch error here
-        console.error(err);
-      }
-    }
-
-    void fetchAuthType();
-  }, []);
-
-  console.log("userType:", userType);
-  console.log("authType:", authType);
-  console.log("allowedUserTypes:", allowedUserTypes);
-
+  // If data is still loading, return null (or some loader component)
   if (isLoading) return null;
 
-  if (error) {
-    return <Navigate to="/error" />;
+  // If there's an error fetching user data, navigate to the error page
+  if (error) return <Navigate to="/error" />;
+
+  // Check for authentication type restriction
+  if (requireAuthType && authType !== requireAuthType) {
+    return <Navigate to="/login" />;
   }
 
-  if (authType === "jwt" && userType === "user") {
-    console.log("Redirecting to /login/enrollment");
-    return <Navigate to="/login/enrollment" />;
+  // Check if user needs to be valid
+  if (requireValidUser && !isValidUser) {
+    return <Navigate to="/login" />;
   }
 
-  if (userType && !allowedUserTypes.includes(userType)) {
-    console.log("Inside !allowedUserTypes.includes(userType)");
+  // Check user type restriction
+  if (
+    userType &&
+    allowedUserTypes.length &&
+    !allowedUserTypes.includes(userType)
+  ) {
     if (userType === "admin") {
       return <Navigate to="/app/admin" />;
     } else if (userType === "user") {
@@ -54,7 +46,7 @@ export function ProtectedRoute({ children, allowedUserTypes }: Props) {
     }
   }
 
-  // If there's no user type
+  // If there's no user type, determine the redirection based on authType
   if (!userType) {
     return authType === "jwt" ? (
       <Navigate to="/login/createmtls" />
