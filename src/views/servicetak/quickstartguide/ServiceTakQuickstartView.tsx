@@ -27,7 +27,6 @@ export function ServiceTakQuickstartView() {
         showFooter={true}
         heroImage={sanla}
         navbarTitle="TAK: Käyttö joukossa"
-        backUrl="/app"
       >
         <div ref={cardContentRef}>
           <CardsContainer>

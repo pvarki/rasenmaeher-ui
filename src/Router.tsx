@@ -13,10 +13,12 @@ import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 import { MtlsTestView } from "./views/MtlsTestView";
 import { ErrorView } from "./views/ErrorView";
 import { TakRoutes } from "./TakRoutes";
+import { RootRedirector } from "./hook/redirector/rootRedirector";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <RootRedirector />,
 
     children: [
       {
