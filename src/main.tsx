@@ -9,17 +9,19 @@ const queryClient = new QueryClient();
 // MSW is only enabled in development mode
 declare const process: {
   env: {
-    NODE_ENV: 'development' | 'production' | string;
+    NODE_ENV: "development" | "production" | string;
   };
 };
 
 async function deferRender(): Promise<void> {
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== "development") {
     return;
   }
 
-  const { worker } = await import('./mocks/browser');
-  await worker.start(); 
+  const { worker } = await import("./mocks/browser");
+  await worker.start({
+    onUnhandledRequest: "bypass",
+  });
 }
 
 void deferRender().then(() => {
@@ -28,7 +30,6 @@ void deferRender().then(() => {
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 });
-

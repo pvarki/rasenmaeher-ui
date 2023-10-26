@@ -1,92 +1,57 @@
+import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { ProtectedRoute } from "./hook/auth/ProtectedRoute";
 import { LoginView } from "./views/login/LoginView";
-import { MassEnrollmentView } from "./views/MassEnrollmentView";
 import { SoldierView } from "./views/SoldierView";
 import { CallsignSetupStep } from "./views/login/CallsignSetupView";
 import { EnrollmentView } from "./views/login/EnrollmentView";
-import { AdminHomeView } from "./views/AdminHomeView";
-import { UserManagementView } from "./views/UserManagementView";
-import { UserInviteView } from "./views/UserInviteView";
-import { QrCodeView } from "./views/users/invite/QrCodeView";
-import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
-import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
-import { MtlsTestView } from "./views/MtlsTestView";
 import { ErrorView } from "./views/ErrorView";
 import { TakRoutes } from "./TakRoutes";
-import { RootRedirector } from "./hook/redirector/rootRedirector";
+import { MtlsTestView } from "./views/MtlsTestView";
+import { AdminRoutes } from "./AdminRoutes";
+import { RootRedirector } from "./hook/auth/rootRedirector";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootRedirector />,
-
-    children: [
-      {
-        path: "/login",
-        element: <LoginView />,
-      },
-      {
-        path: "/login/callsign",
-        element: <CallsignSetupStep />,
-      },
-      {
-        path: "/login/enrollment",
-        element: <EnrollmentView />,
-      },
-      {
-        path: "/app/admin",
-        element: <AdminHomeView />,
-      },
-      {
-        path: "/app/admin/user-management",
-        element: <UserManagementView />,
-      },
-      {
-        path: "/app/admin/user-management/invite",
-        element: <UserInviteView />,
-      },
-      {
-        path: "/app/users/:callsign",
-        element: <SoldierView />,
-      },
-      {
-        path: "/app/admin/user-management/code-list",
-        element: <EnrollCodeListView />,
-      },
-      {
-        path: "/app/admin/user-management/code-list/:inviteCode",
-        element: <QrCodeView />,
-      },
-      {
-        path: "/app/admin/user-management/approval",
-        element: <EnrollApprovalView />,
-      },
-      {
-        path: "/app/admin/enrollment",
-        element: <MassEnrollmentView />,
-      },
-      {
-        path: "/app/mtls-test",
-        element: <MtlsTestView />,
-      },
-      {
-        path: "/error",
-        element: <ErrorView />,
-      },
-      ...TakRoutes,
-    ],
   },
+  {
+    path: "/login",
+    element: <LoginView />,
+  },
+  {
+    path: "/login/callsign",
+    element: <CallsignSetupStep />,
+  },
+  {
+    path: "/login/enrollment",
+    element: <EnrollmentView />,
+  },
+  {
+    path: "/app/admin/*",
+    element: (
+      <ProtectedRoute allowedUserTypes={["admin"]}>
+        {AdminRoutes.map((route, index) =>
+          React.cloneElement(route.element, { key: index }),
+        )}
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/app/users/:callsign",
+    element: <SoldierView />,
+  },
+  {
+    path: "/app/mtls-test",
+    element: <MtlsTestView />,
+  },
+  {
+    path: "/error",
+    element: <ErrorView />,
+  },
+  ...TakRoutes,
 ]);
-
-/*
-
-  /login
-
-  /enrollment
-
-  /app sisältää palvelut
-
-*/
 
 export default function Router() {
   return <RouterProvider router={router} />;
