@@ -46,7 +46,7 @@ RUN npm install  \
 FROM bash:latest as production
 WORKDIR /app
 COPY --from=production_build /docker-entrypoint.sh /docker-entrypoint.sh
-COPY --from=production_build /app/dist /app/dist
+COPY --from=production_build /app/dist /dist
 # Copy build things from production_build so this production image can stay minimalis
 RUN chmod a+x /docker-entrypoint.sh \
     && mkdir /deliver \
