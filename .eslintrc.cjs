@@ -24,5 +24,5 @@ module.exports = {
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
   },
-  ignorePatterns: [".eslintrc.cjs", "vite.config.ts", "tailwind.config.js"],
+  ignorePatterns: [".eslintrc.cjs", "vite.config.ts", "tailwind.config.js", "src/mocks/**/*", "mocksBrowser.ts"],
 };
