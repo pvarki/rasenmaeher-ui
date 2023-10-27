@@ -28,26 +28,43 @@ export function ProtectedRoute({
     authType,
     isValidUser,
     callsign,
-    userType,
+    userType === "admin",
     currentPath,
   );
 
-  // If the user is trying to access a protected route and does not meet the criteria, redirect
-  if (currentPath !== targetPath) return <Navigate to={targetPath} />;
+  console.log("Current Path:", currentPath);
+  console.log("Target Path:", targetPath);
 
-  // From here, handle the other route protections:
-  if (requireAuthType && authType !== requireAuthType)
+  if (currentPath !== targetPath) {
+    console.log("Redirect triggered due to path mismatch");
+    return <Navigate to={targetPath} />;
+  }
+
+  if (requireAuthType && authType !== requireAuthType) {
+    console.log("Redirect triggered due to auth type mismatch");
     return <Navigate to="/login" />;
-  if (requireValidUser && !isValidUser && !callsign)
+  }
+
+  if (requireValidUser && !isValidUser && !callsign) {
+    console.log("Redirect triggered due to missing callsign for valid user");
     return <Navigate to="/login/callsign" />;
-  if (requireValidUser && !isValidUser && callsign)
+  }
+
+  if (requireValidUser && !isValidUser && callsign) {
+    console.log("Redirect triggered due to invalid user with callsign");
     return <Navigate to="/login/enrollment" />;
+  }
+
   if (
     userType &&
     allowedUserTypes.length &&
     !allowedUserTypes.includes(userType)
-  )
+  ) {
+    console.log(
+      "Redirect triggered due to user type not being in allowed user types",
+    );
     return <Navigate to={targetPath} />;
+  }
 
   return <>{children}</>;
 }

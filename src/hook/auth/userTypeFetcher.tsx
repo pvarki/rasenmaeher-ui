@@ -49,23 +49,23 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
 
         if (authData.auth === "mtls" || authData.auth === "jwt") {
           setAuthType(authData.auth);
+
+          const validUserResponse = await fetch("/api/v1/check-auth/validuser");
+          const validUserData =
+            (await validUserResponse.json()) as ValidUserResponse;
+
+          setIsValidUser(validUserData.isValidUser);
+          setCallsign(validUserData.callsign);
+
+          if (validUserData.isValidUser) {
+            const adminResponse = await fetch(
+              "/api/v1/check-auth/validuser/admin",
+            );
+            const adminData = (await adminResponse.json()) as AdminResponse;
+            setUserType(adminData.isAdmin ? "admin" : "user");
+          }
         } else {
           throw new Error("Invalid authentication type");
-        }
-
-        const validUserResponse = await fetch("/api/v1/check-auth/validuser");
-        const validUserData =
-          (await validUserResponse.json()) as ValidUserResponse;
-
-        setIsValidUser(validUserData.isValidUser);
-        setCallsign(validUserData.callsign);
-
-        if (isValidUser) {
-          const adminResponse = await fetch(
-            "/api/v1/check-auth/validuser/admin",
-          );
-          const adminData = (await adminResponse.json()) as AdminResponse;
-          setUserType(adminData.isAdmin ? "admin" : "user");
         }
       } catch (err) {
         if (err instanceof Error) {
@@ -79,7 +79,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
     }
 
     void fetchUserType();
-  }, [isValidUser]);
+  }, []);
 
   return (
     <UserTypeContext.Provider
