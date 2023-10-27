@@ -9,16 +9,23 @@ import { MtlsTestView } from "./views/MtlsTestView";
 import { AdminRouteWrapper } from "./AdminRouteWrapper";
 import { UserRouteWrapper } from "./UserRouteWrapper";
 import { TakRouteWrapper } from "./TakRouteWrapper";
-import { RootRedirector } from "./hook/auth/rootRedirector";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootRedirector />,
+    element: (
+      <ProtectedRoute>
+        <></>
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/login",
-    element: <LoginView />,
+    element: (
+      <ProtectedRoute>
+        <LoginView />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/login/callsign",
@@ -39,7 +46,7 @@ const router = createBrowserRouter([
   {
     path: "/app/admin/*",
     element: (
-      <ProtectedRoute allowedUserTypes={["admin"]}>
+      <ProtectedRoute requireAuthType="mtls" allowedUserTypes={["admin"]}>
         <AdminRouteWrapper />
       </ProtectedRoute>
     ),
@@ -47,7 +54,7 @@ const router = createBrowserRouter([
   {
     path: "/app/users/*",
     element: (
-      <ProtectedRoute allowedUserTypes={["user"]}>
+      <ProtectedRoute requireAuthType="mtls" allowedUserTypes={["user"]}>
         <UserRouteWrapper />
       </ProtectedRoute>
     ),
@@ -55,7 +62,10 @@ const router = createBrowserRouter([
   {
     path: "/app/services/tak/*",
     element: (
-      <ProtectedRoute allowedUserTypes={["user", "admin"]}>
+      <ProtectedRoute
+        requireAuthType="mtls"
+        allowedUserTypes={["user", "admin"]}
+      >
         <TakRouteWrapper />
       </ProtectedRoute>
     ),

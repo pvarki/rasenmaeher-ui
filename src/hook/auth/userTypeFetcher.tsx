@@ -18,7 +18,7 @@ interface UserTypeContextProps {
   isLoading: boolean;
   error: string | null;
   authType: "mtls" | "jwt" | null;
-  redirectTo: string | null;
+  redirectTo?: string | null;
   callsign: string | null;
   isValidUser: boolean;
 }
@@ -38,7 +38,6 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [authType, setAuthType] = useState<"mtls" | "jwt" | null>(null);
-  const [redirectTo, setRedirectTo] = useState<string | null>(null);
   const [callsign, setCallsign] = useState<string | null>(null);
   const [isValidUser, setIsValidUser] = useState<boolean>(false);
 
@@ -51,40 +50,22 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
         if (authData.auth === "mtls" || authData.auth === "jwt") {
           setAuthType(authData.auth);
         } else {
-          // If the auth type is neither 'mtls' nor 'jwt', redirect to '/login'
-          setRedirectTo("/login");
-          return; // Return early to avoid further processing for invalid auth types
+          throw new Error("Invalid authentication type");
         }
-        if (authData.auth === "mtls") {
-          const userResponse = await fetch("/api/v1/check-auth/validuser");
-          const validUserData =
-            (await userResponse.json()) as ValidUserResponse;
 
-          if (validUserData.isValidUser) {
-            setCallsign(validUserData.callsign);
-            setIsValidUser(validUserData.isValidUser);
+        const validUserResponse = await fetch("/api/v1/check-auth/validuser");
+        const validUserData =
+          (await validUserResponse.json()) as ValidUserResponse;
 
-            const adminResponse = await fetch(
-              "/api/v1/check-auth/validuser/admin",
-            );
-            const adminData = (await adminResponse.json()) as AdminResponse;
-            setUserType(adminData.isAdmin ? "admin" : "user");
-          } else {
-            setRedirectTo("/login/createmtls");
-          }
-        } else if (authData.auth === "jwt") {
-          const validUserResponse = await fetch("/api/v1/check-auth/validuser");
-          const validUserData =
-            (await validUserResponse.json()) as ValidUserResponse;
+        setIsValidUser(validUserData.isValidUser);
+        setCallsign(validUserData.callsign);
 
-          if (validUserData.isValidUser) {
-            setCallsign(validUserData.callsign);
-            setRedirectTo("/login/createmtls");
-          } else {
-            setRedirectTo("/login/callsign");
-          }
-        } else {
-          setRedirectTo("/login");
+        if (isValidUser) {
+          const adminResponse = await fetch(
+            "/api/v1/check-auth/validuser/admin",
+          );
+          const adminData = (await adminResponse.json()) as AdminResponse;
+          setUserType(adminData.isAdmin ? "admin" : "user");
         }
       } catch (err) {
         if (err instanceof Error) {
@@ -98,19 +79,11 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
     }
 
     void fetchUserType();
-  }, []);
+  }, [isValidUser]);
 
   return (
     <UserTypeContext.Provider
-      value={{
-        userType,
-        isLoading,
-        error,
-        authType,
-        redirectTo,
-        callsign,
-        isValidUser,
-      }}
+      value={{ userType, isLoading, error, authType, callsign, isValidUser }}
     >
       {children}
     </UserTypeContext.Provider>
