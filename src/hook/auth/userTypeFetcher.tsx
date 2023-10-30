@@ -47,6 +47,10 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
         const response = await fetch("/api/v1/check-auth/mtls_or_jwt");
         const authData = (await response.json()) as AuthResponse;
 
+        if (!response.ok) {
+          throw new Error("API response was not ok.");
+        }
+
         if (authData.auth === "mtls" || authData.auth === "jwt") {
           setAuthType(authData.auth);
 
@@ -65,7 +69,8 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
             setUserType(adminData.isAdmin ? "admin" : "user");
           }
         } else {
-          throw new Error("Invalid authentication type");
+          // Handle unrecognized auth types by setting authType to null
+          setAuthType(null);
         }
       } catch (err) {
         if (err instanceof Error) {
