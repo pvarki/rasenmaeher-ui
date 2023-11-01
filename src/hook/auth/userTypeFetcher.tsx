@@ -48,13 +48,24 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
         const authData = (await response.json()) as AuthResponse;
 
         if (!response.ok) {
-          throw new Error("API response was not ok.");
+          if (response.status !== 403) {
+            throw new Error(
+              `API response was not ok. Status code: ${response.status}`,
+            );
+          }
+          setAuthType(null);
         }
 
         if (authData.auth === "mtls" || authData.auth === "jwt") {
           setAuthType(authData.auth);
 
           const validUserResponse = await fetch("/api/v1/check-auth/validuser");
+          if (!validUserResponse.ok) {
+            throw new Error(
+              `API response was not ok. Status code: ${validUserResponse.status}`,
+            );
+          }
+
           const validUserData =
             (await validUserResponse.json()) as ValidUserResponse;
 
@@ -65,16 +76,21 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
             const adminResponse = await fetch(
               "/api/v1/check-auth/validuser/admin",
             );
+            if (!adminResponse.ok) {
+              throw new Error(
+                `API response was not ok. Status code: ${adminResponse.status}`,
+              );
+            }
+
             const adminData = (await adminResponse.json()) as AdminResponse;
             setUserType(adminData.isAdmin ? "admin" : "user");
           }
         } else {
-          // Handle unrecognized auth types by setting authType to null
           setAuthType(null);
         }
       } catch (err) {
         if (err instanceof Error) {
-          setError(err.message);
+          setError(`Error: ${err.message}`);
         } else {
           setError("An unknown error occurred.");
         }
