@@ -1,4 +1,10 @@
-import { createContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useCallback,
+} from "react";
 
 interface AuthResponse {
   auth: "mtls" | "jwt" | string;
@@ -18,6 +24,8 @@ interface UserTypeContextProps {
   isLoading: boolean;
   error: string | null;
   authType: "mtls" | "jwt" | null;
+  otpVerified: boolean;
+  setOtpVerified: (verified: boolean) => void;
   redirectTo?: string | null;
   callsign: string | null;
   isValidUser: boolean;
@@ -28,9 +36,13 @@ export const UserTypeContext = createContext<UserTypeContextProps>({
   isLoading: true,
   error: null,
   authType: null,
+  otpVerified: false,
   redirectTo: null,
   callsign: null,
   isValidUser: false,
+  setOtpVerified: () => {
+    //placeholder
+  },
 });
 
 export function UserTypeFetcher({ children }: { children: ReactNode }) {
@@ -40,6 +52,11 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
   const [authType, setAuthType] = useState<"mtls" | "jwt" | null>(null);
   const [callsign, setCallsign] = useState<string | null>(null);
   const [isValidUser, setIsValidUser] = useState<boolean>(false);
+  const [otpVerified, setIsOtpVerified] = useState<boolean>(false);
+
+  const setOtpVerified = useCallback((verified: boolean) => {
+    setIsOtpVerified(verified);
+  }, []);
 
   useEffect(() => {
     async function fetchUserType() {
@@ -104,7 +121,16 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
 
   return (
     <UserTypeContext.Provider
-      value={{ userType, isLoading, error, authType, callsign, isValidUser }}
+      value={{
+        userType,
+        isLoading,
+        error,
+        authType,
+        callsign,
+        isValidUser,
+        otpVerified,
+        setOtpVerified,
+      }}
     >
       {children}
     </UserTypeContext.Provider>

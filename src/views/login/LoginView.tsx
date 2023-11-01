@@ -1,6 +1,7 @@
 import { useMemo } from "react";
+import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { UserTypeContext } from "../../hook/auth/userTypeFetcher";
 import pvarkiLogo from "../../assets/icons/pvarki.png";
 import { useCheckCode } from "../../hook/api/useCheckCode";
 import { useLoginCodeStore } from "../../store/LoginCodeStore";
@@ -25,7 +26,7 @@ const CodeSchema = yup.object().shape({
 export function LoginView() {
   const navigate = useNavigate();
   const params = useQueryParams();
-
+  const { setOtpVerified } = useContext(UserTypeContext);
   const loginCodeStore = useLoginCodeStore();
 
   const formik = useFormik({
@@ -44,6 +45,7 @@ export function LoginView() {
       loginCodeStore.setCode(formik.values.code);
       if (data.isAdminCodeValid) {
         loginCodeStore.setCodeType("admin" || "user");
+        setOtpVerified(true);
         navigate("/login/callsign");
       } else {
         loginCodeStore.setCodeType("unknown");

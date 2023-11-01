@@ -2,12 +2,16 @@ type AuthType = "mtls" | "jwt" | null;
 
 export function determineRedirectPath(
   authType: AuthType,
+  otpVerified: boolean,
   isValidUser: boolean,
   callsign: string | null,
   isAdmin: boolean,
   currentPath: string,
 ): string {
-  if (!authType) return "/login";
+  if (!authType) {
+    if (otpVerified) return "/login/callsign";
+    else return "/login";
+  }
 
   if (authType === "jwt") {
     if (!isValidUser) return "/login/enrollment";

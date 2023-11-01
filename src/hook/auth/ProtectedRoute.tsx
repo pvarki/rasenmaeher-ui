@@ -8,6 +8,7 @@ interface Props {
   allowedUserTypes?: Array<"admin" | "user">;
   requireAuthType?: "jwt" | "mtls";
   requireValidUser?: boolean;
+  requireOtpVerified?: boolean;
 }
 
 export function ProtectedRoute({
@@ -15,9 +16,17 @@ export function ProtectedRoute({
   allowedUserTypes = [],
   requireAuthType,
   requireValidUser = false,
+  requireOtpVerified = false,
 }: Props) {
-  const { userType, isLoading, error, authType, isValidUser, callsign } =
-    useUserType();
+  const {
+    userType,
+    isLoading,
+    error,
+    authType,
+    isValidUser,
+    callsign,
+    otpVerified,
+  } = useUserType();
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -26,6 +35,7 @@ export function ProtectedRoute({
 
   const targetPath = determineRedirectPath(
     authType,
+    otpVerified,
     isValidUser,
     callsign,
     userType === "admin",
@@ -38,6 +48,11 @@ export function ProtectedRoute({
   if (currentPath !== targetPath) {
     console.log("Redirect triggered due to path mismatch");
     return <Navigate to={targetPath} />;
+  }
+
+  if (requireOtpVerified && !otpVerified) {
+    console.log("Redirect triggered due to otpverified mismatch");
+    return <Navigate to="/login" />;
   }
 
   if (requireAuthType && authType !== requireAuthType) {

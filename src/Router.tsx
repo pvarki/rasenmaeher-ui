@@ -30,7 +30,7 @@ const router = createBrowserRouter([
   {
     path: "/login/callsign",
     element: (
-      <ProtectedRoute requireAuthType="jwt">
+      <ProtectedRoute requireOtpVerified={true}>
         <CallsignSetupStep />
       </ProtectedRoute>
     ),
