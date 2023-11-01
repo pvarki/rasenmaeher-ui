@@ -43,11 +43,8 @@ export function LoginView() {
     onSuccess: (data) => {
       loginCodeStore.setCode(formik.values.code);
       if (data.isAdminCodeValid) {
-        loginCodeStore.setCodeType("admin");
-        navigate("/app/admin");
-      } else if (data.isEnrollmentCodeValid) {
-        loginCodeStore.setCodeType("user");
-        navigate("/app/users/:callsign");
+        loginCodeStore.setCodeType("admin" || "user");
+        navigate("/login/callsign");
       } else {
         loginCodeStore.setCodeType("unknown");
       }
