@@ -9,14 +9,13 @@ export function determineRedirectPath(
   currentPath: string,
 ): string {
   if (!authType) {
-    if (otpVerified) return "/login/callsign";
+    if (otpVerified && !callsign) return "/login/callsign";
     else return "/login";
   }
 
   if (authType === "jwt") {
-    if (!isValidUser) return "/login/enrollment";
-    if (!callsign) return "/login/callsign";
-    return "/login/createmtls";
+    if (!isValidUser && !isAdmin) return "/login/enrollment";
+    else return "/login/createmtls";
   }
 
   if (authType === "mtls") {

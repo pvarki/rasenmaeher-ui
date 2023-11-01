@@ -26,7 +26,7 @@ export function CallsignSetupStep() {
     onSuccess: (jwt) => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("callsign", formik.values.callsign);
-      navigate("/app/admin");
+      navigate("/login/createmtls");
     },
     onError: () => {
       loginCodeStore.reset();
