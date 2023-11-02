@@ -13,7 +13,7 @@ interface Props {
 
 export function ProtectedRoute({
   children,
-  allowedUserTypes = [],
+  allowedUserTypes = ["admin", "user"], // Assuming default to both if not provided
   requireAuthType,
   requireValidUser = false,
   requireOtpVerified = false,
@@ -30,55 +30,46 @@ export function ProtectedRoute({
   const location = useLocation();
   const currentPath = location.pathname;
 
-  if (isLoading) return null;
-  if (error) return <Navigate to="/error" />;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <Navigate to="/error" replace />;
 
-  const targetPath = determineRedirectPath(
-    authType,
-    otpVerified,
-    isValidUser,
-    callsign,
-    userType === "admin",
-    currentPath,
-  );
-
-  console.log("Current Path:", currentPath);
-  console.log("Target Path:", targetPath);
+  // Call determineRedirectPath only if userType is not null.
+  let targetPath = currentPath;
+  if (userType !== null) {
+    targetPath = determineRedirectPath(
+      authType,
+      otpVerified,
+      isValidUser,
+      userType, // userType is 'admin' or 'user' here, null is skipped.
+      callsign,
+      currentPath,
+    );
+  }
 
   if (currentPath !== targetPath) {
-    console.log("Redirect triggered due to path mismatch");
-    return <Navigate to={targetPath} />;
+    return <Navigate to={targetPath} replace />;
   }
 
   if (requireOtpVerified && !otpVerified) {
-    console.log("Redirect triggered due to otpverified mismatch");
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" replace />;
   }
 
-  if (requireAuthType && authType !== requireAuthType) {
-    console.log("Redirect triggered due to auth type mismatch");
-    return <Navigate to="/login" />;
+  if (requireAuthType && authType !== requireAuthType && !otpVerified) {
+    return <Navigate to="/login" replace />;
   }
 
-  if (requireValidUser && !isValidUser && !callsign) {
-    console.log("Redirect triggered due to missing callsign for valid user");
-    return <Navigate to="/login/callsign" />;
+  if (requireValidUser && !isValidUser) {
+    if (!callsign) {
+      return <Navigate to="/login/callsign" replace />;
+    }
+    if (userType === "user") {
+      return <Navigate to="/login/enrollment" replace />;
+    }
   }
 
-  if (requireValidUser && !isValidUser && callsign) {
-    console.log("Redirect triggered due to invalid user with callsign");
-    return <Navigate to="/login/enrollment" />;
-  }
-
-  if (
-    userType &&
-    allowedUserTypes.length &&
-    !allowedUserTypes.includes(userType)
-  ) {
-    console.log(
-      "Redirect triggered due to user type not being in allowed user types",
-    );
-    return <Navigate to={targetPath} />;
+  // Perform user type check only if userType is not null.
+  if (userType && !allowedUserTypes.includes(userType)) {
+    return <Navigate to={targetPath} replace />;
   }
 
   return <>{children}</>;

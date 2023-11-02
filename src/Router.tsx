@@ -73,7 +73,7 @@ const router = createBrowserRouter([
   {
     path: "/login/createmtls",
     element: (
-      <ProtectedRoute requireAuthType="jwt" requireValidUser={true}>
+      <ProtectedRoute requireAuthType="jwt" requireValidUser={false}>
         <MtlsTestView />
       </ProtectedRoute>
     ),
