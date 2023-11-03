@@ -15,8 +15,6 @@ export function determineRedirectPath(
     if (otpVerified) {
       if (!callsign) return "/login/callsign";
       else if (userType === "admin") return "/login/createmtls";
-      // If user is not an admin but OTP is verified, direct them to the appropriate user flow.
-      else return "/login";
     } else {
       // If OTP is not verified, redirect to login.
       return "/login";

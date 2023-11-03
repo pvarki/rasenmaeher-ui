@@ -1,7 +1,7 @@
 import { Button } from "../components/Button";
 import { useGetCertificate } from "../hook/api/useGetCertificate";
 
-export function MtlsTestView() {
+export function MtlsCreateView() {
   const { mutate: downloadCert } = useGetCertificate();
 
   const { href, hostname } = window.location;
