@@ -42,7 +42,7 @@ export const UserTypeContext = createContext<UserTypeContextProps>({
   authType: null,
   otpVerified: false,
   setOtpVerified: () => {
-    //placeholder
+    // Placeholder function
   },
   redirectTo: null,
   callsign: null,
@@ -63,43 +63,60 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    console.log("debug: Starting to fetch user type.");
+
     async function fetchUserType() {
       try {
-        const response = await fetch("/api/v1/check-auth/mtls_or_jwt");
+        const jwt = localStorage.getItem("token");
+        console.log("debug: JWT from localStorage:", jwt);
+
+        const headers = jwt ? { Authorization: `Bearer ${jwt}` } : undefined;
+        const response = await fetch("/api/v1/check-auth/mtls_or_jwt", {
+          headers,
+        });
+        console.log("debug: Response from /mtls_or_jwt:", response);
+
         if (response.status === 403) {
+          console.warn("debug: Authentication failed. Status code 403.");
           setAuthType(null);
         } else if (response.ok) {
-          const authData = (await response.json()) as AuthResponse;
+          const authData: AuthResponse = await response.json();
+          console.log("debug: User authenticated with type:", authData.type);
           setAuthType(authData.type);
 
-          // Perform additional user checks only if the user is authenticated
           if (authData.type) {
             const validUserResponse = await fetch(
               "/api/v1/check-auth/validuser",
             );
-            if (!validUserResponse.ok) {
-              throw new Error(
-                `API response was not ok. Status code: ${validUserResponse.status}`,
-              );
-            }
+            console.log("debug: Response from /validuser:", validUserResponse);
 
-            const validUserData =
-              (await validUserResponse.json()) as ValidUserResponse;
-            setIsValidUser(validUserData.isValidUser);
-            setCallsign(validUserData.callsign);
+            if (validUserResponse.ok) {
+              const validUserData =
+                (await validUserResponse.json()) as ValidUserResponse;
+              console.log("debug: Valid user data:", validUserData);
+              setIsValidUser(true); // Assuming validUserResponse.ok means user is valid
+              setCallsign(validUserData.callsign);
+              setUserType("user"); // Assuming user is valid, set userType to "user" initially
 
-            if (validUserData.isValidUser) {
               const adminResponse = await fetch(
                 "/api/v1/check-auth/validuser/admin",
               );
-              if (!adminResponse.ok) {
-                throw new Error(
-                  `API response was not ok. Status code: ${adminResponse.status}`,
-                );
-              }
+              console.log(
+                "debug: Response from /validuser/admin:",
+                adminResponse,
+              );
 
-              const adminData = (await adminResponse.json()) as AdminResponse;
-              setUserType(adminData.isAdmin ? "admin" : "user");
+              if (adminResponse.ok) {
+                const adminData = (await adminResponse.json()) as AdminResponse;
+                console.log("debug: Admin data:", adminData);
+                if (adminData.isAdmin) {
+                  setUserType("admin");
+                }
+              }
+            } else {
+              throw new Error(
+                `API response was not ok. Status code: ${validUserResponse.status}`,
+              );
             }
           }
         } else {
@@ -108,17 +125,22 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
           );
         }
       } catch (err) {
+        console.error(
+          "debug: An error occurred while fetching user type:",
+          err,
+        );
         if (err instanceof Error) {
           setError(`Error: ${err.message}`);
         } else {
           setError("An unknown error occurred.");
         }
       } finally {
+        console.log("debug: Finished fetching user type.");
         setIsLoading(false);
       }
     }
 
-    void fetchUserType();
+    fetchUserType();
   }, []);
 
   return (
@@ -130,7 +152,6 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
         authType,
         otpVerified,
         setOtpVerified,
-        redirectTo: null, // This seems to be not used, ensure to implement or remove this if not needed
         callsign,
         isValidUser,
       }}

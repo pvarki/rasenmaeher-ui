@@ -9,50 +9,86 @@ export function determineRedirectPath(
   callsign: string | null,
   currentPath: string,
 ): string {
+  console.log("rerouting: Determining redirect path...");
+
   // If there's no authentication type set yet, we should consider OTP verification and callsign.
   if (!authType) {
-    // If OTP is verified, check if callsign is set or not.
+    console.log("rerouting: No authType set.");
     if (otpVerified) {
-      if (!callsign) return "/login/callsign";
-      else if (userType === "admin") return "/login/createmtls";
+      console.log("rerouting: OTP is verified.");
+      if (!callsign) {
+        console.log("rerouting: No callsign. Redirecting to /login/callsign");
+        return "/login/callsign";
+      } else if (userType === "admin") {
+        console.log(
+          "rerouting: UserType is admin. Redirecting to /login/createmtls",
+        );
+        return "/login/createmtls";
+      }
     } else {
-      // If OTP is not verified, redirect to login.
+      console.log("rerouting: OTP is not verified. Redirecting to /login");
       return "/login";
     }
   }
 
-  // If JWT is the auth type, manage the redirection based on user validity and type.
   if (authType === "jwt") {
-    if (!isValidUser && userType === "user") return "/login/enrollment";
-    else if (userType === "admin") return "/login/createmtls";
-    // If user is valid and not an admin, direct them to the default logged-in user path.
-    else return "/";
+    console.log("rerouting: AuthType is JWT.");
+    if (!isValidUser && userType === "user") {
+      console.log(
+        "rerouting: User is not valid and userType is user. Redirecting to /login/enrollment",
+      );
+      return "/login/enrollment";
+    } else if (userType === "admin") {
+      console.log(
+        "rerouting: UserType is admin. Redirecting to /login/createmtls",
+      );
+      return "/login/createmtls";
+    } else {
+      console.log(
+        "rerouting: User is valid and not an admin. Redirecting to /",
+      );
+      return "/";
+    }
   }
 
-  // If MTLS is the auth type, handle admin-specific redirection.
   if (authType === "mtls") {
-    // If the user is not valid, redirect to an error page.
-    if (!isValidUser) return "/error";
+    console.log("rerouting: AuthType is MTLS.");
+    if (!isValidUser) {
+      console.log("rerouting: User is not valid. Redirecting to /error");
+      return "/error";
+    }
 
-    // Admin-specific redirection
     if (userType === "admin") {
-      // If the user is already on a sub-route of "/app/admin", don't redirect.
-      if (currentPath.startsWith("/app/admin")) return currentPath;
-
+      console.log("rerouting: UserType is admin.");
+      if (currentPath.startsWith("/app/admin")) {
+        console.log(
+          "rerouting: CurrentPath is already in /app/admin. No redirection needed.",
+        );
+        return currentPath;
+      }
+      console.log("rerouting: Redirecting to /app/admin/");
       return "/app/admin/";
     }
 
-    // User-specific redirection
     if (userType === "user" && callsign) {
+      console.log("rerouting: UserType is user and callsign is set.");
       const userPath = `/app/users/${callsign}`;
-      if (currentPath.startsWith(userPath)) return currentPath;
+      if (currentPath.startsWith(userPath)) {
+        console.log(
+          "rerouting: CurrentPath is already in userPath. No redirection needed.",
+        );
+        return currentPath;
+      }
+      console.log(`rerouting: Redirecting to ${userPath}`);
       return userPath;
     }
 
-    // Default redirect for MTLS authenticated users.
+    console.log(
+      "rerouting: Default redirect for MTLS authenticated users. Redirecting to /",
+    );
     return "/";
   }
 
-  // Handle unexpected cases by redirecting to the login page.
+  console.log("rerouting: Unexpected case encountered. Redirecting to /login");
   return "/login";
 }
