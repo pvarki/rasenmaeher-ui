@@ -93,7 +93,7 @@ export function ProtectedRoute({
 
   if (userType && !allowedUserTypes.includes(userType)) {
     console.log(`User type ${userType} not allowed`);
-    return <Navigate to="/unauthorized" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return <>{children}</>;
