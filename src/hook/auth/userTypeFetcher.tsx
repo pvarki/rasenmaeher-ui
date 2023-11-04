@@ -80,7 +80,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
           console.warn("debug: Authentication failed. Status code 403.");
           setAuthType(null);
         } else if (response.ok) {
-          const authData: AuthResponse = await response.json();
+          const authData = (await response.json()) as AuthResponse;
           console.log("debug: User authenticated with type:", authData.type);
           setAuthType(authData.type);
 
@@ -94,6 +94,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
               const validUserData =
                 (await validUserResponse.json()) as ValidUserResponse;
               console.log("debug: Valid user data:", validUserData);
+              console.log("debug: Setting userType to user.");
               setIsValidUser(true); // Assuming validUserResponse.ok means user is valid
               setCallsign(validUserData.callsign);
               setUserType("user"); // Assuming user is valid, set userType to "user" initially
@@ -109,9 +110,8 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
               if (adminResponse.ok) {
                 const adminData = (await adminResponse.json()) as AdminResponse;
                 console.log("debug: Admin data:", adminData);
-                if (adminData.isAdmin) {
-                  setUserType("admin");
-                }
+                console.log("debug: Setting userType to admin.");
+                setUserType("admin");
               }
             } else {
               throw new Error(
@@ -140,7 +140,9 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
       }
     }
 
-    fetchUserType();
+    fetchUserType().catch((err) => {
+      console.error("An error occurred while fetching user type:", err);
+    });
   }, []);
 
   return (
