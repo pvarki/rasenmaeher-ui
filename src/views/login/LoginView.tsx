@@ -2,12 +2,12 @@ import { useMemo } from "react";
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserTypeContext } from "../../hook/auth/userTypeFetcher";
-import pvarkiLogo from "../../assets/icons/pvarki.png";
 import { useCheckCode } from "../../hook/api/useCheckCode";
 import { useLoginCodeStore } from "../../store/LoginCodeStore";
 import { Button } from "../../components/Button";
 import { ErrorMessage, Field, Form, FormikProvider, useFormik } from "formik";
 import * as yup from "yup";
+import { Layout } from "../../components/Layout";
 
 const TOKEN_REGEX = /^[A-Z0-9]{8,}$/;
 
@@ -62,36 +62,41 @@ export function LoginView() {
   });
 
   return (
-    <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
-      <img className="h-32" src={pvarkiLogo} />
-      <h1 className="text-white text-center font-oswald font-bold text-2xl">
-        Kirjaudu palveluun käyttäen kertakäyttökoodia
-      </h1>
-      <span className="text-white text-center font-oswald font-bold text-3xl">
-        metsa-kota
-      </span>
-      <FormikProvider value={formik}>
-        <Form className="flex flex-col items-center gap-3 w-full">
-          <label className="flex flex-col gap-3 w-full text-white">
-            Kertakäyttökoodi:
-            <Field
-              type="text"
-              name="code"
-              className="bg-gray-100 w-full p-2 rounded-lg text-black"
-            />
-            <span className="text-red-500">
-              <ErrorMessage name="code" />
-            </span>
-          </label>
-          <Button
-            variant={{ color: "primary", width: "full" }}
-            type="submit"
-            disabled={!formik.isValid || isLoading}
-          >
-            Kirjaudu
-          </Button>
-        </Form>
-      </FormikProvider>
-    </main>
+    <Layout
+      showNavbar={false}
+      navbarTitle="metsa-kota.pvarki.fi"
+      showFooter={true}
+    >
+      <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
+        <h1 className="text-white text-center font-oswald font-bold text-2xl">
+          Kirjaudu palveluun käyttäen kertakäyttökoodia
+        </h1>
+        <span className="text-white text-center font-oswald font-bold text-3xl">
+          metsa-kota
+        </span>
+        <FormikProvider value={formik}>
+          <Form className="flex flex-col items-center gap-3 w-full">
+            <label className="flex flex-col gap-3 w-full text-white">
+              Kertakäyttökoodi:
+              <Field
+                type="text"
+                name="code"
+                className="bg-gray-100 w-full p-2 rounded-lg text-black"
+              />
+              <span className="text-red-500">
+                <ErrorMessage name="code" />
+              </span>
+            </label>
+            <Button
+              variant={{ color: "primary", width: "full" }}
+              type="submit"
+              disabled={!formik.isValid || isLoading}
+            >
+              Kirjaudu
+            </Button>
+          </Form>
+        </FormikProvider>
+      </main>
+    </Layout>
   );
 }
