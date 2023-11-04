@@ -42,11 +42,14 @@ export function ProtectedRoute({
         } else if (userType === "user" && callsign) {
           return `/app/users/${callsign}`;
         }
+      } else if (authType === "jwt" && !userType) {
+        return "/login/enrollment";
+      } else if (authType === "jwt" && userType) {
+        return "/login/createmtls";
       }
-      // If no special conditions are met, stay at '/'
-      return "/";
+      // If no special conditions are met, or it's jwt but with valid userType, go to the standard login
+      return "/login";
     }
-    // For other paths, let the normal flow handle the redirection
     return currentPath;
   };
 
@@ -78,7 +81,7 @@ export function ProtectedRoute({
     console.log(
       `Required auth type is ${requireAuthType} but current auth type is ${authType}`,
     );
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   if (requireValidUser && !isValidUser) {

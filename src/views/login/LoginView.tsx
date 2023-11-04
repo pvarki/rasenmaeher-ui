@@ -42,12 +42,20 @@ export function LoginView() {
 
   const { mutate: checkCode, isLoading } = useCheckCode({
     onSuccess: (data) => {
+      console.log("loginview: using useCheckCode to determine code type");
       loginCodeStore.setCode(formik.values.code);
       if (data.isAdminCodeValid) {
-        loginCodeStore.setCodeType("admin" || "user");
+        console.log("loginview: setting CodeType admin");
+        loginCodeStore.setCodeType("admin");
+        setOtpVerified(true);
+        navigate("/login/callsign");
+      } else if (data.isEnrollmentCodeValid) {
+        console.log("loginview: setting CodeType user");
+        loginCodeStore.setCodeType("user");
         setOtpVerified(true);
         navigate("/login/callsign");
       } else {
+        console.log("loginview: this code is bs");
         loginCodeStore.setCodeType("unknown");
       }
     },

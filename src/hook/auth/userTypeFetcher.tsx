@@ -113,10 +113,6 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
                 console.log("debug: Setting userType to admin.");
                 setUserType("admin");
               }
-            } else {
-              throw new Error(
-                `API response was not ok. Status code: ${validUserResponse.status}`,
-              );
             }
           }
         } else {
