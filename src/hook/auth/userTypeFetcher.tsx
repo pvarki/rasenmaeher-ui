@@ -7,7 +7,11 @@ import {
 } from "react";
 
 interface AuthResponse {
-  auth: "mtls" | "jwt" | string;
+  type: "mtls" | "jwt";
+  userid: string;
+  payload: {
+    CN: string;
+  };
 }
 
 interface ValidUserResponse {
@@ -37,12 +41,12 @@ export const UserTypeContext = createContext<UserTypeContextProps>({
   error: null,
   authType: null,
   otpVerified: false,
-  redirectTo: null,
-  callsign: null,
-  isValidUser: false,
   setOtpVerified: () => {
     //placeholder
   },
+  redirectTo: null,
+  callsign: null,
+  isValidUser: false,
 });
 
 export function UserTypeFetcher({ children }: { children: ReactNode }) {
@@ -62,48 +66,46 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
     async function fetchUserType() {
       try {
         const response = await fetch("/api/v1/check-auth/mtls_or_jwt");
-        const authData = (await response.json()) as AuthResponse;
-
-        if (!response.ok) {
-          if (response.status !== 403) {
-            throw new Error(
-              `API response was not ok. Status code: ${response.status}`,
-            );
-          }
+        if (response.status === 403) {
           setAuthType(null);
-        }
+        } else if (response.ok) {
+          const authData = (await response.json()) as AuthResponse;
+          setAuthType(authData.type);
 
-        if (authData.auth === "mtls" || authData.auth === "jwt") {
-          setAuthType(authData.auth);
-
-          const validUserResponse = await fetch("/api/v1/check-auth/validuser");
-          if (!validUserResponse.ok) {
-            throw new Error(
-              `API response was not ok. Status code: ${validUserResponse.status}`,
+          // Perform additional user checks only if the user is authenticated
+          if (authData.type) {
+            const validUserResponse = await fetch(
+              "/api/v1/check-auth/validuser",
             );
-          }
-
-          const validUserData =
-            (await validUserResponse.json()) as ValidUserResponse;
-
-          setIsValidUser(validUserData.isValidUser);
-          setCallsign(validUserData.callsign);
-
-          if (validUserData.isValidUser) {
-            const adminResponse = await fetch(
-              "/api/v1/check-auth/validuser/admin",
-            );
-            if (!adminResponse.ok) {
+            if (!validUserResponse.ok) {
               throw new Error(
-                `API response was not ok. Status code: ${adminResponse.status}`,
+                `API response was not ok. Status code: ${validUserResponse.status}`,
               );
             }
 
-            const adminData = (await adminResponse.json()) as AdminResponse;
-            setUserType(adminData.isAdmin ? "admin" : "user");
+            const validUserData =
+              (await validUserResponse.json()) as ValidUserResponse;
+            setIsValidUser(validUserData.isValidUser);
+            setCallsign(validUserData.callsign);
+
+            if (validUserData.isValidUser) {
+              const adminResponse = await fetch(
+                "/api/v1/check-auth/validuser/admin",
+              );
+              if (!adminResponse.ok) {
+                throw new Error(
+                  `API response was not ok. Status code: ${adminResponse.status}`,
+                );
+              }
+
+              const adminData = (await adminResponse.json()) as AdminResponse;
+              setUserType(adminData.isAdmin ? "admin" : "user");
+            }
           }
         } else {
-          setAuthType(null);
+          throw new Error(
+            `API response was not ok. Status code: ${response.status}`,
+          );
         }
       } catch (err) {
         if (err instanceof Error) {
@@ -126,10 +128,11 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
         isLoading,
         error,
         authType,
-        callsign,
-        isValidUser,
         otpVerified,
         setOtpVerified,
+        redirectTo: null, // This seems to be not used, ensure to implement or remove this if not needed
+        callsign,
+        isValidUser,
       }}
     >
       {children}
