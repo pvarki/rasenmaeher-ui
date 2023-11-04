@@ -89,7 +89,7 @@ export function ProtectedRoute({
     if (!callsign) {
       return <Navigate to="/login/callsign" replace />;
     }
-    if (userType === "user") {
+    if (!isValidUser && userType === "user") {
       return <Navigate to="/login/enrollment" replace />;
     }
   }

@@ -29,10 +29,10 @@ export function ErrorView() {
         <h1 className="text-white">{errorDetails.title}</h1>
         <p className="text-white">{errorDetails.details}</p>
         <a
-          href="/app/admin"
+          href="/"
           className="rounded-lg px-4 py-2 font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-primary hover:bg-primary-700 focus:ring-primary-300 disabled:bg-primary-200"
         >
-          Palaa applikaatioon
+          Palaa
         </a>
       </div>
     </Layout>

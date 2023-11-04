@@ -1,11 +1,9 @@
+import logo from "../assets/pv-logo.png";
+
 export function Header() {
   return (
     <div className="w-full h-16 flex items-center p-2 bg-backgroundLight">
-      <img
-        className="object-cover h-20"
-        src="/assets/icons/pv-logo.png"
-        alt="PV Logo"
-      />
+      <img className="object-cover h-20" src={logo} alt="PV Logo" />
     </div>
   );
 }
