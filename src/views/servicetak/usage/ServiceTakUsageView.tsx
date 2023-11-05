@@ -17,12 +17,7 @@ export function ServiceTakUsageView() {
   const cardContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (cardContentRef.current) {
-      cardContentRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
+    window.scrollTo(0, 60);
   }, []);
 
   return (
@@ -32,7 +27,7 @@ export function ServiceTakUsageView() {
         showFooter={true}
         heroImage={sanla}
         navbarTitle="TAK: Käyttö joukossa"
-        backUrl="/app"
+        backUrl="/"
       >
         <div className="flex flex-col flex-shrink-0" ref={cardContentRef}>
           <CardsContainer>

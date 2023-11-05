@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import trooper from "../assets/icons/trooper3.png";
 import taistelija from "../assets/heroimages/sanla.jpeg";
 import { Card } from "../components/Card";
@@ -7,6 +8,9 @@ import { Layout } from "../components/Layout";
 import { ServiceTak } from "./servicetak/ServiceTak";
 
 export function AdminHomeView() {
+  useEffect(() => {
+    window.scrollTo(0, 60);
+  }, []);
   return (
     <Layout
       showNavbar={true}

@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDownIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import { useUsers } from "../hook/api/useUsers";
-import { Button } from "../components/Button";
+import { useUsers } from "../../hook/api/useUsers";
+import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { Layout } from "../components/Layout";
-import { BackgroundCard } from "../components/BackgroundCard";
-import { CardsContainer } from "../components/CardsContainer";
+import { Layout } from "../../components/Layout";
+import { BackgroundCard } from "../../components/BackgroundCard";
+import { CardsContainer } from "../../components/CardsContainer";
 
 export function UserManagementView() {
   const navigate = useNavigate();
@@ -26,28 +26,10 @@ export function UserManagementView() {
     <Layout
       showNavbar={true}
       showFooter={true}
-      navbarTitle="Käyttäjienhallinta"
-      backUrl="/app/admin"
+      navbarTitle="Hallitse käyttäjiä"
+      backUrl="/app/admin/manageusers"
     >
       <CardsContainer>
-        <BackgroundCard
-          title="Lisää käyttäjiä"
-          details={
-            <>
-              Paina <strong>Lisää käyttäjiä</strong> avataksesi työkalut
-              käyttäjien lisäämiseen.
-            </>
-          }
-        >
-          <main className="p-4 flex flex-col gap-1 items-center justify-start h-full">
-            <Button
-              variant={{ width: "full" }}
-              onClick={() => navigate("/app/admin/user-management/code-list")}
-            >
-              Lisää käyttäjiä
-            </Button>
-          </main>
-        </BackgroundCard>
         <BackgroundCard
           title="Hallitse käyttäjiä"
           details={

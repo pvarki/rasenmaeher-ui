@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Header } from "./Header";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
@@ -23,10 +22,6 @@ export function Layout({
   children,
   heroImage,
 }: LayoutProps) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const marginTopValue = heroImage
     ? "mt-[calc(-30vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]"
     : "mt-4"; // a default margin if there's no hero image

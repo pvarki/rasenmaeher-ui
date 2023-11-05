@@ -27,7 +27,7 @@ export function EnrollApprovalView() {
       navbarTitle="Hyväksy käyttäjiä"
       heroImage={hero}
       showFooter={true}
-      backUrl="/app/admin/user-management/code-list"
+      backUrl="/app/admin/manageusers"
     >
       <FormikProvider value={formik}>
         <div className="flex flex-col items-center gap-5">

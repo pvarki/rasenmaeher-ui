@@ -12,12 +12,7 @@ export function ServiceTakQuickstartView() {
   const cardContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (cardContentRef.current) {
-      cardContentRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
+    window.scrollTo(0, 60);
   }, []);
 
   return (
@@ -26,7 +21,8 @@ export function ServiceTakQuickstartView() {
         showNavbar={true}
         showFooter={true}
         heroImage={sanla}
-        navbarTitle="TAK: Käyttö joukossa"
+        navbarTitle="TAK: Käyttöönotto"
+        backUrl="/"
       >
         <div ref={cardContentRef}>
           <CardsContainer>

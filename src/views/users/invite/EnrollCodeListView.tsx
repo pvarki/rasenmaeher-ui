@@ -38,7 +38,7 @@ export function EnrollCodeListView() {
       showNavbar={true}
       navbarTitle="Lisää käyttäjiä"
       showFooter={true}
-      backUrl="/app/admin/user-management"
+      backUrl="/app/admin/manageusers"
     >
       <CardsContainer>
         <BackgroundCard
@@ -72,25 +72,6 @@ export function EnrollCodeListView() {
                 <InviteCodeRow key={i.invitecode} inviteCode={i.invitecode} />
               );
             })}
-          </div>
-        </BackgroundCard>
-
-        <BackgroundCard
-          title="Hyväksy taistelijoita"
-          details={
-            <>
-              Kun taistelija on kirjautunut kutsukoodilla, odottaa hän
-              hyväksyntääsi tässä.
-            </>
-          }
-        >
-          <div>
-            <Button
-              variant={{ width: "full" }}
-              onClick={() => navigate("/app/admin/user-management/approval")}
-            >
-              Hyväksyntä sivu
-            </Button>
           </div>
         </BackgroundCard>
       </CardsContainer>

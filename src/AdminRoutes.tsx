@@ -1,5 +1,5 @@
 import { AdminHomeView } from "./views/AdminHomeView";
-import { UserManagementView } from "./views/UserManagementView";
+import { UserManagementView } from "./views/usermgmt/UserManagementView";
 import { UserInviteView } from "./views/UserInviteView";
 import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";

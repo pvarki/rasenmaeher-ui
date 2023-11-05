@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import android from "../../assets/icons/android.svg";
-import sanla from "../../assets/heroimages/rakennettu3.jpeg";
+import sanla from "../../assets/heroimages/ryhmä.jpeg";
 import apple from "../../assets/icons/apple.svg";
 import windows from "../../assets/icons/windows.svg";
 import { Layout } from "../../components/Layout";
@@ -13,12 +13,7 @@ export function ManageUsersView() {
   const cardContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (cardContentRef.current) {
-      cardContentRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
+    window.scrollTo(0, 60);
   }, []);
 
   return (
@@ -27,7 +22,8 @@ export function ManageUsersView() {
         showNavbar={true}
         showFooter={true}
         heroImage={sanla}
-        navbarTitle="TAK: Käyttö joukossa"
+        navbarTitle="Käyttäjienhallinta"
+        backUrl="/app/admin"
       >
         <div ref={cardContentRef}>
           <CardsContainer>
@@ -35,36 +31,48 @@ export function ManageUsersView() {
               title="Käyttäjienhallinta"
               details={
                 <>
-                  <strong>Lisää</strong>, <strong>hyväksy</strong> ja <strong>hallitse</strong> käyttäjiä. 
+                  <strong>Lisää</strong>, <strong>hyväksy</strong> ja{" "}
+                  <strong>hallitse</strong> käyttäjiä.
                 </>
               }
-              >
-
-            <UnfoldableCard 
+            >
+              <UnfoldableCard
                 title="Näin se käy"
-                description1={<>
-                    <strong>Luo</strong> ja avaa QR-kutsukoodi lisätäksesi käyttäjiä.</>} 
-                description2={<> 
-                    <strong>Hyväksy</strong> koodilla kirjautuneet käyttäjät mukaan palveluusi.</>}
-                description3={<> 
-                    <strong>Hallitse</strong> nostamalla uusia admineja tai poistamalla käyttäjiä palvelustasi.</>}
-             />
+                description1={
+                  <>
+                    <strong>Luo</strong> ja avaa QR-kutsukoodi lisätäksesi
+                    käyttäjiä.
+                  </>
+                }
+                description2={
+                  <>
+                    <strong>Hyväksy</strong> koodilla kirjautuneet käyttäjät
+                    mukaan palveluusi.
+                  </>
+                }
+                description3={
+                  <>
+                    <strong>Hallitse</strong> nostamalla uusia admineja tai
+                    poistamalla käyttäjiä palvelustasi.
+                  </>
+                }
+              />
             </ServiceInfoCard>
 
             <Card
               title="Lisää käyttäjiä"
               image={android}
-              url="/app/admin/user-management/quickstart/android1"
+              url="/app/admin/user-management/code-list"
             />
             <Card
-              title="Hyväksy"
+              title="Hyväksy käyttäjiä"
               image={apple}
-              url="/app/services/tak/quickstart/ios1"
+              url="/app/admin/user-management/approval"
             />
             <Card
-              title="Hallitse"
+              title="Hallitse käyttäjiä"
               image={windows}
-              url="/app/services/tak/quickstart/win1"
+              url="/app/admin/user-management"
             />
           </CardsContainer>
         </div>
