@@ -12,8 +12,6 @@ interface InviteCodeListResponse {
 }
 
 async function getInviteCodeList() {
-  const jwt = localStorage.getItem("token");
-
   const res = await fetch("/api/v1/enrollment/pools", {
     method: "GET",
     headers: {

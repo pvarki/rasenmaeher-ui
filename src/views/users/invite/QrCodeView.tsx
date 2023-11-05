@@ -12,7 +12,10 @@ export function QrCodeView() {
 
   return (
     <div className="flex flex-col items-center gap-5">
-      <Navbar title={inviteCode} backUrl="/app/user-management/code-list" />
+      <Navbar
+        title={inviteCode}
+        backUrl="/app/admin/user-management/code-list"
+      />
       <div className="w-min flex flex-col justify-center items-center p-3 pb-0 bg-backgroundLight rounded-lg">
         <QRCode value={inviteUrl} />
         <div className="w-full flex justify-end">

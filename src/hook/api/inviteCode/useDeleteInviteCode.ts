@@ -5,16 +5,10 @@ interface DeleteInviteCodeResponse {
 }
 
 async function deleteInviteCode(inviteCode: string) {
-  const jwt = localStorage.getItem("token");
-  if (!jwt) {
-    throw new Error("No JWT found");
-  }
-
   const res = await fetch("/api/v1/enrollment/invitecode/" + inviteCode, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
     },
   });
 

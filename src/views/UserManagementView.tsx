@@ -5,6 +5,8 @@ import { useUsers } from "../hook/api/useUsers";
 import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
+import { BackgroundCard } from "../components/BackgroundCard";
+import { CardsContainer } from "../components/CardsContainer";
 
 export function UserManagementView() {
   const navigate = useNavigate();
@@ -23,19 +25,44 @@ export function UserManagementView() {
   return (
     <Layout
       showNavbar={true}
+      showFooter={true}
       navbarTitle="Käyttäjienhallinta"
       backUrl="/app/admin"
     >
-      <main className="px-3 flex flex-col gap-3 items-center justify-start h-full">
-        <h1 className="text-white">UserManagementView</h1>
-        <Button
-          variant={{ width: "full" }}
-          onClick={() => navigate("/app/admin/user-management/code-list")}
+      <CardsContainer>
+        <BackgroundCard
+          title="Lisää käyttäjiä"
+          details={
+            <>
+              Paina <strong>Lisää käyttäjiä</strong> avataksesi työkalut
+              käyttäjien lisäämiseen.
+            </>
+          }
         >
-          Lisää käyttäjiä
-        </Button>
-        <UserListAccordian />
-      </main>
+          <main className="p-4 flex flex-col gap-1 items-center justify-start h-full">
+            <Button
+              variant={{ width: "full" }}
+              onClick={() => navigate("/app/admin/user-management/code-list")}
+            >
+              Lisää käyttäjiä
+            </Button>
+          </main>
+        </BackgroundCard>
+        <BackgroundCard
+          title="Hallitse käyttäjiä"
+          details={
+            <>
+              Listaa ja hallitse käyttäjiä. <strong>Adminit</strong> kykenevät
+              lisämään uusia käyttäjiä.<strong>Taistelijat</strong> ovat
+              peruskäyttäjiä, jotka pääsevät käyttämään palveluitasi.
+            </>
+          }
+        >
+          <main className="p-4 flex flex-col gap-1 items-center justify-start h-full">
+            <UserListAccordian />
+          </main>
+        </BackgroundCard>
+      </CardsContainer>
     </Layout>
   );
 }
@@ -61,11 +88,15 @@ function UserListAccordian() {
     >
       <Accordion.Item
         value="admins"
-        className="w-full bg-backgroundLight rounded-lg px-5"
+        className="w-full bg-background rounded-lg px-5 justify-start"
       >
         <Accordion.Header className="flex w-full">
-          <Accordion.Trigger className="text-white w-full items-center outline-none group justify-between py-3 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden flex">
-            Admin
+          <Accordion.Trigger className="text-white w-full items-center outline-none group justify-between py-0 pb-5 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden flex">
+            {
+              <>
+                <small>Adminit </small>
+              </>
+            }
             <ChevronDownIcon
               className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
               aria-hidden
@@ -91,11 +122,15 @@ function UserListAccordian() {
       </Accordion.Item>
       <Accordion.Item
         value="users"
-        className="w-full bg-backgroundLight rounded-lg px-5"
+        className="w-full bg-background rounded-lg px-5"
       >
         <Accordion.Header className="flex w-full">
-          <Accordion.Trigger className="text-white w-full items-center outline-none group justify-between py-3 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden flex">
-            Users
+          <Accordion.Trigger className="text-white w-full items-center outline-none group justify-between py-0 pb-5 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden flex">
+            {
+              <>
+                <small>Taistelijat</small>
+              </>
+            }
             <ChevronDownIcon
               className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
               aria-hidden

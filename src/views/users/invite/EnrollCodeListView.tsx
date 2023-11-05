@@ -8,8 +8,7 @@ import { useCreateInviteCode } from "../../../hook/api/inviteCode/useCreateInvit
 import { useNavigate } from "react-router-dom";
 import { useDeleteInviteCode } from "../../../hook/api/inviteCode/useDeleteInviteCode";
 import { CardsContainer } from "../../../components/CardsContainer";
-import hero from "../../../assets/heroimages/ryhmä.jpeg";
-import { TextCard } from "../../../components/TextCard";
+import { BackgroundCard } from "../../../components/BackgroundCard";
 
 export function EnrollCodeListView() {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ export function EnrollCodeListView() {
 
   const { mutate: createInviteCode } = useCreateInviteCode({
     onSuccess: (inviteCode) => {
-      navigate("/app/users/invite/code-list/" + inviteCode);
+      navigate("/app/admin/users/invite/code-list/" + inviteCode);
     },
   });
 
@@ -37,22 +36,23 @@ export function EnrollCodeListView() {
   return (
     <Layout
       showNavbar={true}
-      navbarTitle="Kutsukoodit"
+      navbarTitle="Lisää käyttäjiä"
       showFooter={true}
       backUrl="/app/admin/user-management"
     >
       <CardsContainer>
-        <TextCard>
-          <div className="flex flex-col items-center gap-3">
-            <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
-              Luo uusi Kutsukoodi
-            </Button>
-            <Button
-              variant={{ width: "full" }}
-              onClick={() => navigate("/app/admin/user-management/approval")}
-            >
-              Hyväksyntä sivu
-            </Button>
+        <BackgroundCard
+          title="Hallitse kutsukoodeja"
+          details={
+            <>
+              Taistelija tarvitsee aktiivisen <strong>kutsukoodin</strong>{" "}
+              liittyäkseen palveluusi. Luo uusi kutsukoodi painamalla nappia.
+              Avaa luotu kutsukoodi QR-koodinäkymään <strong>painamalla</strong>{" "}
+              koodia.
+            </>
+          }
+        >
+          <div className="flex bg-backgroundLight flex-col items-center gap-3 px-4 pt-2 pb-2">
             <div className="relative gap-3 flex flex-row items-center w-full bg-backgroundLight p-3 rounded-lg text-white">
               <MagnifyingGlassIcon
                 width={24}
@@ -63,6 +63,9 @@ export function EnrollCodeListView() {
                 className="bg-backgroundLight w-full rounded-lg text-white"
                 placeholder="Suodata kutsukoodeja"
               />
+              <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
+                Luo uusi Kutsukoodi
+              </Button>
             </div>
             {inviteCodeList?.map((i) => {
               return (
@@ -70,7 +73,26 @@ export function EnrollCodeListView() {
               );
             })}
           </div>
-        </TextCard>
+        </BackgroundCard>
+
+        <BackgroundCard
+          title="Hyväksy taistelijoita"
+          details={
+            <>
+              Kun taistelija on kirjautunut kutsukoodilla, odottaa hän
+              hyväksyntääsi tässä.
+            </>
+          }
+        >
+          <div>
+            <Button
+              variant={{ width: "full" }}
+              onClick={() => navigate("/app/admin/user-management/approval")}
+            >
+              Hyväksyntä sivu
+            </Button>
+          </div>
+        </BackgroundCard>
       </CardsContainer>
     </Layout>
   );
@@ -81,7 +103,9 @@ function InviteCodeRow({ inviteCode }: { inviteCode: string }) {
 
   return (
     <div
-      onClick={() => navigate("/app/user-management/code-list/" + inviteCode)}
+      onClick={() =>
+        navigate("/app/admin/user-management/code-list/" + inviteCode)
+      }
       className="bg-backgroundLight w-full p-3 rounded-lg flex items-center justify-between gap-5"
     >
       <span className="text-white">{inviteCode}</span>

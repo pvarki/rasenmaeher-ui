@@ -5,11 +5,16 @@ import { QrCodeView } from "./views/users/invite/QrCodeView";
 import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 import { MassEnrollmentView } from "./views/MassEnrollmentView";
+import { ManageUsersView } from "./views/usermgmt/ManageUsersView";
 
 export const AdminRoutes = [
   {
     path: "",
     element: <AdminHomeView />,
+  },
+  {
+    path: "manageusers",
+    element: <ManageUsersView />,
   },
   {
     path: "user-management",
