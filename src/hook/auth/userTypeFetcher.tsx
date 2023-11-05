@@ -87,6 +87,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
           if (authData.type) {
             const validUserResponse = await fetch(
               "/api/v1/check-auth/validuser",
+              { headers },
             );
             console.log("debug: Response from /validuser:", validUserResponse);
 
@@ -97,9 +98,10 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
               setIsValidUser(true);
               setCallsign(validUserData.callsign);
               setUserType("user");
-            } else if (validUserResponse.status === 403) {
+
               const adminResponse = await fetch(
                 "/api/v1/check-auth/validuser/admin",
+                { headers },
               );
               console.log(
                 "debug: Response from /validuser/admin:",
@@ -109,10 +111,8 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
               if (adminResponse.ok) {
                 const adminData = (await adminResponse.json()) as AdminResponse;
                 console.log("debug: Admin data:", adminData);
-                if (adminData.isAdmin) {
-                  console.log("debug: Setting userType to admin.");
-                  setUserType("admin");
-                }
+                console.log("debug: Setting userType to admin.");
+                setUserType("admin");
               }
             }
           }
