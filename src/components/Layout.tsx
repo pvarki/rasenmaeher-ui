@@ -7,7 +7,7 @@ interface LayoutProps {
   showNavbar?: boolean;
   showHeader?: boolean;
   showFooter?: boolean;
-  navbarTitle?: string;
+  navbarTitle?: React.ReactNode;
   backUrl?: string;
   children?: React.ReactNode;
   heroImage?: string;

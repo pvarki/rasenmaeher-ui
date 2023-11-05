@@ -8,7 +8,8 @@ import { useCreateInviteCode } from "../../../hook/api/inviteCode/useCreateInvit
 import { useNavigate } from "react-router-dom";
 import { useDeleteInviteCode } from "../../../hook/api/inviteCode/useDeleteInviteCode";
 import { CardsContainer } from "../../../components/CardsContainer";
-import { BackgroundCard } from "../../../components/BackgroundCard";
+import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
+import { UnfoldableCard } from "../../../components/UnfoldableCard";
 
 export function EnrollCodeListView() {
   const navigate = useNavigate();
@@ -41,39 +42,65 @@ export function EnrollCodeListView() {
       backUrl="/app/admin/manageusers"
     >
       <CardsContainer>
-        <BackgroundCard
-          title="Hallitse kutsukoodeja"
+        <ServiceInfoCard
+          title="Lisää käyttäjiä kutsukoodilla"
           details={
             <>
-              Taistelija tarvitsee aktiivisen <strong>kutsukoodin</strong>{" "}
-              liittyäkseen palveluusi. Luo uusi kutsukoodi painamalla nappia.
               Avaa luotu kutsukoodi QR-koodinäkymään <strong>painamalla</strong>{" "}
-              koodia.
+              koodia tai luo uusi kutsukoodi.
             </>
           }
         >
-          <div className="flex bg-backgroundLight flex-col items-center gap-3 px-4 pt-2 pb-2">
-            <div className="relative gap-3 flex flex-row items-center w-full bg-backgroundLight p-3 rounded-lg text-white">
-              <MagnifyingGlassIcon
-                width={24}
-                height={24}
-                className="text-white"
-              />
-              <input
-                className="bg-backgroundLight w-full rounded-lg text-white"
-                placeholder="Suodata kutsukoodeja"
-              />
-              <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
-                Luo uusi Kutsukoodi
-              </Button>
-            </div>
-            {inviteCodeList?.map((i) => {
-              return (
-                <InviteCodeRow key={i.invitecode} inviteCode={i.invitecode} />
-              );
-            })}
+          <UnfoldableCard
+            title="Näin se käy"
+            description1={
+              <>
+                <strong>Luo</strong> uusi kutsukoodi painamalla nappia tai käytä
+                aktiivista aiemmin luotua.
+              </>
+            }
+            description2={
+              <>
+                <strong>Avaa</strong> kutsukoodi QR-koodinäkymään{" "}
+                <strong>painamalla</strong> koodia.{" "}
+                <strong>Näytä koodia</strong> käyttäjillesi.
+              </>
+            }
+            description3={
+              <>
+                QR-koodilinkistä käyttäjä pääsee kirjautumaan ja syöttämään
+                peitenimensä.
+              </>
+            }
+            description4={
+              <>
+                Tämän jälkeen käyttäjäsi odottaa <strong>hyväksyntää</strong>.
+                Näet hänet hyväksyntääsi odottavien listassa.
+              </>
+            }
+          />
+          <div className="mt-4 mb-4 w-full">
+            <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
+              Luo uusi Kutsu
+            </Button>
           </div>
-        </BackgroundCard>
+          <div className="relative gap-3 flex flex-row items-center w-full bg-backgroundLight p-3 rounded-lg text-white">
+            <MagnifyingGlassIcon
+              width={24}
+              height={24}
+              className="text-white"
+            />
+            <input
+              className="bg-backgroundLight w-full rounded-lg text-white"
+              placeholder="Suodata kutsukoodeja"
+            />
+          </div>
+          {inviteCodeList?.map((i) => {
+            return (
+              <InviteCodeRow key={i.invitecode} inviteCode={i.invitecode} />
+            );
+          })}
+        </ServiceInfoCard>
       </CardsContainer>
     </Layout>
   );

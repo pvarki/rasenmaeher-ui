@@ -2,15 +2,11 @@ import { useMemo } from "react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDownIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { useUsers } from "../../hook/api/useUsers";
-import { Button } from "../../components/Button";
-import { useNavigate } from "react-router-dom";
 import { Layout } from "../../components/Layout";
 import { BackgroundCard } from "../../components/BackgroundCard";
 import { CardsContainer } from "../../components/CardsContainer";
 
 export function UserManagementView() {
-  const navigate = useNavigate();
-
   // const { data: userList } = useUsers();
 
   // const adminList = useMemo(

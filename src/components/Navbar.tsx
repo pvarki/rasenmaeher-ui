@@ -1,10 +1,11 @@
+import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import logo from "../assets/icons/jellona.png";
 
 interface NavbarProps {
   backUrl?: string;
-  title?: string;
+  title?: ReactNode;
 }
 
 export function Navbar({ backUrl, title }: NavbarProps) {
