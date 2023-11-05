@@ -21,7 +21,11 @@ export function UserManagementView() {
   // );
 
   return (
-    <Layout showNavbar={true} navbarTitle="Käyttäjienhallinta" backUrl="/app">
+    <Layout
+      showNavbar={true}
+      navbarTitle="Käyttäjienhallinta"
+      backUrl="/app/admin"
+    >
       <main className="px-3 flex flex-col gap-3 items-center justify-start h-full">
         <h1 className="text-white">UserManagementView</h1>
         <Button

@@ -1,6 +1,5 @@
-import { Navbar } from "../../../components/Navbar";
 import { Button } from "../../../components/Button";
-
+import { Layout } from "../../../components/Layout";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { DotsVerticalIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { useAlertDialog } from "../../../components/AlertDialogService";
@@ -8,6 +7,9 @@ import { useInviteCodeList } from "../../../hook/api/inviteCode/useInviteCodeLis
 import { useCreateInviteCode } from "../../../hook/api/inviteCode/useCreateInviteCode";
 import { useNavigate } from "react-router-dom";
 import { useDeleteInviteCode } from "../../../hook/api/inviteCode/useDeleteInviteCode";
+import { CardsContainer } from "../../../components/CardsContainer";
+import hero from "../../../assets/heroimages/ryhmä.jpeg";
+import { TextCard } from "../../../components/TextCard";
 
 export function EnrollCodeListView() {
   const navigate = useNavigate();
@@ -33,28 +35,44 @@ export function EnrollCodeListView() {
   const { data: inviteCodeList } = useInviteCodeList();
 
   return (
-    <div className="flex flex-col items-center gap-3">
-      <Navbar title="Kutsukoodit" backUrl="/app/admin/user-management" />
-      <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
-        Luo uusi Kutsukoodi
-      </Button>
-      <Button
-        variant={{ width: "full" }}
-        onClick={() => navigate("/app/admin/user-management/approval")}
-      >
-        Hyväksyntä sivu
-      </Button>
-      <div className="relative gap-3 flex flex-row items-center w-full bg-backgroundLight p-3 rounded-lg text-white">
-        <MagnifyingGlassIcon width={24} height={24} className="text-white" />
-        <input
-          className="bg-backgroundLight w-full rounded-lg text-white"
-          placeholder="Suodata kutsukoodeja"
-        />
-      </div>
-      {inviteCodeList?.map((i) => {
-        return <InviteCodeRow key={i.invitecode} inviteCode={i.invitecode} />;
-      })}
-    </div>
+    <Layout
+      showNavbar={true}
+      navbarTitle="Kutsukoodit"
+      showFooter={true}
+      backUrl="/app/admin/user-management"
+    >
+      <CardsContainer>
+        <TextCard>
+          <div className="flex flex-col items-center gap-3">
+            <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
+              Luo uusi Kutsukoodi
+            </Button>
+            <Button
+              variant={{ width: "full" }}
+              onClick={() => navigate("/app/admin/user-management/approval")}
+            >
+              Hyväksyntä sivu
+            </Button>
+            <div className="relative gap-3 flex flex-row items-center w-full bg-backgroundLight p-3 rounded-lg text-white">
+              <MagnifyingGlassIcon
+                width={24}
+                height={24}
+                className="text-white"
+              />
+              <input
+                className="bg-backgroundLight w-full rounded-lg text-white"
+                placeholder="Suodata kutsukoodeja"
+              />
+            </div>
+            {inviteCodeList?.map((i) => {
+              return (
+                <InviteCodeRow key={i.invitecode} inviteCode={i.invitecode} />
+              );
+            })}
+          </div>
+        </TextCard>
+      </CardsContainer>
+    </Layout>
   );
 }
 

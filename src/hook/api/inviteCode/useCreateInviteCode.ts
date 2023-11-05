@@ -5,16 +5,10 @@ interface CreateInviteCodeResponse {
 }
 
 async function createInviteCode() {
-  const jwt = localStorage.getItem("token");
-  if (!jwt) {
-    throw new Error("No JWT found");
-  }
-
   const res = await fetch("/api/v1/enrollment/invitecode/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
     },
   });
   if (res.status !== 200) {

@@ -11,16 +11,10 @@ async function approveUser({
   callsign: string;
   approvalCode: string;
 }) {
-  const jwt = localStorage.getItem("token");
-  if (!jwt) {
-    throw new Error("No JWT found");
-  }
-
   const res = await fetch("/api/v1/enrollment/accept" + callsign, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
     },
     body: JSON.stringify({ callsign, approvecode: approvalCode }),
   });

@@ -1,6 +1,7 @@
 import { Navbar } from "../../../components/Navbar";
 import { Button } from "../../../components/Button";
 import { Layout } from "../../../components/Layout";
+import hero from "../../../assets/heroimages/ryhmä.jpeg";
 
 // import { useLocation, useParams } from "react-router-dom";
 import { ErrorMessage, Field, FormikProvider, useFormik } from "formik";
@@ -24,15 +25,13 @@ export function EnrollApprovalView() {
   return (
     <Layout
       showNavbar={true}
-      navbarTitle="metsa-kota.pvarki.fi"
+      navbarTitle="Hyväksy käyttäjiä"
+      heroImage={hero}
       showFooter={true}
+      backUrl="/app/admin/user-management/code-list"
     >
       <FormikProvider value={formik}>
         <div className="flex flex-col items-center gap-5">
-          <Navbar
-            title="Käyttäjien hyväksyntä"
-            backUrl="/app/user-management/code-list"
-          />
           <Button variant={{ width: "full" }}>Skannaa kameralla</Button>
           <label className="flex flex-col gap-3 w-full text-white">
             Käyttäjän peitenimi
