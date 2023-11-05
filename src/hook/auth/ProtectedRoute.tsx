@@ -5,7 +5,7 @@ import { useUserType } from "./useUserType";
 interface Props {
   children: React.ReactNode;
   allowedUserTypes?: Array<"admin" | "user">;
-  requireAuthType?: "jwt" | "mtls";
+  requireAuthType?: "jwt" | "mtls" | null;
   requireValidUser?: boolean;
   requireOtpVerified?: boolean;
 }
@@ -30,8 +30,8 @@ export function ProtectedRoute({
   const currentPath = location.pathname;
 
   // Debugging logs
-  console.log(`Current authType: ${authType}`);
-  console.log(`Current userType: ${userType}`);
+  console.log(`Current authType: ${authType || "null"}`);
+  console.log(`Current userType: ${userType || "null"}`);
   console.log(`Current path: ${currentPath}`);
 
   const determineTargetPath = () => {
@@ -79,17 +79,21 @@ export function ProtectedRoute({
 
   if (requireAuthType && authType !== requireAuthType) {
     console.log(
-      `Required auth type is ${requireAuthType} but current auth type is ${authType}`,
+      `Required auth type is ${requireAuthType} but current auth type is ${
+        requireAuthType || "jwt"
+      }`,
     );
     return <Navigate to="/" replace />;
   }
 
   if (requireValidUser && !isValidUser) {
-    console.log(`Valid user required but current state is ${isValidUser}`);
+    console.log(
+      `Valid user required but current state is ${isValidUser.toString()}`,
+    );
     if (!callsign) {
       return <Navigate to="/login/callsign" replace />;
     }
-    if (!isValidUser && userType === "user") {
+    if (!isValidUser) {
       return <Navigate to="/login/enrollment" replace />;
     }
   }
