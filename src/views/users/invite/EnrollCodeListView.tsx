@@ -34,13 +34,13 @@ export function EnrollCodeListView() {
 
   return (
     <div className="flex flex-col items-center gap-3">
-      <Navbar title="Kutsu koodit" backUrl="/app/user-management" />
+      <Navbar title="Kutsukoodit" backUrl="/app/admin/user-management" />
       <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
         Luo uusi Kutsukoodi
       </Button>
       <Button
         variant={{ width: "full" }}
-        onClick={() => navigate("/app/user-management/approval")}
+        onClick={() => navigate("/app/admin/user-management/approval")}
       >
         Hyväksyntä sivu
       </Button>

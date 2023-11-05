@@ -7,6 +7,8 @@ import { FormikProvider, useFormik, Field, ErrorMessage, Form } from "formik";
 import * as yup from "yup";
 import { Button } from "../../components/Button";
 import { Layout } from "../../components/Layout";
+import pvarkiLogo from "../../assets/icons/pvarki.png";
+import { CardsContainer } from "../../components/CardsContainer";
 
 const CALLSIGN_REGEX = /^[a-zA-Z0-9]{3,}$/;
 
@@ -76,37 +78,40 @@ export function CallsignSetupStep() {
       navbarTitle="metsa-kota.pvarki.fi"
       showFooter={true}
     >
-      <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
-        <h1 className="text-white text-center font-oswald font-bold text-2xl">
-          Olet käyttämässä kertakäyttösen kirjautumiskoodin. Jatketaanko
-          kirjautumista?
-        </h1>
-        <span className="text-white text-center font-oswald font-bold text-3xl">
-          metsa-kota
-        </span>
-        <FormikProvider value={formik}>
-          <Form className="flex flex-col items-center gap-3 w-full">
-            <label className="flex flex-col gap-3 w-full text-white">
-              Käyttäjätunnus:
-              <Field
-                type="text"
-                name="callsign"
-                className="bg-gray-100 w-full p-2 rounded-lg text-black"
-              />
-              <span className="text-red-500">
-                <ErrorMessage name="callsign" />
-              </span>
-            </label>
-            <Button
-              type="submit"
-              variant={{ color: "primary", width: "full" }}
-              disabled={!formik.isValid || isLoading}
-            >
-              Kirjaudu
-            </Button>
-          </Form>
-        </FormikProvider>
-      </main>
+      <CardsContainer>
+        <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
+          <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">
+            Olet käyttämässä kertakäyttösen kirjautumiskoodin. Jatketaanko
+            kirjautumista?
+          </h1>
+          <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
+          <span className="text-white text-center font-oswald font-bold text-3xl">
+            metsa-kota
+          </span>
+          <FormikProvider value={formik}>
+            <Form className="flex flex-col items-center gap-3 w-full">
+              <label className="flex flex-col gap-3 w-full text-white">
+                Käyttäjätunnus:
+                <Field
+                  type="text"
+                  name="callsign"
+                  className="bg-gray-100 w-full p-2 rounded-lg text-black"
+                />
+                <span className="text-red-500">
+                  <ErrorMessage name="callsign" />
+                </span>
+              </label>
+              <Button
+                type="submit"
+                variant={{ color: "primary", width: "full" }}
+                disabled={!formik.isValid || isLoading}
+              >
+                Kirjaudu
+              </Button>
+            </Form>
+          </FormikProvider>
+        </main>
+      </CardsContainer>
     </Layout>
   );
 }

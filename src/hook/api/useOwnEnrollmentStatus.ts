@@ -17,7 +17,7 @@ async function getEnrollmentStatus() {
     },
   });
   if (res.status !== 200) {
-    throw new Error("Failed to login as admin");
+    throw new Error("Failed to login as accepted user");
   }
 
   const data = (await res.json()) as EnrollmentStatusResponse;

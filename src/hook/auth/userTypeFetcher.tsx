@@ -71,16 +71,16 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
         console.log("debug: JWT from localStorage:", jwt);
 
         const headers = jwt ? { Authorization: `Bearer ${jwt}` } : undefined;
-        const response = await fetch("/api/v1/check-auth/mtls_or_jwt", {
+        const authResponse = await fetch("/api/v1/check-auth/mtls_or_jwt", {
           headers,
         });
-        console.log("debug: Response from /mtls_or_jwt:", response);
+        console.log("debug: Response from /mtls_or_jwt:", authResponse);
 
-        if (response.status === 403) {
+        if (authResponse.status === 403) {
           console.warn("debug: Authentication failed. Status code 403.");
           setAuthType(null);
-        } else if (response.ok) {
-          const authData = (await response.json()) as AuthResponse;
+        } else if (authResponse.ok) {
+          const authData = (await authResponse.json()) as AuthResponse;
           console.log("debug: User authenticated with type:", authData.type);
           setAuthType(authData.type);
 
@@ -94,11 +94,10 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
               const validUserData =
                 (await validUserResponse.json()) as ValidUserResponse;
               console.log("debug: Valid user data:", validUserData);
-              console.log("debug: Setting userType to user.");
-              setIsValidUser(true); // Assuming validUserResponse.ok means user is valid
+              setIsValidUser(true);
               setCallsign(validUserData.callsign);
-              setUserType("user"); // Assuming user is valid, set userType to "user" initially
-
+              setUserType("user");
+            } else if (validUserResponse.status === 403) {
               const adminResponse = await fetch(
                 "/api/v1/check-auth/validuser/admin",
               );
@@ -110,14 +109,16 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
               if (adminResponse.ok) {
                 const adminData = (await adminResponse.json()) as AdminResponse;
                 console.log("debug: Admin data:", adminData);
-                console.log("debug: Setting userType to admin.");
-                setUserType("admin");
+                if (adminData.isAdmin) {
+                  console.log("debug: Setting userType to admin.");
+                  setUserType("admin");
+                }
               }
             }
           }
         } else {
           throw new Error(
-            `API response was not ok. Status code: ${response.status}`,
+            `API response was not ok. Status code: ${authResponse.status}`,
           );
         }
       } catch (err) {
