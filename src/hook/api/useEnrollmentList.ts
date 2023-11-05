@@ -1,6 +1,6 @@
 import { UseQueryOptions, useQuery } from "react-query";
 
-enum EnrollmentState {
+export enum EnrollmentState {
   PENDING = 0,
   APPROVED = 1,
   REJECTED = 2,
