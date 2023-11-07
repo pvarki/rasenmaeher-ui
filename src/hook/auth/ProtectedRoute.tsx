@@ -35,7 +35,7 @@ export function ProtectedRoute({
   console.log(`Current path: ${currentPath}`);
 
   const determineTargetPath = () => {
-    if (currentPath === "/") {
+    if (currentPath === "/" || currentPath === "/login") {
       if (authType === "mtls") {
         if (userType === "admin") {
           return "/app/admin";

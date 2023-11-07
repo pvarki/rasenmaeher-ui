@@ -10,6 +10,13 @@ export function EnrollmentView() {
 
   const callsign = localStorage.getItem("callsign") ?? undefined;
   const approveCode = localStorage.getItem("approveCode") ?? undefined;
+  const approvalUrl =
+    "mtls." +
+    window.location.origin +
+    "/login?callsign=" +
+    (callsign ?? "") +
+    "&&code=" +
+    (approveCode ?? "");
 
   useEffect(() => {
     if (!approveCode || !callsign) {
@@ -32,7 +39,7 @@ export function EnrollmentView() {
     return (
       <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
         <h1 className="text-white">metsa-kota</h1>
-        <span className="text-white">Olet rekisteröitynyt</span>
+        <span className="text-white">Olet rekisteröitynyt.</span>
         <Button onClick={() => navigate("/app/createmtls")}>Jatka</Button>
       </main>
     );
@@ -46,7 +53,7 @@ export function EnrollmentView() {
     >
       <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
         <h1 className="text-white">metsa-kota</h1>
-        <QRCode value="hey" />
+        <QRCode value={approvalUrl} />
         <button className="text-white">kopioi linkki</button>
         <span className="text-white">{callsign}</span>
         <span className="text-white">{approveCode}</span>
