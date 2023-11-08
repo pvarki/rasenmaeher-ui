@@ -12,11 +12,10 @@ import { CardsContainer } from "../../components/CardsContainer";
 import { Text } from "../../components/Text";
 import key from "../../assets/icons/key.svg";
 
-
 export function MtlsCreateView() {
   const { mutate: downloadCert } = useGetCertificate();
   const [callsign, setCallsign] = useState("");
-  const [userOS, setUserOS] = useState('');
+  const [userOS, setUserOS] = useState("");
 
   useEffect(() => {
     setUserOS(getOperatingSystem());
@@ -38,21 +37,25 @@ export function MtlsCreateView() {
 
   const renderInstructions = () => {
     switch (userOS) {
-      case 'Windows':
+      case "Windows":
         return <WindowsInstructions />;
-      case 'MacOS':
+      case "MacOS":
         return <MacInstructions />;
-      case 'Linux':
+      case "Linux":
         return <LinuxInstructions />;
-      case 'Android':
+      case "Android":
         return <AndroidInstructions />;
-      case 'iOS':
+      case "iOS":
         return <IosInstructions />;
       default:
-        return <p>Operating system not recognized. Please follow manual installation steps.</p>;
+        return (
+          <p>
+            Operating system not recognized. Please follow manual installation
+            steps.
+          </p>
+        );
     }
   };
-  
 
   return (
     <Layout
@@ -60,33 +63,30 @@ export function MtlsCreateView() {
       navbarTitle="metsa-kota.pvarki.fi"
       showFooter={true}
     >
-    <CardsContainer>
-      <Text
-      title="Lataa ja asenna mTLS-avain"
-      description="Voit käyttää palvelua vain, jos laitteellasi on sen mTLS-avain. Lataa ja asenna avain laitteellesi."
+      <CardsContainer>
+        <Text
+          title="Lataa ja asenna mTLS-avain"
+          description="Voit käyttää palvelua vain, jos laitteellasi on sen mTLS-avain. Lataa ja asenna avain laitteellesi."
+        />
 
-      />
+        <img src={key} alt="Key" className="text-white w-24 h-24 mb-6" />
 
-    <img src={key} alt="Key" className="text-white w-24 h-24 mb-6" />
-
-
-      {renderInstructions()} 
-      <div className="flex flex-row pt-8 items-center gap-4">
-      <Button 
-        variant={{ color: "success" }} 
-        className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-success hover:bg-success-700 focus:ring-success-300 disabled:bg-success-200 min-w-[180px]" // Ensure you add min-w-[180px] or another specific width to control width and use h-20 for height
-        onClick={() => callsign && downloadCert(callsign)}
-      >
-        Lataa avaimesi
-      </Button>
-      <a
-        href={mtlsUrl}
-        className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-primary hover:bg-primary-700 focus:ring-primary-300 disabled:bg-primary-200 min-w-[180px]" // Use the same classes here
-      >
-        Siirry palveluun avaimellasi
-      </a>
-    </div>
-
+        {renderInstructions()}
+        <div className="flex flex-row pt-8 items-center gap-4">
+          <Button
+            variant={{ color: "success" }}
+            className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-success hover:bg-success-700 focus:ring-success-300 disabled:bg-success-200 min-w-[180px]" // Ensure you add min-w-[180px] or another specific width to control width and use h-20 for height
+            onClick={() => callsign && downloadCert(callsign)}
+          >
+            Lataa avaimesi
+          </Button>
+          <a
+            href={mtlsUrl}
+            className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-primary hover:bg-primary-700 focus:ring-primary-300 disabled:bg-primary-200 min-w-[180px]" // Use the same classes here
+          >
+            Siirry palveluun avaimellasi
+          </a>
+        </div>
       </CardsContainer>
     </Layout>
   );
