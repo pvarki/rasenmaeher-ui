@@ -35,13 +35,27 @@ export function EnrollmentView() {
     enabled: !isEnrolled,
   });
 
+  useEffect(() => {
+    if (isEnrolled) {
+      window.location.reload();
+    }
+  }, [isEnrolled]);
+
   if (isEnrolled) {
     return (
-      <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
-        <h1 className="text-white">metsa-kota</h1>
-        <span className="text-white">Olet rekisteröitynyt.</span>
-        <Button onClick={() => navigate("/login/createmtls")}>Jatka</Button>
-      </main>
+      <Layout
+        showNavbar={false}
+        navbarTitle="metsa-kota.pvarki.fi"
+        showFooter={true}
+      >
+        <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
+          <h1 className="text-white">metsa-kota</h1>
+          <span className="text-white">
+            Sinut on hyväksytty palveluun. Jatka asentamaan mTLS-
+          </span>
+          <Button onClick={() => navigate("/login/createmtls")}>Jatka</Button>
+        </main>
+      </Layout>
     );
   }
 

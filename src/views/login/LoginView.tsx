@@ -13,6 +13,14 @@ import { CardsContainer } from "../../components/CardsContainer";
 
 const TOKEN_REGEX = /^[A-Z0-9]{8,}$/;
 
+interface ApiError extends Error {
+  response?: {
+    data?: {
+      detail?: string;
+    };
+  };
+}
+
 function useQueryParams() {
   const { search } = useLocation();
   return useMemo(() => new URLSearchParams(search), [search]);
@@ -42,7 +50,12 @@ export function LoginView() {
     },
   });
 
-  const { mutate: checkCode, isLoading } = useCheckCode({
+  const {
+    mutate: checkCode,
+    isLoading,
+    isError,
+    error,
+  } = useCheckCode({
     onSuccess: (data) => {
       console.log("loginview: using useCheckCode to determine code type");
       loginCodeStore.setCode(formik.values.code);
@@ -60,6 +73,11 @@ export function LoginView() {
         console.log("loginview: this code is bs");
         loginCodeStore.setCodeType("unknown");
       }
+    },
+    onError: (err: ApiError) => {
+      // Now TypeScript knows what `err` is and that `err.response` might be there
+      const errorMessage = err.response?.data?.detail || "Unknown error";
+      formik.setErrors({ code: errorMessage });
     },
   });
 
@@ -89,6 +107,13 @@ export function LoginView() {
                 />
                 <span className="text-red-500">
                   <ErrorMessage name="code" />
+                  {/* Display the error returned from the mutation */}
+                  {isError && (
+                    <div>
+                      {(error as ApiError).response?.data?.detail ||
+                        "An error occurred"}
+                    </div>
+                  )}
                 </span>
               </label>
               <Button

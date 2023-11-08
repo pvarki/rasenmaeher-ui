@@ -29,6 +29,7 @@ export function CallsignSetupStep() {
     onSuccess: (jwt) => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("callsign", formik.values.callsign);
+      window.location.reload();
       navigate("/login/createmtls");
     },
     onError: () => {
@@ -42,6 +43,7 @@ export function CallsignSetupStep() {
       localStorage.setItem("token", data.jwt);
       localStorage.setItem("approveCode", data.approvecode);
       localStorage.setItem("callsign", data.callsign);
+      window.location.reload();
       navigate("/login/enrollment");
     },
     onError: () => {
@@ -81,8 +83,7 @@ export function CallsignSetupStep() {
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">
-            Olet käyttämässä kertakäyttösen kirjautumiskoodin. Jatketaanko
-            kirjautumista?
+            Anna peitenimesi.
           </h1>
           <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
           <span className="text-white text-center font-oswald font-bold text-3xl">
