@@ -10,6 +10,7 @@ import { AndroidInstructions } from "./androidInstructions";
 import { IosInstructions } from "./iosInstructions";
 import { CardsContainer } from "../../components/CardsContainer";
 import { Text } from "../../components/Text";
+import { InfoModal } from "../../components/InfoModal";
 import key from "../../assets/icons/key.svg";
 
 export function MtlsCreateView() {
@@ -66,10 +67,20 @@ export function MtlsCreateView() {
       <CardsContainer>
         <Text
           title="Lataa ja asenna mTLS-avain"
-          description="Voit käyttää palvelua vain, jos laitteellasi on sen mTLS-avain. Lataa ja asenna avain laitteellesi."
+          description="Voit käyttää palvelua vain, jos laitteellasi on siihen mTLS-avain. Lataa ja asenna avain laitteellesi."
         />
 
-        <img src={key} alt="Key" className="text-white w-24 h-24 mb-6" />
+        <div className="flex flex-col items-center">
+          <div className="flex items-center justify-center w-full">
+            <div className="mr-4">
+              <InfoModal triggerClassName="text-m text-blue-500 underline cursor-pointer pt-2" />
+            </div>
+            <img src={key} alt="Key" className="text-white w-24 h-24 mb-6" />
+            <div className="mr-4 invisible">
+              <InfoModal triggerClassName="text-m text-blue-500 underline cursor-pointer" />
+            </div>
+          </div>
+        </div>
 
         {renderInstructions()}
         <div className="flex flex-row pt-8 items-center gap-4">

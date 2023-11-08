@@ -7,7 +7,6 @@ import { Layout } from "../../components/Layout";
 
 export function EnrollmentView() {
   const navigate = useNavigate();
-
   const callsign = localStorage.getItem("callsign") ?? undefined;
   const approveCode = localStorage.getItem("approveCode") ?? undefined;
   const approvalUrl =
@@ -35,12 +34,6 @@ export function EnrollmentView() {
     enabled: !isEnrolled,
   });
 
-  useEffect(() => {
-    if (isEnrolled) {
-      window.location.reload();
-    }
-  }, [isEnrolled]);
-
   if (isEnrolled) {
     return (
       <Layout
@@ -50,10 +43,15 @@ export function EnrollmentView() {
       >
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white">metsa-kota</h1>
-          <span className="text-white">
-            Sinut on hyväksytty palveluun. Jatka asentamaan mTLS-
-          </span>
-          <Button onClick={() => navigate("/login/createmtls")}>Jatka</Button>
+          <span className="text-white">Sinut on hyväksytty palveluun.</span>
+          <Button
+            onClick={() => {
+              navigate("/login/createmtls");
+              window.location.reload();
+            }}
+          >
+            Jatka
+          </Button>
         </main>
       </Layout>
     );

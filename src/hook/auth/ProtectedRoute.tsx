@@ -42,7 +42,7 @@ export function ProtectedRoute({
         } else if (userType === "user" && callsign) {
           return `/app/users/${callsign}`;
         }
-      } else if (authType === "jwt" && !userType) {
+      } else if (authType === "jwt" && !isValidUser) {
         return "/login/enrollment";
       } else if (authType === "jwt" && userType) {
         return "/login/createmtls";
