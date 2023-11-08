@@ -93,8 +93,6 @@ export function EnrollApprovalView() {
     [setSelectedUser, setDialogOpen],
   );
 
-  // ...
-
   useEffect(() => {
     const callsign = query.get("callsign");
     const approvalCode = query.get("approvalcode");

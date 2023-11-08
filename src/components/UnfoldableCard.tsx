@@ -8,6 +8,12 @@ interface UnfoldableCardProps {
   initialOpen?: boolean;
   imageSrc?: string;
   imageClasses?: string;
+  image2Src?: string;
+  image2Classes?: string;
+  image3Src?: string;
+  image3Classes?: string;
+  image4Src?: string;
+  image4Classes?: string;
   description1?: React.ReactNode;
   description2?: React.ReactNode;
   description3?: React.ReactNode;
@@ -22,6 +28,12 @@ export function UnfoldableCard({
   initialOpen = false,
   imageSrc,
   imageClasses = "",
+  image2Src,
+  image2Classes = "",
+  image3Src,
+  image3Classes = "",
+  image4Src,
+  image4Classes = "",
   description1,
   description2,
   description3,
@@ -33,6 +45,15 @@ export function UnfoldableCard({
     e.stopPropagation();
     setIsOpen(!isOpen);
   };
+
+  const renderImage = (src = "", classes = "") =>
+    src && (
+      <img
+        src={src}
+        className={`mx-auto ${classes}`}
+        alt="Unfoldable card content"
+      />
+    );
 
   return (
     <div
@@ -52,25 +73,26 @@ export function UnfoldableCard({
       </div>
       {isOpen && (
         <>
-          {imageSrc && (
-            <img
-              src={imageSrc}
-              className={`mx-auto ${imageClasses}`}
-              alt="Unfoldable card content"
-            />
-          )}
+          {renderImage(imageSrc, imageClasses)}
           {description1 && (
             <p className="m-2 text-white prose prose-white">{description1}</p>
           )}
+
+          {renderImage(image2Src, image2Classes)}
           {description2 && (
             <p className="m-2 text-white prose prose-white">{description2}</p>
           )}
+
+          {renderImage(image3Src, image3Classes)}
           {description3 && (
             <p className="m-2 text-white prose prose-white">{description3}</p>
           )}
+
+          {renderImage(image4Src, image4Classes)}
           {description4 && (
             <p className="m-2 text-white prose prose-white">{description4}</p>
           )}
+
           {content && (
             <p className="mt-2 text-white prose prose-white">{content}</p>
           )}

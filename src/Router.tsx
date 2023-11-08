@@ -5,7 +5,7 @@ import { CallsignSetupStep } from "./views/login/CallsignSetupView";
 import { EnrollmentView } from "./views/login/EnrollmentView";
 import { ErrorView } from "./views/ErrorView";
 import { TakRoutes } from "./TakRoutes";
-import { MtlsCreateView } from "./views/MtlsCreateView";
+import { MtlsCreateView } from "./views/mtls/MtlsCreateView";
 import { AdminRouteWrapper } from "./AdminRouteWrapper";
 import { UserRouteWrapper } from "./UserRouteWrapper";
 import { TakRouteWrapper } from "./TakRouteWrapper";
