@@ -9,30 +9,36 @@ async function getCertificate(callsign: string) {
 
   const res = await fetch("/api/v1/enduserpfx/" + callsign, {
     method: "GET",
-
     headers: {
       // "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     },
   });
+
   if (res.status !== 200) {
-    throw new Error("Failed to login as admin");
+    let errorMessage = "Failed to get the certificate.";
+    try {
+      const errorBody = (await res.json()) as { detail?: string };
+      errorMessage = errorBody.detail || errorMessage;
+    } catch (e) {
+      // If the response is not json, use the default error message
+    }
+    throw new Error(errorMessage);
   }
 
   const blob = await res.blob();
-
   downloadBlob(blob, callsign + ".pfx");
 
   return blob;
 }
 
-type UseCheckInviteCodeOptions = UseMutationOptions<
+type UseGetCertificateOptions = UseMutationOptions<
   Blob,
   Error,
   string,
   unknown
 >;
 
-export function useGetCertificate(options?: UseCheckInviteCodeOptions) {
+export function useGetCertificate(options?: UseGetCertificateOptions) {
   return useMutation(getCertificate, options);
 }

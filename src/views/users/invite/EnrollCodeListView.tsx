@@ -17,7 +17,7 @@ export function EnrollCodeListView() {
 
   const { mutate: createInviteCode } = useCreateInviteCode({
     onSuccess: (inviteCode) => {
-      navigate("/app/admin/users/invite/code-list/" + inviteCode);
+      navigate("/app/admin/user-management/code-list/" + inviteCode);
     },
   });
 
