@@ -6,7 +6,7 @@ import { UnfoldableCard } from "../../../components/UnfoldableCard";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDownIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { BackgroundCard } from "../../../components/BackgroundCard";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import {
   useEnrollmentList,
@@ -23,7 +23,7 @@ interface UserDetails {
 }
 
 interface WaitingListAccordionProps {
-  onUserClick: (user: UserDetails) => Promise<void>;
+  onUserClick: (user: UserDetails) => void;
 }
 
 export function EnrollApprovalView() {
@@ -33,6 +33,7 @@ export function EnrollApprovalView() {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<UserDetails | null>(null);
   const [approvalMessage, setApprovalMessage] = useState("");
+  const location = useLocation();
 
   const { mutate: approveMutation, reset } = useApproveUser({
     onSuccess: () => {
@@ -59,15 +60,10 @@ export function EnrollApprovalView() {
     if (selectedUser) {
       void rejectMutation({ callsign: selectedUser.callsign });
     }
-    // Close the confirmation dialog
     setConfirmReject(false);
   };
 
-  const useQuery = () => {
-    return new URLSearchParams(useLocation().search);
-  };
-
-  const query = useQuery();
+  const query = useMemo(() => new URLSearchParams(location.search), [location]);
 
   const formik = useFormik({
     initialValues: {
@@ -89,19 +85,27 @@ export function EnrollApprovalView() {
     },
   });
 
-  const openModal = useCallback((user: UserDetails) => {
-    setSelectedUser(user);
-    setDialogOpen(true);
-  }, []);
+  const openModal = useCallback(
+    (user: UserDetails) => {
+      setSelectedUser(user);
+      setDialogOpen(true);
+    },
+    [setSelectedUser, setDialogOpen],
+  );
+
+  // ...
 
   useEffect(() => {
     const callsign = query.get("callsign");
     const approvalCode = query.get("approvalcode");
 
     if (callsign && approvalCode) {
-      void openModal({ callsign });
+      const user = { callsign, approveCode: approvalCode };
+      openModal(user);
+      void formik.setFieldValue("approvalCode", approvalCode);
     }
-  }, [openModal]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array ensures this runs once on mount
 
   const handleHyvaksyClick: React.MouseEventHandler<HTMLButtonElement> = () => {
     formik.submitForm().catch((error) => {
@@ -287,11 +291,9 @@ function WaitingListAccordion({ onUserClick }: WaitingListAccordionProps) {
     console.log(`Found ${pendingUsers.length} pending users.`);
   }
 
-  const handleUserClick = (user: UserDetails) => {
+  const handleUserClick = (user: UserDetails): void => {
     console.log("User clicked:", user);
-    onUserClick(user).catch((error) => {
-      console.error("Error handling user click:", error);
-    });
+    onUserClick(user);
   };
 
   return (
