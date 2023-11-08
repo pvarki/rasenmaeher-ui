@@ -6,7 +6,7 @@ import { UnfoldableCard } from "../../../components/UnfoldableCard";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDownIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { BackgroundCard } from "../../../components/BackgroundCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import {
   useEnrollmentList,
@@ -19,7 +19,7 @@ import { useRejectUser } from "../../../hook/api/useRejectUser";
 
 interface UserDetails {
   callsign: string;
-  approveCode: string;
+  approveCode?: string;
 }
 
 interface WaitingListAccordionProps {
@@ -69,16 +69,6 @@ export function EnrollApprovalView() {
 
   const query = useQuery();
 
-  useEffect(() => {
-    const callsign = query.get("callsign");
-    const approvalCode = query.get("approvalcode");
-
-    if (callsign && approvalCode) {
-      void openModal({ callsign, approveCode: approvalCode });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const formik = useFormik({
     initialValues: {
       approvalCode: "",
@@ -99,21 +89,24 @@ export function EnrollApprovalView() {
     },
   });
 
-  useEffect(() => {
-    if (selectedUser) {
-      void formik.setValues({ approvalCode: selectedUser.approveCode });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedUser, formik.setValues]);
-
-  const openModal = async (user: UserDetails) => {
+  const openModal = useCallback((user: UserDetails) => {
     setSelectedUser(user);
     setDialogOpen(true);
-    try {
-      await formik.setValues({ approvalCode: user.approveCode }); // prefill the form
-    } catch (error) {
-      console.error("Error prefilling form:", error);
+  }, []);
+
+  useEffect(() => {
+    const callsign = query.get("callsign");
+    const approvalCode = query.get("approvalcode");
+
+    if (callsign && approvalCode) {
+      void openModal({ callsign });
     }
+  }, [openModal]);
+
+  const handleHyvaksyClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    formik.submitForm().catch((error) => {
+      console.error("Error submitting form:", error);
+    });
   };
 
   const closeModal = () => {
@@ -145,7 +138,10 @@ export function EnrollApprovalView() {
         >
           Hylkää
         </Button>
-        <Button variant={{ color: "success" }} onClick={void formik.submitForm}>
+        <Button
+          variant={{ color: "success" }}
+          onClick={(event) => handleHyvaksyClick(event)}
+        >
           Hyväksy
         </Button>
       </>

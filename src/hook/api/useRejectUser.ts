@@ -1,4 +1,4 @@
-import { UseMutationOptions, useMutation } from 'react-query';
+import { UseMutationOptions, useMutation } from "react-query";
 
 interface RejectUserResponse {
   success: boolean;
@@ -6,10 +6,10 @@ interface RejectUserResponse {
 }
 
 async function rejectUser({ callsign }: { callsign: string }) {
-  const res = await fetch('/api/v1/enrollment/lock', {
-    method: 'POST',
+  const res = await fetch("/api/v1/enrollment/lock", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ callsign }),
   });
@@ -17,14 +17,13 @@ async function rejectUser({ callsign }: { callsign: string }) {
   const data = (await res.json()) as RejectUserResponse;
 
   if (res.status !== 200) {
-    const errorMessage = data.detail?.[0].msg || 'Failed to reject user';
+    const errorMessage = data.detail?.[0].msg || "Failed to reject user";
     throw new Error(errorMessage);
   }
 
   if (!data.success) {
-    throw new Error('Failed to reject user');
+    throw new Error("Failed to reject user");
   }
-
 }
 
 type UseRejectUserOptions = UseMutationOptions<
