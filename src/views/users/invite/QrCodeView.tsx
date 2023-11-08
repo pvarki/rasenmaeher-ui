@@ -8,8 +8,15 @@ import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
 export function QrCodeView() {
   const { inviteCode } = useParams();
 
+  let hostname = new URL(window.location.origin).hostname;
+  hostname = hostname.replace(/^mtls\./, "");
   const inviteUrl =
-    window.location.origin + "/login?code=" + (inviteCode ?? "");
+    window.location.protocol +
+    "//" +
+    hostname +
+    (window.location.port ? ":" + window.location.port : "") +
+    "/login?code=" +
+    (inviteCode ?? "");
 
   return (
     <Layout
