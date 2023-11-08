@@ -40,7 +40,7 @@ export function EnrollmentView() {
       <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
         <h1 className="text-white">metsa-kota</h1>
         <span className="text-white">Olet rekisteröitynyt.</span>
-        <Button onClick={() => navigate("/app/createmtls")}>Jatka</Button>
+        <Button onClick={() => navigate("/login/createmtls")}>Jatka</Button>
       </main>
     );
   }
