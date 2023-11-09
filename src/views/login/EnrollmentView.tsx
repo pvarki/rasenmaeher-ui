@@ -14,13 +14,11 @@ export function EnrollmentView() {
   const { isCopied, copyError, handleCopy } = useCopyToClipboard();
   const callsign = localStorage.getItem("callsign") ?? undefined;
   const approveCode = localStorage.getItem("approveCode") ?? undefined;
-  const approvalUrl =
-    "mtls." +
-    window.location.origin +
-    "/login?callsign=" +
-    (callsign ?? "") +
-    "&&code=" +
-    (approveCode ?? "");
+  const protocol = window.location.protocol;
+  const host = window.location.host;
+  const approvalUrl = `${protocol}//mtls.${host}/app/admin/user-management/approval?callsign=${
+    callsign ?? ""
+  }&&approvalcode=${approveCode ?? ""}`;
 
   useEffect(() => {
     if (!approveCode || !callsign) {
