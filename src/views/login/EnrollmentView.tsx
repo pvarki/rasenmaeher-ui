@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import QRCode from "react-qr-code";
 import { useOwnEnrollmentStatus } from "../../hook/api/useOwnEnrollmentStatus";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Layout } from "../../components/Layout";
+import { useCopyToClipboard } from "../../hook/helpers/useCopyToClipboard";
+import useFetchFqdn from "../../hook/helpers/useFetchFqdn";
 
 export function EnrollmentView() {
   const navigate = useNavigate();
+  const fqdn = useFetchFqdn();
+  const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
+  const { isCopied, copyError, handleCopy } = useCopyToClipboard();
   const callsign = localStorage.getItem("callsign") ?? undefined;
   const approveCode = localStorage.getItem("approveCode") ?? undefined;
   const approvalUrl =
@@ -36,13 +41,9 @@ export function EnrollmentView() {
 
   if (isEnrolled) {
     return (
-      <Layout
-        showNavbar={false}
-        navbarTitle="metsa-kota.pvarki.fi"
-        showFooter={true}
-      >
+      <Layout showNavbar={false} showFooter={true}>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
-          <h1 className="text-white">metsa-kota</h1>
+          <h1 className="text-white">{subdomain || "Loading..."}</h1>
           <span className="text-white">Sinut on hyväksytty palveluun.</span>
           <Button
             onClick={() => {
@@ -58,15 +59,18 @@ export function EnrollmentView() {
   }
 
   return (
-    <Layout
-      showNavbar={false}
-      navbarTitle="metsa-kota.pvarki.fi"
-      showFooter={true}
-    >
+    <Layout showNavbar={false} showFooter={true}>
       <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
-        <h1 className="text-white">metsa-kota</h1>
+        <h1 className="text-white">{subdomain || "Loading..."}</h1>
         <QRCode value={approvalUrl} />
-        <button className="text-white">kopioi linkki</button>
+        <button onClick={() => handleCopy(approvalUrl)} className="text-white">
+          {isCopied ? "Linkki kopioitu!" : "Kopioi linkki"}
+        </button>
+        {copyError && (
+          <span className="text-red-500">
+            Toiminto epäonnistui: {copyError.message}
+          </span>
+        )}
         <span className="text-white">{callsign}</span>
         <span className="text-white">{approveCode}</span>
       </main>
