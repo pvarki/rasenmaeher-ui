@@ -7,12 +7,7 @@ import taistelija from "../assets/heroimages/taistelija.jpeg";
 
 export function SoldierView() {
   return (
-    <Layout
-      showNavbar={true}
-      navbarTitle="metsa-kota.pvarki.fi"
-      heroImage={taistelija}
-      showFooter={true}
-    >
+    <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>
       <CardsContainer>
         <TextCard
           title={<>Kirjautunut käyttäjänä [user]</>}

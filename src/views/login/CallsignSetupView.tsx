@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginAsAdmin } from "../../hook/api/firstuser/useLoginAsAdmin";
 import { useLoginCodeStore } from "../../store/LoginCodeStore";
@@ -9,6 +9,7 @@ import { Button } from "../../components/Button";
 import { Layout } from "../../components/Layout";
 import pvarkiLogo from "../../assets/icons/pvarki.png";
 import { CardsContainer } from "../../components/CardsContainer";
+import useFetchFqdn from "../../hook/helpers/useFetchFqdn";
 
 const CALLSIGN_REGEX = /^[a-zA-Z0-9]{3,}$/;
 
@@ -21,7 +22,8 @@ const CallsignSchema = yup.object().shape({
 
 export function CallsignSetupStep() {
   const navigate = useNavigate();
-
+  const fqdn = useFetchFqdn();
+  const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
   const loginCodeStore = useLoginCodeStore();
   const code = useLoginCodeStore((store) => store.code);
 
@@ -87,7 +89,7 @@ export function CallsignSetupStep() {
           </h1>
           <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
           <span className="text-white text-center font-oswald font-bold text-3xl">
-            metsa-kota
+            {subdomain || "Loading..."}
           </span>
           <FormikProvider value={formik}>
             <Form className="flex flex-col items-center gap-3 w-full">

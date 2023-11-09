@@ -10,6 +10,7 @@ import * as yup from "yup";
 import { Layout } from "../../components/Layout";
 import pvarkiLogo from "../../assets/icons/pvarki.png";
 import { CardsContainer } from "../../components/CardsContainer";
+import useFetchFqdn from "../../hook/helpers/useFetchFqdn";
 
 const TOKEN_REGEX = /^[A-Z0-9]{8,}$/;
 
@@ -38,6 +39,8 @@ export function LoginView() {
   const params = useQueryParams();
   const { setOtpVerified } = useContext(UserTypeContext);
   const loginCodeStore = useLoginCodeStore();
+  const fqdn = useFetchFqdn();
+  const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
 
   const formik = useFormik({
     initialValues: {
@@ -94,7 +97,7 @@ export function LoginView() {
           </h1>
           <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
           <span className="text-white text-center font-oswald font-bold text-3xl">
-            metsa-kota
+            {subdomain || "Loading..."}
           </span>
           <FormikProvider value={formik}>
             <Form className="flex flex-col items-center gap-3 w-full">
@@ -107,7 +110,6 @@ export function LoginView() {
                 />
                 <span className="text-red-500">
                   <ErrorMessage name="code" />
-                  {/* Display the error returned from the mutation */}
                   {isError && (
                     <div>
                       {(error as ApiError).response?.data?.detail ||

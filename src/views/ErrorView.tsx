@@ -24,7 +24,7 @@ export function ErrorView() {
   }, [params]);
 
   return (
-    <Layout showNavbar={false} navbarTitle="metsa-kota.pvarki.fi">
+    <Layout showNavbar={false}>
       <div className="flex flex-col items-center justify-center h-screen gap-4">
         <h1 className="text-white">{errorDetails.title}</h1>
         <p className="text-white">{errorDetails.details}</p>

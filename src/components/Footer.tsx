@@ -8,11 +8,22 @@ export function Footer() {
       <hr className="mx-auto w-56" />
 
       <div className="py-5 text-xs">
-        Proudly served by PVATK
+        Proudly served by{" "}
+        <a
+          href="https://github.com/pvarki"
+          className="underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          PVATK
+        </a>
         <br />
         &copy; Puolustusvoimat
         <br />
-        Yhteys: <p className="underline">helpdesk@pvarki.fi</p>
+        Yhteys:{" "}
+        <a href="mailto:helpdesk@pvarki.fi" className="underline">
+          helpdesk@pvarki.fi
+        </a>
       </div>
 
       <hr className="mx-auto w-56" />

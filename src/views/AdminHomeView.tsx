@@ -12,12 +12,7 @@ export function AdminHomeView() {
     window.scrollTo(0, 60);
   }, []);
   return (
-    <Layout
-      showNavbar={true}
-      navbarTitle="metsa-kota.pvarki.fi"
-      heroImage={taistelija}
-      showFooter={true}
-    >
+    <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>
       <div className="flex flex-col flex-shrink-0 gap-3">
         <CardsContainer>
           <TextCard

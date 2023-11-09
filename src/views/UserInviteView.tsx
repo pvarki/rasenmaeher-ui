@@ -3,11 +3,7 @@ import { Layout } from "../components/Layout";
 
 export function UserInviteView() {
   return (
-    <Layout
-      showNavbar={false}
-      navbarTitle="metsa-kota.pvarki.fi"
-      showFooter={true}
-    >
+    <Layout showNavbar={false} showFooter={true}>
       <main className="px-3 flex flex-col gap-3 items-center justify-start">
         <h1 className="text-white">UserManagementView</h1>
         <Button variant={{ width: "full" }}>Näytä QR-Koodi</Button>
