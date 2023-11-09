@@ -1,9 +1,18 @@
+import { InfoModal } from "./InfoModal";
+
 export function Footer() {
+  const isMtls = window.location.origin.includes("mtls.");
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
 
-      <div className="py-5">RASENMAEHER v0.1.0</div>
+      <div className="pt-4">RASENMAEHER v0.1.0</div>
+      {isMtls && (
+        <div className="py-1 text-xs">
+          Tunnistautunut mTLS:llä -{" "}
+          <InfoModal triggerClassName="py-3 text-m text-blue-500 underline cursor-pointer" />
+        </div>
+      )}
 
       <hr className="mx-auto w-56" />
 

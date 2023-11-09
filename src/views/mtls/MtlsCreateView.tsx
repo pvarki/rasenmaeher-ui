@@ -59,11 +59,7 @@ export function MtlsCreateView() {
   };
 
   return (
-    <Layout
-      showNavbar={true}
-      navbarTitle="metsa-kota.pvarki.fi"
-      showFooter={true}
-    >
+    <Layout showNavbar={true} showFooter={true}>
       <CardsContainer>
         <Text
           title="Lataa ja asenna mTLS-avain"

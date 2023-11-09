@@ -6,17 +6,23 @@ import { TextCard } from "../components/TextCard";
 import { CardsContainer } from "../components/CardsContainer";
 import { Layout } from "../components/Layout";
 import { ServiceTak } from "./servicetak/ServiceTak";
+import { useUserType } from "../hook/auth/useUserType";
 
 export function AdminHomeView() {
   useEffect(() => {
     window.scrollTo(0, 60);
   }, []);
+  const { callsign } = useUserType();
   return (
     <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>
       <div className="flex flex-col flex-shrink-0 gap-3">
         <CardsContainer>
           <TextCard
-            title={<>Olet kirjautunut adminina.</>}
+            title={
+              <>
+                Tervetuloa, admin-käyttäjä <em>{callsign && `${callsign}`}.</em>{" "}
+              </>
+            }
             details={
               <>
                 <strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita

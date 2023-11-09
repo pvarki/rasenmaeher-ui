@@ -16,7 +16,7 @@ interface AuthResponse {
 
 interface ValidUserResponse {
   isValidUser: boolean;
-  callsign: string;
+  userid: string;
 }
 
 interface AdminResponse {
@@ -96,7 +96,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
                 (await validUserResponse.json()) as ValidUserResponse;
               console.log("debug: Valid user data:", validUserData);
               setIsValidUser(true);
-              setCallsign(validUserData.callsign);
+              setCallsign(validUserData.userid);
               setUserType("user");
 
               const adminResponse = await fetch(
