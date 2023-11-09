@@ -33,7 +33,7 @@ export function InfoModal({ triggerClassName }: InfoModalProps) {
               Samoin sinä varmistut siitä, että vastapäässä olemme me. <br />
               <br />
               Kaikki Rasenmaeherista käyttöön ottamasi palvelut salaavat
-              liikenteensä laitteellasi olevalla mTLS-avaimella.
+              liikenteensä mTLS-avaimellasi.
             </Dialog.Description>
             <div className="flex justify-end">
               <Button onClick={closeModal}>OK</Button>

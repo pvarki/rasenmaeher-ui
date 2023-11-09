@@ -28,6 +28,8 @@ interface WaitingListAccordionProps {
 
 export function EnrollApprovalView() {
   const [isApproved, setIsApproved] = useState(false);
+  const [isRejected, setIsRejected] = useState(false); // New state to track rejection
+  const [rejectionMessage, setRejectionMessage] = useState(""); // New state for rejection message
   const [confirmReject, setConfirmReject] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -49,10 +51,13 @@ export function EnrollApprovalView() {
 
   const { mutate: rejectMutation } = useRejectUser({
     onSuccess: () => {
-      // Handle success
+      setRejectionMessage("Käyttäjän hylkääminen onnistui.");
+      setIsRejected(true);
+      setDialogOpen(false);
     },
-    onError: () => {
-      // Handle error
+    onError: (error) => {
+      setRejectionMessage(`Hylkääminen epäonnistui: ${error.message}`);
+      setIsError(true);
     },
   });
 
@@ -117,12 +122,24 @@ export function EnrollApprovalView() {
     setSelectedUser(null);
     reset();
     setApprovalMessage("");
+    setRejectionMessage("");
+  };
+
+  const closeRejectionModal = () => {
+    setIsRejected(false);
   };
 
   const DialogButtons = () => {
     if (isApproved || isError) {
       return (
         <Button variant={{ color: "success" }} onClick={closeModal}>
+          OK
+        </Button>
+      );
+    }
+    if (isRejected) {
+      return (
+        <Button variant={{ color: "success" }} onClick={closeRejectionModal}>
           OK
         </Button>
       );
@@ -264,6 +281,27 @@ export function EnrollApprovalView() {
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
+      <Dialog.Root open={isRejected} onOpenChange={setIsRejected}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+            <Dialog.Title className="text-lg text-white font-bold">
+              Hylkääminen onnistui
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-white">
+              {rejectionMessage}
+            </Dialog.Description>
+            <div className="mt-4 flex justify-end gap-3">
+              <Button
+                variant={{ color: "success" }}
+                onClick={closeRejectionModal}
+              >
+                OK
+              </Button>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </Layout>
   );
 }
@@ -336,7 +374,7 @@ function WaitingListAccordion({ onUserClick }: WaitingListAccordionProps) {
               );
             })
           ) : (
-            <div>No users awaiting approval.</div>
+            <div className="p-4">Ei hyväksyntää odottavia käyttäjiä.</div>
           )}
         </Accordion.Content>
       </Accordion.Item>

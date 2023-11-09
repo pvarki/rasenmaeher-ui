@@ -6,28 +6,40 @@ interface RejectUserResponse {
 }
 
 async function rejectUser({ callsign }: { callsign: string }) {
+  // Hard-coded value for lockReason
+  const lockReason = "User rejected by admin";
+
+  const requestBody = {
+    lock_reason: lockReason,
+    callsign: callsign,
+  };
+
   const res = await fetch("/api/v1/enrollment/lock", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ callsign }),
+    body: JSON.stringify(requestBody),
   });
 
   const data = (await res.json()) as RejectUserResponse;
 
   if (res.status !== 200) {
-    const errorMessage = data.detail?.[0].msg || "Failed to reject user";
+    const errorMessage =
+      data.detail?.map((detail) => detail.msg).join(", ") ||
+      "Failed to reject user";
     throw new Error(errorMessage);
   }
 
   if (!data.success) {
     throw new Error("Failed to reject user");
   }
+
+  return data; // You may adjust what you return based on your needs
 }
 
 type UseRejectUserOptions = UseMutationOptions<
-  void,
+  RejectUserResponse,
   Error,
   { callsign: string },
   unknown
