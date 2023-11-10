@@ -6,6 +6,8 @@ import { Layout } from "../../components/Layout";
 import { BackgroundCard } from "../../components/BackgroundCard";
 import { CardsContainer } from "../../components/CardsContainer";
 import { useRejectUser } from "../../hook/api/useRejectUser";
+import { usePromoteUser } from "../../hook/api/usePromoteUser";
+import { useDemoteUser } from "../../hook/api/useDemoteUser";
 import { useQueryClient } from "react-query";
 import { Button } from "../../components/Button";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -26,6 +28,18 @@ export function UserManagementView() {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const queryClient = useQueryClient();
   const [selectedUser, setSelectedUser] = useState<UserDetails | null>(null);
+  const [confirmPromote, setConfirmPromote] = useState(false);
+  const [confirmDemote, setConfirmDemote] = useState(false);
+  const [IsPromoting, setIsPromoting] = useState(false);
+  const [isDemoting, setIsDemoting] = useState(false);
+  const [promotionMessage, setPromotionMessage] = useState("");
+  const [demotionMessage, setDemotionMessage] = useState("");
+
+  const { data: userList } = useUsers();
+  const adminList = useMemo(
+    () => userList?.filter((user) => user.roles.includes("admin")) ?? [],
+    [userList],
+  );
 
   const { mutate: rejectMutation } = useRejectUser({
     onSuccess: () => {
@@ -46,6 +60,58 @@ export function UserManagementView() {
     setConfirmReject(false);
   };
 
+  const { mutate: promoteMutation } = usePromoteUser({
+    onSuccess: () => {
+      setPromotionMessage("Käyttäjän ylentäminen onnistui.");
+      setIsPromoting(true);
+      setDialogOpen(false);
+      void queryClient.invalidateQueries(["userList"]);
+    },
+    onError: (error) => {
+      setPromotionMessage(`Ylentäminen epäonnistui: ${error.message}`);
+      setIsError(true);
+    },
+  });
+
+  const { mutate: demoteMutation } = useDemoteUser({
+    onSuccess: () => {
+      setDemotionMessage("Käyttäjän alentaminen onnistui.");
+      setIsDemoting(true);
+      setDialogOpen(false);
+      void queryClient.invalidateQueries(["userList"]);
+    },
+    onError: (error) => {
+      setDemotionMessage(`Alentaminen epäonnistui: ${error.message}`);
+      setIsError(true);
+    },
+  });
+
+  const handlePromote = () => {
+    if (selectedUser) {
+      void promoteMutation({ callsign: selectedUser.callsign });
+    }
+  };
+
+  const handleDemote = () => {
+    if (selectedUser) {
+      void demoteMutation({ callsign: selectedUser.callsign });
+    }
+  };
+
+  const handleConfirmPromote = () => {
+    if (selectedUser) {
+      void promoteMutation({ callsign: selectedUser.callsign });
+    }
+    setConfirmPromote(false);
+  };
+
+  const handleConfirmDemote = () => {
+    if (selectedUser) {
+      void demoteMutation({ callsign: selectedUser.callsign });
+    }
+    setConfirmDemote(false);
+  };
+
   const closeModal = () => {
     setDialogOpen(false);
     setIsError(false);
@@ -59,6 +125,9 @@ export function UserManagementView() {
   };
 
   const DialogButtons = () => {
+    const isAdmin = adminList.some(
+      (user) => user.callsign === selectedUser?.callsign,
+    );
     if (isError) {
       return (
         <Button variant={{ color: "success" }} onClick={closeModal}>
@@ -86,6 +155,22 @@ export function UserManagementView() {
         >
           Hylkää
         </Button>
+        {!isAdmin && (
+          <Button
+            variant={{ color: "success" }}
+            onClick={() => setConfirmPromote(true)}
+          >
+            Ylennä
+          </Button>
+        )}
+        {isAdmin && (
+          <Button
+            variant={{ color: "primary" }}
+            onClick={() => setConfirmDemote(true)}
+          >
+            Alenna
+          </Button>
+        )}
       </>
     );
   };
@@ -186,6 +271,98 @@ export function UserManagementView() {
             </div>
           </Dialog.Content>
         </Dialog.Portal>
+      </Dialog.Root>
+      <Dialog.Root open={confirmPromote} onOpenChange={setConfirmPromote}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+            <Dialog.Title className="text-lg text-white font-bold">
+              Ylennä käyttäjä
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-white">
+              Oletko varma, että haluat ylentää käyttäjän adminiksi?
+            </Dialog.Description>
+            <div className="mt-4 flex justify-end gap-3">
+              <Dialog.Close asChild>
+                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+              </Dialog.Close>
+              <Button
+                variant={{ color: "success" }}
+                onClick={handleConfirmPromote}
+              >
+                Ylennä
+              </Button>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+      <Dialog.Root>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+            <Dialog.Title className="text-lg text-white font-bold">
+              Ylennä käyttäjä
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-white">
+              Oletko varma, että haluat ylentää käyttäjän adminiksi?
+            </Dialog.Description>
+            <div className="mt-4 flex justify-end gap-3">
+              <Dialog.Close asChild>
+                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+              </Dialog.Close>
+              <Button variant={{ color: "success" }} onClick={handlePromote}>
+                Ylennä
+              </Button>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+      <Dialog.Root>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+            <Dialog.Title className="text-lg text-white font-bold">
+              Alenna käyttäjä
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-white">
+              Oletko varma, että haluat alentaa käyttäjän tavalliseksi
+              käyttäjäksi?
+            </Dialog.Description>
+            <div className="mt-4 flex justify-end gap-3">
+              <Dialog.Close asChild>
+                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+              </Dialog.Close>
+              <Button variant={{ color: "error" }} onClick={handleDemote}>
+                Alenna
+              </Button>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+        <Dialog.Root open={confirmDemote} onOpenChange={setConfirmDemote}>
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+            <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+              <Dialog.Title className="text-lg text-white font-bold">
+                Alenna käyttäjä
+              </Dialog.Title>
+              <Dialog.Description className="mt-2 text-white">
+                Oletko varma, että haluat alentaa käyttäjän tavalliseksi
+                käyttäjäksi?
+              </Dialog.Description>
+              <div className="mt-4 flex justify-end gap-3">
+                <Dialog.Close asChild>
+                  <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+                </Dialog.Close>
+                <Button
+                  variant={{ color: "error" }}
+                  onClick={handleConfirmDemote}
+                >
+                  Alenna
+                </Button>
+              </div>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
       </Dialog.Root>
     </Layout>
   );
