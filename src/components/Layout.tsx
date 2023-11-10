@@ -23,8 +23,8 @@ export function Layout({
   heroImage,
 }: LayoutProps) {
   const marginTopValue = heroImage
-    ? "mt-[calc(-30vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]"
-    : "mt-4"; // a default margin if there's no hero image
+    ? "mt-[calc(-50vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]"
+    : "mt-4";
 
   return (
     <div

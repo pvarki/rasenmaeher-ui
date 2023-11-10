@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import trooper from "../assets/icons/trooper3.png";
 import taistelija from "../assets/heroimages/sanla.jpeg";
 import { Card } from "../components/Card";
@@ -9,9 +8,6 @@ import { ServiceTak } from "./servicetak/ServiceTak";
 import { useUserType } from "../hook/auth/useUserType";
 
 export function AdminHomeView() {
-  useEffect(() => {
-    window.scrollTo(0, 60);
-  }, []);
   const { callsign } = useUserType();
   return (
     <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>

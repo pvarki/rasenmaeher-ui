@@ -70,6 +70,7 @@ export function EnrollmentView() {
           </span>
         )}
         <span className="text-white">{callsign}</span>
+        <span className="text-white">Hyväksyntäkoodisi:</span>
         <span className="text-white">{approveCode}</span>
       </main>
     </Layout>
