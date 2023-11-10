@@ -16,6 +16,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useFormik } from "formik";
 import { useApproveUser } from "../../../hook/api/useApproveUser";
 import { useRejectUser } from "../../../hook/api/useRejectUser";
+import { useQueryClient } from "react-query";
 
 interface UserDetails {
   callsign: string;
@@ -35,6 +36,7 @@ export function EnrollApprovalView() {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<UserDetails | null>(null);
   const [approvalMessage, setApprovalMessage] = useState("");
+  const queryClient = useQueryClient();
   const location = useLocation();
 
   const { mutate: approveMutation, reset } = useApproveUser({
@@ -54,6 +56,7 @@ export function EnrollApprovalView() {
       setRejectionMessage("Käyttäjän hylkääminen onnistui.");
       setIsRejected(true);
       setDialogOpen(false);
+      void queryClient.invalidateQueries(["enrollmentList"]);
     },
     onError: (error) => {
       setRejectionMessage(`Hylkääminen epäonnistui: ${error.message}`);
@@ -127,6 +130,7 @@ export function EnrollApprovalView() {
 
   const closeRejectionModal = () => {
     setIsRejected(false);
+    void queryClient.invalidateQueries(["enrollmentList"]);
   };
 
   const DialogButtons = () => {
