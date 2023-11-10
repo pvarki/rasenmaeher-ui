@@ -97,6 +97,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
               console.log("debug: Valid user data:", validUserData);
               setIsValidUser(true);
               setCallsign(validUserData.userid);
+              console.log("debug: setting callsign to:", validUserData.userid);
               setUserType("user");
 
               const adminResponse = await fetch(
@@ -121,7 +122,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
             `API response was not ok. Status code: ${authResponse.status}`,
           );
         }
-      } catch (err) {
+      } catch (err: unknown) {
         console.error(
           "debug: An error occurred while fetching user type:",
           err,
@@ -129,7 +130,7 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
         if (err instanceof Error) {
           setError(`Error: ${err.message}`);
         } else {
-          setError("An unknown error occurred.");
+          setError(`Error: ${String(err)}`);
         }
       } finally {
         console.log("debug: Finished fetching user type.");

@@ -17,15 +17,8 @@ export function ProtectedRoute({
   requireValidUser = false,
   requireOtpVerified = false,
 }: Props) {
-  const {
-    userType,
-    isLoading,
-    error,
-    authType,
-    isValidUser,
-    callsign,
-    otpVerified,
-  } = useUserType();
+  const { userType, isLoading, authType, isValidUser, callsign, otpVerified } =
+    useUserType();
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -59,11 +52,6 @@ export function ProtectedRoute({
   if (isLoading) {
     console.log("Loading...");
     return <div>Loading...</div>;
-  }
-
-  if (error) {
-    console.log("Error encountered");
-    return <Navigate to="/error" replace />;
   }
 
   if (currentPath !== targetPath) {
