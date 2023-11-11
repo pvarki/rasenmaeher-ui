@@ -14,10 +14,19 @@ interface UnfoldableCardProps {
   image3Classes?: string;
   image4Src?: string;
   image4Classes?: string;
+  image5Src?: string;
+  image5Classes?: string;
+  image6Src?: string;
+  image6Classes?: string;
+  image7Src?: string;
+  image7Classes?: string;
   description1?: React.ReactNode;
   description2?: React.ReactNode;
   description3?: React.ReactNode;
   description4?: React.ReactNode;
+  description5?: React.ReactNode;
+  description6?: React.ReactNode;
+  description7?: React.ReactNode;
 }
 
 export function UnfoldableCard({
@@ -34,10 +43,19 @@ export function UnfoldableCard({
   image3Classes = "",
   image4Src,
   image4Classes = "",
+  image5Src,
+  image5Classes = "",
+  image6Src,
+  image6Classes = "",
+  image7Src,
+  image7Classes = "",
   description1,
   description2,
   description3,
   description4,
+  description5,
+  description6,
+  description7,
 }: UnfoldableCardProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
 
@@ -91,6 +109,21 @@ export function UnfoldableCard({
           {renderImage(image4Src, image4Classes)}
           {description4 && (
             <p className="m-2 text-white prose prose-white">{description4}</p>
+          )}
+
+          {renderImage(image5Src, image5Classes)}
+          {description5 && (
+            <p className="m-2 text-white prose prose-white">{description5}</p>
+          )}
+
+          {renderImage(image6Src, image6Classes)}
+          {description6 && (
+            <p className="m-2 text-white prose prose-white">{description6}</p>
+          )}
+
+          {renderImage(image7Src, image7Classes)}
+          {description7 && (
+            <p className="m-2 text-white prose prose-white">{description7}</p>
           )}
 
           {content && (

@@ -30,10 +30,6 @@ export function UserManagementView() {
   const [selectedUser, setSelectedUser] = useState<UserDetails | null>(null);
   const [confirmPromote, setConfirmPromote] = useState(false);
   const [confirmDemote, setConfirmDemote] = useState(false);
-  const [IsPromoting, setIsPromoting] = useState(false);
-  const [isDemoting, setIsDemoting] = useState(false);
-  const [promotionMessage, setPromotionMessage] = useState("");
-  const [demotionMessage, setDemotionMessage] = useState("");
 
   const { data: userList } = useUsers();
   const adminList = useMemo(
@@ -62,27 +58,15 @@ export function UserManagementView() {
 
   const { mutate: promoteMutation } = usePromoteUser({
     onSuccess: () => {
-      setPromotionMessage("Käyttäjän ylentäminen onnistui.");
-      setIsPromoting(true);
       setDialogOpen(false);
       void queryClient.invalidateQueries(["userList"]);
-    },
-    onError: (error) => {
-      setPromotionMessage(`Ylentäminen epäonnistui: ${error.message}`);
-      setIsError(true);
     },
   });
 
   const { mutate: demoteMutation } = useDemoteUser({
     onSuccess: () => {
-      setDemotionMessage("Käyttäjän alentaminen onnistui.");
-      setIsDemoting(true);
       setDialogOpen(false);
       void queryClient.invalidateQueries(["userList"]);
-    },
-    onError: (error) => {
-      setDemotionMessage(`Alentaminen epäonnistui: ${error.message}`);
-      setIsError(true);
     },
   });
 
