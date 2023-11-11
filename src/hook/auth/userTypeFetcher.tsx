@@ -114,6 +114,12 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
                 console.log("debug: Admin data:", adminData);
                 console.log("debug: Setting userType to admin.");
                 setUserType("admin");
+              } else if (adminResponse.status === 403) {
+                console.log("debug: User is not an admin.");
+              } else {
+                throw new Error(
+                  `Unexpected status code: ${adminResponse.status}`,
+                );
               }
             }
           }
