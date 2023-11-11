@@ -10,7 +10,7 @@ export function MacInstructions() {
   return (
     <main className="flex flex-col w-full gap-3">
       <UnfoldableCard
-        title="1. Lataa"
+        title="1. Lataa avaimesi"
         styling="bg-backgroundLight"
         description1={
           <>
@@ -22,7 +22,7 @@ export function MacInstructions() {
         image2Classes="p-6"
       />
       <UnfoldableCard
-        title="2. Avaa"
+        title="2. Avaa avaimesi"
         styling="bg-backgroundLight"
         description1={
           <>
@@ -51,7 +51,7 @@ export function MacInstructions() {
         }
       />
       <UnfoldableCard
-        title="3. Aseta"
+        title="3. Aseta avaimesi"
         styling="bg-backgroundLight"
         description1={
           <>
