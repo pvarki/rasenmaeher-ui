@@ -5,9 +5,26 @@ import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { ServiceTakUsageCard } from "./usage/helpers/ServiceTakUsageCard";
+import { useFetchZipFile } from "../../hook//api/tak/useFetchZipFile";
 
 export function ServiceTak() {
   const navigate = useNavigate();
+  const { mutate: fetchFile, isLoading } = useFetchZipFile({
+    onSuccess: ({ blob, filename }) => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    },
+  });
+
+  const handleDownloadClick = () => {
+    fetchFile();
+  };
 
   return (
     <div>
@@ -54,10 +71,11 @@ export function ServiceTak() {
             </Button>
             <Button
               variant={{ width: "full" }}
-              onClick={() => navigate("/app/services/tak")}
+              onClick={handleDownloadClick}
+              disabled={isLoading}
               styling="bg-success-700 m-2"
             >
-              Lataa viestiperustepaketti
+              {isLoading ? "Ladataan..." : "Lataa viestiperustepaketti"}
             </Button>
           </div>
         </FoldableCard>

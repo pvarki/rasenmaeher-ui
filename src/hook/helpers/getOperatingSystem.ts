@@ -14,7 +14,7 @@ export function getOperatingSystem() {
   } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
     os = "iOS";
   } else {
-    os = "unknown";
+    os = "Android"; // Default to Android
   }
 
   return os;
