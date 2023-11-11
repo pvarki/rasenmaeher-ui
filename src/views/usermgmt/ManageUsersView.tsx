@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import android from "../../assets/icons/android.svg";
+import android from "../../assets/icons/qrcode.svg";
 import sanla from "../../assets/heroimages/ryhmä.jpeg";
-import apple from "../../assets/icons/apple.svg";
-import windows from "../../assets/icons/windows.svg";
+import apple from "../../assets/icons/trooper3.png";
+import windows from "../../assets/icons/useredi2.svg";
 import { Layout } from "../../components/Layout";
 import { Card } from "../../components/Card";
 import { CardsContainer } from "../../components/CardsContainer";

@@ -22,6 +22,7 @@ async function getUsers() {
   }
 
   const data = (await res.json()) as UserListResponse;
+  console.log("Fetched user data:", data);
 
   return data.callsign_list;
 }
