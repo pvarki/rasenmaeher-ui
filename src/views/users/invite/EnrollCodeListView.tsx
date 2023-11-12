@@ -24,7 +24,8 @@ export function EnrollCodeListView() {
   const onCreateInviteCode = () => {
     openDialog({
       title: "Luo uusi kutsukoodi",
-      description: "Kutsukoodi on kertakäyttöinen.",
+      description:
+        "Jaa kutsukoodi käyttäjille, tai näytä heille kutsukoodin sisältävää QR-koodia.",
       cancelLabel: "Peruuta",
       confirmLabel: "Luo kutsukoodi",
       onConfirm: () => createInviteCode(undefined),

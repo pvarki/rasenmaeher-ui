@@ -29,8 +29,8 @@ interface WaitingListAccordionProps {
 
 export function EnrollApprovalView() {
   const [isApproved, setIsApproved] = useState(false);
-  const [isRejected, setIsRejected] = useState(false); // New state to track rejection
-  const [rejectionMessage, setRejectionMessage] = useState(""); // New state for rejection message
+  const [isRejected, setIsRejected] = useState(false);
+  const [rejectionMessage, setRejectionMessage] = useState("");
   const [confirmReject, setConfirmReject] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isDialogOpen, setDialogOpen] = useState(false);
