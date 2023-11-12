@@ -77,11 +77,7 @@ export function CallsignSetupStep() {
   });
 
   return (
-    <Layout
-      showNavbar={false}
-      navbarTitle="metsa-kota.pvarki.fi"
-      showFooter={true}
-    >
+    <Layout showNavbar={false} showFooter={true}>
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">
@@ -109,7 +105,7 @@ export function CallsignSetupStep() {
                 variant={{ color: "primary", width: "full" }}
                 disabled={!formik.isValid || isLoading}
               >
-                Kirjaudu
+                {isLoading ? "Odottaa vastausta..." : "Kirjaudu"}
               </Button>
             </Form>
           </FormikProvider>

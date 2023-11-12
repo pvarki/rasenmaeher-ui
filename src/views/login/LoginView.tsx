@@ -54,6 +54,10 @@ export function LoginView() {
     },
   });
 
+  const handleInputFocus = () => {
+    setCodeNotValid(false);
+  };
+
   const {
     mutate: checkCode,
     isLoading,
@@ -105,6 +109,7 @@ export function LoginView() {
                   type="text"
                   name="code"
                   className="bg-gray-100 w-full p-2 rounded-lg text-black"
+                  onFocus={handleInputFocus}
                 />
                 <span className="text-red-500">
                   <ErrorMessage name="code" />
