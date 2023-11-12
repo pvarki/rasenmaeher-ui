@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { UserTypeContext } from "../../hook/auth/userTypeFetcher";
 import { useCheckCode } from "../../hook/api/useCheckCode";
 import { useLoginCodeStore } from "../../store/LoginCodeStore";
@@ -11,6 +11,8 @@ import { Layout } from "../../components/Layout";
 import pvarkiLogo from "../../assets/icons/pvarki.png";
 import { CardsContainer } from "../../components/CardsContainer";
 import useFetchFqdn from "../../hook/helpers/useFetchFqdn";
+import key from "../../assets/icons/key.svg";
+import pencil from "../../assets/icons/pencil.svg";
 
 const TOKEN_REGEX = /^[A-Z0-9]{8,}$/;
 
@@ -42,6 +44,9 @@ export function LoginView() {
   const fqdn = useFetchFqdn();
   const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
   const [codeNotValid, setCodeNotValid] = useState(false);
+  const protocol = window.location.protocol;
+  const host = window.location.host;
+  const mtlsUrl = `${protocol}//mtls.${host}/app/admin/`;
 
   const formik = useFormik({
     initialValues: {
@@ -122,16 +127,41 @@ export function LoginView() {
                   )}
                 </span>
               </label>
-              <Button
-                variant={{
-                  color: isError ? "error" : "primary",
-                  width: "full",
-                }}
-                type="submit"
-                disabled={!formik.isValid || isLoading}
-              >
-                {isLoading ? "Odottaa vastausta..." : "Kirjaudu"}
-              </Button>
+              <div className="flex w-full items-stretch">
+                <div className="flex-1 px-1">
+                  <Button
+                    variant={{
+                      color: isError ? "error" : "primary",
+                      width: "full",
+                    }}
+                    type="submit"
+                    disabled={!formik.isValid || isLoading}
+                  >
+                    <div className="flex items-center justify-center w-full h-full">
+                      <img src={pencil} className="h-5 w-5 mr-2" />
+                      {isLoading
+                        ? "Odottaa vastausta..."
+                        : "Kirjaudu    koodilla"}
+                    </div>
+                  </Button>
+                </div>
+                <div className="flex-1 px-1">
+                  <Link to={mtlsUrl} className="h-full w-full">
+                    <Button
+                      variant={{
+                        color: "success",
+                        width: "full",
+                      }}
+                      type="button"
+                    >
+                      <div className="flex items-center justify-center w-full h-full">
+                        <img src={key} className="h-5 w-5 mr-2" />
+                        Minulla on avaimet
+                      </div>
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </Form>
           </FormikProvider>
         </main>

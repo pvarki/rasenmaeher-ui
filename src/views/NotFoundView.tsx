@@ -14,10 +14,7 @@ export function NotFoundView() {
             details="Palaa alta sovellukseen."
           />
           <Link to="/">
-            <Button
-              type="submit" 
-              variant={{ color: "primary", width: "full" }}
-            >
+            <Button type="submit" variant={{ color: "primary", width: "full" }}>
               Palaa sovellukseen
             </Button>
           </Link>
