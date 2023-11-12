@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserTypeContext } from "../../hook/auth/userTypeFetcher";
 import { useCheckCode } from "../../hook/api/useCheckCode";
@@ -41,6 +41,7 @@ export function LoginView() {
   const loginCodeStore = useLoginCodeStore();
   const fqdn = useFetchFqdn();
   const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
+  const [codeNotValid, setCodeNotValid] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -75,6 +76,7 @@ export function LoginView() {
       } else {
         console.log("loginview: this code is bs");
         loginCodeStore.setCodeType("unknown");
+        setCodeNotValid(true);
       }
     },
     onError: (err: ApiError) => {
@@ -85,11 +87,7 @@ export function LoginView() {
   });
 
   return (
-    <Layout
-      showNavbar={false}
-      navbarTitle="metsa-kota.pvarki.fi"
-      showFooter={false}
-    >
+    <Layout showNavbar={false} showFooter={false}>
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">
@@ -110,6 +108,7 @@ export function LoginView() {
                 />
                 <span className="text-red-500">
                   <ErrorMessage name="code" />
+                  {codeNotValid && <div>Koodi väärin.</div>}
                   {isError && (
                     <div>
                       {(error as ApiError).response?.data?.detail ||
@@ -119,11 +118,14 @@ export function LoginView() {
                 </span>
               </label>
               <Button
-                variant={{ color: "primary", width: "full" }}
+                variant={{
+                  color: isError ? "error" : "primary",
+                  width: "full",
+                }}
                 type="submit"
                 disabled={!formik.isValid || isLoading}
               >
-                Kirjaudu
+                {isLoading ? "Odottaa vastausta..." : "Kirjaudu"}
               </Button>
             </Form>
           </FormikProvider>
