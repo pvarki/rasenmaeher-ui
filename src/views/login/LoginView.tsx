@@ -100,7 +100,7 @@ export function LoginView() {
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">
-            Kirjaudu palveluun käyttäen kirjautumiskoodia
+            Kirjaudu palveluun:
           </h1>
           <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
           <span className="text-white text-center font-oswald font-bold text-3xl">
