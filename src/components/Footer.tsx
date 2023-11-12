@@ -1,4 +1,5 @@
 import { InfoModal } from "./InfoModal";
+import pvatk from "../assets/icons/pvatk.svg";
 
 export function Footer() {
   const isMtls = window.location.origin.includes("mtls.");
@@ -8,7 +9,7 @@ export function Footer() {
 
       <div className="pt-4 py-3">RASENMAEHER v0.1.0</div>
       {isMtls && (
-        <div className="py-1 text-xs">
+        <div className="py-1 pb-3 text-xs">
           Tunnistautunut mTLS:llä -{" "}
           <InfoModal triggerClassName="text-m text-blue-500 underline cursor-pointer" />
         </div>

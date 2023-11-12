@@ -18,16 +18,24 @@ export function ButtonFoldableCard({
   const handleClick = () => {
     setIsOpen((prev) => !prev);
 
-    if (!isOpen) {
-      requestAnimationFrame(() => {
-        if (bottomRef.current) {
-          bottomRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "end",
-          });
-        }
-      });
-    }
+    // Using setTimeout to ensure the state update completes before scrolling
+    setTimeout(() => {
+      if (!isOpen && bottomRef.current) {
+        // If the card is opened, scroll to the bottom
+        bottomRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      } else if (isOpen && bottomRef.current) {
+        // If the card is closed, scroll to the top of the card
+        window.scrollTo({
+          top:
+            document.documentElement.scrollTop +
+            bottomRef.current.getBoundingClientRect().top,
+          behavior: "smooth",
+        });
+      }
+    }, 0);
   };
 
   return (

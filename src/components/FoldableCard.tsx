@@ -13,16 +13,21 @@ export function FoldableCard({ title, imageSrc, children }: FoldableCardProps) {
   const handleClick = () => {
     setIsOpen((prev) => !prev);
 
-    if (!isOpen) {
-      requestAnimationFrame(() => {
-        if (bottomRef.current) {
-          bottomRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "end",
-          });
-        }
-      });
-    }
+    setTimeout(() => {
+      if (!isOpen && bottomRef.current) {
+        bottomRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      } else if (isOpen && bottomRef.current) {
+        window.scrollTo({
+          top:
+            document.documentElement.scrollTop +
+            bottomRef.current.getBoundingClientRect().top,
+          behavior: "smooth",
+        });
+      }
+    }, 0);
   };
 
   return (

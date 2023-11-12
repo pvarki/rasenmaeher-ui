@@ -10,6 +10,8 @@ import { usePromoteUser } from "../../hook/api/usePromoteUser";
 import { useDemoteUser } from "../../hook/api/useDemoteUser";
 import { useQueryClient } from "react-query";
 import { Button } from "../../components/Button";
+import fightericon from "../../assets/icons/jager.svg";
+import adminicon from "../../assets/icons/alikessu.svg";
 import * as Dialog from "@radix-ui/react-dialog";
 
 interface UserDetails {
@@ -30,7 +32,6 @@ export function UserManagementView() {
   const [selectedUser, setSelectedUser] = useState<UserDetails | null>(null);
   const [confirmPromote, setConfirmPromote] = useState(false);
   const [confirmDemote, setConfirmDemote] = useState(false);
-
   const { data: userList } = useUsers();
   const adminList = useMemo(
     () => userList?.filter((user) => user.roles.includes("admin")) ?? [],
@@ -354,6 +355,16 @@ export function UserManagementView() {
 
 function UserListAccordian({ onUserClick }: UserListAccordionProps) {
   const { data: userList, isLoading, isError, error } = useUsers();
+  const AdminIcon = () => (
+    <span>
+      <img src={adminicon} className="h-5 w-5 mr-2" />
+    </span>
+  );
+  const UserIcon = () => (
+    <span>
+      <img src={fightericon} className="h-5 w-5 mr-2" />
+    </span>
+  );
 
   const adminList = useMemo(
     () => userList?.filter((user) => user.roles.includes("admin")) ?? [],
@@ -411,7 +422,7 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
             return (
               <div
                 key={user.callsign}
-                className="text-white py-3 px-3 border-t-2 border-[#4B4B4B] flex justify-between items-center"
+                className="text-white py-0 px-3 border-t-2 border-[#4B4B4B] flex justify-between items-center"
                 onClick={() => {
                   try {
                     void handleUserClick(userDetails);
@@ -420,7 +431,10 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
                   }
                 }}
               >
-                {user.callsign}
+                <div className="flex items-center">
+                  <AdminIcon />
+                  {user.callsign}
+                </div>
                 <ChevronRightIcon
                   className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
                   aria-hidden
@@ -455,7 +469,7 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
             return (
               <div
                 key={user.callsign}
-                className="text-white py-3 px-3 border-t-2 border-[#4B4B4B] flex justify-between items-center"
+                className="text-white py-0 px-3 border-t-2 border-[#4B4B4B] flex justify-between items-center"
                 onClick={() => {
                   try {
                     void handleUserClick(userDetails);
@@ -464,7 +478,10 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
                   }
                 }}
               >
-                {user.callsign}
+                <div className="flex items-center">
+                  <UserIcon />
+                  {user.callsign}
+                </div>
                 <ChevronRightIcon
                   className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
                   aria-hidden
