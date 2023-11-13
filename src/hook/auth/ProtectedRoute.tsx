@@ -4,7 +4,7 @@ import { useUserType } from "./useUserType";
 
 interface Props {
   children: React.ReactNode;
-  allowedUserTypes?: Array<"admin" | "user">;
+  allowedUserTypes?: Array<"admin" | "user" | null>;
   requireAuthType?: "jwt" | "mtls" | null;
   requireValidUser?: boolean;
   requireOtpVerified?: boolean;
@@ -12,7 +12,7 @@ interface Props {
 
 export function ProtectedRoute({
   children,
-  allowedUserTypes = ["admin", "user"],
+  allowedUserTypes = ["admin", "user", null],
   requireAuthType,
   requireValidUser = false,
   requireOtpVerified = false,
@@ -40,8 +40,13 @@ export function ProtectedRoute({
       } else if (authType === "jwt" && userType) {
         return "/login/createmtls";
       }
-      // If no special conditions are met, or it's jwt but with valid userType, go to the standard login
       return "/login";
+    }
+    if (
+      (requireAuthType && authType !== requireAuthType) ||
+      (allowedUserTypes.length > 0 && !allowedUserTypes.includes(userType))
+    ) {
+      return "/error";
     }
     return currentPath;
   };

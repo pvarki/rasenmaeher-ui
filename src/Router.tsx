@@ -47,7 +47,11 @@ const router = createBrowserRouter([
   {
     path: "/app/admin/*",
     element: (
-      <ProtectedRoute requireAuthType="mtls" allowedUserTypes={["admin"]}>
+      <ProtectedRoute
+        requireValidUser={true}
+        requireAuthType="mtls"
+        allowedUserTypes={["admin"]}
+      >
         <AdminRouteWrapper />
       </ProtectedRoute>
     ),
@@ -55,7 +59,11 @@ const router = createBrowserRouter([
   {
     path: "/app/users/*",
     element: (
-      <ProtectedRoute requireAuthType="mtls" allowedUserTypes={["user"]}>
+      <ProtectedRoute
+        requireValidUser={true}
+        requireAuthType="mtls"
+        allowedUserTypes={["user"]}
+      >
         <UserRouteWrapper />
       </ProtectedRoute>
     ),
@@ -64,6 +72,7 @@ const router = createBrowserRouter([
     path: "/app/services/tak/*",
     element: (
       <ProtectedRoute
+        requireValidUser={true}
         requireAuthType="mtls"
         allowedUserTypes={["user", "admin"]}
       >
