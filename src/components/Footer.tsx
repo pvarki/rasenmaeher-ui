@@ -1,5 +1,4 @@
 import { InfoModal } from "./InfoModal";
-import pvatk from "../assets/icons/pvatk.svg";
 
 export function Footer() {
   const isMtls = window.location.origin.includes("mtls.");
