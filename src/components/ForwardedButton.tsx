@@ -28,8 +28,7 @@ const button = tv({
 
 export type ButtonColors = VariantProps<typeof button>["color"];
 
-interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   variant?: VariantProps<typeof button>;
   styling?: string;
@@ -45,7 +44,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {children}
       </button>
     );
-  }
+  },
 );
 
-  Button.displayName = 'Button';
+Button.displayName = "Button";
