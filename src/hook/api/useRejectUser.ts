@@ -7,7 +7,7 @@ interface RejectUserResponse {
 
 async function rejectUser({ callsign }: { callsign: string }) {
   // Hard-coded value for lockReason
-  const lockReason = "User rejected by admin";
+  const lockReason = "Locked by an admin";
 
   const requestBody = {
     lock_reason: lockReason,
@@ -35,7 +35,7 @@ async function rejectUser({ callsign }: { callsign: string }) {
     throw new Error("Failed to reject user");
   }
 
-  return data; // You may adjust what you return based on your needs
+  return data;
 }
 
 type UseRejectUserOptions = UseMutationOptions<

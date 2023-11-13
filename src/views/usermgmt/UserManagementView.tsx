@@ -5,7 +5,7 @@ import { useUsers } from "../../hook/api/useUsers";
 import { Layout } from "../../components/Layout";
 import { BackgroundCard } from "../../components/BackgroundCard";
 import { CardsContainer } from "../../components/CardsContainer";
-import { useRejectUser } from "../../hook/api/useRejectUser";
+import { useDeleteUser } from "../../hook/api/useDeleteUser";
 import { usePromoteUser } from "../../hook/api/usePromoteUser";
 import { useDemoteUser } from "../../hook/api/useDemoteUser";
 import { useQueryClient } from "react-query";
@@ -38,7 +38,7 @@ export function UserManagementView() {
     [userList],
   );
 
-  const { mutate: rejectMutation } = useRejectUser({
+  const { mutate: deleteMutation } = useDeleteUser({
     onSuccess: () => {
       setRejectionMessage("Käyttäjän hylkääminen onnistui.");
       setIsRejected(true);
@@ -52,7 +52,7 @@ export function UserManagementView() {
 
   const handleReject = () => {
     if (selectedUser) {
-      void rejectMutation({ callsign: selectedUser.callsign });
+      void deleteMutation(selectedUser.callsign);
     }
     setConfirmReject(false);
   };
