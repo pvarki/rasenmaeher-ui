@@ -132,7 +132,7 @@ const DropdownMenuDemo = ({ inviteCode }: { inviteCode: string }) => {
     openDialog({
       title: "Olet poistamassa kutsukoodia",
       description:
-        "Koodin poistaminen estää sen käytön. Koodi ei kuitenkaan poistu käyttäjien tileiltä.",
+        "Koodin poistaminen estää sen käytön. Käyttäjät, jotka ovat jo kirjautuneet tällä koodilla, eivät kuitenkaan menetä pääsyään palveluun.",
       cancelLabel: "Peruuta",
       confirmLabel: "Poista koodi",
       onConfirm: () => {

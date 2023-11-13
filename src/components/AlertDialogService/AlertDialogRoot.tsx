@@ -1,5 +1,5 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import { Button } from "../Button";
+import { Button } from "../ForwardedButton";
 import { useAlertDialogStore } from "./alertDialogStore";
 
 export function AlertDialogRoot() {
