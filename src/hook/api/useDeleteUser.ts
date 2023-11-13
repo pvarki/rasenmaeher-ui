@@ -21,12 +21,7 @@ async function deleteUser(callsign: string) {
   return data.invite_code;
 }
 
-type UseDeleteUserOptions = UseMutationOptions<
-  string,
-  Error,
-  string,
-  unknown
->;
+type UseDeleteUserOptions = UseMutationOptions<string, Error, string, unknown>;
 
 export function useDeleteUser(options?: UseDeleteUserOptions) {
   return useMutation(deleteUser, options);
