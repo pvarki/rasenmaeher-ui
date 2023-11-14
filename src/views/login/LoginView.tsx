@@ -47,6 +47,7 @@ export function LoginView() {
   const protocol = window.location.protocol;
   const host = window.location.host;
   const mtlsUrl = `${protocol}//mtls.${host}/app/admin/`;
+  const buttonStyle = "min-h-[70px]";
 
   const formik = useFormik({
     initialValues: {
@@ -136,12 +137,11 @@ export function LoginView() {
                     }}
                     type="submit"
                     disabled={!formik.isValid || isLoading}
+                    styling={buttonStyle}
                   >
                     <div className="flex items-center justify-center w-full h-full">
                       <img src={pencil} className="h-5 w-5 mr-2" />
-                      {isLoading
-                        ? "Odottaa vastausta..."
-                        : "Kirjaudu    koodilla"}
+                      {isLoading ? "Odottaa vastausta..." : "Kirjaudu koodilla"}
                     </div>
                   </Button>
                 </div>
@@ -153,6 +153,7 @@ export function LoginView() {
                         width: "full",
                       }}
                       type="button"
+                      styling={buttonStyle}
                     >
                       <div className="flex items-center justify-center w-full h-full">
                         <img src={key} className="h-5 w-5 mr-2" />
