@@ -42,6 +42,8 @@ export function ProtectedRoute({
         return "/login/enrollment";
       } else if (authType === "jwt" && userType) {
         return "/login/createmtls";
+      } else if (otpVerified) {
+        return "/login/callsign";
       }
       return "/login";
     }
