@@ -12,7 +12,7 @@ interface Props {
 
 export function ProtectedRoute({
   children,
-  allowedUserTypes = ["admin", "user", null],
+  allowedUserTypes = ["admin", "user"],
   requireAuthType,
   requireValidUser = false,
   requireOtpVerified = false,
@@ -22,13 +22,16 @@ export function ProtectedRoute({
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Debugging logs
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   console.log(`Current authType: ${authType || "null"}`);
   console.log(`Current userType: ${userType || "null"}`);
   console.log(`Current path: ${currentPath}`);
 
   const determineTargetPath = () => {
-    if (currentPath === "/" || currentPath === "/login") {
+    if (currentPath === "/" || currentPath.startsWith("/login")) {
       if (authType === "mtls") {
         if (userType === "admin") {
           return "/app/admin";
