@@ -6,9 +6,11 @@ import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { ServiceTakUsageCard } from "./usage/helpers/ServiceTakUsageCard";
 import { useFetchZipFile } from "../../hook//api/tak/useFetchZipFile";
+import { useAlertDialog } from "../../components/AlertDialogService";
 
 export function ServiceTak() {
   const navigate = useNavigate();
+  const { openDialog } = useAlertDialog();
   const { mutate: fetchFile, isLoading } = useFetchZipFile({
     onSuccess: ({ blob, filename }) => {
       const url = window.URL.createObjectURL(blob);
@@ -19,6 +21,32 @@ export function ServiceTak() {
       link.click();
       link.remove();
       window.URL.revokeObjectURL(url);
+    },
+    onError: (error) => {
+      const errorMessage =
+        error.message ||
+        "Viestiperustepaketin lataaminen epäonnistui. Yritä uudelleen myöhemmin.";
+      openDialog({
+        title: "Virhe",
+        description: (
+          <div>
+            {
+              <>
+                Viestiperustepaketin lataaminen epäonnistui. Yritä uudelleen
+                myöhemmin. <br /> <br />
+                <em> Virheilmoitus sovellukselta:</em>
+                <br />"{errorMessage}"
+              </>
+            }
+            ,
+          </div>
+        ),
+        confirmLabel: "Sulje",
+        confirmColor: "primary",
+        onConfirm: () => {
+          // just close the dialog
+        },
+      });
     },
   });
 

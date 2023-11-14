@@ -46,5 +46,16 @@ type UseFetchZipFileOptions = UseMutationOptions<
 >;
 
 export function useFetchZipFile(options?: UseFetchZipFileOptions) {
-  return useMutation(fetchZipFile, options);
+  const fetchZipFileWrapped = async () => {
+    try {
+      return await fetchZipFile();
+    } catch (error) {
+      console.error("Error fetching zip file:", error);
+      throw error;
+    }
+  };
+
+  return useMutation(fetchZipFileWrapped, {
+    ...options,
+  });
 }

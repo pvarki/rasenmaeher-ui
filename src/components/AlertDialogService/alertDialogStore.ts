@@ -6,7 +6,7 @@ export interface AlertDialogProps {
   title: string;
   description: ReactNode | string;
   confirmLabel: string;
-  cancelLabel: string;
+  cancelLabel?: string;
   onConfirm: () => void;
   onCancel?: () => void;
   confirmColor?: ButtonColors;
