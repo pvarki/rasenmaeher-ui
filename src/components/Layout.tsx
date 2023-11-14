@@ -1,7 +1,8 @@
 import { Header } from "./Header";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 interface LayoutProps {
   showNavbar?: boolean;
@@ -22,6 +23,12 @@ export function Layout({
   children,
   heroImage,
 }: LayoutProps) {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const marginTopValue = heroImage
     ? "mt-[calc(-50vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]"
     : "mt-4";
