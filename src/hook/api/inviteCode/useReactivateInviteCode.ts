@@ -34,7 +34,7 @@ type UseReactivateInviteCodeOptions = UseMutationOptions<
 >;
 
 export function useReactivateInviteCode(
-  options?: UseReactivateInviteCodeOptions
+  options?: UseReactivateInviteCodeOptions,
 ) {
   return useMutation(ReactivateInviteCode, options);
 }

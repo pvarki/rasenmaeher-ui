@@ -34,7 +34,7 @@ type UseDeactivateInviteCodeOptions = UseMutationOptions<
 >;
 
 export function useDeactivateInviteCode(
-  options?: UseDeactivateInviteCodeOptions
+  options?: UseDeactivateInviteCodeOptions,
 ) {
   return useMutation(deactivateInviteCode, options);
 }
