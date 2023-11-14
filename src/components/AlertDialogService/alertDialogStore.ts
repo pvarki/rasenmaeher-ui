@@ -1,9 +1,10 @@
 import { create } from "zustand";
 import { ButtonColors } from "../Button";
+import { ReactNode } from "react";
 
 export interface AlertDialogProps {
   title: string;
-  description: string;
+  description: ReactNode | string;
   confirmLabel: string;
   cancelLabel: string;
   onConfirm: () => void;

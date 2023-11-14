@@ -7,9 +7,12 @@ import { useInviteCodeList } from "../../../hook/api/inviteCode/useInviteCodeLis
 import { useCreateInviteCode } from "../../../hook/api/inviteCode/useCreateInviteCode";
 import { useNavigate } from "react-router-dom";
 import { useDeleteInviteCode } from "../../../hook/api/inviteCode/useDeleteInviteCode";
+import { useDeactivateInviteCode } from "../../../hook/api/inviteCode/useDeactivateInviteCode";
+import { useReactivateInviteCode } from "../../../hook/api/inviteCode/useReactivateInviteCode";
 import { CardsContainer } from "../../../components/CardsContainer";
 import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
 import { UnfoldableCard } from "../../../components/UnfoldableCard";
+import { useQueryClient } from "react-query";
 
 export function EnrollCodeListView() {
   const navigate = useNavigate();
@@ -98,7 +101,11 @@ export function EnrollCodeListView() {
           </div>
           {inviteCodeList?.map((i) => {
             return (
-              <InviteCodeRow key={i.invitecode} inviteCode={i.invitecode} />
+              <InviteCodeRow
+                key={i.invitecode}
+                inviteCode={i.invitecode}
+                active={i.active}
+              />
             );
           })}
         </ServiceInfoCard>
@@ -107,8 +114,16 @@ export function EnrollCodeListView() {
   );
 }
 
-function InviteCodeRow({ inviteCode }: { inviteCode: string }) {
+function InviteCodeRow({
+  inviteCode,
+  active,
+}: {
+  inviteCode: string;
+  active: boolean;
+}) {
   const navigate = useNavigate();
+  const statusLabelColorClass = active ? "text-green-800" : "text-gray-500";
+  const statusLabelText = active ? "Aktiivinen" : "Deaktivoitu";
 
   return (
     <div
@@ -117,26 +132,101 @@ function InviteCodeRow({ inviteCode }: { inviteCode: string }) {
       }
       className="bg-backgroundLight w-full p-3 rounded-lg flex items-center justify-between gap-5"
     >
-      <span className="text-white">{inviteCode}</span>
-      <DropdownMenuDemo inviteCode={inviteCode} />
+      <span className={`text-white`}>
+        {inviteCode} -{" "}
+        <span className={statusLabelColorClass}>{statusLabelText}</span>
+      </span>
+      <DropdownMenuDemo inviteCode={inviteCode} isActive={active} />
     </div>
   );
 }
 
-const DropdownMenuDemo = ({ inviteCode }: { inviteCode: string }) => {
+const DropdownMenuDemo = ({
+  inviteCode,
+  isActive,
+}: {
+  inviteCode: string;
+  isActive: boolean;
+}) => {
   const { openDialog } = useAlertDialog();
-
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const { mutate: deleteInviteCode } = useDeleteInviteCode();
+  const { mutate: deactivateInviteCode } = useDeactivateInviteCode();
+  const { mutate: reactivateInviteCode } = useReactivateInviteCode();
+  const onShowQRCode = () => {
+    navigate("/app/admin/user-management/code-list/" + inviteCode);
+  };
 
   const onDelete = () => {
     openDialog({
       title: "Olet poistamassa kutsukoodia",
       description:
-        "Koodin poistaminen estää sen käytön. Käyttäjät, jotka ovat jo kirjautuneet tällä koodilla, eivät kuitenkaan menetä pääsyään palveluun.",
+        "Koodin poistaminen estää sen käytön lopullisesti. Käyttäjät, jotka ovat jo kirjautuneet tällä koodilla, eivät kuitenkaan menetä pääsyään palveluun.",
       cancelLabel: "Peruuta",
       confirmLabel: "Poista koodi",
       onConfirm: () => {
-        deleteInviteCode(inviteCode);
+        deleteInviteCode(inviteCode, {
+          onSuccess: () => {
+            void queryClient.invalidateQueries("inviteCodeList");
+          },
+        });
+      },
+    });
+  };
+
+  const onDeactivate = () => {
+    openDialog({
+      title: "Olet deaktivoimassa kutsukoodia",
+      description: (
+        <div>
+          {
+            <>
+              Koodin deaktivointi estää sen käytön, kun koodi on deaktivoituna.
+              Käyttäjät, jotka ovat jo kirjautuneet tällä koodilla, eivät
+              kuitenkaan menetä pääsyään palveluun. <br /> <br /> Koodilla
+              kirjautumista yrittävä henkilö saa virheilmoitukseksi 'Koodi
+              väärin.'
+            </>
+          }
+        </div>
+      ),
+      cancelLabel: "Peruuta",
+      confirmLabel: "Deaktivoi koodi",
+      onConfirm: () => {
+        deactivateInviteCode(inviteCode, {
+          onSuccess: () => {
+            void queryClient.invalidateQueries("inviteCodeList");
+          },
+        });
+      },
+    });
+  };
+
+  const onReactivate = () => {
+    openDialog({
+      title: "Olet aktivoimassa kutsukoodia",
+      description: (
+        <div>
+          {
+            <>
+              {" "}
+              Haluatko aktivoida kutsukoodin uudelleen? Kun koodi on aktivoitu,
+              voi sillä jälleen kirjautua palveluun hyväksyntää odottavaksi
+              käyttäjäksi.{" "}
+            </>
+          }
+        </div>
+      ),
+      cancelLabel: "Peruuta",
+      confirmColor: "primary",
+      confirmLabel: "Aktivoi koodi",
+      onConfirm: () => {
+        reactivateInviteCode(inviteCode, {
+          onSuccess: () => {
+            void queryClient.invalidateQueries("inviteCodeList");
+          },
+        });
       },
     });
   };
@@ -155,14 +245,13 @@ const DropdownMenuDemo = ({ inviteCode }: { inviteCode: string }) => {
           sideOffset={5}
           collisionPadding={12}
         >
-          <ActionItem
-            label={"Näytä QR"}
-            onClick={() => console.log("poista")}
-          />
-          <ActionItem
-            label={"Poista käytöstä"}
-            onClick={() => console.log("poista")}
-          />
+          <ActionItem label={"Näytä QR"} onClick={onShowQRCode} />
+
+          {isActive ? (
+            <ActionItem label={"Deaktivoi koodi"} onClick={onDeactivate} />
+          ) : (
+            <ActionItem label={"Aktivoi koodi"} onClick={onReactivate} />
+          )}
           <ActionItem label={"Poista koodi"} onClick={onDelete} />
           <DropdownMenu.Arrow className="fill-white" />
         </DropdownMenu.Content>
@@ -180,7 +269,10 @@ function ActionItem({
 }) {
   return (
     <DropdownMenu.Item
-      onClick={onClick}
+      onClick={(event) => {
+        event.stopPropagation();
+        if (onClick) onClick();
+      }}
       className="py-3 group leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1"
     >
       {label}
