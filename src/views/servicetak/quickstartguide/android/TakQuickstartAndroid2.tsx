@@ -5,9 +5,11 @@ import etsi3 from "../../../../assets/takguides/atak/03-EtsiKansio.png";
 import done4 from "../../../../assets/takguides/atak/04-Done.png";
 import ilmo5 from "../../../../assets/takguides/atak/05-SaatIlmoituksen.png";
 import yhteys6 from "../../../../assets/takguides/atak/06-VarmistaYhteys.png";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import ATAK from "../../../../assets/icons/tak-logo.png";
 
 export function TakQuickstartAndroid2() {
   return (
@@ -19,32 +21,62 @@ export function TakQuickstartAndroid2() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Aseta viestiperusteet"
+          title="Aseta viestiperusteet (2/4)"
           progressMax={4}
           progressNow={2}
         />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              imageClasses="m-3 w-[300px]"
-              description={
+
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="ATAK"
+              image={ATAK}
+              details={
                 <>
-                  Valitse <strong>Data Package</strong>.
-                </>
-              }
-              imageSrc={data2}
-              description2={
-                <>
-                  <em>Select Data Package</em>-valikko aukeaa.
+                  ATAK käyttöönotto - vaihe 2:{" "}
+                  <strong>aseta viestiperusteet</strong>
+                  <br />
+                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
+                  tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.
                 </>
               }
             />
-            <GuideSection
-              number="2."
+            <UnfoldableCard
+              title={
+                <>
+                  1. <strong>Avaa</strong> <em>Select Data Package</em> -valikko
+                </>
+              }
+              styling="bg-backgroundLight"
+              image2Classes="m-3 w-[300px]"
+              description1={
+                <>
+                  Avatessa sovellus ensimmäistä kertaa, aukeaa TAK Device Setup.{" "}
+                  <br />
+                  Valitse <strong>Data Package</strong>.
+                </>
+              }
+              image2Src={data2}
+              description2={
+                <>
+                  <strong>
+                    <em>Select Data Package</em>
+                  </strong>
+                  -valikko aukeaa.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={
+                <>
+                  2. <strong>Etsi</strong> ja <strong>valitse</strong>{" "}
+                  viestiperuste-zip
+                </>
+              }
+              styling="bg-backgroundLight"
               imageSrc={etsi3}
               imageClasses="m-3 w-[300px]"
-              description={
+              description2={
                 <>
                   Etsi kansio, johon latasit viestiperustetiedostosi{" "}
                   <strong>Nimi.zip</strong>
@@ -53,37 +85,43 @@ export function TakQuickstartAndroid2() {
                   ladatun tiedoston, todennäköisesti viestiperusteesi.
                 </>
               }
-              description2={<>Valitse tiedosto.</>}
+              description3={<>Valitse tiedosto.</>}
             />
-            <GuideSection
-              number="3."
-              description={
+            <UnfoldableCard
+              title={
+                <>
+                  3. Paina <strong>Done</strong> - asetukset latautuu
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   Paina <strong>Done</strong>.
                 </>
               }
-              imageSrc={done4}
-              imageClasses="m-3 w-[300px]"
+              image2Src={done4}
+              image2Classes="m-3 w-[300px]"
               description2={
                 <>
                   Saat muutaman ilmoituksen konfiguraatiotiedostojen
                   latautumisesta.
                 </>
               }
-              image2Src={ilmo5}
-              image2Classes="m-3 w-[300px]"
-              description4={<>Alkukonfiguraatio on valmis.</>}
-              image3Src={yhteys6}
+              image3Src={ilmo5}
               image3Classes="m-3 w-[300px]"
-              description3={
+              description3={<>Alkukonfiguraatio on valmis.</>}
+              image4Src={yhteys6}
+              image4Classes="m-3 w-[300px]"
+              description4={
                 <>
                   Tarkista oikeasta alakulmasta, että palvelinyhteytesi on
-                  aktivoitunut (vihreä merkkivalo)
+                  aktivoitunut (vihreä merkkivalo).
                 </>
               }
             />
-          </CardsContainer>
-        </div>
+          </div>
+        </CardsContainer>
+
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/android1"
           forwardUrl="/app/services/tak/quickstart/android3"

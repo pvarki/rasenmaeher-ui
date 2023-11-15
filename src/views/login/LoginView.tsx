@@ -140,7 +140,7 @@ export function LoginView() {
                     styling={buttonStyle}
                   >
                     <div className="flex items-center justify-center w-full h-full">
-                      <img src={pencil} className="h-5 w-5 mr-2" />
+                      <img src={pencil} alt="pencil" className="h-5 w-5 mr-2" />
                       {isLoading ? "Odottaa vastausta..." : "Kirjaudu koodilla"}
                     </div>
                   </Button>
@@ -156,7 +156,7 @@ export function LoginView() {
                       styling={buttonStyle}
                     >
                       <div className="flex items-center justify-center w-full h-full">
-                        <img src={key} className="h-5 w-5 mr-2" />
+                        <img src={key} alt="keys" className="h-5 w-5 mr-2" />
                         Minulla on avaimet
                       </div>
                     </Button>
