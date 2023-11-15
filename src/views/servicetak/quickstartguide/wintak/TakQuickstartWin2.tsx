@@ -1,6 +1,9 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
+import Wintak from "../../../../assets/icons/wintak.png";
+import windownload from "../../../../assets/icons/windownload.svg";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import pic9 from "../../../../assets/takguides/wintak/Kuva9.png";
@@ -20,66 +23,87 @@ export function TakQuickstartWin2() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Lataa ja asenna WinTAK"
+          title="Lataa ja asenna WinTAK (2/4)"
           progressMax={4}
           progressNow={2}
         />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              description={
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="WinTAK"
+              image={Wintak}
+              details={
                 <>
-                  Ladataan <strong>WinTAK</strong>-sovellus.
+                  WinTAK käyttöönotto - vaihe 2:{" "}
+                  <strong>Lataa ja asenna WinTAK</strong>
                   <br />
-                  <br />
-                  WinTAK-sovelluksen käytettävä versio{" "}
+                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
+                  tekee.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={<>1. Lataa WinTAK</>}
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  Lataa WinTAK-sovellus{" "}
                   <strong>Puolustusvoimien osoittamasta paikasta</strong>.
                   <br />
                   <br />
-                  <a
-                    href="https://arkipublic.blob.core.windows.net/ohjelmistot/WinTAK-CIV-latest.zip"
-                    style={{ color: "SteelBlue", textDecoration: "underline" }}
-                  >
-                    WinTAK - Lataa tästä WinTAK Puolustusvoimien
-                    jakelupisteestä.
-                  </a>
+                  <strong>Lataa</strong> strong painamalla kuvaketta alta:
                 </>
               }
+              image2Src={windownload}
+              image2Link="https://arkipublic.blob.core.windows.net/ohjelmistot/WinTAK-CIV-latest.zip"
+              image2Classes="w-[200px]"
               note="Tärkeää! Lataa Windows-sovelluksia vain ohjeistetusta paikasta."
             />
-            <GuideSection
-              number="2."
-              description="Etsi latamaasi sovellus latauskansiosta."
-              imageSrc={pic9}
-              imageClasses="mx-auto pr-5 w-[290px] p-4"
-              description2="Avaa sovellus. Aukeaa asennusohjelma."
+            <UnfoldableCard
+              title={<>2. Avaa asennusohjelma</>}
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  Etsi latamaasi zip ja pura se. Etsi .msi-päätteinen
+                  asennusohjelma zipin sisältä Products-kansiosta
+                </>
+              }
+              image2Src={pic9}
+              image2Classes="mx-auto pr-5 w-[290px] p-4"
+              description2={
+                <>Kaksoisnapauta .msi -tiedostoa. Aukeaa asennusohjelma.</>
+              }
             />
-            <GuideSection
-              number="3."
-              description="Asenna WinTAK käyttäen Setup Wizardia."
-              imageSrc={pic10}
-              imageClasses="mx-auto pr-5 w-[300px] p-4"
+            <UnfoldableCard
+              title={<>3. Asenna käyttäen asennusohjelmaa</>}
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  <br />
+                  Asenna WinTAK käyttäen Setup Wizardia.
+                </>
+              }
+              image2Src={pic10}
+              image2Classes="mx-auto pr-5 w-[300px] p-4"
               description2={
                 <>
-                  Paina <strong>Next</strong>. Valitse sovelluksen
+                  a. Paina <strong>Next</strong>. Valitse sovelluksen
                   asennuskansio.
                 </>
               }
-              image2Src={pic11}
-              image2Classes="mx-auto pr-5 w-[300px] p-4"
+              image3Src={pic11}
+              image3Classes="mx-auto pr-5 w-[300px] p-4"
               description3={
                 <>
-                  Vaihda halutessasi asennuskansiota <strong>Browse</strong>
+                  b. Vaihda halutessasi asennuskansiota <strong>Browse</strong>
                   -napin kautta. Paina <strong>Next</strong>.
                 </>
               }
-            />
-            <GuideSection
-              number="4."
-              description={
+              image4Src={pic12}
+              image4Classes="mx-auto pr-5 w-[300px] p-4"
+              description4={
                 <>
-                  Valitse Setup Wizardissa asennettavat lisäosat.
+                  c. Valitse Setup Wizardissa asennettavat lisäosat.
                   <br />
                   Valitse ainakin seuraavat lisäosat:
                   <ul>
@@ -89,33 +113,32 @@ export function TakQuickstartWin2() {
                   </ul>
                 </>
               }
-              imageSrc={pic12}
-              imageClasses="mx-auto pr-5 w-[300px] p-4"
-              description2={
+              image5Src={pic13}
+              image5Classes="mx-auto pr-5 w-[300px] p-4"
+              description5={
                 <>
-                  Paina <strong>Next</strong>. Wizard on valmis aloittamaan
+                  d. Paina <strong>Next</strong>. Wizard on valmis aloittamaan
                   asennuksen, paina <strong>Install</strong>.
                 </>
               }
-              image2Src={pic13}
-              image2Classes="mx-auto pr-5 w-[300px] p-4"
-              description3={
+              image6Src={pic14}
+              image6Classes="mx-auto pr-5 w-[300px] p-4"
+              description6={
                 <>
-                  Paina <strong>Next</strong>.
+                  e. Paina <strong>Next</strong>.
                 </>
               }
-              image3Src={pic14}
-              image3Classes="mx-auto pr-5 w-[300px] p-4"
-              description4={
+              description7={
                 <>
+                  <br />
                   Sovellus on nyt asennettu.
                   <br />
                   Seuraavaksi avataan asennettu sovellus.
                 </>
               }
             />
-          </CardsContainer>
-        </div>
+          </div>
+        </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/win1"
           forwardUrl="/app/services/tak/quickstart/win3"

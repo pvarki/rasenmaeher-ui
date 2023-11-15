@@ -1,6 +1,8 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
+import Wintak from "../../../../assets/icons/wintak.png";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import pic14 from "../../../../assets/takguides/wintak/Kuva14.png";
@@ -25,80 +27,100 @@ export function TakQuickstartWin3() {
         navbarTitle="WinTAK käyttöönotto"
         backUrl="/app/services/tak/quickstart"
       >
-        <StatusBar title="Aseta WinTAK" progressMax={4} progressNow={3} />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              description={
+        <StatusBar title="Aseta WinTAK (3/4)" progressMax={4} progressNow={3} />
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="WinTAK"
+              image={Wintak}
+              details={
+                <>
+                  WinTAK käyttöönotto - vaihe 3: <strong>Aseta WinTAK</strong>
+                  <br />
+                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
+                  tekee.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={<>1. Avaa sovellus</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   <span>
                     Avaa <strong>WinTAK</strong>-sovellus työpöydältä.
                   </span>
                 </>
               }
-              imageSrc={pic14}
-              imageClasses="mx-auto pr-5 w-[90px] p-4"
+              image2Src={pic14}
+              image2Classes="mx-auto pr-5 w-[90px] p-4"
             />
-            <GuideSection
-              number="2."
-              description={
+            <UnfoldableCard
+              title={<>2. Hyväksy EULA</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   Hetken kuluttua aukaa <strong>Device Setup Wizard</strong>.
-                  <br />
+                </>
+              }
+              image2Src={pic16}
+              image2Classes="mx-auto pr-5 w-[300px] p-4"
+              description2={
+                <>
                   Sen ensimmäisenä askeleena hyväksy <strong>EULA.</strong>
                 </>
               }
-              imageSrc={pic16}
-              imageClasses="mx-auto pr-5 w-[300px] p-4"
             />
-            <GuideSection
-              number="3."
-              description={
+            <UnfoldableCard
+              title={<>3. Muodosta palvelinyhteys</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   Seuraavaksi muodostetaan palvelinyhteys.
                   <br />
                   <br />
-                  Sovellus kysyy, haluatko tuoda data packagen.
+                  a. Sovellus kysyy, haluatko tuoda data packagen. Tämä
+                  tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong>
                 </>
               }
-              imageSrc={pic17}
-              imageClasses="mx-auto pr-5 w-[300px] p-4"
+              image2Src={pic17}
+              image2Classes="mx-auto pr-5 w-[300px] p-4"
               description2={
                 <>
-                  Tämä tarkoittaa viestiperustepakettiasi{" "}
-                  <strong>Nimi.zip.</strong> Valitse <strong>Yes</strong>.{" "}
+                  b. Valitse <strong>Yes</strong>. <br />
                   <br />
-                  <br />
-                  Osoita sovellukselle paketti latauskansiostasi/muualta.
+                  Osoita <strong>viestiperustepaketti</strong>{" "}
+                  latauskansiostasi/muualta.
                 </>
               }
-              image2Src={pic18}
-              image2Classes="mx-auto pr-5 w-[300px] p-4"
+              image3Src={pic18}
+              image3Classes="mx-auto pr-5 w-[300px] p-4"
               description3={
                 <>
                   Kun olet valinnut paketin ja painanut Open, aukeaa{" "}
                   <strong>Select Import Strategy</strong>.
                 </>
               }
-              image3Src={pic19}
-              image3Classes="mx-auto pr-5 w-[300px] p-4"
+              image4Src={pic19}
+              image4Classes="mx-auto pr-5 w-[300px] p-4"
               description4={
                 <>
-                  Valitse <strong>UserPreferenceImportStrategy</strong>, ja
+                  c. Valitse <strong>UserPreferenceImportStrategy</strong>, ja
                   paina OK.
                 </>
               }
             />
-            <GuideSection
-              number="4."
-              description={
+            <UnfoldableCard
+              title={<>4. Valitse karttapohja</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
-                  Viestiperustepaketin kanssa voi tulla erilaisia karttapohjia.
+                  Viestiperustepaketin kanssa voi tulla erilaisia{" "}
+                  <strong>karttapohjia.</strong>
                 </>
               }
-              imageSrc={pic20}
-              imageClasses="mx-auto pr-5 w-[400px] p-4"
+              image2Src={pic20}
+              image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
                   Valitse haluamasi karttapohja. Huomaa, että karttapohjaa voi
@@ -106,16 +128,17 @@ export function TakQuickstartWin3() {
                 </>
               }
             />
-            <GuideSection
-              number="5."
-              description={
+            <UnfoldableCard
+              title={<>5. Aseta Callsign</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   Device Setup Wizard kysyy, haluatko määrittää peitenimesi
                   (Callsign).
                 </>
               }
-              imageSrc={pic21}
-              imageClasses="mx-auto pr-5 w-[400px] p-4"
+              image2Src={pic21}
+              image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
                   Valitse <strong>Yes</strong> ja anna sinulle käsketty
@@ -123,70 +146,69 @@ export function TakQuickstartWin3() {
                   <br />
                   <br />
                   Sovellus kysyy ylimääräisiä WMS (kartta)-palvelulähteitä.
-                  Näitä ei tarvita, tyhjennä ruudut ja paina OK.
                 </>
               }
-              image2Src={pic23}
-              image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description3={
-                <>
-                  Valitse <strong>Yes</strong> ja anna sinulle käsketty
-                  peitenimi.
-                </>
-              }
+              image3Src={pic23}
+              image3Classes="mx-auto pr-5 w-[400px] p-4"
+              description3={<>Näitä ei tarvita, tyhjennä ruudut ja paina OK.</>}
             />
-            <GuideSection
-              number="6."
-              description={
+            <UnfoldableCard
+              title={<>6. Aseta pluginit</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   Sovellus kysyy, asennetaako plugineja. Valitse{" "}
                   <strong>DataSync</strong> ja paina OK.
                 </>
               }
-              imageSrc={pic24}
-              imageClasses="mx-auto pr-5 w-[400px] p-4"
+              image2Src={pic24}
+              image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
                   Seuraavaksi sovellus kysyy, ladataanko automaattisesti
-                  DTED-0-korkeusmallit. Paina <strong>Yes</strong>.
+                  DTED-0-korkeusmallit.
                 </>
               }
-              image2Src={pic25}
-              image2Classes="mx-auto pr-5 w-[400px] p-4"
+              image3Src={pic25}
+              image3Classes="mx-auto pr-5 w-[400px] p-4"
               description3={
                 <>
-                  Valitse <strong>Yes</strong> ja anna sinulle käsketty
-                  peitenimi.
+                  Valitse <strong>Yes</strong>.
                 </>
               }
             />
-            <GuideSection
-              number="7."
-              description={
+            <UnfoldableCard
+              title={<>7. Tarkasta asetukset</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
-                  Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä My
-                  Preferences.
+                  Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä{" "}
+                  <strong>My Preferences.</strong>
                 </>
               }
-              imageSrc={pic26}
-              imageClasses="mx-auto pr-5 w-[400px] p-4"
+              image2Src={pic26}
+              image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
                 <>
                   Peite (<strong>Callsign</strong>), joukon väri (
                   <strong>My Team</strong>) ja rooli (<strong>My Role</strong>)
-                  tulee olla käsketyt. <strong>My Display Type</strong> on
-                  Ground.
+                  tulee olla sinulle käsketyn mukaiset.{" "}
+                  <strong>My Display Type</strong> on Ground.
                   <br />
-                  <br />
-                  Tarkista <strong>TAK Network Status.</strong> Vihreä pilvi
-                  tarkoittaa, että palvelinyhteys on OK, punainen, että yhteys
-                  on poikki.
                 </>
               }
               note={<>Komentopaikkakäyttäjänä roolisi tulee olla HQ.</>}
-              image2Src={pic27}
-              image2Classes="mx-auto pr-10 w-[200px] p-4"
+              image4Src={pic27}
+              image4Classes="mx-auto pr-10 w-[200px] p-4"
               description3={
+                <>
+                  <br />
+                  Tarkista myös <strong>TAK Network Status.</strong> Vihreä
+                  pilvi tarkoittaa, että palvelinyhteys on OK, punainen, että
+                  yhteys on poikki.
+                </>
+              }
+              description4={
                 <>
                   Jos yhteys ei ole muodostunut, tarkista ensin, onko
                   internetyhteytesi kunnossa. Jos on, ja TAK Network Status on
@@ -197,8 +219,8 @@ export function TakQuickstartWin3() {
                 </>
               }
             />
-          </CardsContainer>
-        </div>
+          </div>
+        </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/win2"
           forwardUrl="/app/services/tak/quickstart/win4"

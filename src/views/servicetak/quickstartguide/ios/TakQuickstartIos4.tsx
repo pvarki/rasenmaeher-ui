@@ -133,7 +133,7 @@ export function TakQuickstartIos4() {
         </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/ios1"
-          forwardUrl="/"
+          forwardUrl="/app/services/tak/quickstart"
           alterForward="Valmis! Palaa tästä."
         />
       </Layout>

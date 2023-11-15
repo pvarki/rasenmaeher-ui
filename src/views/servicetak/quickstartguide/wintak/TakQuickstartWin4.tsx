@@ -1,6 +1,8 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
+import Wintak from "../../../../assets/icons/wintak.png";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import pic28 from "../../../../assets/takguides/wintak/Kuva28.png";
@@ -17,12 +19,30 @@ export function TakQuickstartWin4() {
         navbarTitle="WinTAK käyttöönotto"
         backUrl="/app/services/tak/quickstart"
       >
-        <StatusBar title="Aseta mittayksiköt" progressMax={4} progressNow={4} />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              description={
+        <StatusBar
+          title="Aseta mittayksiköt (4/4)"
+          progressMax={4}
+          progressNow={4}
+        />
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="WinTAK"
+              image={Wintak}
+              details={
+                <>
+                  WinTAK käyttöönotto - vaihe 4:{" "}
+                  <strong>Aseta mittayksiköt</strong>
+                  <br />
+                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
+                  tekee.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={<>1. Tarkista mittayksikköasetukset</>}
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   <span>
                     Tarkista WinTAKin mittayksikköasetukset.
@@ -32,42 +52,41 @@ export function TakQuickstartWin4() {
                   </span>
                 </>
               }
-              imageSrc={pic28}
-              imageClasses="mx-auto pr-12 w-[200px] p-4"
+              image2Src={pic28}
+              image2Classes="mx-auto pr-12 w-[200px] p-4"
               description2={
                 <span>
                   Valitse <strong>Settings</strong>.
                 </span>
               }
-            />
-            <GuideSection
-              number="2."
-              description={
+              image3Src={pic29}
+              image3Classes="mx-auto pr-5 w-[300px] p-4"
+              description3={
                 <>
                   <span>
                     Valitse <strong>Display Preferences</strong>.
                   </span>
                 </>
               }
-              imageSrc={pic29}
-              imageClasses="mx-auto pr-5 w-[300px] p-4"
-              description2={
+              image4Src={pic29}
+              image4Classes="mx-auto pr-5 w-[300px] p-4"
+              description4={
                 <span>
                   Display Preferences-valikko avautuu. Valitse{" "}
                   <strong>Unit Display Format Preferences</strong>.
                 </span>
               }
-              image2Src={pic30}
-              image2Classes="mx-auto pr-5 w-[300px] p-4"
-              description3={
+              image5Src={pic30}
+              image5Classes="mx-auto pr-5 w-[300px] p-4"
+              description5={
                 <span>
                   Tarkista, että asetukset ovat kuvan mukaiset. Vaihda
                   tarvittaessa.
                 </span>
               }
-              image3Src={pic31}
-              image3Classes="mx-auto pr-5 w-[300px] p-4"
-              description4={
+              image6Src={pic31}
+              image6Classes="mx-auto pr-5 w-[300px] p-4"
+              description6={
                 <>
                   WinTAK on nyt asetettu!
                   <br />
@@ -76,13 +95,17 @@ export function TakQuickstartWin4() {
                 </>
               }
             />
-            <GuideSection number="3." description="TBD: TroubleShoot." />
-          </CardsContainer>
-        </div>
+            <UnfoldableCard
+              title={<>2. Vianetsintä</>}
+              styling="bg-backgroundLight"
+              description1="TBD: TroubleShoot."
+            />
+          </div>
+        </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/win3"
-          forwardUrl="/app"
-          alterForward="Valmis! Palaa kotiin."
+          forwardUrl="/app/services/tak/quickstart"
+          alterForward="Valmis! Palaa tästä."
         />
       </Layout>
     </div>

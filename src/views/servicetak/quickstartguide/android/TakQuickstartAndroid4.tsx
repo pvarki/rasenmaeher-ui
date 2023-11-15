@@ -39,7 +39,7 @@ export function TakQuickstartAndroid4() {
               details={
                 <>
                   ATAK käyttöönotto - vaihe 4:{" "}
-                  <strong>Vaihda mittayksiköt ja kartta</strong>
+                  <strong>vaihda mittayksiköt ja kartta</strong>
                   <br />
                   Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
                   tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.
