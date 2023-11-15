@@ -51,7 +51,7 @@ export function LoginView() {
 
   const formik = useFormik({
     initialValues: {
-      code: params.get("code") ?? "",
+      code: params.get("code")?.toUpperCase() ?? "",
     },
     validationSchema: CodeSchema,
     validateOnMount: true,
@@ -59,6 +59,11 @@ export function LoginView() {
       checkCode(values.code);
     },
   });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const upperCaseValue = e.target.value.toUpperCase();
+    void formik.setFieldValue("code", upperCaseValue);
+  };
 
   const handleInputFocus = () => {
     setCodeNotValid(false);
@@ -116,6 +121,7 @@ export function LoginView() {
                   name="code"
                   className="bg-gray-100 w-full p-2 rounded-lg text-black"
                   onFocus={handleInputFocus}
+                  onChange={handleChange}
                 />
                 <span className="text-red-500">
                   <ErrorMessage name="code" />
