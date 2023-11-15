@@ -17,7 +17,8 @@ const CallsignSchema = yup.object().shape({
   callsign: yup
     .string()
     .required("Koodinimi on pakollinen")
-    .matches(CALLSIGN_REGEX, "Koodinimi on virheellinen"),
+    .matches(CALLSIGN_REGEX, "Koodinimi on virheellinen")
+    .max(30, "Koodinimen maksimipituus on 30 merkkiä"),
 });
 
 export function CallsignSetupStep() {
