@@ -1,6 +1,8 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
+import ITAK from "../../../../assets/icons/iTAK.png";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import pic15 from "../../../../assets/takguides/itak/itakquickstart15.png";
@@ -22,95 +24,129 @@ export function TakQuickstartIos3() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Muodosta palvelinyhteys"
+          title="Muodosta palvelinyhteys (3/4)"
           progressMax={4}
           progressNow={3}
         />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              description={
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="iTAK"
+              image={ITAK}
+              details={
                 <>
-                  Avaa <strong>Asetukset</strong>. Asetusten kuvake,
+                  iTAK käyttöönotto - vaihe 3:{" "}
+                  <strong>muodosta palvelinyhteys</strong>
+                  <br />
+                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
+                  tekee. Tässä vaiheessa iTAK-sovelluksen tulee olla auki.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={
+                <>
+                  1. <strong>Avaa</strong> Server-valikko
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  a. Avaa <strong>Asetukset</strong>. Asetusten kuvake,
                   hammasratas, sijaitsee iTAKin ruudun oikeassa yläkulmassa.
                 </>
               }
-              imageSrc={pic15}
-              imageClasses="mx-auto pr-5 w-[90px] p-4"
-            />
-            <GuideSection
-              number="2."
-              description={
-                <>
-                  Valitse <strong>Network</strong>.
-                </>
-              }
-              imageSrc={pic16}
-              imageClasses="mx-auto pr-5 w-[240px] p-4"
+              image2Src={pic15}
+              image2Classes="mx-auto pr-5 w-[90px] p-4"
               description2={
                 <>
-                  Valitse <strong>Servers</strong>.
+                  <br />
+                  b. Valitse <strong>Network</strong>.
                 </>
               }
-              image2Src={pic17}
-              image2Classes="mx-auto pr-5 w-[240px] p-4"
-              description3={<>Avautuu tyhjä ruutu "Servers."</>}
-            />
-            <GuideSection
-              number="4."
-              description={
+              image3Src={pic16}
+              image3Classes="mx-auto pr-5 w-[240px] p-4"
+              description3={
                 <>
-                  Ladataan viestiperustepakettisi iTAKiin. Paina{" "}
+                  <br />
+                  c. Valitse <strong>Servers</strong>.
+                </>
+              }
+              image4Src={pic17}
+              image4Classes="mx-auto pr-5 w-[240px] p-4"
+              description4={<>Avautuu tyhjä ruutu "Servers."</>}
+            />
+            <UnfoldableCard
+              title={
+                <>
+                  2. <strong>Aseta</strong> viestiperustepaketti iTAKiin
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  a. Ladataan viestiperustepakettisi iTAKiin. Paina{" "}
                   <strong>Plus</strong>-symbolia <em>(Add TAK Server)</em>{" "}
                   oikeassa alakulmassa.
                 </>
               }
-              imageSrc={pic18}
-              imageClasses="mx-auto pr-5 w-[240px] p-4"
+              image2Src={pic18}
+              image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
                 <>
-                  Sovellus kysyy, miten palvelin lisätään. Valitse{" "}
+                  <br />
+                  b. Sovellus kysyy, miten palvelin lisätään. Valitse{" "}
                   <strong>Upload Server Package</strong>.
                 </>
               }
-              image2Src={pic19}
-              image2Classes="mx-auto pr-5 w-[240px] p-4"
+              image3Src={pic19}
+              image3Classes="mx-auto pr-5 w-[240px] p-4"
               description3={
                 <>
-                  Aukeaa Selaa-valikko. Etsi kansio, johon latasit
+                  <br />
+                  c. Aukeaa Selaa-valikko. Etsi kansio, johon latasit
                   viestiperustetiedostosi <strong>Nimi.zip</strong>.
                 </>
               }
-              image3Src={pic12}
-              image3Classes="mx-auto pr-5 w-[240px] p-4"
-              note3={
+              image4Src={pic12}
+              image4Classes="mx-auto pr-5 w-[240px] p-4"
+              note4={
                 <>
-                  Huomaa, että tässä vaiheessa sinulla tulee olla
+                  d. Huomaa, että tässä vaiheessa sinulla tulee olla
                   viestiperustetiedosto <em>Nimi.zip</em> ladattuna puhelimeesi.
-                  <br></br>
-                  <br></br>
-                  Mikäli et jo ladannut sitä, lataat viestiperustepakettisi
+                </>
+              }
+              description6={
+                <>
+                  Mikäli et vielä ladannut viestiperustepakettia, lataa se
                   Rasenmaeherin TAK-päävalikosta napista{" "}
                   <em>Lataa viestiperusteesi</em>.
                 </>
               }
             />
-            <GuideSection
-              number="5."
-              description={
+            <UnfoldableCard
+              title={
+                <>
+                  3. <strong>Varmista</strong>, että yhteys toimii
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
                 <>
                   Kun viestiperustepaketti on latautunut, palvelimen ja vihreä
                   merkkivalo tulee näkyviin.
                 </>
               }
-              imageSrc={pic20}
-              imageClasses="mx-auto pr-5 w-[240px] p-4"
+              image2Src={pic20}
+              image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
-                <>Palaa karttanäkymään ylhäältä vasemmalta paluunuolilla.</>
+                <>
+                  <br />
+                  Palaa karttanäkymään ylhäältä vasemmalta paluunuolilla.
+                </>
               }
-              image2Src={pic43}
-              image2Classes="mx-auto pr-5 w-[150px] p-4"
+              image3Src={pic43}
+              image3Classes="mx-auto pr-5 w-[150px] p-4"
               description3={
                 <>
                   <small>
@@ -119,14 +155,16 @@ export function TakQuickstartIos3() {
                       ja teksti CONNECTED.
                     </em>
                   </small>
-                  <br></br>
+                  <br />
+                  <br />
                   Seuraavaksi muutetaan sovelluksen koordinaatti- ja
                   mittayksikköasetukset.
                 </>
               }
             />
-          </CardsContainer>
-        </div>
+          </div>
+        </CardsContainer>
+
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/ios2"
           forwardUrl="/app/services/tak/quickstart/ios4"

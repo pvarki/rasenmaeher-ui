@@ -1,6 +1,8 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
+import ITAK from "../../../../assets/icons/iTAK.png";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import pic21 from "../../../../assets/takguides/itak/itakquickstart21.png";
@@ -17,33 +19,66 @@ export function TakQuickstartIos4() {
         navbarTitle="iTAK käyttöönotto"
         backUrl="/app/services/tak/quickstart"
       >
-        <StatusBar title="Aseta mittayksiköt" progressMax={4} progressNow={4} />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              description={
+        <StatusBar
+          title="Aseta mittayksiköt (4/4)"
+          progressMax={4}
+          progressNow={4}
+        />
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="iTAK"
+              image={ITAK}
+              details={
                 <>
-                  Avaa jälleen <strong>Asetukset</strong> vasemman yläkulman
+                  iTAK käyttöönotto - vaihe 4:{" "}
+                  <strong>Aseta mittayksiköt</strong>
+                  <br />
+                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
+                  tekee. Tässä vaiheessa iTAK-sovelluksen tulee olla auki.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={
+                <>
+                  1. <strong>Avaa</strong> asetukset
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  a. Avaa jälleen <strong>Asetukset</strong> vasemman yläkulman
                   hammasrataskuvakkeesta.
                 </>
               }
-              imageSrc={pic21}
-              imageClasses="mx-auto pr-5 w-[240px] p-4"
+              image2Src={pic21}
+              image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
                 <>
-                  Valitse Settings-päävalikosta <strong>Preferences.</strong>
+                  <br />
+                  b. Valitse Settings-päävalikosta <strong>Preferences.</strong>
                 </>
               }
-              image2Src={pic22}
-              image2Classes="mx-auto pr-5 w-[240px] p-4"
-              description3="Asetetaan oikeat mittayksiköt ja koordinattijärjestelmä."
-            />
-            <GuideSection
-              number="2."
-              description={
+              image3Src={pic22}
+              image3Classes="mx-auto pr-5 w-[240px] p-4"
+              description3={
                 <>
-                  Valitse <strong>Units of Measure</strong>.
+                  <br />
+                  Asetetaan oikeat mittayksiköt ja koordinattijärjestelmä.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={
+                <>
+                  2. <strong>Aseta</strong> mittayksiköt
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  Valitse <strong>Units of Measure</strong>:
                 </>
               }
               description2={
@@ -53,25 +88,37 @@ export function TakQuickstartIos4() {
                   <br />
                 </>
               }
-              imageSrc={pic23}
-              imageClasses="mx-auto pr-5 w-[240px] p-4"
+              image2Src={pic23}
+              image2Classes="mx-auto pr-5 w-[240px] p-4"
             />
-            <GuideSection
-              number="3."
-              description={
+            <UnfoldableCard
+              title={
                 <>
-                  Halutessasi vaihda karttapohja Settings-päävalikosta
+                  3. Halutessasi <strong>vaihda</strong> karttapohja
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  a. Halutessasi vaihda karttapohja Settings-päävalikosta
                   painamalla <strong>Map Sourcea</strong>.
                 </>
               }
-              imageSrc={pic21}
-              imageClasses="mx-auto pr-5 w-[240px] p-4"
-              description2="Valitse haluamasi karttapohja. Huom! Saatavuus vaihtelee."
-              image2Src={pic24}
+              image2Src={pic21}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
+              description2={
+                <>
+                  <br />
+                  b. Valitse haluamasi karttapohja. Huom! Saatavuus vaihtelee.
+                </>
+              }
+              image3Src={pic24}
+              image3Classes="mx-auto pr-5 w-[240px] p-4"
               description3={
                 <>
+                  <br />
                   Hienoa! Olet nyt asettanut iTAKin käyttökuntoon.
+                  <br />
                   <br />
                   <em>
                     <small>
@@ -82,12 +129,12 @@ export function TakQuickstartIos4() {
                 </>
               }
             />
-          </CardsContainer>
-        </div>
+          </div>
+        </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/ios1"
-          forwardUrl="/app"
-          alterForward="Valmis! Palaa kotiin."
+          forwardUrl="/"
+          alterForward="Valmis! Palaa tästä."
         />
       </Layout>
     </div>
