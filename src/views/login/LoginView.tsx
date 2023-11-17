@@ -102,7 +102,7 @@ export function LoginView() {
   });
 
   return (
-    <Layout showNavbar={false} showFooter={false}>
+    <Layout showNavbar={false} showFooter={false} showPublicFooter={true}>
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">

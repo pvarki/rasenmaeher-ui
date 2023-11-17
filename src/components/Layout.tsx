@@ -1,6 +1,7 @@
 import { Header } from "./Header";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { PublicFooter } from "./PublicFooter"
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -8,6 +9,7 @@ interface LayoutProps {
   showNavbar?: boolean;
   showHeader?: boolean;
   showFooter?: boolean;
+  showPublicFooter?: boolean;
   navbarTitle?: React.ReactNode;
   backUrl?: string;
   children?: React.ReactNode;
@@ -18,6 +20,7 @@ export function Layout({
   showNavbar = false,
   showHeader = true,
   showFooter = false,
+  showPublicFooter = false,
   navbarTitle,
   backUrl,
   children,
@@ -55,7 +58,7 @@ export function Layout({
         </div>
       </div>
 
-      {showFooter && <Footer />}
+      {showFooter && <Footer /> || showPublicFooter && <PublicFooter />}
     </div>
   );
 }

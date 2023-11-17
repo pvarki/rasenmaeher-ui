@@ -21,6 +21,27 @@ export function ServiceTak() {
       link.click();
       link.remove();
       window.URL.revokeObjectURL(url);
+      openDialog({
+        title: "Viestiperusteet ladattu.",
+        description: (
+          <div>
+            {
+              <>
+                Viestiperustepaketti ladattu. Paketti tulee ladata sovellukseen.
+                Seuraa käyttöönotto-ohjeita. <br /> <br />
+                <em> Paketin nimi:</em>
+                <br />"{filename}"
+              </>
+            }
+            ,
+          </div>
+        ),
+        confirmLabel: "Sulje",
+        confirmColor: "primary",
+        onConfirm: () => {
+          // just close the dialog
+        },
+      });
     },
     onError: (error) => {
       const errorMessage =
