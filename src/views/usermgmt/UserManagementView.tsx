@@ -42,6 +42,7 @@ export function UserManagementView() {
     onSuccess: () => {
       setRejectionMessage("Käyttäjän hylkääminen onnistui.");
       setIsRejected(true);
+      void queryClient.invalidateQueries(["enrollmentList"]);
       setDialogOpen(false);
     },
     onError: (error) => {
@@ -60,14 +61,14 @@ export function UserManagementView() {
   const { mutate: promoteMutation } = usePromoteUser({
     onSuccess: () => {
       setDialogOpen(false);
-      void queryClient.invalidateQueries(["userList"]);
+      void queryClient.invalidateQueries(["enrollmentList"]);
     },
   });
 
   const { mutate: demoteMutation } = useDemoteUser({
     onSuccess: () => {
       setDialogOpen(false);
-      void queryClient.invalidateQueries(["userList"]);
+      void queryClient.invalidateQueries(["enrollmentList"]);
     },
   });
 
@@ -138,7 +139,7 @@ export function UserManagementView() {
           variant={{ color: "error" }}
           onClick={() => setConfirmReject(true)}
         >
-          Hylkää
+          Poista
         </Button>
         {!isAdmin && (
           <Button
@@ -230,7 +231,7 @@ export function UserManagementView() {
                 <Button variant={{ color: "tertiary" }}>Peruuta</Button>
               </Dialog.Close>
               <Button variant={{ color: "error" }} onClick={handleReject}>
-                Olen, hylkää
+                Olen, poista
               </Button>
             </div>
           </Dialog.Content>
@@ -241,7 +242,7 @@ export function UserManagementView() {
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
-              Hylkääminen onnistui
+              Käyttäjän poistaminen onnistui.
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-white">
               {rejectionMessage}
@@ -260,7 +261,7 @@ export function UserManagementView() {
       <Dialog.Root open={confirmPromote} onOpenChange={setConfirmPromote}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
               Ylennä käyttäjä
             </Dialog.Title>
@@ -284,7 +285,7 @@ export function UserManagementView() {
       <Dialog.Root>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
               Ylennä käyttäjä
             </Dialog.Title>
@@ -305,7 +306,7 @@ export function UserManagementView() {
       <Dialog.Root>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
               Alenna käyttäjä
             </Dialog.Title>
@@ -323,31 +324,31 @@ export function UserManagementView() {
             </div>
           </Dialog.Content>
         </Dialog.Portal>
-        <Dialog.Root open={confirmDemote} onOpenChange={setConfirmDemote}>
-          <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-            <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
-              <Dialog.Title className="text-lg text-white font-bold">
-                Alenna käyttäjä
-              </Dialog.Title>
-              <Dialog.Description className="mt-2 text-white">
-                Oletko varma, että haluat alentaa käyttäjän tavalliseksi
-                käyttäjäksi?
-              </Dialog.Description>
-              <div className="mt-4 flex justify-end gap-3">
-                <Dialog.Close asChild>
-                  <Button variant={{ color: "tertiary" }}>Peruuta</Button>
-                </Dialog.Close>
-                <Button
-                  variant={{ color: "error" }}
-                  onClick={handleConfirmDemote}
-                >
-                  Alenna
-                </Button>
-              </div>
-            </Dialog.Content>
-          </Dialog.Portal>
-        </Dialog.Root>
+      </Dialog.Root>
+      <Dialog.Root open={confirmDemote} onOpenChange={setConfirmDemote}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
+            <Dialog.Title className="text-lg text-white font-bold">
+              Alenna käyttäjä
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-white">
+              Oletko varma, että haluat alentaa käyttäjän tavalliseksi
+              käyttäjäksi?
+            </Dialog.Description>
+            <div className="mt-4 flex justify-end gap-3">
+              <Dialog.Close asChild>
+                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+              </Dialog.Close>
+              <Button
+                variant={{ color: "error" }}
+                onClick={handleConfirmDemote}
+              >
+                Alenna
+              </Button>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
       </Dialog.Root>
     </Layout>
   );
@@ -462,33 +463,39 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
           </Accordion.Trigger>
         </Accordion.Header>
         <Accordion.Content className="text-mauve11 bg-mauve2 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]">
-          {basicUserList.map((user) => {
-            const userDetails: UserDetails = {
-              callsign: user.callsign,
-            };
-            return (
-              <div
-                key={user.callsign}
-                className="text-white py-0 px-3 border-t-2 border-[#4B4B4B] flex justify-between items-center"
-                onClick={() => {
-                  try {
-                    void handleUserClick(userDetails);
-                  } catch (error) {
-                    console.error("Error handling user click:", error);
-                  }
-                }}
-              >
-                <div className="flex items-center">
-                  <UserIcon />
-                  {user.callsign}
+          {basicUserList.length > 0 ? (
+            basicUserList.map((user) => {
+              const userDetails: UserDetails = {
+                callsign: user.callsign,
+              };
+              return (
+                <div
+                  key={user.callsign}
+                  className="text-white py-0 px-3 border-t-2 border-[#4B4B4B] flex justify-between items-center"
+                  onClick={() => {
+                    try {
+                      void handleUserClick(userDetails);
+                    } catch (error) {
+                      console.error("Error handling user click:", error);
+                    }
+                  }}
+                >
+                  <div className="flex items-center">
+                    <UserIcon />
+                    {user.callsign}
+                  </div>
+                  <ChevronRightIcon
+                    className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
+                    aria-hidden
+                  />
                 </div>
-                <ChevronRightIcon
-                  className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
-                  aria-hidden
-                />
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <div className="text-white py-3 px-3 border-t-2 border-[#4B4B4B]">
+              Ei käyttäjiä.
+            </div>
+          )}
         </Accordion.Content>
       </Accordion.Item>
     </Accordion.Root>

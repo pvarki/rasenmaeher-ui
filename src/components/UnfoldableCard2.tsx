@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Step, StepProps } from "./Step"
+import { Step, StepProps } from "./Step";
 
 interface UnfoldableCardProps {
   title: React.ReactNode;
@@ -16,14 +16,13 @@ export function UnfoldableCard({
   content,
   children,
   styling = "",
-  initialOpen = false
+  initialOpen = false,
 }: UnfoldableCardProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     setIsOpen(!isOpen);
   };
-
 
   return (
     <div
@@ -44,9 +43,7 @@ export function UnfoldableCard({
 
       {isOpen && (
         <>
-          {steps?.map((step, index) => (
-            <Step key={index} {...step} />
-          ))}
+          {steps?.map((step, index) => <Step key={index} {...step} />)}
           {content && (
             <p className="mt-2 text-white prose prose-white">{content}</p>
           )}
