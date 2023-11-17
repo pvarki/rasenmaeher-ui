@@ -1,7 +1,7 @@
 import { Header } from "./Header";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-import { PublicFooter } from "./PublicFooter"
+import { PublicFooter } from "./PublicFooter";
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -58,7 +58,7 @@ export function Layout({
         </div>
       </div>
 
-      {showFooter && <Footer /> || showPublicFooter && <PublicFooter />}
+      {(showFooter && <Footer />) || (showPublicFooter && <PublicFooter />)}
     </div>
   );
 }

@@ -27,23 +27,33 @@ export function PrivacyPolicyModal({ triggerClassName }: InfoModalProps) {
               Tietosuojaseloste
             </Dialog.Title>
             <Dialog.Description className="mb-4 text-white">
-              Keräämme tietoja käyttäjistä, jotta voimme tarjota parempaa palvelua ja varmistaa palvelun turvallisuuden valvonnalla. 
-              
-              <br/><br/>Emme luovuta tietoja kolmansille osapuolille mihinkään kaupallisiin tarkoituksiin. Emme käytä kolmannen osapuolen tarjoamia jäljittäviä evästepalveluita tiedon keräämiseen.
-              <br/>
-              <br/>
+              Keräämme tietoja käyttäjistä, jotta voimme tarjota parempaa
+              palvelua ja varmistaa palvelun turvallisuuden valvonnalla.
+              <br />
+              <br />
+              Emme luovuta tietoja kolmansille osapuolille mihinkään
+              kaupallisiin tarkoituksiin. Emme käytä kolmannen osapuolen
+              tarjoamia jäljittäviä evästepalveluita tiedon keräämiseen.
+              <br />
+              <br />
               <strong>Tietoja, mitä keräämme:</strong>
               <li>IP-osoitteesi.</li>
               <li>Maa, josta liikennöit.</li>
               <li>User agent, eli käyttämäsi selain ja käyttöjärjestelmä.</li>
               <li>Palveluun syöttämäsi tiedot.</li>
-              <br/>
+              <br />
               <strong>Mitä tietoja emme kerää:</strong>
-              <li>Kolmannen osapuolen jäljittäviin eväisteisiin (3rd party tracking cookies) perustuvaa tietoa. </li>
-              <li>Mitään henkilötietoja, mukaanlukien sähköpostiosoitteita, puhelinnumeroja.</li>
-              <br/>
-              Tietoja käsittelee Puolustusvoimat ja Puolustusvoimien valtuuttama henkilöstö Puolustusvoimien ohjauksessa.
-    
+              <li>
+                Kolmannen osapuolen jäljittäviin eväisteisiin (3rd party
+                tracking cookies) perustuvaa tietoa.{" "}
+              </li>
+              <li>
+                Mitään henkilötietoja, mukaanlukien sähköpostiosoitteita,
+                puhelinnumeroja.
+              </li>
+              <br />
+              Tietoja käsittelee Puolustusvoimat ja Puolustusvoimien valtuuttama
+              henkilöstö Puolustusvoimien ohjauksessa.
             </Dialog.Description>
             <div className="flex justify-end">
               <Button onClick={closeModal}>OK</Button>

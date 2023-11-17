@@ -1,7 +1,6 @@
 import { PrivacyPolicyModal } from "./legal/PrivacyPolicyModal";
 
 export function PublicFooter() {
-
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
