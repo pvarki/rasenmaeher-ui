@@ -10,6 +10,8 @@ import { usePromoteUser } from "../../hook/api/usePromoteUser";
 import { useDemoteUser } from "../../hook/api/useDemoteUser";
 import { useQueryClient } from "react-query";
 import { Button } from "../../components/Button";
+import { UnfoldableCard } from "../../components/UnfoldableCard2";
+import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import fightericon from "../../assets/icons/jager.svg";
 import adminicon from "../../assets/icons/alikessu.svg";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -179,7 +181,7 @@ export function UserManagementView() {
       backUrl="/app/admin/manageusers"
     >
       <CardsContainer>
-        <BackgroundCard
+        <ServiceInfoCard
           title="Hallitse käyttäjiä"
           details={
             <>
@@ -189,7 +191,33 @@ export function UserManagementView() {
             </>
           }
         >
-          <main className="p-4 flex flex-col gap-1 items-center justify-start h-full">
+          <UnfoldableCard
+            title="Näin se käy"
+            steps={[
+              {
+                description: (
+                  <>
+                    <strong>Ylennä</strong> tai <strong>alenna</strong>{" "}
+                    käyttäjiä. Ylennetyt käyttäjät saavat samat oikeudet kuin
+                    sinä nyt.
+                  </>
+                ),
+              },
+              {
+                description: (
+                  <>
+                    Käyttäjien <strong>poistaminen</strong> poistaa käyttäjän
+                    pääsyn Rasenmaeheriin ja kaikkiin yhdistettyihin
+                    palveluihin. Poistettu käyttäjä ei esimerkisi enää voi
+                    yhdistää tilannekuvaasipalveluusi.
+                  </>
+                ),
+              },
+            ]}
+          />
+        </ServiceInfoCard>
+        <BackgroundCard>
+          <main className="p-4 flex flex-col gap-1 items-center justify-start h-full w-full">
             <UserListAccordian onUserClick={openModal} />
           </main>
         </BackgroundCard>
