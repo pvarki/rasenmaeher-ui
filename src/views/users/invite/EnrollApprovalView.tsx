@@ -42,7 +42,8 @@ export function EnrollApprovalView() {
   const { mutate: approveMutation, reset } = useApproveUser({
     onSuccess: () => {
       setApprovalMessage("Käyttäjä hyväksytty.");
-      setIsApproved(true); // Set isApproved to true on success
+      setIsApproved(true);
+      void queryClient.invalidateQueries(["enrollmentList"]);
     },
     onError: (error) => {
       setApprovalMessage(`Approval error: ${error.message}`);
@@ -97,8 +98,13 @@ export function EnrollApprovalView() {
     (user: UserDetails) => {
       setSelectedUser(user);
       setDialogOpen(true);
+      setIsApproved(false);
+      setIsRejected(false);
+      setApprovalMessage("");
+      setRejectionMessage("");
+      void formik.setValues({ approvalCode: user.approveCode || "" });
     },
-    [setSelectedUser, setDialogOpen],
+    [setSelectedUser, setDialogOpen, formik],
   );
 
   useEffect(() => {
@@ -117,6 +123,7 @@ export function EnrollApprovalView() {
     formik.submitForm().catch((error) => {
       console.error("Error submitting form:", error);
     });
+    void queryClient.invalidateQueries(["enrollmentList"]);
   };
 
   const closeModal = () => {
@@ -124,12 +131,16 @@ export function EnrollApprovalView() {
     setIsError(false);
     setSelectedUser(null);
     reset();
+    setIsRejected(false);
+    setIsRejected(false);
     setApprovalMessage("");
     setRejectionMessage("");
+    formik.resetForm();
   };
 
   const closeRejectionModal = () => {
     setIsRejected(false);
+    setRejectionMessage("");
     void queryClient.invalidateQueries(["enrollmentList"]);
   };
 
