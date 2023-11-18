@@ -40,76 +40,82 @@ export function TakQuickstartIos5() {
               }
             />
             <UnfoldableCard
-                title="1. Avaa Data Sync-valikko"
-                styling="bg-backgroundLight"
-                steps={[
+              title="1. Avaa Data Sync-valikko"
+              styling="bg-backgroundLight"
+              steps={[
                 {
-                    description: (
+                  description: (
                     <>
-                        Päänäkymässä, avaa työkaluvalikosta (alareunassa) <strong>Data Sync</strong> -valikko. Vieritä oikealle löytääksesi valikon.
+                      Päänäkymässä, avaa työkaluvalikosta (alareunassa){" "}
+                      <strong>Data Sync</strong> -valikko. Vieritä oikealle
+                      löytääksesi valikon.
                     </>
-                    ),
-                    imageSrc: pic26,
-                    imageClasses: "m-3 w-[300px]",
+                  ),
+                  imageSrc: pic26,
+                  imageClasses: "m-3 w-[300px]",
                 },
-                ]}
+              ]}
             />
             <UnfoldableCard
-                title="2. Tilaa feed"
-                styling="bg-backgroundLight"
-                steps={[
+              title="2. Tilaa feed"
+              styling="bg-backgroundLight"
+              steps={[
                 {
-                    description: (
+                  description: (
                     <>
-                        Data Sync-valikossa paina <strong>Subscribe</strong> -painiketta.
+                      Data Sync-valikossa paina <strong>Subscribe</strong>{" "}
+                      -painiketta.
                     </>
-                    ),
-                    imageSrc: pic271,
-                    imageClasses: "m-3 w-[300px]",
+                  ),
+                  imageSrc: pic271,
+                  imageClasses: "m-3 w-[300px]",
                 },
                 {
-                    description: (
+                  description: (
                     <>
-                        Valitse saatavilla oleva palvelin (Rasenmaeher-palvelun niminen tulee näkyviin.)
+                      Valitse saatavilla oleva palvelin (Rasenmaeher-palvelun
+                      niminen tulee näkyviin.)
                     </>
-                    ),
-                    imageSrc: pic28,
-                    imageClasses: "m-3 w-[300px]",
+                  ),
+                  imageSrc: pic28,
+                  imageClasses: "m-3 w-[300px]",
                 },
                 {
-                    description: (
+                  description: (
                     <>
-                        Avautuvassa näkymässä, valitse <strong>RECON</strong>-feed. 
+                      Avautuvassa näkymässä, valitse <strong>RECON</strong>
+                      -feed.
                     </>
-                    ),
-                    note: (<>Huom. Kuva puuttuu toistaiseksi.</>)
+                  ),
+                  note: <>Huom. Kuva puuttuu toistaiseksi.</>,
                 },
-                ]}
+              ]}
             />
             <UnfoldableCard
-                title="3. Feed käytössäsi"
-                styling="bg-backgroundLight"
-                steps={[
+              title="3. Feed käytössäsi"
+              styling="bg-backgroundLight"
+              steps={[
                 {
-                    description: (
+                  description: (
                     <>
-                        Tämän jälkeen käytössäsi on joukkosi komentopaikan luoma <strong>Recon Feed</strong>.
+                      Tämän jälkeen käytössäsi on joukkosi komentopaikan luoma{" "}
+                      <strong>Recon Feed</strong>.
                     </>
-                    ),
-                    imageSrc: pic27,
-                    imageClasses: "m-3 w-[300px]",
+                  ),
+                  imageSrc: pic27,
+                  imageClasses: "m-3 w-[300px]",
                 },
                 {
-                    description: (
+                  description: (
                     <>
-                       Feed näkyy Data Sync-valikossasi. Feedin käyttöohjeet <strong>Käyttö joukossa-ohjeissa.</strong>
+                      Feed näkyy Data Sync-valikossasi. Feedin käyttöohjeet{" "}
+                      <strong>Käyttö joukossa-ohjeissa.</strong>
                     </>
-                    ),
+                  ),
                 },
-                ]}
+              ]}
             />
-
-            </div>
+          </div>
         </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/ios4"
