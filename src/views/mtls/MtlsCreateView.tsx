@@ -40,11 +40,11 @@ export function MtlsCreateView() {
     switch (userOS) {
       case "Windows":
         return <WindowsInstructions />;
-      case "Android":
+      case "MacOS":
         return <MacInstructions />;
       case "Linux":
         return <LinuxInstructions />;
-      case "MacOS":
+      case "Android":
         return <AndroidInstructions />;
       case "iOS":
         return <IosInstructions />;
@@ -72,7 +72,7 @@ export function MtlsCreateView() {
             </div>
           </div>
         </div>
-
+        <Text title={`mTLS-asennusohjeet: ${userOS}`} />
         {renderInstructions()}
         <div className="flex flex-row pt-8 items-center gap-4">
           <Button
