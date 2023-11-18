@@ -24,8 +24,8 @@ export function TakQuickstartIos3() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Muodosta palvelinyhteys (3/4)"
-          progressMax={4}
+          title="Muodosta palvelinyhteys (3/5)"
+          progressMax={5}
           progressNow={3}
         />
         <CardsContainer>

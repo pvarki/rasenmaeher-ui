@@ -20,8 +20,8 @@ export function TakQuickstartIos4() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Aseta mittayksiköt (4/4)"
-          progressMax={4}
+          title="Aseta mittayksiköt (4/5)"
+          progressMax={5}
           progressNow={4}
         />
         <CardsContainer>
@@ -132,9 +132,8 @@ export function TakQuickstartIos4() {
           </div>
         </CardsContainer>
         <NavigateButtons
-          backUrl="/app/services/tak/quickstart/ios1"
-          forwardUrl="/app/services/tak/quickstart"
-          alterForward="Valmis! Palaa tästä."
+          backUrl="/app/services/tak/quickstart/ios4"
+          forwardUrl="/app/services/tak/quickstart/ios5"
         />
       </Layout>
     </div>

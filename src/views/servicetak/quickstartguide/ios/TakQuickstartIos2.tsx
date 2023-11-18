@@ -22,8 +22,8 @@ export function TakQuickstartIos2() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Tee perusasetukset (2/4)"
-          progressMax={4}
+          title="Tee perusasetukset (2/5)"
+          progressMax={5}
           progressNow={2}
         />
         <CardsContainer>

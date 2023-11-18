@@ -7,6 +7,7 @@ import { TakQuickstartIos1 } from "./views/servicetak/quickstartguide/ios/TakQui
 import { TakQuickstartIos2 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos2";
 import { TakQuickstartIos3 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos3";
 import { TakQuickstartIos4 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos4";
+import { TakQuickstartIos5 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos5";
 import { TakQuickstartWin1 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin1";
 import { TakQuickstartWin2 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin2";
 import { TakQuickstartWin3 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin3";
@@ -71,6 +72,10 @@ export const TakRoutes = [
   {
     path: "/app/services/tak/quickstart/ios4",
     element: <TakQuickstartIos4 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/ios5",
+    element: <TakQuickstartIos5 />,
   },
   {
     /*WinTAK quickstart guide views*/

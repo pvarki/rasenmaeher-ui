@@ -18,8 +18,8 @@ export function TakQuickstartIos1() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Asenna sovellus (1/4)"
-          progressMax={4}
+          title="Asenna sovellus (1/5)"
+          progressMax={5}
           progressNow={1}
         />
 
