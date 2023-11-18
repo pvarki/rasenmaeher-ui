@@ -14,7 +14,7 @@ module.exports = {
       },
       colors: {
         background: "#222",
-        backgroundLight: "#333",
+        backgroundLight: "#2b2e31",
         textLight: "#E4E4E4",
         primary: {
           DEFAULT: "#42687D",

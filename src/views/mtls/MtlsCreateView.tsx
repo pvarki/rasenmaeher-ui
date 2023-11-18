@@ -40,21 +40,16 @@ export function MtlsCreateView() {
     switch (userOS) {
       case "Windows":
         return <WindowsInstructions />;
-      case "MacOS":
+      case "Android":
         return <MacInstructions />;
       case "Linux":
         return <LinuxInstructions />;
-      case "Android":
+      case "MacOS":
         return <AndroidInstructions />;
       case "iOS":
         return <IosInstructions />;
       default:
-        return (
-          <p>
-            Operating system not recognized. Please follow manual installation
-            steps.
-          </p>
-        );
+        return <AndroidInstructions />; // default to Android
     }
   };
 

@@ -8,10 +8,8 @@ import * as yup from "yup";
 import { Button } from "../../components/Button";
 import { Layout } from "../../components/Layout";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
-import pvarkiLogo from "../../assets/icons/pvarki.png";
 import trooper from "../../assets/icons/trooper3.png";
 import { CardsContainer } from "../../components/CardsContainer";
-import useHealthcheck from "../../hook/helpers/useHealthcheck";
 
 const CALLSIGN_REGEX = /^[a-zA-Z0-9]{3,}$/;
 
@@ -25,7 +23,6 @@ const CallsignSchema = yup.object().shape({
 
 export function CallsignSetupStep() {
   const navigate = useNavigate();
-  const { deployment } = useHealthcheck();
   const loginCodeStore = useLoginCodeStore();
   const code = useLoginCodeStore((store) => store.code);
 
@@ -79,7 +76,7 @@ export function CallsignSetupStep() {
   });
 
   return (
-    <Layout showNavbar={false} showFooter={true}>
+    <Layout showNavbar={true} showFooter={true}>
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-2">
