@@ -1,30 +1,31 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginAsAdmin } from "../../hook/api/firstuser/useLoginAsAdmin";
 import { useLoginCodeStore } from "../../store/LoginCodeStore";
 import { useInitEnrollment } from "../../hook/api/firstuser/useInitEnrollment";
-import { FormikProvider, useFormik, Field, ErrorMessage, Form } from "formik";
+import { FormikProvider, useFormik, Field, Form } from "formik";
 import * as yup from "yup";
 import { Button } from "../../components/Button";
 import { Layout } from "../../components/Layout";
+import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import pvarkiLogo from "../../assets/icons/pvarki.png";
+import trooper from "../../assets/icons/trooper3.png";
 import { CardsContainer } from "../../components/CardsContainer";
-import useFetchFqdn from "../../hook/helpers/useFetchFqdn";
+import useHealthcheck from "../../hook/helpers/useHealthcheck";
 
 const CALLSIGN_REGEX = /^[a-zA-Z0-9]{3,}$/;
 
 const CallsignSchema = yup.object().shape({
   callsign: yup
     .string()
-    .required("Koodinimi on pakollinen")
-    .matches(CALLSIGN_REGEX, "Sallitut merkit: a-z, A-Z, 0-9")
-    .max(30, "Koodinimen maksimipituus on 30 merkkiä"),
+    .required("Peitenimi on pakollinen")
+    .matches(CALLSIGN_REGEX, "Minimipituus 3, Sallitut merkit: a-z, A-Z, 0-9")
+    .max(30, "Peitenimen maksimipituus on 30 merkkiä"),
 });
 
 export function CallsignSetupStep() {
   const navigate = useNavigate();
-  const fqdn = useFetchFqdn();
-  const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
+  const { deployment } = useHealthcheck();
   const loginCodeStore = useLoginCodeStore();
   const code = useLoginCodeStore((store) => store.code);
 
@@ -81,33 +82,38 @@ export function CallsignSetupStep() {
     <Layout showNavbar={false} showFooter={true}>
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
-          <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">
+          <h1 className="text-white text-center font-oswald font-bold text-2xl pt-2">
             Anna peitenimesi.
           </h1>
-          <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
-          <span className="text-white text-center font-oswald font-bold text-3xl">
-            {subdomain || "Loading..."}
-          </span>
+          <img src={trooper} alt="Pvarki Logo" className="w-20 p-1" />
+          <ServiceInfoCard
+            title="Peitenimi?"
+            details="Peitenimi on tunnisteesi palveluissa. Anna sinulle käsketyn mukainen peitenimi."
+          />
           <FormikProvider value={formik}>
             <Form className="flex flex-col items-center gap-3 w-full">
               <label className="flex flex-col gap-3 w-full text-white">
-                Käyttäjätunnus:
+                Peitenimesi:
                 <Field
                   type="text"
                   name="callsign"
                   className="bg-gray-100 w-full p-2 rounded-lg text-black"
                 />
-                <span className="text-red-500">
-                  <ErrorMessage name="callsign" />
-                </span>
+                {formik.errors.callsign && (
+                  <span className="text-red-500">{formik.errors.callsign}</span>
+                )}
               </label>
-              <Button
-                type="submit"
-                variant={{ color: "primary", width: "full" }}
-                disabled={!formik.isValid || isLoading}
-              >
-                {isLoading ? "Odottaa vastausta..." : "Kirjaudu"}
-              </Button>
+              <div className="flex w-full items-stretch">
+                <div className="flex-1 px-1">
+                  <Button
+                    type="submit"
+                    variant={{ color: "primary", width: "full" }}
+                    disabled={!formik.isValid || isLoading}
+                  >
+                    {isLoading ? "Odottaa vastausta..." : "Kirjaudu"}
+                  </Button>
+                </div>
+              </div>
             </Form>
           </FormikProvider>
         </main>

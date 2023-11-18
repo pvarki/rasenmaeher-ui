@@ -1,12 +1,14 @@
 import { InfoModal } from "./InfoModal";
+import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
   const isMtls = window.location.origin.includes("mtls.");
+  const { version } = useHealthCheck();
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
 
-      <div className="pt-4 py-3">RASENMAEHER v0.1.0</div>
+      <div className="pt-4 py-3">RASENMAEHER {version || "Loading..."}</div>
       {isMtls && (
         <div className="py-1 pb-3 text-xs">
           Tunnistautunut mTLS:llä -{" "}

@@ -10,7 +10,7 @@ import * as yup from "yup";
 import { Layout } from "../../components/Layout";
 import pvarkiLogo from "../../assets/icons/pvarki.png";
 import { CardsContainer } from "../../components/CardsContainer";
-import useFetchFqdn from "../../hook/helpers/useFetchFqdn";
+import useHealthcheck from "../../hook/helpers/useHealthcheck";
 import key from "../../assets/icons/key.svg";
 import pencil from "../../assets/icons/pencil.svg";
 
@@ -41,8 +41,7 @@ export function LoginView() {
   const params = useQueryParams();
   const { setOtpVerified } = useContext(UserTypeContext);
   const loginCodeStore = useLoginCodeStore();
-  const fqdn = useFetchFqdn();
-  const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
+  const { deployment } = useHealthcheck();
   const [codeNotValid, setCodeNotValid] = useState(false);
   const protocol = window.location.protocol;
   const host = window.location.host;
@@ -76,26 +75,21 @@ export function LoginView() {
     error,
   } = useCheckCode({
     onSuccess: (data) => {
-      console.log("loginview: using useCheckCode to determine code type");
       loginCodeStore.setCode(formik.values.code);
       if (data.isAdminCodeValid) {
-        console.log("loginview: setting CodeType admin");
         loginCodeStore.setCodeType("admin");
         setOtpVerified(true);
         navigate("/login/callsign");
       } else if (data.isEnrollmentCodeValid) {
-        console.log("loginview: setting CodeType user");
         loginCodeStore.setCodeType("user");
         setOtpVerified(true);
         navigate("/login/callsign");
       } else {
-        console.log("loginview: this code is bs");
         loginCodeStore.setCodeType("unknown");
         setCodeNotValid(true);
       }
     },
     onError: (err: ApiError) => {
-      // Now TypeScript knows what `err` is and that `err.response` might be there
       const errorMessage = err.response?.data?.detail || "Unknown error";
       formik.setErrors({ code: errorMessage });
     },
@@ -110,7 +104,7 @@ export function LoginView() {
           </h1>
           <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
           <span className="text-white text-center font-oswald font-bold text-3xl">
-            {subdomain || "Loading..."}
+            {deployment || "Loading..."}
           </span>
           <FormikProvider value={formik}>
             <Form className="flex flex-col items-center gap-3 w-full">

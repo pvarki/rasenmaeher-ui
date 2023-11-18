@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Layout } from "../../components/Layout";
 import { useCopyToClipboard } from "../../hook/helpers/useCopyToClipboard";
-import useFetchFqdn from "../../hook/helpers/useFetchFqdn";
+import useHealthcheck from "../../hook/helpers/useHealthcheck";
 
 export function EnrollmentView() {
   const navigate = useNavigate();
-  const fqdn = useFetchFqdn();
+  const { fqdn } = useHealthcheck();
   const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
   const { isCopied, copyError, handleCopy } = useCopyToClipboard();
   const callsign = localStorage.getItem("callsign") ?? undefined;

@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 
-const useFetchFqdn = () => {
+const useHealthCheck = () => {
   const [fqdn, setFqdn] = useState("");
+  const [version, setVersion] = useState("");
+  const [deployment, setDeployment] = useState("");
 
   interface HealthCheckResponse {
     dns: string;
+    version: string;
+    deployment: string;
   }
 
   useEffect(() => {
@@ -17,13 +21,15 @@ const useFetchFqdn = () => {
       })
       .then((data: HealthCheckResponse) => {
         setFqdn(data.dns);
+        setVersion(data.version);
+        setDeployment(data.deployment);
       })
       .catch((error) => {
-        console.error("Failed to fetch FQDN:", error);
+        console.error("Failed to fetch health check data", error);
       });
   }, []);
 
-  return fqdn;
+  return { fqdn, version, deployment };
 };
 
-export default useFetchFqdn;
+export default useHealthCheck;

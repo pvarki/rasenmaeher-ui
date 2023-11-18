@@ -1,8 +1,8 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import logo from "../assets/icons/jellona.png";
-import useFetchFqdn from "../hook/helpers/useFetchFqdn";
+import useHealthcheck from "../hook/helpers/useHealthcheck";
 
 interface NavbarProps {
   backUrl?: string;
@@ -10,9 +10,8 @@ interface NavbarProps {
 }
 
 export function Navbar({ backUrl, title }: NavbarProps) {
-  const fqdn = useFetchFqdn();
-  const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
-  const displayTitle = title || subdomain || "Loading...";
+  const { deployment } = useHealthcheck();
+  const displayTitle = title || deployment || "Loading...";
   return (
     <div className="h-16 flex items-center justify-center w-full p-3 bg-backgroundLight fixed top-0 left-0 right-0 z-10">
       <img
