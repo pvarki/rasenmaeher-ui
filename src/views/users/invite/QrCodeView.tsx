@@ -4,10 +4,11 @@ import { Button } from "../../../components/Button";
 import { CardsContainer } from "../../../components/CardsContainer";
 import { useParams } from "react-router-dom";
 import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
+import { useCopyToClipboard } from "../../../hook/helpers/useCopyToClipboard";
 
 export function QrCodeView() {
   const { inviteCode } = useParams();
-
+  const { isCopied, handleCopy } = useCopyToClipboard();
   let hostname = new URL(window.location.origin).hostname;
   hostname = hostname.replace(/^mtls\./, "");
   const inviteUrl =
@@ -29,7 +30,12 @@ export function QrCodeView() {
           <div className="flex flex-col justify-center w-full items-center p-3 pb-0 bg-backgroundLight rounded-lg">
             <QRCode value={inviteUrl} />
             <div className="w-full flex justify-end">
-              <Button variant={{ color: "tertiary" }}>Kopio Linkki</Button>
+              <Button
+                variant={{ color: "tertiary" }}
+                onClick={() => handleCopy(inviteUrl)}
+              >
+                {isCopied ? "Linkki kopioitu!" : "Kopioi linkki"}
+              </Button>
             </div>
           </div>
           <ServiceInfoCard

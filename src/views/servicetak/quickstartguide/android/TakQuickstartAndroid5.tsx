@@ -52,7 +52,8 @@ export function TakQuickstartAndroid5() {
                 {
                   description: (
                     <>
-                      a. Päänäkymässä, avaa <strong>hampurilaisvalikko</strong> ja etsi <strong>Plugins.</strong>
+                      a. Päänäkymässä, avaa <strong>hampurilaisvalikko</strong>{" "}
+                      ja etsi <strong>Plugins.</strong>
                     </>
                   ),
                   imageSrc: atakds1,
@@ -61,7 +62,8 @@ export function TakQuickstartAndroid5() {
                 {
                   description: (
                     <>
-                      b. Plugins-valikko avautuu. Paina <em>Data Syncin</em> riviltä kohtaa "Status: <strong>Not loaded</strong>."
+                      b. Plugins-valikko avautuu. Paina <em>Data Syncin</em>{" "}
+                      riviltä kohtaa "Status: <strong>Not loaded</strong>."
                     </>
                   ),
                   imageSrc: atakds2,
@@ -70,7 +72,8 @@ export function TakQuickstartAndroid5() {
                 {
                   description: (
                     <>
-                      c. Sovellus kysyy, ladataanko <em>Data Sync</em> käyttöön. Paina <strong>Load.</strong>
+                      c. Sovellus kysyy, ladataanko <em>Data Sync</em> käyttöön.
+                      Paina <strong>Load.</strong>
                     </>
                   ),
                   imageSrc: atakds3,
@@ -79,29 +82,29 @@ export function TakQuickstartAndroid5() {
                 {
                   description: (
                     <>
-                      d. Data Syncin status muuttuu <strong>Loaded</strong>-tilaan.
+                      d. Data Syncin status muuttuu <strong>Loaded</strong>
+                      -tilaan.
                     </>
                   ),
                   imageSrc: atakds4,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <>
-                      Valmis! Voit poistua valikosta.
-                    </>
-                  )
+                  description: <>Valmis! Voit poistua valikosta.</>,
                 },
               ]}
             />
             <UnfoldableCard
-            title="2. Ota käyttöön Recon Feed"
-            styling="bg-backgroundLight"
-            steps={[
-              {
+              title="2. Ota käyttöön Recon Feed"
+              styling="bg-backgroundLight"
+              steps={[
+                {
                   description: (
                     <>
-                      <span>Päänäkymässä, avaa jälleen kolme viivaa-valikko (hampurilaisvalikko).</span>
+                      <span>
+                        Päänäkymässä, avaa jälleen kolme viivaa-valikko
+                        (hampurilaisvalikko).
+                      </span>
                     </>
                   ),
                   imageSrc: pic1,
@@ -111,8 +114,8 @@ export function TakQuickstartAndroid5() {
                   description: (
                     <>
                       <span>
-                  Etsi valikosta <strong>Data Sync</strong> ja valitse se.
-                </span>
+                        Etsi valikosta <strong>Data Sync</strong> ja valitse se.
+                      </span>
                     </>
                   ),
                 },
@@ -120,18 +123,19 @@ export function TakQuickstartAndroid5() {
                   description: (
                     <>
                       <span>
-                  Avaamalla Data Sync-valikon, avautuu näkymä, jossa palvelimelta saatavilla olevat syötteet
-                  (feedit).
-                </span>
+                        Avaamalla Data Sync-valikon, avautuu näkymä, jossa
+                        palvelimelta saatavilla olevat syötteet (feedit).
+                      </span>
                     </>
-                  )
+                  ),
                 },
                 {
                   description: (
                     <>
                       <span>
-                  Valitse ohjeistettu syöte (kuvassa <strong>RECON</strong>).
-                </span>
+                        Valitse ohjeistettu syöte (kuvassa{" "}
+                        <strong>RECON</strong>).
+                      </span>
                     </>
                   ),
                   imageSrc: pic2,
@@ -141,8 +145,9 @@ export function TakQuickstartAndroid5() {
                   description: (
                     <>
                       <span>
-                  Valitse aukeavasta ikkunasta <strong> Download & Sync</strong>.
-                </span>
+                        Valitse aukeavasta ikkunasta{" "}
+                        <strong> Download & Sync</strong>.
+                      </span>
                     </>
                   ),
                   imageSrc: pic3,
@@ -152,56 +157,57 @@ export function TakQuickstartAndroid5() {
                   description: (
                     <>
                       <span>
-                  <strong>Recon Feed</strong> on nyt käytössä. Saat siitä merkkejä kartallesi komentopaikalta.
-                </span>
+                        <strong>Recon Feed</strong> on nyt käytössä. Saat siitä
+                        merkkejä kartallesi komentopaikalta.
+                      </span>
                     </>
                   ),
-                  note: (<>Tarkemmat ohjeet feedin käytöstä <strong>Käyttö joukossa</strong>-ohjeissa.</>)
-                }
-
-            ]}
+                  note: (
+                    <>
+                      Tarkemmat ohjeet feedin käytöstä{" "}
+                      <strong>Käyttö joukossa</strong>-ohjeissa.
+                    </>
+                  ),
+                },
+              ]}
             />
             <UnfoldableCard
-            title="3. Aseta Auto Download päälle"
-            styling="bg-backgroundLight"
-            steps={[
-              {
-                description: (
-                  <>
-                    Varmistetaan, että Auto Download on päällä. Palaa
-                  hampurilaisvalikon päänäkymään (kolme viivaa oikealla
-                  ylhäällä).
-                  <br />
-                  <br />
-                  Etsi <strong>Settings</strong>.
-                  </>
-                ),
-                imageSrc: pic4,
-                imageClasses: "m-3 w-[400px]",
-              },
-              {
-                description: (
-                  <>
-                 Etsi asetus <strong>Auto Download Updates</strong> ja varmistu, että se on päällä.
-                  </>
-                ),
-                imageSrc: pic5,
-                imageClasses: "m-3 w-[400px]",
-              },
-              {
-                description: (
-                  <>
-                 Asetuksesta seuraa, että ATAK lataa automaattisesti päivitykset tilaamiisi feedeihin.
-                  </>
-                ),
-
-              },
-
-
-
-
-            ]}
-
+              title="3. Aseta Auto Download päälle"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Varmistetaan, että Auto Download on päällä. Palaa
+                      hampurilaisvalikon päänäkymään (kolme viivaa oikealla
+                      ylhäällä).
+                      <br />
+                      <br />
+                      Etsi <strong>Settings</strong>.
+                    </>
+                  ),
+                  imageSrc: pic4,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      Etsi asetus <strong>Auto Download Updates</strong> ja
+                      varmistu, että se on päällä.
+                    </>
+                  ),
+                  imageSrc: pic5,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      Asetuksesta seuraa, että ATAK lataa automaattisesti
+                      päivitykset tilaamiisi feedeihin.
+                    </>
+                  ),
+                },
+              ]}
             />
           </div>
         </CardsContainer>

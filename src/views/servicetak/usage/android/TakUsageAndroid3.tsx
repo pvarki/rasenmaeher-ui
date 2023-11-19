@@ -5,7 +5,6 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import pic1 from "../../../../assets/takguides/atak/atakusage10.png";
 import pic2 from "../../../../assets/takguides/atak/atakusage11.png";
