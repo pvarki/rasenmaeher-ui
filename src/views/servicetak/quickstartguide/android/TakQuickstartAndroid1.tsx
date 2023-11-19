@@ -19,8 +19,8 @@ export function TakQuickstartAndroid1() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Asenna sovellukset (1/4)"
-          progressMax={4}
+          title="Asenna sovellukset (1/5)"
+          progressMax={5}
           progressNow={1}
         />
 

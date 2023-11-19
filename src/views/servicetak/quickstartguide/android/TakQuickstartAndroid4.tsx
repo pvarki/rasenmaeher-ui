@@ -27,8 +27,8 @@ export function TakQuickstartAndroid4() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Vaihda mittayksiköt ja kartta (4/4)"
-          progressMax={4}
+          title="Vaihda mittayksiköt ja kartta (4/5)"
+          progressMax={5}
           progressNow={4}
         />
         <CardsContainer>
@@ -175,7 +175,7 @@ export function TakQuickstartAndroid4() {
               description4={
                 <>
                   <br />
-                  Pääset pois valikosta painamalla muutamia kertoja
+                  Pääset pois valikosta painamalla muutamia kertoja{" "}
                   <strong>Back</strong>-nappia.
                 </>
               }
@@ -184,8 +184,7 @@ export function TakQuickstartAndroid4() {
         </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/android3"
-          forwardUrl="/app/services/tak/quickstart"
-          alterForward="Valmis! Palaa tästä."
+          forwardUrl="/app/services/tak/quickstart/android5"
         />
       </Layout>
     </div>

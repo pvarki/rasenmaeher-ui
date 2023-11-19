@@ -3,6 +3,7 @@ import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/androi
 import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid2";
 import { TakQuickstartAndroid3 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid3";
 import { TakQuickstartAndroid4 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid4";
+import { TakQuickstartAndroid5 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid5";
 import { TakQuickstartIos1 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos1";
 import { TakQuickstartIos2 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos2";
 import { TakQuickstartIos3 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos3";
@@ -17,7 +18,6 @@ import { ServiceTakUsageView } from "./views/servicetak/usage/ServiceTakUsageVie
 import { TakUsageAndroid1 } from "./views/servicetak/usage/android/TakUsageAndroid1";
 import { TakUsageAndroid2 } from "./views/servicetak/usage/android/TakUsageAndroid2";
 import { TakUsageAndroid3 } from "./views/servicetak/usage/android/TakUsageAndroid3";
-import { TakUsageAndroid4 } from "./views/servicetak/usage/android/TakUsageAndroid4";
 import { TakUsageIos1 } from "./views/servicetak/usage/ios/TakUsageIos1";
 import { TakUsageIos2 } from "./views/servicetak/usage/ios/TakUsageIos2";
 import { TakUsageIos3 } from "./views/servicetak/usage/ios/TakUsageIos3";
@@ -53,6 +53,10 @@ export const TakRoutes = [
   {
     path: "/app/services/tak/quickstart/android4",
     element: <TakQuickstartAndroid4 />,
+  },
+  {
+    path: "/app/services/tak/quickstart/android5",
+    element: <TakQuickstartAndroid5 />,
   },
   {
     /*iTAK quickstart guide views*/
@@ -117,10 +121,6 @@ export const TakRoutes = [
   {
     path: "/app/services/tak/usage/android3",
     element: <TakUsageAndroid3 />,
-  },
-  {
-    path: "/app/services/tak/usage/android4",
-    element: <TakUsageAndroid4 />,
   },
   {
     /*iTAK usage views*/

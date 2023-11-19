@@ -24,8 +24,8 @@ export function TakQuickstartAndroid3() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Tee asetukset (3/4)"
-          progressMax={4}
+          title="Tee asetukset (3/5)"
+          progressMax={5}
           progressNow={3}
         />
         <CardsContainer>

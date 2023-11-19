@@ -1,16 +1,20 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
-import { UnfoldableCard } from "../../../../components/UnfoldableCard";
-
-import pic1 from "../../../../assets/takguides/atak/atakdatasync1.png";
-import pic2 from "../../../../assets/takguides/atak/atakdatasync2.png";
-import pic3 from "../../../../assets/takguides/atak/atakdatasync3.png";
-import pic4 from "../../../../assets/takguides/atak/atakdatasync4.png";
-import pic5 from "../../../../assets/takguides/atak/atakdatasync5.png";
+import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import ATAK from "../../../../assets/icons/tak-logo.png";
+import pic1 from "../../../../assets/takguides/atak/atakusage1.png";
+import pic3 from "../../../../assets/takguides/atak/atakusage3.png";
+import pic31 from "../../../../assets/takguides/atak/atakusage3-1.png";
+import pic4 from "../../../../assets/takguides/atak/atakusage4.png";
+import pic5 from "../../../../assets/takguides/atak/atakusage5.png";
+import pic6 from "../../../../assets/takguides/atak/atakusage6.png";
+import pic7 from "../../../../assets/takguides/atak/atakusage7.png";
+import pic8 from "../../../../assets/takguides/atak/atakusage8.png";
+import pic9 from "../../../../assets/takguides/atak/atakusage9.png";
 
 export function TakUsageAndroid2() {
   return (
@@ -18,112 +22,197 @@ export function TakUsageAndroid2() {
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="ATAK pikaohje"
-        backUrl="/app/services/tak/usage"
+        navbarTitle="Käyttö joukossa: ATAK"
+        backUrl="/app/services/tak/Usage"
       >
-        <CardsContainer>
-          <UnfoldableCard
-            title="Sisältö"
-            styling="bg-background"
-            initialOpen={false}
-          >
-            <ServiceTakUsageContents />
-          </UnfoldableCard>
-        </CardsContainer>
         <StatusBar
-          title="Ota käyttöön Recon Feed"
-          progressMax={4}
+          title="Point Dropper (2/3)"
+          progressMax={3}
           progressNow={2}
         />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              imageClasses="m-3 w-[300px]"
-              description={
-                <span>Avaa kolme viivaa-valikko (hampurilaisvalikko).</span>
-              }
-              imageSrc={pic1}
-              description2={
-                <span>
-                  Etsi valikosta <strong>Data Sync</strong> ja valitse se.
-                </span>
-              }
-            />
-            <GuideSection
-              number="2."
-              imageSrc={pic2}
-              imageClasses="m-3 w-[300px]"
-              description={
-                <span>
-                  Avautuu näkymä, jossa palvelimelta saatavilla olevat syötteet
-                  (feed).
-                </span>
-              }
-              description2={
-                <span>
-                  Valitse ohjeistettu syöte (kuvassa <strong>RECON</strong>).
-                </span>
-              }
-              image2Src={pic3}
-              image2Classes="m-3 w-[300px]"
-              description3={
-                <span>
-                  Valitse aukeavasta ikkunasta <strong> Download & Sync</strong>
-                  .
-                </span>
-              }
-            />
-            <GuideSection
-              number="3."
-              description={
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="ATAK"
+              image={ATAK}
+              details={
                 <>
-                  Varmistetaan, että Auto Download on päällä. Palaa
-                  hampurilaisvalikon päänäkymään (kolme viivaa oikealla
-                  ylhäällä).
+                  Käyttö joukossa ATAK - vaihe 2:{" "}
+                  <strong>Tee havaintoja merkein: Point Dropper</strong>
                   <br />
-                  <br />
-                  Etsi <strong>Settings</strong>.
                 </>
               }
-              imageSrc={pic4}
-              imageClasses="m-3 w-[300px]"
-              description2={
-                <span>
-                  Varmista avautuvasta valikosta, että{" "}
-                  <strong>Auto Download Updates</strong> on päällä.
-                </span>
-              }
-              image2Src={pic5}
-              image2Classes="m-3 w-[300px]"
-              description4={
-                <>
-                  Nyt käytössäsi on käsketyt syötteet (feedit). <br />
-                  <span>
-                    Perusmallissa komentopaikka (HQ) tuottaa feedien sisällön
-                    joukon ilmoitusten perusteella.{" "}
-                  </span>
-                  <br />
-                  <ul>
-                    <small>
-                      HUOMAA: Tämä ohje kuvaa perustoimintamallin. Siinä
-                      RECON-feed sisältää tiedustelutilannekuvan, joka muodostuu
-                      näin:
+            >
+              <ServiceTakUsageCard />
+            </ServiceInfoCard>
+            <UnfoldableCard
+              title="1. ATAKin havaintotyökalut"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      ATAKissa havaintoja voi tehdä kahdella eri tavalla:{" "}
+                      <strong>Point Dropper</strong> ja{" "}
+                      <strong>Quick Pic</strong>
+                      . <br /> <br /> <strong>Point Dropperilla</strong>{" "}
+                      merkitään havainto, johon voi liittää liitteitä, ml. kuvia
+                      laitteen galleriasta. <strong>Quick Picillä</strong>{" "}
+                      otetaan kuva suoraan TAKiin ja täydennetään tietoja.
                       <br />
-                      <li>Lähetät ilmoituksesi komentopaikalle (HQ)</li>
-                      <li>HQ tulkitsee, varmistaa ja lisää RECON-feediin</li>
-                      <li> Lopputulos: Havainto tiedustelutilannekuvassa.</li>
-                    </small>
-                  </ul>
-                </>
-              }
+                      <br />
+                      Tarkastellaan ensin Point Dropperia.
+                    </>
+                  ),
+                },
+              ]}
             />
-          </CardsContainer>
-        </div>
-        <NavigateButtons
-          backUrl="/app/services/tak/usage/android1"
-          forwardUrl="/app/services/tak/usage/android3"
-        />
+
+            <UnfoldableCard
+              title="2. Tee havaintoja Point Dropperilla"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      a. Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse{" "}
+                      <strong>Point Dropper</strong>.
+                      <br />
+                      <br />
+                      Tai paina haluamaasi kohtaa kartalla pitkään ja valitse
+                      Point Dropperin symboli avautuvasta ympyrävalikosta.
+                    </>
+                  ),
+                  imageSrc: pic1,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: (
+                    <>
+                      b. Valitse lisättävän merkin tyyppi: havainto, eli
+                      <strong>keltainen</strong> merkki.
+                    </>
+                  ),
+                  imageSrc: pic3,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: (
+                    <>
+                      c. Jos valitsit Point Dropperin hampurilaisvalikosta,
+                      täppää karttaa valitaksesi havainnolle sijainnin.
+                      <br />
+                      <br />
+                      Havaintomerkki ilmestyy kartalle.
+                    </>
+                  ),
+                  imageSrc: pic31,
+                  imageClasses: "m-3 w-[500px]",
+                },
+              ]}
+            />
+            <UnfoldableCard
+              title="3. Point Dropper: Muokkaa"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      a. Jos aiot muokata heti merkin lisäämisen jälkeen, poista
+                      ensinvalinta merkistä täppäämällä karttaa.{" "}
+                      <strong>Paina</strong> merkkiä, jotta ympyrävalikko
+                      aukeaa.
+                    </>
+                  ),
+                  imageSrc: pic4,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: (
+                    <>
+                      b. Muokkaa merkin tietoja painamalla ympyrävalikossa
+                      roskakorin oikealla puolella olevaa <strong>edit</strong>
+                      -kuvaketta.
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>
+                      c. Aukeaa Havainnon tiedot-näkymä. Kelaa sen pohjalle.
+                      Alimmaisena on kenttä <strong>Remarks</strong>, jonne voi
+                      syöttää tekstiä painamalla <strong>kynäsymbolia</strong>.
+                    </>
+                  ),
+                  imageSrc: pic5,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: <>d. Syötä tekstiä.</>,
+                  imageSrc: pic6,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: (
+                    <>
+                      e. Samassa Havainnon tiedot -valikossa painamalla{" "}
+                      <strong>klemmari</strong>-kuvaketta näet havainnon
+                      liitteet.
+                    </>
+                  ),
+                  imageSrc: pic7,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: (
+                    <>
+                      f. Lisää uusia liitteitä painamalla <strong>+</strong>{" "}
+                      -kuvaketta valikon ylärivistä:
+                    </>
+                  ),
+                  imageSrc: pic8,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: (
+                    <>
+                      g. Kun olet täydentänyt havainnon tiedot, lähetä se{" "}
+                      <strong>Send</strong>-napilla HQ:lle:
+                    </>
+                  ),
+                  imageSrc: pic9,
+                  imageClasses: "m-3 w-[500px]",
+                },
+                {
+                  description: (
+                    <>
+                      Tämän ohjeen opastaman perusmallin mukaisesti lähettämällä
+                      HQ:lle, HQ-käyttäjät (komentopaikalla) vastaanottavat
+                      merkin.
+                      <br />
+                      Tämän jälkeen komentopaikka{" "}
+                      <strong>vahvistaa ja tulkitsee</strong> ilmoituksen, ja
+                      lisää sen <strong>RECON-feediin</strong>. Havainto tulee
+                      näin osaksi joukon tiedustelutilannekuvaa.
+                      <br />
+                    </>
+                  ),
+                  note: (
+                    <>
+                      Muista, että merkki ei ole koskaan riittävä ilmoitus.
+                      Varmenna lähettämällä käsketyllä tavalla sanoma.
+                    </>
+                  ),
+                },
+              ]}
+            />
+
+            <NavigateButtons
+              backUrl="/app/services/tak/usage/android1"
+              forwardUrl="/app/services/tak/usage/android3"
+            />
+          </div>
+        </CardsContainer>
       </Layout>
     </div>
   );

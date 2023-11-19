@@ -26,7 +26,7 @@ export function TakUsageAndroid1() {
       >
         <StatusBar
           title="Liikuta karttaa ja näe omat (1/4)"
-          progressMax={4}
+          progressMax={3}
           progressNow={1}
         />
 
