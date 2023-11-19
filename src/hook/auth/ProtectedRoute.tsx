@@ -13,7 +13,7 @@ interface Props {
 
 export function ProtectedRoute({
   children,
-  allowedUserTypes = ["admin", "user"],
+  allowedUserTypes = ["admin", "user", null],
   requireAuthType,
   requireValidUser = false,
   requireOtpVerified = false,
@@ -23,16 +23,13 @@ export function ProtectedRoute({
   const location = useLocation();
   const currentPath = location.pathname;
 
-  if (isLoading) {
-    return <LoadingComponent />;
-  }
-
+  // Debugging logs
   console.log(`Current authType: ${authType || "null"}`);
   console.log(`Current userType: ${userType || "null"}`);
   console.log(`Current path: ${currentPath}`);
 
   const determineTargetPath = () => {
-    if (currentPath === "/" || currentPath.startsWith("/login")) {
+    if (currentPath === "/" || currentPath === "/login") {
       if (authType === "mtls") {
         if (userType === "admin") {
           return "/app/admin";
@@ -43,8 +40,6 @@ export function ProtectedRoute({
         return "/login/enrollment";
       } else if (authType === "jwt" && userType) {
         return "/login/createmtls";
-      } else if (otpVerified) {
-        return "/login/callsign";
       }
       return "/login";
     }
@@ -61,11 +56,15 @@ export function ProtectedRoute({
   console.log(`Target path: ${targetPath}`);
 
   if (isLoading) {
-    console.log("Loading...");
-    return <div>Loading...</div>;
+    return (
+      <>
+        {children}
+        {LoadingComponent}
+      </>
+    );
   }
 
-  if (currentPath !== targetPath) {
+  if (!isLoading && currentPath !== targetPath) {
     console.log(`Redirecting to target path: ${targetPath}`);
     return <Navigate to={targetPath} replace />;
   }

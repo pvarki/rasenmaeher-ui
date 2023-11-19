@@ -19,11 +19,17 @@ const Content = () => {
   const { isLoading } = useLoading();
 
   return (
-    <>
+    <div className="relative">
       {isLoading && <LoadingComponent />}
-      <Router />
-      <AlertDialogRoot />
-    </>
+      <div
+        className={`transition-opacity ${
+          isLoading ? "opacity-50" : "opacity-100"
+        }`}
+      >
+        <Router />
+        <AlertDialogRoot />
+      </div>
+    </div>
   );
 };
 
