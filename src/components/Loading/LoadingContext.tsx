@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from "react";
 
 interface LoadingContextType {
   isLoading: boolean;
@@ -7,9 +7,11 @@ interface LoadingContextType {
 
 const defaultLoadingContext: LoadingContextType = {
   isLoading: false,
-  setLoading: () => { 
-    // init 
+  setLoading: () => {
+    // init
   },
 };
 
-export const LoadingContext = createContext<LoadingContextType>(defaultLoadingContext);
+export const LoadingContext = createContext<LoadingContextType>(
+  defaultLoadingContext,
+);
