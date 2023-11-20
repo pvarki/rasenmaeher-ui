@@ -1,7 +1,6 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useUserType } from "./useUserType";
-import LoadingComponent from "../../components/Loading/LoadingComponent";
 
 interface Props {
   children: React.ReactNode;
@@ -27,6 +26,11 @@ export function ProtectedRoute({
   console.log(`Current authType: ${authType || "null"}`);
   console.log(`Current userType: ${userType || "null"}`);
   console.log(`Current path: ${currentPath}`);
+
+  if (isLoading) {
+    return;
+    null;
+  }
 
   const determineTargetPath = () => {
     if (currentPath === "/" || currentPath === "/login") {
@@ -56,12 +60,7 @@ export function ProtectedRoute({
   console.log(`Target path: ${targetPath}`);
 
   if (isLoading) {
-    return (
-      <>
-        {children}
-        {LoadingComponent}
-      </>
-    );
+    return null;
   }
 
   if (!isLoading && currentPath !== targetPath) {

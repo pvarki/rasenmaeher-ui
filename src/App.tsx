@@ -4,6 +4,7 @@ import { UserTypeFetcher } from "./hook/auth/userTypeFetcher";
 import { LoadingProvider } from "./components/Loading/LoadingProvider";
 import LoadingComponent from "./components/Loading/LoadingComponent";
 import { useLoading } from "./components/Loading/useLoading";
+import { useUserType } from "./hook/auth/useUserType";
 
 function App() {
   return (
@@ -16,21 +17,19 @@ function App() {
 }
 
 const Content = () => {
-  const { isLoading } = useLoading();
+  const { isLoading } = useUserType();
+
+  if (isLoading) {
+    return <LoadingComponent />;
+  }
 
   return (
     <div className="relative">
-      {isLoading && <LoadingComponent />}
-      <div
-        className={`transition-opacity ${
-          isLoading ? "opacity-50" : "opacity-100"
-        }`}
-      >
+      <div className="opacity-100">
         <Router />
         <AlertDialogRoot />
       </div>
     </div>
   );
 };
-
 export default App;
