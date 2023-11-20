@@ -60,7 +60,7 @@ export function EnrollmentView() {
   }
 
   return (
-    <Layout showNavbar={true} showFooter={true}>
+    <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
         <main className="px-10 flex flex-col gap-1 items-center justify-start h-full">
           <Text title={subdomain || "Loading..."} />
@@ -86,7 +86,7 @@ export function EnrollmentView() {
           />
 
           <UnfoldableCard
-            title="Odotat hyväksyntää palveluun (avaa ohje)."
+            title="Odotat hyväksyntää palveluun (ohje)."
             steps={[
               {
                 description: (
