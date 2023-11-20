@@ -132,7 +132,7 @@ export function TakQuickstartIos4() {
           </div>
         </CardsContainer>
         <NavigateButtons
-          backUrl="/app/services/tak/quickstart/ios4"
+          backUrl="/app/services/tak/quickstart/ios3"
           forwardUrl="/app/services/tak/quickstart/ios5"
         />
       </Layout>
