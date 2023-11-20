@@ -84,12 +84,6 @@ export function EnrollApprovalView() {
           callsign: selectedUser.callsign,
           approvalCode: values.approvalCode,
         });
-        console.log(
-          "Attempting to approve user:",
-          selectedUser.callsign,
-          "with code:",
-          values.approvalCode,
-        );
       }
     },
   });
@@ -102,9 +96,8 @@ export function EnrollApprovalView() {
       setIsRejected(false);
       setApprovalMessage("");
       setRejectionMessage("");
-      void formik.setValues({ approvalCode: user.approveCode || "" });
     },
-    [setSelectedUser, setDialogOpen, formik],
+    [setSelectedUser, setDialogOpen],
   );
 
   useEffect(() => {
