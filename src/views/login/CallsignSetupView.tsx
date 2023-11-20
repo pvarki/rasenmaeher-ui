@@ -94,7 +94,7 @@ export function CallsignSetupStep() {
                 <Field
                   type="text"
                   name="callsign"
-                  className="bg-gray-100 w-full p-2 rounded-lg text-black"
+                  className="bg-gray-100 w-full p-2 rounded-lg text-black font-consolas"
                 />
                 {formik.errors.callsign && (
                   <span className="text-red-500">{formik.errors.callsign}</span>

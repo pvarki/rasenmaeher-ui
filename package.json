@@ -24,7 +24,6 @@
     "@yudiel/react-qr-scanner": "^1.1.10",
     "classnames": "^2.3.2",
     "formik": "^2.4.5",
-    "html-react-parser": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-qr-code": "^2.0.12",

@@ -95,7 +95,7 @@ export function EnrollCodeListView() {
               className="text-white"
             />
             <input
-              className="bg-backgroundLight w-full rounded-lg text-white"
+              className="bg-backgroundLight w-full rounded-lg text-white font-consolas"
               placeholder="Suodata kutsukoodeja"
             />
           </div>
@@ -132,7 +132,7 @@ function InviteCodeRow({
       }
       className="bg-backgroundLight w-full p-3 rounded-lg flex items-center justify-between gap-5"
     >
-      <span className={`text-white`}>
+      <span className={`text-white font-consolas`}>
         {inviteCode} -{" "}
         <span className={statusLabelColorClass}>{statusLabelText}</span>
       </span>

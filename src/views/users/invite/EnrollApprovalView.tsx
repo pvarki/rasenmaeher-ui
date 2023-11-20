@@ -264,7 +264,7 @@ export function EnrollApprovalView() {
                     type="text"
                     onChange={formik.handleChange}
                     value={formik.values.approvalCode}
-                    className="text-black bg-gray-100 w-full p-2 rounded-lg"
+                    className="text-black font-consolas bg-gray-100 w-full p-2 rounded-lg"
                   />
                 </form>
               </div>

@@ -83,6 +83,7 @@ export function EnrollmentView() {
             title={callsign}
             description="Hyväksyntäkoodisi:"
             description2={approveCode}
+            styling2="font-consolas"
           />
 
           <UnfoldableCard

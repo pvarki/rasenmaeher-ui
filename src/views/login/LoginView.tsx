@@ -113,7 +113,7 @@ export function LoginView() {
                 <Field
                   type="text"
                   name="code"
-                  className="bg-gray-100 w-full p-2 rounded-lg text-black"
+                  className="bg-gray-100 w-full p-2 rounded-lg text-black font-consolas"
                   onFocus={handleInputFocus}
                   onChange={handleChange}
                 />
