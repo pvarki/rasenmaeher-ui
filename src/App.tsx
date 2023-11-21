@@ -3,7 +3,6 @@ import { AlertDialogRoot } from "./components/AlertDialogService/AlertDialogRoot
 import { UserTypeFetcher } from "./hook/auth/userTypeFetcher";
 import { LoadingProvider } from "./components/Loading/LoadingProvider";
 import LoadingComponent from "./components/Loading/LoadingComponent";
-import { useLoading } from "./components/Loading/useLoading";
 import { useUserType } from "./hook/auth/useUserType";
 
 function App() {

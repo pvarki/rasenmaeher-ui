@@ -5,12 +5,12 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import pic21 from "../../../../assets/takguides/itak/itakserver1.png";
-import pic22 from "../../../../assets/takguides/itak/itakserver2.png";
-import pic23 from "../../../../assets/takguides/itak/itakserver3.png";
-import pic24 from "../../../../assets/takguides/itak/itakserver4.png";
-import pic25 from "../../../../assets/takguides/itak/itakserver5.png";
-import pic26 from "../../../../assets/takguides/itak/itakserver6.png";
+import pic21 from "../../../../assets/takguides/itak/itakserver11.png";
+import pic22 from "../../../../assets/takguides/itak/itakserver21.png";
+import pic23 from "../../../../assets/takguides/itak/itakserver31.png";
+import pic24 from "../../../../assets/takguides/itak/itakserver41.png";
+import pic25 from "../../../../assets/takguides/itak/itakserver51.png";
+import pic26 from "../../../../assets/takguides/itak/itakserver61.png";
 
 export function TakQuickstartIos3() {
   return (
