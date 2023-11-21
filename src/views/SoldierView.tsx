@@ -1,4 +1,4 @@
-import { BookmarkRemainder } from "../components/BookmarkRemainder";
+import { BookmarkReminder } from "../components/BookmarkRemainder";
 import { Layout } from "../components/Layout";
 import { CardsContainer } from "../components/CardsContainer";
 import { TextCard } from "../components/TextCard";
@@ -28,7 +28,7 @@ export function SoldierView() {
       </CardsContainer>
       <ServiceTak />
       <CardsContainer>
-        <BookmarkRemainder />
+        <BookmarkReminder />
       </CardsContainer>
     </Layout>
   );

@@ -4,6 +4,7 @@ import {
   useEffect,
   ReactNode,
   useCallback,
+  useMemo,
 } from "react";
 
 interface AuthResponse {
@@ -149,19 +150,31 @@ export function UserTypeFetcher({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const value = useMemo(
+    () => ({
+      userType,
+      isLoading,
+      error,
+      authType,
+      otpVerified,
+      setOtpVerified,
+      callsign,
+      isValidUser,
+    }),
+    [
+      userType,
+      isLoading,
+      error,
+      authType,
+      otpVerified,
+      setOtpVerified,
+      callsign,
+      isValidUser,
+    ],
+  );
+
   return (
-    <UserTypeContext.Provider
-      value={{
-        userType,
-        isLoading,
-        error,
-        authType,
-        otpVerified,
-        setOtpVerified,
-        callsign,
-        isValidUser,
-      }}
-    >
+    <UserTypeContext.Provider value={value}>
       {children}
     </UserTypeContext.Provider>
   );

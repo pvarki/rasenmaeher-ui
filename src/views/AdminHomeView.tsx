@@ -6,6 +6,7 @@ import { CardsContainer } from "../components/CardsContainer";
 import { Layout } from "../components/Layout";
 import { ServiceTak } from "./servicetak/ServiceTak";
 import { useUserType } from "../hook/auth/useUserType";
+import { BookmarkReminder } from "../components/BookmarkRemainder";
 
 export function AdminHomeView() {
   const { callsign } = useUserType();
@@ -36,6 +37,9 @@ export function AdminHomeView() {
           />
         </CardsContainer>
         <ServiceTak />
+        <CardsContainer>
+          <BookmarkReminder />
+        </CardsContainer>
       </div>
     </Layout>
   );

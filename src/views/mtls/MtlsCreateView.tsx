@@ -2,6 +2,7 @@ import { Button } from "../../components/Button";
 import { useGetCertificate } from "../../hook/api/useGetCertificate";
 import { Layout } from "../../components/Layout";
 import { useEffect, useState } from "react";
+import { useUserType } from "../../hook/auth/useUserType";
 import { getOperatingSystem } from "../../hook/helpers/getOperatingSystem";
 import { WindowsInstructions } from "./WindowsMtlsInstructions";
 import { MacInstructions } from "./MacMtlsInstructions";
@@ -14,6 +15,9 @@ import { InfoModal } from "../../components/InfoModal";
 import key from "../../assets/icons/key.svg";
 
 export function MtlsCreateView() {
+  const { userType } = useUserType();
+  const protocol = window.location.protocol;
+  const host = window.location.host;
   const { mutate: downloadCert } = useGetCertificate();
   const [callsign, setCallsign] = useState("");
   const [userOS, setUserOS] = useState("");
@@ -22,10 +26,15 @@ export function MtlsCreateView() {
     setUserOS(getOperatingSystem());
   }, []);
 
-  const { href, hostname } = window.location;
-  const mtlsUrl = hostname.includes("mtls")
-    ? href
-    : href.replace(hostname, "mtls." + hostname);
+  const baseMtlsUrl = `${protocol}//mtls.${host}/`;
+
+  let mtlsUrl = baseMtlsUrl;
+
+  if (userType === "admin") {
+    mtlsUrl += "app/admin";
+  } else if (userType === "user" && callsign) {
+    mtlsUrl += `app/users/${callsign}`;
+  }
 
   useEffect(() => {
     const storedCallsign = localStorage.getItem("callsign");
