@@ -1,11 +1,11 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
-import { UnfoldableCard } from "../../../../components/UnfoldableCard";
-
+import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import Wintak from "../../../../assets/icons/wintak.png";
 import pic1 from "../../../../assets/takguides/wintak/Kuva32.png";
 import pic2 from "../../../../assets/takguides/wintak/Kuva33.png";
 import pic3 from "../../../../assets/takguides/wintak/Kuva34.png";
@@ -23,97 +23,130 @@ export function TakUsageWin1() {
         navbarTitle="Käyttö joukossa: WinTAK"
         backUrl="/app/services/tak/usage"
       >
-        <CardsContainer>
-          <UnfoldableCard
-            title="Sisältö"
-            styling="bg-background"
-            initialOpen={false}
-          >
-            <ServiceTakUsageContents />
-          </UnfoldableCard>
-        </CardsContainer>
         <StatusBar
-          title="Liikuta karttaa ja merkkaa sijaintisi"
-          progressMax={5}
+          title="Liikuta karttaa ja merkkaa sijaintisi (1/4)"
+          progressMax={4}
           progressNow={1}
         />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              description={
+        <CardsContainer>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="WinTAK"
+              image={Wintak}
+              details={
                 <>
-                  Jos PC:ssä ei ole GPS:ää, niin WinTAK määrittää alkupisteeksi
-                  0-koordinatit.
+                  Käyttö joukossa WinTAK - vaihe 2:{" "}
+                  <strong>Hallitse Recon Feediä</strong>
+                  <br />
                 </>
               }
-              imageSrc={pic1}
-              imageClasses="mx-auto pr-12 w-[400px] p-4"
-              description2={
-                <>
-                  Liikuta <strong>hiirellä</strong> karttapohjaa kohti Suomea.
-                  Voit zoomata karttaa hiiren rullalla, plus- ja
-                  miinusnäppäimillä ja ruudun painikkeilla.
-                </>
-              }
-              image2Src={pic2}
-              image2Classes="mx-auto pr-12 w-[400px] p-4"
-              description3={
-                <>
-                  Klikkaa <strong>kompassikuvaketta</strong> (N) suoristaaksesi
-                  kartan.
-                </>
-              }
-              image3Src={pic3}
-              image3Classes="mx-auto pr-12 w-[400px] p-4"
-              description4={
-                <>
-                  Muut joukkosi käyttäjät näkyvät erivärisinä kuvakkeina.
-                  Kuvakkeiden väri tulee jokaisen itselleen asettamasta väristä.
-                </>
-              }
+            >
+              <ServiceTakUsageCard />
+            </ServiceInfoCard>
+            <UnfoldableCard
+              title="1. Liikuta ja tarkastele karttaa"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Jos PC:ssä ei ole GPS:ää, niin WinTAK määrittää
+                      alkupisteeksi 0-koordinatit.
+                    </>
+                  ),
+                  imageSrc: pic1,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      Liikuta <strong>hiirellä</strong> karttapohjaa kohti
+                      Suomea. Voit zoomata karttaa hiiren rullalla, plus- ja
+                      miinusnäppäimillä ja ruudun painikkeilla.
+                    </>
+                  ),
+                  imageSrc: pic2,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      Klikkaa <strong>kompassikuvaketta</strong> (N)
+                      suoristaaksesi kartan.
+                    </>
+                  ),
+                  imageSrc: pic3,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      Muut joukkosi käyttäjät näkyvät erivärisinä kuvakkeina.
+                      Kuvakkeiden väri tulee jokaisen itselleen asettamasta
+                      väristä.
+                    </>
+                  ),
+                  imageSrc: pic4,
+                  imageClasses: "m-3 w-[400px]",
+                },
+              ]}
             />
-            <GuideSection
-              number="2."
-              description={
-                <>
-                  Määritä oma sijainti manuaalisesti, jos laitteellasi ei ole
-                  GPS:ää. Tämä tapahtuu painamalla oikean alakulman punaisen
-                  väristä tietokenttää.
-                </>
-              }
-              imageSrc={pic4}
-              imageClasses="mx-auto pr-5 w-[200px] p-4"
-              description2={
-                <>Etsi karttapohjalta oma sijainti ja klikkaa sitä.</>
-              }
-              image2Src={pic5}
-              image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description3={
-                <>
-                  Tällöin oma merkkisi ilmestyy kartalle. Se tulee näkyviin myös
-                  muille käyttäjille.
-                </>
-              }
+            <UnfoldableCard
+              title="2. Määritä sijaintisi tarvittaessa käsin"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Määritä oma sijainti manuaalisesti, jos laitteellasi ei
+                      ole GPS:ää. Tämä tapahtuu painamalla oikean alakulman
+                      punaisen väristä tietokenttää.
+                    </>
+                  ),
+                  imageSrc: pic6,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>Etsi karttapohjalta oma sijainti ja klikkaa sitä.</>
+                  ),
+                  imageSrc: pic5,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      {" "}
+                      Tällöin oma merkkisi ilmestyy kartalle. Se tulee näkyviin
+                      myös muille käyttäjille.{" "}
+                    </>
+                  ),
+                },
+              ]}
             />
-            <GuideSection
-              number="3."
-              description={
-                <>
-                  Kun haluat muuttaa omaa sijaintiasi, klikkaa oikealla omaa
-                  merkkiäsi <strong>(nuoli)</strong>
-                </>
-              }
-              imageSrc={pic6}
-              imageClasses="mx-auto pr-5 w-[400px] p-4"
-              image2Src={pic7}
-              image2Classes="mx-auto pr-5 w-[400px] p-4"
-              description2={
-                <>Tämän jälkeen voit valita uuden sijainnin klikkaamalla.</>
-              }
+            <UnfoldableCard
+              title="3. Muuta käsin määritettyä sijaintiasi"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Kun haluat muuttaa omaa sijaintiasi, klikkaa oikealla omaa
+                      merkkiäsi <strong>(nuolisymboli)</strong>
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>Tämän jälkeen voit valita uuden sijainnin klikkaamalla.</>
+                  ),
+                  imageSrc: pic7,
+                  imageClasses: "m-3 w-[400px]",
+                },
+              ]}
             />
-          </CardsContainer>
-        </div>
+          </div>
+        </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/usage"
           forwardUrl="/app/services/tak/usage/win2"
