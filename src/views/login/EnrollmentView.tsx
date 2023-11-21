@@ -62,9 +62,7 @@ export function EnrollmentView() {
   return (
     <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
-        <main className="px-10 flex flex-col gap-1 items-center justify-start h-full">
-          <Text title={subdomain || "Loading..."} />
-
+        <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
           <QRCode value={approvalUrl} />
           <div className="w-full flex justify-end">
             <Button
@@ -88,6 +86,7 @@ export function EnrollmentView() {
 
           <UnfoldableCard
             title="Odotat hyväksyntää palveluun (ohje)."
+            styling="bg-backgroundLight"
             steps={[
               {
                 description: (
@@ -113,7 +112,7 @@ export function EnrollmentView() {
               },
             ]}
           />
-        </main>
+        </div>
       </CardsContainer>
     </Layout>
   );

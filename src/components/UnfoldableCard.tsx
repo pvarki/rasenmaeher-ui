@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useAlertDialog } from "../components/AlertDialogService";
 
 interface UnfoldableCardProps {
@@ -167,7 +167,23 @@ export function UnfoldableCard({
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     setIsOpen(!isOpen);
+    setTimeout(() => {
+      if (!isOpen && bottomRef.current) {
+        bottomRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      } else if (isOpen && bottomRef.current) {
+        window.scrollTo({
+          top:
+            document.documentElement.scrollTop +
+            bottomRef.current.getBoundingClientRect().top,
+          behavior: "smooth",
+        });
+      }
+    }, 0);
   };
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   const handleImageClick = (src: string, link: string) => {
     if (link) {
@@ -372,6 +388,7 @@ export function UnfoldableCard({
             <p className="mt-2 text-white prose prose-white">{content}</p>
           )}
           {children}
+          <div ref={bottomRef}></div>
         </>
       )}
     </div>

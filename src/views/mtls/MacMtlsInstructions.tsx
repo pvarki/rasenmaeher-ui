@@ -47,6 +47,9 @@ export function MacInstructions() {
             <small>
               Esimerkissä salasana on <em>PROGRAMMFEHLERMAEHER4.</em>
             </small>
+            <br />
+            Jos kysytään, mihin avainnippuun 'keychain' tallennetaan, vastaus on{" "}
+            <em>järjestelmä</em> (system).
           </>
         }
       />
@@ -56,7 +59,15 @@ export function MacInstructions() {
         description1={
           <>
             <strong>a.</strong> <strong>Valitse</strong> avainnipussa vasemmalta
-            1. <em>Järjestelmä</em> ja yläpalkista 2. <em>Avaimet</em>.
+            1. <em>Järjestelmä</em> ja yläpalkista 2. <em>Varmenteet</em>.
+            <br />
+            <small>
+              Kuvassa Avaimet. Tee ensin Varmenteet, sitten Avaimet kuvan
+              mukaisesti. Varmenteissa kaksoisnapauta varmennetta "peitenimesi"
+              ja valitse <em>Luottamus</em> - <em>Luota aina.</em>. Tämän
+              jälkeen tee seuraavaksi ohjatut muutokset <em>Avaimet</em>
+              -valikossa.
+            </small>
           </>
         }
         image2Src={pic4}
