@@ -7,9 +7,9 @@ import { ErrorView } from "./views/ErrorView";
 import { NotFoundView } from "./views/NotFoundView";
 import { TakRoutes } from "./TakRoutes";
 import { MtlsCreateView } from "./views/mtls/MtlsCreateView";
-import { AdminRouteWrapper } from "./AdminRouteWrapper";
-import { UserRouteWrapper } from "./UserRouteWrapper";
-import { TakRouteWrapper } from "./TakRouteWrapper";
+import { AdminRouteWrapper } from "./AdminRoutes";
+import { UserRouteWrapper } from "./UserRoutes";
+import { TakRouteWrapper } from "./TakRoutes";
 
 const router = createBrowserRouter([
   {

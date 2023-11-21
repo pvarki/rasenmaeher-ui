@@ -1,3 +1,4 @@
+import { Routes, Route, Outlet } from "react-router-dom";
 import { AdminHomeView } from "./views/AdminHomeView";
 import { UserManagementView } from "./views/usermgmt/UserManagementView";
 import { QrCodeView } from "./views/users/invite/QrCodeView";
@@ -5,7 +6,7 @@ import { EnrollCodeListView } from "./views/users/invite/EnrollCodeListView";
 import { EnrollApprovalView } from "./views/users/invite/EnrollApprovalView";
 import { ManageUsersView } from "./views/usermgmt/ManageUsersView";
 
-export const AdminRoutes = [
+const AdminRoutes = [
   {
     path: "",
     element: <AdminHomeView />,
@@ -31,3 +32,14 @@ export const AdminRoutes = [
     element: <EnrollApprovalView />,
   },
 ];
+
+export function AdminRouteWrapper() {
+  return (
+    <Routes>
+      {AdminRoutes.map((route, index) => (
+        <Route key={index} path={route.path} element={route.element} />
+      ))}
+      <Route path="*" element={<Outlet />} />
+    </Routes>
+  );
+}

@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+
 import { ServiceTakQuickstartView } from "./views/servicetak/quickstartguide/ServiceTakQuickstartView";
 import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid1";
 import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid2";
@@ -161,3 +163,13 @@ export const TakRoutes = [
     element: <TakUsageWin5 />,
   },
 ];
+
+export function TakRouteWrapper() {
+  return (
+    <Routes>
+      {TakRoutes.map((route, index) => (
+        <Route key={index} path={route.path} element={route.element} />
+      ))}
+    </Routes>
+  );
+}
