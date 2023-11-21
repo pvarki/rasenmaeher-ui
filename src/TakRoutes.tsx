@@ -29,7 +29,7 @@ import { TakUsageWin3 } from "./views/servicetak/usage/wintak/TakUsageWin3";
 import { TakUsageWin4 } from "./views/servicetak/usage/wintak/TakUsageWin4";
 import { TakUsageWin5 } from "./views/servicetak/usage/wintak/TakUsageWin5";
 
-export const TakRoutes = [
+const TakRoutes = [
   {
     /*As of 1.0 directly integrated to RM UI, instead of html fragment design*/
   },

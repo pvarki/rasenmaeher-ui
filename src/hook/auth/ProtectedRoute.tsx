@@ -51,7 +51,7 @@ export function ProtectedRoute({
       (requireAuthType && authType !== requireAuthType) ||
       (allowedUserTypes.length > 0 && !allowedUserTypes.includes(userType))
     ) {
-      return "/error";
+      return "/";
     }
     return currentPath;
   };

@@ -5,7 +5,6 @@ import { CallsignSetupStep } from "./views/login/CallsignSetupView";
 import { EnrollmentView } from "./views/login/EnrollmentView";
 import { ErrorView } from "./views/ErrorView";
 import { NotFoundView } from "./views/NotFoundView";
-import { TakRoutes } from "./TakRoutes";
 import { MtlsCreateView } from "./views/mtls/MtlsCreateView";
 import { AdminRouteWrapper } from "./AdminRoutes";
 import { UserRouteWrapper } from "./UserRoutes";
@@ -96,7 +95,6 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFoundView />,
   },
-  ...TakRoutes,
 ]);
 
 export default function Router() {
