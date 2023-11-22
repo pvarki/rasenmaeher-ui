@@ -1,6 +1,9 @@
 import tak from "../../assets/icons/taklogo.png";
+import usage from "../../assets/icons/sota.png";
+import phone from "../../assets/icons/byod2.png";
 import { CardsContainer } from "../../components/CardsContainer";
 import { FoldableCard } from "../../components/FoldableCard";
+import { UnfoldableCard } from "../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
@@ -80,44 +83,66 @@ export function ServiceTak() {
       <CardsContainer>
         <FoldableCard title="TAK" imageSrc={tak}>
           <div className="flex flex-col items-center justify-center p-5">
-            <ServiceInfoCard
-              title="Tilannekuvasovellus TAK"
-              image={tak}
-              details={
-                <>
-                  <li>
-                    <strong>Käyttöönotto-ohje</strong> opastaa palvelun
-                    käyttöönoton laitteellesi.
-                  </li>
-                  <li>
-                    Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät
-                    sovellusta perusmallin mukaisesti.
-                  </li>
-                  <li>
-                    <strong>Viestiperustepaketti</strong> sisältää ladattavat
-                    henkilökohtaiset perusteesi.
-                  </li>
-                  <br></br>Aloita käyttöönotto-ohjeesta.
-                </>
-              }
+            <ServiceInfoCard title="Tilannekuvasovellus TAK" image={tak} />
+            <UnfoldableCard
+              title="Näin otat käyttöön"
+              steps={[
+                {
+                  description: (
+                    <>
+                      <strong>Käyttöönotto-ohje</strong> opastaa palvelun
+                      käyttöönoton laitteellesi.
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>
+                      Ohje <strong>Käyttö joukossa</strong> opastaa, miten
+                      käytät sovellusta perusmallin mukaisesti.
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>
+                      <strong>Viestiperustepaketti</strong> sisältää ladattavat
+                      henkilökohtaiset perusteesi.
+                    </>
+                  ),
+                },
+              ]}
             />
 
             <ServiceTakUsageCard />
-
-            <Button
-              variant={{ width: "full" }}
-              onClick={() => navigate("/app/services/tak/quickstart")}
-              styling="m-2"
-            >
-              Käyttöönotto-ohje
-            </Button>
-            <Button
-              variant={{ width: "full" }}
-              onClick={() => navigate("/app/services/tak/usage")}
-              styling="m-2"
-            >
-              Käyttö joukossa
-            </Button>
+            <div className="flex w-full items-center justify-center items-stretch px-0">
+              <div className="flex-1 px-1">
+                <Button
+                  variant={{ width: "full" }}
+                  onClick={() => navigate("/app/services/tak/quickstart")}
+                  styling="m-1 px-2"
+                >
+                  <div className="flex items-center justify-center w-full h-full">
+                    <img src={phone} alt="keys" className="h-5 w-5 mr-2" />
+                    Ohje: Käyttöönotto
+                  </div>
+                </Button>
+              </div>
+              <div className="p-1" />
+              <div className="flex-1 px-1">
+                <Button
+                  variant={{ width: "full" }}
+                  onClick={() => navigate("/app/services/tak/usage")}
+                  styling="m-1 px-2"
+                >
+                  <div className="flex items-center justify-center w-full h-full">
+                    <img src={usage} alt="keys" className="h-5 w-5 mr-2" />
+                    Ohje: Käyttö joukossa
+                  </div>
+                </Button>
+              </div>
+              <div className="p-1" />
+            </div>
             <Button
               variant={{ width: "full" }}
               onClick={handleDownloadClick}

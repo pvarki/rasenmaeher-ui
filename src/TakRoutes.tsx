@@ -21,8 +21,6 @@ import { TakUsageAndroid1 } from "./views/servicetak/usage/android/TakUsageAndro
 import { TakUsageAndroid2 } from "./views/servicetak/usage/android/TakUsageAndroid2";
 import { TakUsageAndroid3 } from "./views/servicetak/usage/android/TakUsageAndroid3";
 import { TakUsageIos1 } from "./views/servicetak/usage/ios/TakUsageIos1";
-import { TakUsageIos2 } from "./views/servicetak/usage/ios/TakUsageIos2";
-import { TakUsageIos3 } from "./views/servicetak/usage/ios/TakUsageIos3";
 import { TakUsageWin1 } from "./views/servicetak/usage/wintak/TakUsageWin1";
 import { TakUsageWin2 } from "./views/servicetak/usage/wintak/TakUsageWin2";
 import { TakUsageWin3 } from "./views/servicetak/usage/wintak/TakUsageWin3";
@@ -129,14 +127,6 @@ const TakRoutes = [
   {
     path: "usage/ios1",
     element: <TakUsageIos1 />,
-  },
-  {
-    path: "usage/ios2",
-    element: <TakUsageIos2 />,
-  },
-  {
-    path: "usage/ios3",
-    element: <TakUsageIos3 />,
   },
   {
     /*WinTAK usage views*/
