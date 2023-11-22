@@ -12,6 +12,17 @@ import pic10 from "../../../../assets/takguides/wintak/Kuva40.png";
 import pic11 from "../../../../assets/takguides/wintak/Kuva41.png";
 import pic12 from "../../../../assets/takguides/wintak/Kuva42.png";
 import pic13 from "../../../../assets/takguides/wintak/Kuva43.png";
+import pic15 from "../../../../assets/takguides/wintak/Kuva45.png";
+import pic17 from "../../../../assets/takguides/wintak/Kuva47.png";
+import pic18 from "../../../../assets/takguides/wintak/Kuva48.png";
+import pic19 from "../../../../assets/takguides/wintak/Kuva49.png";
+import pic20 from "../../../../assets/takguides/wintak/Kuva50.png";
+import pic23 from "../../../../assets/takguides/wintak/Kuva53.png";
+import pic24 from "../../../../assets/takguides/wintak/Kuva54.png";
+import pic25 from "../../../../assets/takguides/wintak/Kuva55.png";
+import pic26 from "../../../../assets/takguides/wintak/Kuva56.png";
+import pic27 from "../../../../assets/takguides/wintak/Kuva57.png";
+import pic28 from "../../../../assets/takguides/wintak/Kuva58.png";
 
 export function TakUsageWin2() {
   return (
@@ -23,7 +34,7 @@ export function TakUsageWin2() {
         backUrl="/app/services/tak/Usage"
       >
         <StatusBar
-          title="Hallitse Recon Feediä (2/4)"
+          title="Ylläpidä Recon Feediä (2/4)"
           progressMax={4}
           progressNow={2}
         />
@@ -35,7 +46,7 @@ export function TakUsageWin2() {
               details={
                 <>
                   Käyttö joukossa WinTAK - vaihe 2:{" "}
-                  <strong>Hallitse Recon Feediä</strong>
+                  <strong>Ylläpidä Recon Feediä</strong>
                   <br />
                 </>
               }
@@ -143,6 +154,331 @@ export function TakUsageWin2() {
                 {
                   description: (
                     <>Feed näkyy tällöin käyttäjän Data Sync-valikossa. </>
+                  ),
+                },
+              ]}
+            />
+            <UnfoldableCard
+              title="3. Vastaanota ilmoituksia"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      WinTAK tekee ilmoituksia kuvan mukaisilla
+                      notifikaatioilla.
+                    </>
+                  ),
+                  imageSrc: pic15,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      Painamalla keltaisen lipun symbolia, avautuu{" "}
+                      <strong>Notifications</strong>-näkymä.
+                    </>
+                  ),
+                  imageSrc: pic17,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      Näkymässä ovat vastaanotetut ilmoitukset.{" "}
+                      <strong>Käsittele</strong> ilmoitukset seuraavan ohjeen
+                      mukaisesti ja lähetä sen päätteeksi ne{" "}
+                      <strong>Recon Feediin.</strong>
+                    </>
+                  ),
+                },
+              ]}
+            />
+            <UnfoldableCard
+              title="4. Käsittele ilmoitukset Recon Feediin"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      a. Havainnot <strong>avataan ja käsitellään</strong> näin:
+                      <br></br>
+                      <ul>
+                        <li>
+                          1. Paina ilmoitusnäkymästä ilmoitusta, jonka haluat
+                          käsitellä.
+                        </li>
+                        <li>2. Karttanäkymä keskittyy havaintoon.</li>
+                        <li>3. Klikkaa kartalla olevaa havaintoa.</li>
+                        <li>
+                          4. Aukeaa <strong>ympyrävalikko</strong> (alla
+                          kuvassa).
+                        </li>
+                      </ul>
+                    </>
+                  ),
+                  imageSrc: pic18,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      b. Valitse ympyrävalikosta roskakorin oikealla puolella
+                      oleva Marker Details-kuvake. Aukeaa{" "}
+                      <strong>Marker Details</strong>
+                      -näkymä (alla kuvassa)
+                    </>
+                  ),
+                  imageSrc: pic19,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      c. <strong>Käsittele havainto seuraavasti:</strong>
+                      <li>Lue kommentit</li>
+                      <li>Katso mahdollinen liite</li>
+                      <li>Vertaa tietoihisi komentopaikalla</li>
+                      <li>Varmista havainto joukolta.</li>
+                      <li>
+                        Jos et voi tehdä varmaa johtopäätöstä, jätä havainnoksi
+                        (tuntematon=keltainen)
+                      </li>
+                      <li>
+                        Kirjaa tulkintasi ja muutokset{" "}
+                        <strong>Remarkseihin.</strong>
+                        <br />
+                        <br />
+                        Perusmallin mukaisesti joukon tulisi ilmoittaa
+                        havainnosta myös sanomalla (välitettynä soveltuvalla
+                        tavalla).
+                      </li>
+                    </>
+                  ),
+                  note: (
+                    <>
+                      Kun kirjaat tulkintoja, muista erottaa johtopäätös
+                      alkuperäisestä kuvauksesta. Tee tämä merkinnällä{" "}
+                      <em>HQ JP: (arvio tai johtopäätös)</em>
+                      <br />
+                      <br />
+                      Muista myös TL JULK - käytä peitteistöä. <br />
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>
+                      b. Muuta havainnon tyyppiä (tuntematon, vih, oma, neutr)
+                      johtopäätöksesi perusteella Marker Details-näkymässä.{" "}
+                      <br /> Tee se klikkaamalla{" "}
+                      <strong>otsikon vasemmalla puolella</strong> olevaa ikonia
+                      (kamera: Quick Pic, merkki: esim. keltainen),{" "}
+                      <strong>"Change Affiliation".</strong>
+                    </>
+                  ),
+                  imageSrc: pic20,
+                  imageClasses: "mx-auto pr-5 w-[300px] p-4",
+                },
+                {
+                  description: (
+                    <>
+                      "Change Affiliation" painettuasi, aukeaa{" "}
+                      <strong>Type-valikko.</strong> Muuta havainnon merkkiä
+                      johtopäätöksesi mukaisesti.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic23,
+
+                  note: (
+                    <>
+                      Huomioi TL JULK. Älä tuo käytössäsi olevaa yläjopon
+                      vihollistietoa tähän - käytä peitteitä.
+                    </>
+                  ),
+                },
+                {
+                  description: <>Merkki päivittyy.</>,
+                },
+                {
+                  description: (
+                    <>
+                      Lopuksi lisäät merkin otsikkoon merkinnän{" "}
+                      <strong>(eteen alaviiva)</strong> siitä, että
+                      komentopaikka on käsitellyt merkin.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic25,
+                },
+                {
+                  description: (
+                    <>
+                      Tämän jälkeen tee merkintä tiedusteludiaariin havainnosta
+                      ja jaa se <strong>Recon Feediin</strong> seuraavien
+                      ohjeiden avulla.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic25,
+                },
+              ]}
+            />
+            <UnfoldableCard
+              title={
+                <>
+                  <em>Esimerkki havainnon käsittelystä</em>
+                </>
+              }
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Olet saanut ilmoituksen vartiopaikalta{" "}
+                      <em>lujaa poistuneesta pakettiautosta.</em> ja tästä
+                      keltaisen havaintomerkin. Avaa Marker Details ja paina
+                      Change Affiliation.
+                    </>
+                  ),
+                  imageSrc: pic20,
+                  imageClasses: "mx-auto pr-5 w-[300px] p-4",
+                },
+                {
+                  description: (
+                    <>
+                      <strong>Type-valikko</strong> aukeaa. Et voi tehdä
+                      johtopäätöstä havainnon tyypistä, joten päivität vain sen
+                      ominaisuudet ilmoituksen perusteella.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic23,
+                },
+                {
+                  description: (
+                    <>
+                      Valitset tyypiksi
+                      <em>
+                        Ground track--Equipment--Ground vehicle--Civilian--Multi
+                        passenger--Van
+                      </em>
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic24,
+                },
+                {
+                  description: (
+                    <>
+                      Lopuksi lisäät merkin otsikkoon merkinnän{" "}
+                      <strong>(eteen alaviiva)</strong> siitä, että
+                      komentopaikka on käsitellyt merkin.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic25,
+                },
+                {
+                  description: (
+                    <>
+                      Merkitse havainto tiedusteludiaariin ja lähetä se{" "}
+                      <strong>Recon Feediin</strong> seuraavien ohjeiden avulla.
+                    </>
+                  ),
+                },
+              ]}
+            />
+            <UnfoldableCard
+              title={<>5. Päätä, onko heti ilmoitettava asia</>}
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Päätä, onko havainto <em>heti ilmoitettava asia</em> vai
+                      ei.
+                      <br />
+                      <br /> Heti ilmoitettavat asiat on käsketty sinulle
+                      erikseen. <strong>Varmistu,</strong> että tiedät mitä ne
+                      ovat.
+                      <strong> Lähetä merkin</strong>
+                      lisäksi viesti heti ilmoitettavista asioista:
+                    </>
+                  ),
+                  note: (
+                    <>
+                      TÄRKEÄÄ! Jos havainto on heti ilmoitettava asia, lähetä
+                      ilmoitus käsketyillä viestivälineillä käsketyille
+                      vastaanottajille.
+                      <br />
+                      Käytännön hyöty ratkaisee, lähetätkö viestin vai merkin
+                      ensin.
+                    </>
+                  ),
+                },
+              ]}
+            />
+            <UnfoldableCard
+              title={<>7. Lähetä merkki Recon Feediin</>}
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Jotta kaikki joukkosi TAK-käyttäjät pääsevät näkemään
+                      käsittelemäsi merkin, lähetä merkki Recon Feediin
+                      painamalla <strong>Marker Details</strong>-valikossa kuvan
+                      mukaista <strong>Send</strong>-nappia.
+                    </>
+                  ),
+                  imageSrc: pic26,
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                },
+                {
+                  description: (
+                    <>
+                      Valitse Include Attachments-kysymykseen{" "}
+                      <strong>Yes</strong>.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic27,
+                },
+                {
+                  description: (
+                    <>
+                      Oikeaan reunaan aukeaa painamalla Send-nappia Marker
+                      Details-valikossa <strong>Send To</strong>-valikko.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic28,
+                },
+                {
+                  description: (
+                    <>
+                      <li>
+                        Avaa <strong>Data Sync Feeds-valinta.</strong>.
+                      </li>
+                      <li>Valitse Recon Feed.</li>
+                      <li>
+                        Paina alareunasta <strong>Send</strong>-nappia.
+                      </li>
+                      <br></br>
+                      Havainto on käsitelty ja jaettu joukolle.
+                    </>
+                  ),
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
+                  imageSrc: pic25,
+                },
+                {
+                  description: (
+                    <>
+                      Toimi näin jokaisen <strong>käsitellyn</strong> havainnon
+                      kanssa.
+                    </>
                   ),
                 },
               ]}

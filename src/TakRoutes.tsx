@@ -27,7 +27,6 @@ import { TakUsageWin1 } from "./views/servicetak/usage/wintak/TakUsageWin1";
 import { TakUsageWin2 } from "./views/servicetak/usage/wintak/TakUsageWin2";
 import { TakUsageWin3 } from "./views/servicetak/usage/wintak/TakUsageWin3";
 import { TakUsageWin4 } from "./views/servicetak/usage/wintak/TakUsageWin4";
-import { TakUsageWin5 } from "./views/servicetak/usage/wintak/TakUsageWin5";
 
 const TakRoutes = [
   {
@@ -157,10 +156,6 @@ const TakRoutes = [
   {
     path: "usage/win4",
     element: <TakUsageWin4 />,
-  },
-  {
-    path: "usage/win5",
-    element: <TakUsageWin5 />,
   },
 ];
 

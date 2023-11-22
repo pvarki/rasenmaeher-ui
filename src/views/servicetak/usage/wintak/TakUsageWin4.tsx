@@ -1,10 +1,15 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { GuideSection } from "../../../../components/TakGuides/GuideSection";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageContents } from "../helpers/ServiceTakUsageContents";
-import { UnfoldableCard } from "../../../../components/UnfoldableCard";
+import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
+import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import Wintak from "../../../../assets/icons/wintak.png";
+
+import pic61 from "../../../../assets/takguides/wintak/Kuva61.png";
+import pic62 from "../../../../assets/takguides/wintak/Kuva62.png";
+import pic63 from "../../../../assets/takguides/wintak/Kuva63.png";
 
 export function TakUsageWin4() {
   return (
@@ -13,111 +18,98 @@ export function TakUsageWin4() {
         showNavbar={true}
         showFooter={false}
         navbarTitle="Käyttö joukossa: WinTAK"
-        backUrl="/app/services/tak/Usage"
+        backUrl="/app/services/tak/usage"
       >
+        <StatusBar title="Tietohuolto (4/4)" progressMax={4} progressNow={4} />
         <CardsContainer>
-          <UnfoldableCard
-            title="Sisältö"
-            styling="bg-background"
-            initialOpen={false}
-          >
-            <ServiceTakUsageContents />
-          </UnfoldableCard>
+          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+            <ServiceInfoCard
+              title="WinTAK"
+              image={Wintak}
+              details={
+                <>
+                  Käyttö joukossa WinTAK - vaihe 4: <strong>Tietohuolto</strong>
+                  <br />
+                </>
+              }
+            >
+              <ServiceTakUsageCard />
+            </ServiceInfoCard>
+            <UnfoldableCard
+              title="1. Liikuta ja tarkastele karttaa"
+              styling="bg-backgroundLight"
+              steps={[
+                {
+                  description: (
+                    <>
+                      Palauta WinTAK tehdasasetuksille seuraavasti.
+                      <br />
+                      <br />
+                      Paina kolme päällekkäistä viivaa -symbolia
+                      (hampurilaisvalikko) vasemmassa yläkulmassa.
+                    </>
+                  ),
+                  imageSrc: pic61,
+                  imageClasses: "m-3 w-[200px]",
+                },
+                {
+                  description: (
+                    <>
+                      Paina <strong>Roskakori</strong>-kuvaketta (
+                      <strong>Clear Content)</strong>.
+                    </>
+                  ),
+                  imageSrc: pic62,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      <>Tee Clear Content-valikossa kuvan mukaiset valinnat:</>
+                    </>
+                  ),
+                  imageSrc: pic63,
+                  imageClasses: "m-3 w-[400px]",
+                },
+                {
+                  description: (
+                    <>
+                      <strong>Clear Now</strong>-nappi ilmestyy, kun{" "}
+                      <strong>OFF-</strong>kytkimet on vedetty Locked-asentoon.
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>
+                      Paina <strong>Clear Now!</strong>.
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>
+                      Muista poistaa laitteelta käsin viestiperustepakettisi{" "}
+                      <em>Nimi.zip</em>.
+                    </>
+                  ),
+                },
+                {
+                  description: (
+                    <>
+                      Tietohuolto on nyt suoritettu. Muista suorittaa
+                      tietohuolto aina operaation päätteeksi.
+                    </>
+                  ),
+                },
+              ]}
+            />
+          </div>
         </CardsContainer>
-        <StatusBar
-          title="Toimi komentopaikkana"
-          progressMax={5}
-          progressNow={4}
-        />
-        <div className="flex justify-center items-center w-full">
-          <CardsContainer>
-            <GuideSection
-              number="1."
-              description={
-                <>
-                  Mikäli olet seurannut ohjeita, tiedät nyt, miten toiminta
-                  WinTAKilla komentopaikkana tapahtuu.
-                  <br />
-                  <br />
-                  Seuraa <strong>Käyttömallia</strong> jatkuvassa toiminnassa.
-                  Käyttömalli kuvataan{" "}
-                  <em>
-                    Käyttö joukossa-etusivulla taistelijan ja komentopaikan
-                    näkökulmasta.
-                  </em>
-                  <br />
-                  <br />
-                  Seuraavalla sivulla kuvataan tietohuolto. Alla muistilista
-                  komentopaikan tehtävistä kokonaisuudessaan.
-                </>
-              }
-            />
-            <GuideSection
-              number="2."
-              description={
-                <>
-                  <strong>Komentopaikan tehtävä kokonaisuutena:</strong>
-                </>
-              }
-              description2={
-                <>
-                  Komentopaikalla tulee tehdä jatkuvasti muun muassa seuraavia
-                  tehtäviä:
-                  <br />
-                  <br />
-                  <li>
-                    <strong>1. Tunne</strong> tarkoin joukon tehtävä ja sen
-                    suoritusvaihe joukkueen ja ryhmän tarkkuudella.
-                  </li>
-                  <li>
-                    <strong>2. Vastaanota</strong> joukolta heti ilmoitettavat
-                    asiat.
-                  </li>
-                  <li>
-                    <strong>3. Vastaanota</strong> joukolta määräaikaiset ja
-                    -muotoiset (tiettyyn kellonaikaan saapuvat)
-                    tilanneilmoitukset.
-                  </li>
-                  <li>
-                    <strong>4. Ylläpidä</strong> viestipäiväkirjaa kaikin
-                    välinein tulleista ilmoituksista.
-                  </li>
-                  <li>
-                    <strong>5. Ylläpidä</strong> numeroitua tiedusteludiaaria
-                    omalta joukolta, naapureilta ja ylhäältä tulleista
-                    havainnoista ja vihollistiedoista.
-                  </li>
-                  <li>
-                    <strong>6. Ylläpidä</strong> tietojärjestelmiä, joista TAK
-                    on yksi.
-                  </li>
-                </>
-              }
-              note2={
-                <>
-                  Nämä 6 tehtävää toimivat komentopaikan tietolähteinä. Käytä
-                  näitä lähteitä, ja aktiivisesti etsi ja kysele lisää tietoa.
-                  Tehtäväsi on tiedon avulla muodostaa tilannekuva - eli
-                  käsittää, mitä ympärillä tapahtuu <em>nyt</em>,{" "}
-                  <em>6 tunnin</em> ja <em>24 tunnin</em> päästä.<br></br>
-                </>
-              }
-              description3={
-                <>
-                  <br />
-                  Tällä tehtävälläsi TAK-palvelu <em>on vain yksi väline</em>.
-                  Älä anna järjestelmän ja ilmoitusten viedä huomiota - käytä
-                  niitä kerätäksesi tietoa, ja jakaaksesi sitä joukolle.{" "}
-                  <br></br>Näin luodaan joukon tietoylivoima omassa
-                  ympäristössä.
-                </>
-              }
-            />
-          </CardsContainer>
-        </div>
         <NavigateButtons
-          backUrl="/app/services/tak/Usage/win3"
-          forwardUrl="/app/services/tak/Usage/win5"
+          backUrl="/app/services/tak/usage/win3"
+          forwardUrl="/app/services/tak/usage"
+          alterForward="Valmis! Palaa takaisin."
         />
       </Layout>
     </div>

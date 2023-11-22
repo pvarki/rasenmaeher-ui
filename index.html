@@ -9,7 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title id="deployment-title"></title>
     <script>
-      document.title = window.location.hostname;
+      // Get the deployment name (FQDN) from the window location
+      const deploymentName = window.location.hostname;
+
+      // Set the deployment name as the title
+      document.getElementById("deployment-title").innerText = deploymentName;
     </script>
   </head>
   <body class="bg-background">
