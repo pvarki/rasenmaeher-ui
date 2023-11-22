@@ -1,24 +1,34 @@
-import { BookmarkRemainder } from "../components/BookmarkRemainder";
+import { BookmarkReminder } from "../components/BookmarkRemainder";
 import { Layout } from "../components/Layout";
 import { CardsContainer } from "../components/CardsContainer";
 import { TextCard } from "../components/TextCard";
-import { Card } from "../components/Card";
-import services from "../assets/byod2.png";
+import { ServiceTak } from "./servicetak/ServiceTak";
+import { useUserType } from "../hook/auth/useUserType";
+import taistelija from "../assets/heroimages/taistelija.jpeg";
 
 export function SoldierView() {
+  const { callsign } = useUserType();
   return (
-    <Layout showNavbar={true} navbarTitle="metsa-kota.pvarki.fi">
+    <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>
       <CardsContainer>
         <TextCard
-          title="Kirjautunut käyttäjänä [user]"
-          details="Tervetuloa joukkosi PVARKI-ympäristöön! Valitse <strong>Palvelut</strong> ottaaksesi palvelut käyttöön omalla laitteellasi."
+          title={
+            <>
+              Tervetuloa, <em>{callsign && `${callsign}`}.</em>{" "}
+            </>
+          }
+          details={
+            <>
+              Joukkosi käytössä olevat palvelut ovat ohessa. Paina palvelun{" "}
+              <strong>kuvaketta</strong> ottaaksesi sen käyttöön omalla
+              laitteellasi.
+            </>
+          }
         />
-        <Card
-          title="Palvelut"
-          image={services}
-          url="/app/users/:callsign/services"
-        />
-        <BookmarkRemainder />
+      </CardsContainer>
+      <ServiceTak />
+      <CardsContainer>
+        <BookmarkReminder />
       </CardsContainer>
     </Layout>
   );

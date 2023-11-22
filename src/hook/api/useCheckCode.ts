@@ -17,11 +17,13 @@ interface CheckAdminCodeResponse {
 }
 
 async function checkAdminCode(code: string) {
+  console.log("usecheckcodwe: checking if admincode");
   const query = new URLSearchParams({
     temp_admin_code: code,
   });
   const res = await fetch("/api/v1/firstuser/check-code?" + query.toString());
   const data = (await res.json()) as CheckAdminCodeResponse;
+  console.log("debug: Response from /firstuser/check-code:", data);
   return data?.code_ok ?? false;
 }
 
@@ -30,11 +32,13 @@ interface CheckEnrollmentCodeResponse {
 }
 
 async function checkEnrollmentCode(code: string) {
+  console.log("usecheckcodwe: checking if enrollmentcodecode");
   const query = new URLSearchParams({
     invitecode: code,
   });
   const res = await fetch("/api/v1/enrollment/invitecode?" + query.toString());
   const data = (await res.json()) as CheckEnrollmentCodeResponse;
+  console.log("debug: Response from /enrollment/invitecode:", data);
   return data?.invitecode_is_active ?? false;
 }
 

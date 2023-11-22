@@ -1,7 +1,8 @@
-#!/bin/bash -l
+#!/usr/local/bin/bash -l
 set -e
 if [ "$#" -eq 0 ]; then
-  npx http-server /app/dist --port 8002
+  cp -r /dist/* /deliver/
+  ls -R /deliver/
 else
   exec "$@"
 fi

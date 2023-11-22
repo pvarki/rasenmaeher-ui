@@ -1,12 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        consolas: ["Consolas", "monospace"],
+      },
+      utilities: {
+        ".strong2": {
+          fontWeight: "bold",
+        },
+      },
       colors: {
         background: "#222",
-        backgroundLight: "#333",
+        backgroundLight: "#2b2e31",
+        textLight: "#E4E4E4",
         primary: {
           DEFAULT: "#42687D",
           200: "#A2BBCB",
@@ -39,7 +49,29 @@ export default {
           900: "#653C48",
         },
       },
+      typography: /** @type {any} */ (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.textLight"),
+            a: {
+              color: theme("colors.primary.DEFAULT"),
+              "&:hover": {
+                color: theme("colors.primary.500"),
+              },
+            },
+            h3: {
+              color: theme("colors.textLight"),
+            },
+            strong: {
+              color: theme("colors.success.DEFAULT"),
+            },
+            strong2: {
+              fontWeight: "bold",
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

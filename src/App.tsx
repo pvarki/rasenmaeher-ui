@@ -1,13 +1,34 @@
 import Router from "./Router";
 import { AlertDialogRoot } from "./components/AlertDialogService/AlertDialogRoot";
+import { UserTypeFetcher } from "./hook/auth/userTypeFetcher";
+import { LoadingProvider } from "./components/Loading/LoadingProvider";
+import LoadingComponent from "./components/Loading/LoadingComponent";
+import { useUserType } from "./hook/auth/useUserType";
 
 function App() {
   return (
-    <>
-      <Router />
-      <AlertDialogRoot />
-    </>
+    <LoadingProvider>
+      <UserTypeFetcher>
+        <Content />
+      </UserTypeFetcher>
+    </LoadingProvider>
   );
 }
 
+const Content = () => {
+  const { isLoading } = useUserType();
+
+  if (isLoading) {
+    return <LoadingComponent />;
+  }
+
+  return (
+    <div className="relative">
+      <div className="opacity-100">
+        <Router />
+        <AlertDialogRoot />
+      </div>
+    </div>
+  );
+};
 export default App;

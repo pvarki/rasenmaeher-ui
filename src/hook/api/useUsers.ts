@@ -11,15 +11,10 @@ interface UserListResponse {
 }
 
 async function getUsers() {
-  const jwt = localStorage.getItem("token");
-  if (!jwt) {
-    throw new Error("No JWT found");
-  }
   const res = await fetch("/api/v1/people/list", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
     },
   });
   if (res.status !== 200) {
@@ -27,6 +22,7 @@ async function getUsers() {
   }
 
   const data = (await res.json()) as UserListResponse;
+  console.log("Fetched user data:", data);
 
   return data.callsign_list;
 }

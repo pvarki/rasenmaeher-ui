@@ -43,19 +43,15 @@ RUN npm install  \
 #########################
 # Main production build #
 #########################
-FROM node:18-bookworm-slim as production
+FROM bash:latest as production
 WORKDIR /app
 COPY --from=production_build /docker-entrypoint.sh /docker-entrypoint.sh
-COPY --from=production_build /app/dist /app/dist
+COPY --from=production_build /app/dist /dist
 # Copy build things from production_build so this production image can stay minimalis
-RUN --mount=type=ssh apt-get update && apt-get install -y \
-        bash \
-        tini \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && chmod a+x /docker-entrypoint.sh \
+RUN chmod a+x /docker-entrypoint.sh \
+    && mkdir /deliver \
     && true
-ENTRYPOINT ["/usr/bin/tini", "--", "/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 
 #####################################

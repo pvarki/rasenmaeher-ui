@@ -2,6 +2,7 @@ import { UseMutationOptions, useMutation } from "react-query";
 
 interface ApproveUserResponse {
   success: boolean;
+  detail?: string;
 }
 
 async function approveUser({
@@ -11,24 +12,20 @@ async function approveUser({
   callsign: string;
   approvalCode: string;
 }) {
-  const jwt = localStorage.getItem("token");
-  if (!jwt) {
-    throw new Error("No JWT found");
-  }
-
-  const res = await fetch("/api/v1/enrollment/accept" + callsign, {
+  const res = await fetch("/api/v1/enrollment/accept", {
+    // Correct endpoint as per API spec
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
     },
-    body: JSON.stringify({ callsign, approvecode: approvalCode }),
+    body: JSON.stringify({ callsign, approvecode: approvalCode }), // make sure this matches the API spec
   });
-  if (res.status !== 200) {
-    throw new Error("Failed to login as admin");
-  }
 
   const data = (await res.json()) as ApproveUserResponse;
+
+  if (res.status !== 200) {
+    throw new Error(data.detail);
+  }
 
   if (!data.success) {
     throw new Error("Failed to approve user");

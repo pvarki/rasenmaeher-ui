@@ -1,30 +1,64 @@
 import QRCode from "react-qr-code";
-import { Navbar } from "../../../components/Navbar";
+import { Layout } from "../../../components/Layout";
 import { Button } from "../../../components/Button";
-
+import { CardsContainer } from "../../../components/CardsContainer";
 import { useParams } from "react-router-dom";
+import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
+import { useCopyToClipboard } from "../../../hook/helpers/useCopyToClipboard";
 
 export function QrCodeView() {
   const { inviteCode } = useParams();
-
+  const { isCopied, handleCopy } = useCopyToClipboard();
+  let hostname = new URL(window.location.origin).hostname;
+  hostname = hostname.replace(/^mtls\./, "");
   const inviteUrl =
-    window.location.origin + "/login?code=" + (inviteCode ?? "");
+    window.location.protocol +
+    "//" +
+    hostname +
+    (window.location.port ? ":" + window.location.port : "") +
+    "/login?code=" +
+    (inviteCode ?? "");
 
   return (
-    <div className="flex flex-col items-center gap-5">
-      <Navbar title={inviteCode} backUrl="/app/user-management/code-list" />
-      <div className="w-min flex flex-col justify-center items-center p-3 pb-0 bg-backgroundLight rounded-lg">
-        <QRCode value={inviteUrl} />
-        <div className="w-full flex justify-end">
-          <Button variant={{ color: "tertiary" }}>Kopio Linkki</Button>
+    <Layout
+      showNavbar={true}
+      navbarTitle={<>Kutsukoodi {inviteCode}</>}
+      backUrl="/app/admin/user-management/code-list"
+    >
+      <CardsContainer>
+        <div className="flex flex-col items-center gap-5">
+          <div className="flex flex-col justify-center w-full items-center p-3 pb-0 bg-backgroundLight rounded-lg">
+            <QRCode value={inviteUrl} />
+            <div className="w-full flex justify-end">
+              <Button
+                variant={{ color: "tertiary" }}
+                onClick={() => handleCopy(inviteUrl)}
+              >
+                {isCopied ? "Linkki kopioitu!" : "Kopioi linkki"}
+              </Button>
+            </div>
+          </div>
+          <ServiceInfoCard
+            details={
+              <>
+                1. <strong>Näytä</strong> käyttäjällesi tätä QR-koodia.
+                <br />
+                2. Käyttäjäsi pääsee syöttämään <strong>peitenimensä</strong>.
+                <br />
+                3. <strong>Hyväksy</strong> käyttäjäsi kirjautuminen.
+                <br />
+                <small>
+                  <br />
+                  Käyttäjän kirjautuminen hyväksytään kuvaamalla tämän näytöltä
+                  QR-koodi, tai hyväksymällä se
+                  <br />
+                  käyttäjienhallinnan <strong>“Hyväksy"</strong>-näkymässä.{" "}
+                </small>
+              </>
+            }
+          />
         </div>
-      </div>
-      <span className="p-3 bg-backgroundLight rounded-lg text-white text-center">
-        Käyttäjien lisääminen Näytä taistelijallesi QR-koodia Taistelija pääsee
-        kirjautumissivulle Hyväksy taistelijasi kirjautuminen Hyväksy taistelija
-        kuvaamalla tämän näytöltä QR-koodi, tai hyväksymällä se “Hae koodilla”
-        -valikosta{" "}
-      </span>
-    </div>
+      </CardsContainer>
+    </Layout>
   );
 }

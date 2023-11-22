@@ -59,11 +59,19 @@ the running container is faster::
 Production docker
 ^^^^^^^^^^^^^^^^^
 
-There's a "production" target as well for running the application, remember to change that
-architecture tag to arm64 if building on ARM::
+This will just deliver the compiled files to a mounted directory
 
     docker build --ssh default --target production -t rasenmaeher_ui:amd64-latest .
-    docker run -it --name rasenmaeher_ui rasenmaeher_ui:amd64-latest
+    docker run -it --rm -v `pwd`/rmui_files:/deliver rasenmaeher_ui:amd64-latest
+
+
+Then you need to serve things so that index.html is the default controller for things, nginx example::
+
+    location / {
+        index index.html;
+        root /rmui_files;
+        try_files $uri $uri/ /index.html =404;
+    }
 
 Development
 -----------

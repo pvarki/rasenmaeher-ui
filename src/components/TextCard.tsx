@@ -1,22 +1,20 @@
-import React from "react";
-import parse from "html-react-parser";
-
 export function TextCard({
   title,
   image,
   details,
+  children,
 }: {
-  title?: string;
+  title?: React.ReactNode;
   image?: string;
-  details?: string;
+  details?: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full h-36 md:h-52 lg:h-72 mb-5 overflow-hidden">
-      <h3 className="text-white text-xl font-bold mt-1 mb-1">{title}</h3>
-      {image && <img src={image} className="w-28 h-28 object-contain mt-2" />}
-      {details && (
-        <p className="text-white text-center ml-2 mr-2 ">{parse(details)}</p>
-      )}
+    <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full max-w-full mb-5 overflow-hidden prose prose-white">
+      <h3 className="text-xl font-bold mt-1 mb-1">{title}</h3>
+      {image && <img src={image} className="w-36 h-36 object-contain mt-2" />}
+      {details && <p className="text-center ml-2 mr-2 ">{details}</p>}
+      <div className="w-full">{children}</div>
     </div>
   );
 }

@@ -8,10 +8,6 @@ interface GetVerificationCodeInfoResponse {
 }
 
 async function getVerificationCodeInfo(code: string) {
-  const jwt = localStorage.getItem("token");
-  if (!jwt) {
-    throw new Error("Failed to login as admin");
-  }
   const query = new URLSearchParams({
     verification_code: code,
   });
@@ -21,7 +17,6 @@ async function getVerificationCodeInfo(code: string) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${jwt}`,
       },
     },
   );

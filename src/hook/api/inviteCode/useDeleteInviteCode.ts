@@ -5,20 +5,18 @@ interface DeleteInviteCodeResponse {
 }
 
 async function deleteInviteCode(inviteCode: string) {
-  const jwt = localStorage.getItem("token");
-  if (!jwt) {
-    throw new Error("No JWT found");
-  }
-
+  console.log("Deleting invite code:", inviteCode);
   const res = await fetch("/api/v1/enrollment/invitecode/" + inviteCode, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
     },
   });
 
+  console.log("Delete response:", res);
+
   if (res.status !== 200) {
+    console.error("Failed to delete invite code. Status code:", res.status);
     throw new Error("Failed to login as admin");
   }
 

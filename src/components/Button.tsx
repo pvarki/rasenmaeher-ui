@@ -11,7 +11,7 @@ const button = tv({
         "text-primary-900 bg-primary-300 hover:bg-primary-400 focus:ring-primary-300 disabled:bg-primary-200",
       tertiary: "text-primary bg-transparent",
       success:
-        "text-white bg-success hover:bg-success-700 focus:ring-success-200 disabled:bg-success-200",
+        "text-white bg-success-700 hover:bg-success-500 focus:ring-success-200 disabled:bg-success-200",
       error:
         "text-white bg-error hover:bg-error-700 focus:ring-error-200 disabled:bg-error-200",
     },
