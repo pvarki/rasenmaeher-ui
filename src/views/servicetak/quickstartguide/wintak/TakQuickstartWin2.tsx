@@ -51,7 +51,7 @@ export function TakQuickstartWin2() {
                   <strong>Puolustusvoimien osoittamasta paikasta</strong>.
                   <br />
                   <br />
-                  <strong>Lataa</strong> strong painamalla kuvaketta alta:
+                  <strong>Lataa</strong> painamalla kuvaketta alta:
                 </>
               }
               image2Src={windownload}

@@ -7,8 +7,6 @@ export function getOperatingSystem() {
     os = "MacOS";
   } else if (/Win/i.test(platform)) {
     os = "Windows";
-  } else if (/Linux/i.test(platform)) {
-    os = "Linux";
   } else if (/Android/i.test(userAgent)) {
     os = "Android";
   } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
