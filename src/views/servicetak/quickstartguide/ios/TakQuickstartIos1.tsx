@@ -2,7 +2,6 @@ import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
 import ITAK from "../../../../assets/icons/iTAK.png";
 import appstore from "../../../../assets/icons/appstore.svg";
-import viestiperustebutton from "../../../../assets/takguides/viestiperustebutton.png";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
@@ -55,13 +54,14 @@ export function TakQuickstartIos1() {
             <UnfoldableCard
               title="2. Lataa viestiperusteet"
               styling="bg-backgroundLight"
-              image2Src={viestiperustebutton}
-              image2Classes="m-3 w-[500px]"
               description1={
                 <>
-                  Lataa viestiperusteesi etusivulta painamalla kuvan mukaista{" "}
-                  <strong>Lataa viestiperustepaketti</strong>-nappia. Tallenna
-                  .zip-tiedosto.
+                  Lataa tämän palvelun <strong>etusivulta</strong>{" "}
+                  viestiperusteet painamalla vihreää
+                  <strong> Lataa viestiperustepaketti</strong>-nappia.
+                  <br />
+                  <br />
+                  Tallenna .zip-tiedosto.
                 </>
               }
               note="HUOMAA! Zip-tiedostoa ei tarvitse purkaa!"

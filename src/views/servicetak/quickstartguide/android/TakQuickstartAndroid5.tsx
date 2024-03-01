@@ -16,7 +16,7 @@ import pic2 from "../../../../assets/takguides/atak/datasyncatak99.png";
 import pic4 from "../../../../assets/takguides/atak/atakdatasync4.png";
 import pic5 from "../../../../assets/takguides/atak/atakdatasync5.png";
 
-export function TakQuickstartAndroid5() {
+export function TakQuickstartAndroid4() {
   return (
     <div className="pb-20">
       <Layout
@@ -26,9 +26,9 @@ export function TakQuickstartAndroid5() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Ota käyttöön Data Sync (5/5)"
+          title="Ota käyttöön Data Sync (4/5)"
           progressMax={5}
-          progressNow={5}
+          progressNow={4}
         />
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
@@ -37,7 +37,7 @@ export function TakQuickstartAndroid5() {
               image={ATAK}
               details={
                 <>
-                  ATAK käyttöönotto - vaihe 5:{" "}
+                  ATAK käyttöönotto - vaihe 4:{" "}
                   <strong>Ota käyttöön Data Sync</strong>
                   <br />
                   Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
@@ -213,8 +213,7 @@ export function TakQuickstartAndroid5() {
         </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/android3"
-          forwardUrl="/app/services/tak/quickstart"
-          alterForward="Valmis! Palaa tästä."
+          forwardUrl="/app/services/tak/quickstart/android5"
         />
       </Layout>
     </div>

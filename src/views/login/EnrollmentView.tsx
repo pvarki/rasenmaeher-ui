@@ -52,7 +52,7 @@ export function EnrollmentView() {
               window.location.reload();
             }}
           >
-            Jatka
+            Jatka painamalla tästä.
           </Button>
         </main>
       </Layout>
@@ -63,13 +63,19 @@ export function EnrollmentView() {
     <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
         <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+          <div className="pb-4">
+            <Text
+              title="Olet odotustilassa!"
+              description="Ylläpitäjän pitää hyväksyä sinut palveluun. Näytä hänelle oheista QR-koodia. Tai paina 'Kopioi linkki' ja lähetä hänelle hyväksyntälinkkisi esimerkiksi pikaviestillä."
+            />
+          </div>
           <QRCode value={approvalUrl} />
           <div className="w-full flex justify-end">
             <Button
               variant={{ color: "tertiary" }}
               onClick={() => handleCopy(approvalUrl)}
             >
-              {isCopied ? "Linkki kopioitu!" : "Kopioi linkki adminille"}
+              {isCopied ? "Linkki kopioitu!" : "Kopioi linkki ylläpitäjälle"}
             </Button>
           </div>
           {copyError && (
@@ -91,8 +97,8 @@ export function EnrollmentView() {
               {
                 description: (
                   <>
-                    Odotat adminin hyväksyntää palveluun. Hyväksyntä tapahtuu
-                    jollakin näistä kolmesta tavasta:
+                    Odotat ylläpitäjän hyväksyntää palveluun. Hyväksyntä
+                    tapahtuu jollakin näistä kolmesta tavasta:
                     <br />
                     <br />
                     <li>
@@ -100,12 +106,12 @@ export function EnrollmentView() {
                       sisältää hyväksymislinkin.
                     </li>
                     <li>
-                      Kopioi ja lähetä adminille{" "}
+                      Kopioi ja lähetä ylläpitäjälle{" "}
                       <strong>hyväksymislinkki.</strong>
                     </li>
                     <li>
-                      Lähetä adminlle <strong>hyväksymiskoodisi</strong>, jonka
-                      hän syöttää hyväksyntänäkymäänsä.
+                      Lähetä ylläpitäjälle <strong>hyväksymiskoodisi</strong>,
+                      jonka hän syöttää hyväksyntänäkymäänsä.
                     </li>
                   </>
                 ),

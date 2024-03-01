@@ -16,8 +16,12 @@ import Meterstokilo25 from "../../../../assets/takguides/atak/25-MetersToKilo1.p
 import Meterskmunits26 from "../../../../assets/takguides/atak/26-10001.png";
 import pic07 from "../../../../assets/takguides/atak/07-Kartta1.png";
 import pic08 from "../../../../assets/takguides/atak/08-OK1.png";
+import Callsign11 from "../../../../assets/takguides/atak/11-Callsign1.png";
+import Csprefs12 from "../../../../assets/takguides/atak/12-Csprefs1.png";
+import Mycallsign13 from "../../../../assets/takguides/atak/13-MyCallsign1.png";
+import Omapeite14 from "../../../../assets/takguides/atak/14-OmaPeite1.png";
 
-export function TakQuickstartAndroid4() {
+export function TakQuickstartAndroid5() {
   return (
     <div className="pb-20">
       <Layout
@@ -27,9 +31,9 @@ export function TakQuickstartAndroid4() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Vaihda mittayksiköt ja kartta (4/5)"
+          title="Tarkasta tarvittaessa mittayksiköt ja kartta (5/5)"
           progressMax={5}
-          progressNow={4}
+          progressNow={5}
         />
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
@@ -38,8 +42,10 @@ export function TakQuickstartAndroid4() {
               image={ATAK}
               details={
                 <>
-                  ATAK käyttöönotto - vaihe 4:{" "}
-                  <strong>vaihda mittayksiköt ja kartta</strong>
+                  ATAK käyttöönotto - vaihe 5:{" "}
+                  <strong>
+                    Tarkista tarvittaessa mittayksiköt, callsign ja kartta
+                  </strong>
                   <br />
                   Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
                   tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.
@@ -49,12 +55,59 @@ export function TakQuickstartAndroid4() {
             <UnfoldableCard
               title={
                 <>
-                  4. <strong>Aseta</strong> mittayksiköt
+                  <strong>Valitse</strong> haluamaisi karttapohja
                 </>
               }
               styling="bg-backgroundLight"
               description1={
                 <>
+                  Mikäli haluat valita karttapohjan (eri vaihtoehtoja
+                  saatavilla), toimi seuraavasti.
+                  <br />
+                  Valitse työkalurivistä (oikea yläkulma){" "}
+                  <strong> Kartat </strong>.
+                </>
+              }
+              image2Src={pic07}
+              image2Classes="m-3 w-[300px]"
+              description2={
+                <>
+                  <br />
+                  Totea <strong>OK</strong> muutamaan ilmoitukseen.
+                </>
+              }
+              image3Src={pic08}
+              image3Classes="m-3 w-[300px]"
+              description3={
+                <>
+                  <br />
+                  Valitse <strong>Mobile</strong> välilehdeltä{" "}
+                  <strong>02 Google Hybrid</strong> Karttapohja aktivoituu.
+                </>
+              }
+              image4Src={pic08}
+              image4Classes="m-3 w-[300px]"
+              description4={
+                <>
+                  <br />
+                  Pääset pois valikosta painamalla muutamia kertoja{" "}
+                  <strong>Back</strong>-nappia.
+                </>
+              }
+            />
+            <UnfoldableCard
+              title={
+                <>
+                  <strong>Tarkista</strong> tarvittaessa mittayksiköt
+                </>
+              }
+              styling="bg-backgroundLight"
+              description1={
+                <>
+                  Android ATAKissa mittayksikköasetukset tulevat
+                  perustepaketista. Tarkista ne tarvittaessa seuraavasti.
+                  <br />
+                  <br />
                   a. Palaa takaisin <strong>Settings</strong>-päävalikkoon
                   peruuttamalla.
                   <br />
@@ -142,49 +195,56 @@ export function TakQuickstartAndroid4() {
             <UnfoldableCard
               title={
                 <>
-                  5. <strong>Vaihda</strong> karttapohja
+                  Tarkista ja vaihda tarvittaessa <strong>Callsign</strong>
                 </>
               }
               styling="bg-backgroundLight"
               description1={
                 <>
+                  Peitenimesi Android ATAKissa tulee perustepaketissa. Mikäli
+                  sinun tarvitsee vaihtaa se, se tapahtuu näin.
                   <br />
-                  Valitse työkalurivistä (oikea yläkulma){" "}
-                  <strong> Kartat </strong>.
+                  <br />
+                  Valitse <strong>Callsign and Device Preferences.</strong>
                 </>
               }
-              image2Src={pic07}
+              image2Src={Callsign11}
               image2Classes="m-3 w-[300px]"
               description2={
                 <>
-                  <br />
-                  Totea <strong>OK</strong> muutamaan ilmoitukseen.
+                  Valitse <strong>Callsign Preferences.</strong>
                 </>
               }
-              image3Src={pic08}
+              image3Src={Csprefs12}
               image3Classes="m-3 w-[300px]"
-              description3={
-                <>
-                  <br />
-                  Valitse <strong>Mobile</strong> välilehdeltä{" "}
-                  <strong>02 Google Hybrid</strong> Karttapohja aktivoituu.
-                </>
-              }
-              image4Src={pic08}
-              image4Classes="m-3 w-[300px]"
               description4={
                 <>
-                  <br />
-                  Pääset pois valikosta painamalla muutamia kertoja{" "}
-                  <strong>Back</strong>-nappia.
+                  Valitse <strong>My Callsign.</strong>
+                </>
+              }
+              image5Src={Mycallsign13}
+              image5Classes="m-3 w-[300px]"
+              description5={
+                <>
+                  Anna omaksi tunnukseksi{" "}
+                  <strong>sinulle käsketty peite,</strong> esimerkiksi{" "}
+                  <em>Rambo</em>.
+                </>
+              }
+              image6Src={Omapeite14}
+              image6Classes="m-3 w-[300px]"
+              description7={
+                <>
+                  Paina <strong>OK.</strong>
                 </>
               }
             />
           </div>
         </CardsContainer>
         <NavigateButtons
-          backUrl="/app/services/tak/quickstart/android3"
-          forwardUrl="/app/services/tak/quickstart/android5"
+          backUrl="/app/services/tak/quickstart/android4"
+          forwardUrl="/app/services/tak/quickstart"
+          alterForward="Valmis! Palaa tästä."
         />
       </Layout>
     </div>

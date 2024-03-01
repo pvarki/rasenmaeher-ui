@@ -5,7 +5,7 @@ export function PublicFooter() {
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
 
-      <div className="pt-4 py-4">&copy; Puolustusvoimat</div>
+      <div className="pt-4 py-4">&copy; PVATK </div>
 
       <hr className="mx-auto w-56" />
 

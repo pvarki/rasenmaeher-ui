@@ -41,6 +41,9 @@ export function QrCodeView() {
           <ServiceInfoCard
             details={
               <>
+                Tämä kutsukoodi toimii, kunnes deaktivoit tai poistat sen.
+                <br />
+                <br />
                 1. <strong>Näytä</strong> käyttäjällesi tätä QR-koodia.
                 <br />
                 2. Käyttäjäsi pääsee syöttämään <strong>peitenimensä</strong>.

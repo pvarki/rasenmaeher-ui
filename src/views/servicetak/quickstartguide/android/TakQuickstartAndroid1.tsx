@@ -3,7 +3,6 @@ import { StatusBar } from "../../../../components/StatusBar";
 import wait from "../../../../assets/takguides/atak/wait.png";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import googleplay from "../../../../assets/icons/googleplay.png";
-import viestiperustebutton from "../../../../assets/takguides/viestiperustebutton.png";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
@@ -66,13 +65,14 @@ export function TakQuickstartAndroid1() {
             <UnfoldableCard
               title="2. Lataa viestiperusteet"
               styling="bg-backgroundLight"
-              image2Src={viestiperustebutton}
-              image2Classes="m-3 w-[500px]"
               description1={
                 <>
-                  Lataa viestiperusteesi etusivulta painamalla kuvan mukaista{" "}
-                  <strong>Lataa viestiperustepaketti</strong>-nappia. Tallenna
-                  .zip-tiedosto.
+                  Lataa tämän palvelun <strong>etusivulta</strong>{" "}
+                  viestiperusteet painamalla vihreää
+                  <strong> Lataa viestiperustepaketti</strong>-nappia.
+                  <br />
+                  <br />
+                  Tallenna .zip-tiedosto.
                 </>
               }
               note="HUOMAA! Zip-tiedostoa ei tarvitse purkaa!"
