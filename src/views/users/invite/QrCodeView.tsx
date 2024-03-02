@@ -28,7 +28,9 @@ export function QrCodeView() {
       <CardsContainer>
         <div className="flex flex-col items-center gap-5">
           <div className="flex flex-col justify-center w-full items-center p-3 pb-0 bg-backgroundLight rounded-lg">
-            <QRCode value={inviteUrl} />
+            <div className="p-2 bg-white rounded-lg">
+              <QRCode value={inviteUrl} bgColor="#FFFFFF" />
+            </div>
             <div className="w-full flex justify-end">
               <Button
                 variant={{ color: "tertiary" }}

@@ -69,7 +69,9 @@ export function EnrollmentView() {
               description="Ylläpitäjän pitää hyväksyä sinut palveluun. Näytä hänelle oheista QR-koodia, tai paina 'Kopioi linkki' ja lähetä hyväksyntälinkki."
             />
           </div>
-          <QRCode value={approvalUrl} />
+          <div className="p-2 bg-white rounded-lg">
+            <QRCode value={approvalUrl} bgColor="#FFFFFF" />
+          </div>
           <div className="w-full flex justify-end">
             <Button
               variant={{ color: "tertiary" }}
