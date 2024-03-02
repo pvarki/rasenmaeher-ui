@@ -62,11 +62,11 @@ export function EnrollmentView() {
   return (
     <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
-        <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
-          <div className="pb-4">
+        <div className="flex flex-col items-center w-full gap-2 justify-center pt-0 p-2">
+          <div className="pb-1">
             <Text
               title="Olet odotustilassa!"
-              description="Ylläpitäjän pitää hyväksyä sinut palveluun. Näytä hänelle oheista QR-koodia. Tai paina 'Kopioi linkki' ja lähetä hänelle hyväksyntälinkkisi esimerkiksi pikaviestillä."
+              description="Ylläpitäjän pitää hyväksyä sinut palveluun. Näytä hänelle oheista QR-koodia, tai paina 'Kopioi linkki' ja lähetä hyväksyntälinkki."
             />
           </div>
           <QRCode value={approvalUrl} />
@@ -102,8 +102,8 @@ export function EnrollmentView() {
                     <br />
                     <br />
                     <li>
-                      Admin skannaa oheisen <strong>QR-koodin</strong>, joka
-                      sisältää hyväksymislinkin.
+                      Ylläpitäjä skannaa oheisen <strong>QR-koodin</strong>,
+                      joka sisältää hyväksymislinkin.
                     </li>
                     <li>
                       Kopioi ja lähetä ylläpitäjälle{" "}
