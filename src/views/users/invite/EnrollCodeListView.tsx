@@ -28,7 +28,7 @@ export function EnrollCodeListView() {
     openDialog({
       title: "Luo uusi kutsukoodi",
       description:
-        "Kutsukoodi toimii, kunnes poistat sen. Luo uusi koodi vain, jos tarvitset - esimerkiksi, jos olet poistanut tai deaktivoinut edellisen.",
+        "Kutsukoodit toimivat monta kertaa. Luo uusi koodi vain, jos tarvitset - esimerkiksi, jos olet poistanut tai deaktivoinut edellisen.",
       cancelLabel: "Peruuta",
       confirmLabel: "Luo kutsukoodi",
       onConfirm: () => createInviteCode(undefined),
@@ -51,7 +51,8 @@ export function EnrollCodeListView() {
           details={
             <>
               Avaa luotu kutsukoodi QR-koodinäkymään <strong>painamalla</strong>{" "}
-              koodia tai luo uusi kutsukoodi.
+              koodia tai luo uusi kutsukoodi. Kutsukoodi toimii, kunnes se
+              poistetaan tai deaktivoidaan tilapäisesti.
             </>
           }
         >

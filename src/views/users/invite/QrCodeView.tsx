@@ -34,19 +34,19 @@ export function QrCodeView() {
                 variant={{ color: "tertiary" }}
                 onClick={() => handleCopy(inviteUrl)}
               >
-                {isCopied ? "Linkki kopioitu!" : "Kopioi linkki"}
+                {isCopied ? "Linkki kopioitu!" : "Kopioi kutsulinkki"}
               </Button>
             </div>
           </div>
           <ServiceInfoCard
             details={
               <>
-                Tämä kutsukoodi toimii, kunnes deaktivoit tai poistat sen.
+                1. <strong>Näytä</strong> käyttäjällesi tätä QR-koodia -
+                <strong>TAI</strong> paina yltä <i>Kopioi kutsulinkki</i>, ja
+                lähetä linkki käyttäjällesi esim. pikaviestillä.
                 <br />
-                <br />
-                1. <strong>Näytä</strong> käyttäjällesi tätä QR-koodia.
-                <br />
-                2. Käyttäjäsi pääsee syöttämään <strong>peitenimensä</strong>.
+                2. Käyttäjäsi pääsee QR:sta tai linkistä syöttämään{" "}
+                <strong>peitenimensä</strong>.
                 <br />
                 3. <strong>Hyväksy</strong> käyttäjäsi kirjautuminen.
                 <br />
