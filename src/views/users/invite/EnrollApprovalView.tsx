@@ -28,34 +28,34 @@ interface WaitingListAccordionProps {
   onUserClick: (user: UserDetails) => void;
 }
 
+type ApprovalState =
+  | "initial"
+  | "approved"
+  | "rejected"
+  | "rejecting"
+  | "approving";
+
 export function EnrollApprovalView() {
-  const [isApproved, setIsApproved] = useState(false);
-  const [isRejected, setIsRejected] = useState(false);
-  const [isRejecting, setIsRejecting] = useState(false);
-  const [isApproving, setIsApproving] = useState(false);
+  const [approvalState, setApprovalState] = useState<ApprovalState>("initial");
   const [rejectionMessage, setRejectionMessage] = useState("");
-  const [confirmReject, setConfirmReject] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<UserDetails | null>(null);
   const [approvalMessage, setApprovalMessage] = useState("");
   const queryClient = useQueryClient();
   const location = useLocation();
 
-  const { mutate: approveMutation, reset } = useApproveUser({
+  const { mutate: approveMutation } = useApproveUser({
     onMutate: () => {
-      setIsApproving(true);
+      setApprovalState("approving");
     },
     onSuccess: () => {
       setApprovalMessage("Käyttäjä hyväksytty.");
-      setIsApproved(true);
-      setIsApproving(false);
+      setApprovalState("approved");
       void queryClient.invalidateQueries(["enrollmentList"]);
     },
     onError: (error) => {
       setApprovalMessage(`Approval error: ${error.message}`);
-      setIsError(true);
-      setIsApproving(false);
+      setApprovalState("initial");
       console.error("Approval error:", error.message);
     },
   });
@@ -63,34 +63,41 @@ export function EnrollApprovalView() {
   const { mutate: rejectMutation } = useRejectUser({
     onSuccess: () => {
       setRejectionMessage("Käyttäjän hylkääminen onnistui.");
-      setIsRejected(true);
-      setDialogOpen(false);
+      setApprovalState("rejected");
       void queryClient.invalidateQueries(["enrollmentList"]);
     },
     onError: (error) => {
       setRejectionMessage(`Hylkääminen epäonnistui: ${error.message}`);
-      setIsError(true);
+      setApprovalState("initial");
     },
   });
 
   const handleReject = () => {
     if (selectedUser) {
-      setIsRejecting(true);
-
+      setApprovalState("rejecting");
       rejectMutation(
         { callsign: selectedUser.callsign },
         {
           onSuccess: () => {
-            setIsRejecting(false);
-            setIsRejected(true);
-            setDialogOpen(false);
+            setRejectionMessage("Käyttäjän hylkääminen onnistui.");
+            setApprovalState("rejected");
           },
-          onError: () => {
-            setIsRejecting(false);
+          onError: (error) => {
+            setRejectionMessage(`Hylkääminen epäonnistui: ${error.message}`);
+            setApprovalState("initial");
           },
         },
       );
-      setConfirmReject(false);
+    }
+  };
+
+  const handleApprove = (values: { approvalCode: string }) => {
+    if (selectedUser) {
+      setApprovalState("approving");
+      approveMutation({
+        callsign: selectedUser.callsign,
+        approvalCode: values.approvalCode,
+      });
     }
   };
 
@@ -100,22 +107,14 @@ export function EnrollApprovalView() {
     initialValues: {
       approvalCode: "",
     },
-    onSubmit: (values) => {
-      if (selectedUser) {
-        void approveMutation({
-          callsign: selectedUser.callsign,
-          approvalCode: values.approvalCode,
-        });
-      }
-    },
+    onSubmit: handleApprove,
   });
 
   const openModal = useCallback(
     (user: UserDetails) => {
       setSelectedUser(user);
       setDialogOpen(true);
-      setIsApproved(false);
-      setIsRejected(false);
+      setApprovalState("initial");
       setApprovalMessage("");
       setRejectionMessage("");
     },
@@ -133,76 +132,162 @@ export function EnrollApprovalView() {
     }
     return () => {
       closeModal();
-      setIsApproved(false);
+      setApprovalState("initial");
       setSelectedUser(null);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array ensures this runs once on mount
 
-  const handleHyvaksyClick: React.MouseEventHandler<HTMLButtonElement> = () => {
-    formik.submitForm().catch((error) => {
-      console.error("Error submitting form:", error);
-    });
-    void queryClient.invalidateQueries(["enrollmentList"]);
-  };
-
   const closeModal = () => {
     setDialogOpen(false);
-    setIsError(false);
     setSelectedUser(null);
-    reset();
-    setIsRejected(false);
-    setIsRejected(false);
+    setApprovalState("initial");
     setApprovalMessage("");
     setRejectionMessage("");
     formik.resetForm();
   };
 
-  const closeRejectionModal = () => {
-    setIsRejected(false);
-    setRejectionMessage("");
-    void queryClient.invalidateQueries(["enrollmentList"]);
-  };
-
   const DialogButtons = () => {
-    if (isApproved || isError) {
-      return (
-        <Button variant={{ color: "success" }} onClick={closeModal}>
-          OK
-        </Button>
-      );
-    }
-    if (isRejected) {
-      return (
-        <Button variant={{ color: "success" }} onClick={closeRejectionModal}>
-          OK
-        </Button>
-      );
-    }
-    return (
-      <>
-        <Dialog.Close asChild>
-          <Button variant={{ color: "tertiary" }} onClick={closeModal}>
-            Peruuta
+    switch (approvalState) {
+      case "initial":
+        return (
+          <>
+            <Dialog.Close asChild>
+              <Button variant={{ color: "tertiary" }} onClick={closeModal}>
+                Peruuta
+              </Button>
+            </Dialog.Close>
+            <Button
+              variant={{ color: "error" }}
+              onClick={() => setApprovalState("rejecting")}
+            >
+              Hylkää
+            </Button>
+            <Button
+              variant={{ color: "success" }}
+              onClick={() => void formik.submitForm()}
+            >
+              Hyväksy
+            </Button>
+          </>
+        );
+      case "approved":
+        return (
+          <Button variant={{ color: "success" }} onClick={closeModal}>
+            OK
           </Button>
-        </Dialog.Close>
-        <Button
-          variant={{ color: "error" }}
-          onClick={() => setConfirmReject(true)}
-        >
-          Hylkää
-        </Button>
-        <Button
-          variant={{ color: "success" }}
-          onClick={(event) => handleHyvaksyClick(event)}
-        >
-          Hyväksy
-        </Button>
-      </>
-    );
+        );
+      case "rejecting":
+        return (
+          <>
+            <Button
+              variant={{ color: "tertiary" }}
+              onClick={() => setApprovalState("initial")}
+            >
+              Takaisin
+            </Button>
+            <Button variant={{ color: "error" }} onClick={handleReject}>
+              Vahvista hylkäys
+            </Button>
+          </>
+        );
+      case "rejected":
+        return (
+          <Button variant={{ color: "success" }} onClick={closeModal}>
+            OK
+          </Button>
+        );
+      case "approving":
+        return <LoadingComponent text="Hyväksytään käyttäjää..." />;
+      default:
+        return null; // Handle other states if necessary
+    }
   };
 
-  console.log("Is Dialog Open?", isDialogOpen);
+  const renderDialogContent = () => {
+    switch (approvalState) {
+      case "initial":
+        return (
+          <>
+            <Dialog.Description className="text-white mt-4 mb-5 text-md leading-normal">
+              {approvalMessage ||
+                "Syötä käyttäjän hyväksyntäkoodi ja paina Hyväksy."}
+            </Dialog.Description>
+            <div className="text-white m-0 mb-4 text-md">
+              <p>
+                <strong>Peitenimi:</strong> <br />
+                {selectedUser?.callsign}
+              </p>
+              <form onSubmit={formik.handleSubmit}>
+                <label htmlFor="approvalCode">
+                  <strong>Hyväksyntäkoodi:</strong>
+                </label>
+                <input
+                  id="approvalCode"
+                  name="approvalCode"
+                  type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values.approvalCode}
+                  className="text-black font-consolas bg-gray-100 w-full p-2 rounded-lg"
+                />
+              </form>
+            </div>
+            <div className="flex justify-end pt-6 gap-[10px]">
+              <DialogButtons />
+            </div>
+          </>
+        );
+      case "approving":
+        return <LoadingComponent text="Hyväksytään käyttäjää..." />;
+      case "approved":
+        return (
+          <div className="text-white mt-2 text-md">
+            <Dialog.Description className="text-white">
+              Käyttäjä on hyväksytty.
+            </Dialog.Description>
+            <div className="mt-8 flex justify-end">
+              <Button variant={{ color: "success" }} onClick={closeModal}>
+                OK
+              </Button>
+            </div>
+          </div>
+        );
+      case "rejecting":
+        return (
+          <div className="text-white mt-2 text-md">
+            <Dialog.Description className="text-white">
+              Oletko varma, että haluat hylätä käyttäjän?
+            </Dialog.Description>
+            <div className="mt-8 flex justify-end">
+              <Button
+                variant={{ color: "tertiary" }}
+                onClick={() => setApprovalState("initial")}
+              >
+                Takaisin
+              </Button>
+              <Button variant={{ color: "error" }} onClick={handleReject}>
+                Vahvista hylkäys
+              </Button>
+            </div>
+          </div>
+        );
+      case "rejected":
+        return (
+          <div className="text-white mt-2 text-md">
+            <Dialog.Description className="text-white">
+              {rejectionMessage}
+            </Dialog.Description>
+            <div className="mt-4 flex justify-end">
+              <Button variant={{ color: "success" }} onClick={closeModal}>
+                OK
+              </Button>
+            </div>
+          </div>
+        );
+      default:
+        return null; // For 'initial' state or any unexpected state
+    }
+  };
 
   return (
     <Layout
@@ -251,111 +336,22 @@ export function EnrollApprovalView() {
           </main>
         </BackgroundCard>
       </CardsContainer>
-      <Dialog.Root
-        open={isDialogOpen}
-        onOpenChange={(open) => {
-          console.log("Dialog onOpenChange called, open:", open);
-          setDialogOpen(open);
-        }}
-      >
+      <Dialog.Root open={isDialogOpen} onOpenChange={setDialogOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="bg-black opacity-60 data-[state=open]:animate-overlayShow fixed inset-0" />
-          <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[500px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-background p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
-            <Dialog.Title className="text-white m-0 text-lg text-bold font-medium">
-              {isApproved ? "Käyttäjä hyväksytty" : "Hyväksy käyttäjä"}
-            </Dialog.Title>
-            {isApproving ? (
-              <LoadingComponent text="Hyväksytään käyttäjää..." />
-            ) : isApproved ? (
-              <div className="text-white mt-4 mb-5 text-md">
-                Käyttäjä on hyväksytty.
-                <div className="mt-4 flex justify-end">
-                  <Button variant={{ color: "success" }} onClick={closeModal}>
-                    OK
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <>
-                <Dialog.Description className="text-white mt-4 mb-5 text-md leading-normal">
-                  {approvalMessage ||
-                    "Syötä käyttäjän hyväksyntäkoodi ja paina Hyväksy."}
-                </Dialog.Description>
-                {!isError && (
-                  <div className="text-white m-0 mb-4 text-md">
-                    <p>
-                      <strong>Peitenimi:</strong> <br />
-                      {selectedUser?.callsign}
-                    </p>
-                    <form onSubmit={formik.handleSubmit}>
-                      <label htmlFor="approvalCode">
-                        <strong>Hyväksyntäkoodi:</strong>
-                      </label>
-                      <input
-                        id="approvalCode"
-                        name="approvalCode"
-                        type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.approvalCode}
-                        className="text-black font-consolas bg-gray-100 w-full p-2 rounded-lg"
-                      />
-                    </form>
-                  </div>
-                )}
-                <div className="flex justify-end pt-6 gap-[10px]">
-                  <DialogButtons />
-                </div>
-              </>
-            )}
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
-      <Dialog.Root open={confirmReject} onOpenChange={setConfirmReject}>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
+          <Dialog.Overlay className="bg-black opacity-60 fixed inset-0" />
+          <Dialog.Content className="fixed top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 p-8 bg-background rounded-lg shadow-lg">
             <Dialog.Title className="text-lg text-white font-bold">
-              Hylkää käyttäjä
+              {approvalState === "approved"
+                ? "Käyttäjä hyväksytty"
+                : approvalState === "rejecting"
+                ? "Hylkää käyttäjä?"
+                : approvalState === "approving"
+                ? null
+                : approvalState === "rejected"
+                ? "Käyttäjä hylätty"
+                : "Hyväksy käyttäjä"}
             </Dialog.Title>
-            {isRejecting ? (
-              <LoadingComponent text="Toimenpidettä suoritetaan..." />
-            ) : (
-              <>
-                <Dialog.Description className="mt-2 text-white">
-                  Oletko varma? Tämä toimintoa ei voi peruuttaa.
-                </Dialog.Description>
-                <div className="mt-4 flex justify-end gap-3">
-                  <Dialog.Close asChild>
-                    <Button variant={{ color: "tertiary" }}>Peruuta</Button>
-                  </Dialog.Close>
-                  <Button variant={{ color: "error" }} onClick={handleReject}>
-                    Hylkää
-                  </Button>
-                </div>
-              </>
-            )}
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
-      <Dialog.Root open={isRejected} onOpenChange={setIsRejected}>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
-            <Dialog.Title className="text-lg text-white font-bold">
-              Hylkääminen onnistui
-            </Dialog.Title>
-            <Dialog.Description className="mt-2 text-white">
-              {rejectionMessage}
-            </Dialog.Description>
-            <div className="mt-4 flex justify-end gap-3">
-              <Button
-                variant={{ color: "success" }}
-                onClick={closeRejectionModal}
-              >
-                OK
-              </Button>
-            </div>
+            {renderDialogContent()}
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
