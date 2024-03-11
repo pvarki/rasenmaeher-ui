@@ -28,22 +28,27 @@ export function QrCodeView() {
       <CardsContainer>
         <div className="flex flex-col items-center gap-5">
           <div className="flex flex-col justify-center w-full items-center p-3 pb-0 bg-backgroundLight rounded-lg">
-            <QRCode value={inviteUrl} />
+            <div className="p-2 bg-white rounded-lg">
+              <QRCode value={inviteUrl} bgColor="#FFFFFF" />
+            </div>
             <div className="w-full flex justify-end">
               <Button
                 variant={{ color: "tertiary" }}
                 onClick={() => handleCopy(inviteUrl)}
               >
-                {isCopied ? "Linkki kopioitu!" : "Kopioi linkki"}
+                {isCopied ? "Linkki kopioitu!" : "Kopioi kutsulinkki"}
               </Button>
             </div>
           </div>
           <ServiceInfoCard
             details={
               <>
-                1. <strong>Näytä</strong> käyttäjällesi tätä QR-koodia.
+                1. <strong>Näytä</strong> käyttäjällesi tätä QR-koodia -
+                <strong>TAI</strong> paina yltä <i>Kopioi kutsulinkki</i>, ja
+                lähetä linkki käyttäjällesi esim. pikaviestillä.
                 <br />
-                2. Käyttäjäsi pääsee syöttämään <strong>peitenimensä</strong>.
+                2. Käyttäjäsi pääsee QR:sta tai linkistä syöttämään{" "}
+                <strong>peitenimensä</strong>.
                 <br />
                 3. <strong>Hyväksy</strong> käyttäjäsi kirjautuminen.
                 <br />

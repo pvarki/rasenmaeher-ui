@@ -24,6 +24,8 @@ export function AdminHomeView() {
               <>
                 <strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita
                 ympäristöösi. Joukkosi käytössä olevat palvelut ovat ohessa.
+                <br />
+                <br />
                 Paina palvelun <strong>kuvaketta</strong> ottaaksesi sen
                 käyttöön omalla laitteellasi.
               </>

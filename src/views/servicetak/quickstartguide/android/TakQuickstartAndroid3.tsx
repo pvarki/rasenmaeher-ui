@@ -7,10 +7,6 @@ import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 
 import Settings10 from "../../../../assets/takguides/atak/10-Settings1.png";
-import Callsign11 from "../../../../assets/takguides/atak/11-Callsign1.png";
-import Csprefs12 from "../../../../assets/takguides/atak/12-Csprefs1.png";
-import Mycallsign13 from "../../../../assets/takguides/atak/13-MyCallsign1.png";
-import Omapeite14 from "../../../../assets/takguides/atak/14-OmaPeite1.png";
 import MyTeam15 from "../../../../assets/takguides/atak/15-MyTeam1.png";
 import MyRole16 from "../../../../assets/takguides/atak/16-MyRole1.png";
 
@@ -60,49 +56,6 @@ export function TakQuickstartAndroid3() {
               description2={
                 <>
                   Mene valikon alareunaan, valitse <strong>Settings</strong>
-                </>
-              }
-            />
-            <UnfoldableCard
-              title={
-                <>
-                  2. Aseta <strong>Callsign</strong>
-                </>
-              }
-              styling="bg-backgroundLight"
-              description1={
-                <>
-                  Valitse <strong>Callsign and Device Preferences.</strong>
-                </>
-              }
-              image2Src={Callsign11}
-              image2Classes="m-3 w-[300px]"
-              description2={
-                <>
-                  Valitse <strong>Callsign Preferences.</strong>
-                </>
-              }
-              image3Src={Csprefs12}
-              image3Classes="m-3 w-[300px]"
-              description4={
-                <>
-                  Valitse <strong>My Callsign.</strong>
-                </>
-              }
-              image5Src={Mycallsign13}
-              image5Classes="m-3 w-[300px]"
-              description5={
-                <>
-                  Anna omaksi tunnukseksi{" "}
-                  <strong>sinulle käsketty peite,</strong> esimerkiksi{" "}
-                  <em>Rambo</em>.
-                </>
-              }
-              image6Src={Omapeite14}
-              image6Classes="m-3 w-[300px]"
-              description7={
-                <>
-                  Paina <strong>OK.</strong>
                 </>
               }
             />

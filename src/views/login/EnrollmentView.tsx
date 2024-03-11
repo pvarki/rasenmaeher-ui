@@ -52,7 +52,7 @@ export function EnrollmentView() {
               window.location.reload();
             }}
           >
-            Jatka
+            Jatka painamalla tästä.
           </Button>
         </main>
       </Layout>
@@ -62,14 +62,22 @@ export function EnrollmentView() {
   return (
     <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
-        <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
-          <QRCode value={approvalUrl} />
+        <div className="flex flex-col items-center w-full gap-2 justify-center pt-0 p-2">
+          <div className="pb-1">
+            <Text
+              title="Olet odotustilassa!"
+              description="Ylläpitäjän pitää hyväksyä sinut palveluun. Näytä hänelle oheista QR-koodia, tai paina 'Kopioi linkki' ja lähetä hyväksyntälinkki."
+            />
+          </div>
+          <div className="p-2 bg-white rounded-lg">
+            <QRCode value={approvalUrl} bgColor="#FFFFFF" />
+          </div>
           <div className="w-full flex justify-end">
             <Button
               variant={{ color: "tertiary" }}
               onClick={() => handleCopy(approvalUrl)}
             >
-              {isCopied ? "Linkki kopioitu!" : "Kopioi linkki adminille"}
+              {isCopied ? "Linkki kopioitu!" : "Kopioi linkki ylläpitäjälle"}
             </Button>
           </div>
           {copyError && (
@@ -91,21 +99,21 @@ export function EnrollmentView() {
               {
                 description: (
                   <>
-                    Odotat adminin hyväksyntää palveluun. Hyväksyntä tapahtuu
-                    jollakin näistä kolmesta tavasta:
+                    Odotat ylläpitäjän hyväksyntää palveluun. Hyväksyntä
+                    tapahtuu jollakin näistä kolmesta tavasta:
                     <br />
                     <br />
                     <li>
-                      Admin skannaa oheisen <strong>QR-koodin</strong>, joka
-                      sisältää hyväksymislinkin.
+                      Ylläpitäjä skannaa oheisen <strong>QR-koodin</strong>,
+                      joka sisältää hyväksymislinkin.
                     </li>
                     <li>
-                      Kopioi ja lähetä adminille{" "}
+                      Kopioi ja lähetä ylläpitäjälle{" "}
                       <strong>hyväksymislinkki.</strong>
                     </li>
                     <li>
-                      Lähetä adminlle <strong>hyväksymiskoodisi</strong>, jonka
-                      hän syöttää hyväksyntänäkymäänsä.
+                      Lähetä ylläpitäjälle <strong>hyväksymiskoodisi</strong>,
+                      jonka hän syöttää hyväksyntänäkymäänsä.
                     </li>
                   </>
                 ),

@@ -1,20 +1,25 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
+import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 
-import atakds1 from "../../../../assets/takguides/atak/atakdatasync111.jpg";
-import atakds2 from "../../../../assets/takguides/atak/atakdatasync12.jpg";
-import atakds3 from "../../../../assets/takguides/atak/atakdatasync13.jpg";
-import atakds4 from "../../../../assets/takguides/atak/atakdatasync14.jpg";
-import pic1 from "../../../../assets/takguides/atak/atakdatasync1.png";
-import pic3 from "../../../../assets/takguides/atak/atakdatasync3.png";
-import pic2 from "../../../../assets/takguides/atak/datasyncatak99.png";
-import pic4 from "../../../../assets/takguides/atak/atakdatasync4.png";
-import pic5 from "../../../../assets/takguides/atak/atakdatasync5.png";
+import Settings17 from "../../../../assets/takguides/atak/17-settings2.png";
+import Settings18 from "../../../../assets/takguides/atak/18-DisplaySettings1.png";
+import UnitDisplay19 from "../../../../assets/takguides/atak/19-UnitDisplay1.png";
+import Altitude20 from "../../../../assets/takguides/atak/20-Altitude1.png";
+import UnitFormat21 from "../../../../assets/takguides/atak/21-UnitFormat1.png";
+import Speedunits24 from "../../../../assets/takguides/atak/24-SpeedUnits1.png";
+import Meterstokilo25 from "../../../../assets/takguides/atak/25-MetersToKilo1.png";
+import Meterskmunits26 from "../../../../assets/takguides/atak/26-10001.png";
+import pic07 from "../../../../assets/takguides/atak/07-Kartta1.png";
+import pic08 from "../../../../assets/takguides/atak/08-OK1.png";
+import Callsign11 from "../../../../assets/takguides/atak/11-Callsign1.png";
+import Csprefs12 from "../../../../assets/takguides/atak/12-Csprefs1.png";
+import Mycallsign13 from "../../../../assets/takguides/atak/13-MyCallsign1.png";
+import Omapeite14 from "../../../../assets/takguides/atak/14-OmaPeite1.png";
 
 export function TakQuickstartAndroid5() {
   return (
@@ -26,7 +31,7 @@ export function TakQuickstartAndroid5() {
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Ota käyttöön Data Sync (5/5)"
+          title="Tarkasta tarvittaessa mittayksiköt ja kartta (5/5)"
           progressMax={5}
           progressNow={5}
         />
@@ -38,181 +43,207 @@ export function TakQuickstartAndroid5() {
               details={
                 <>
                   ATAK käyttöönotto - vaihe 5:{" "}
-                  <strong>Ota käyttöön Data Sync</strong>
+                  <strong>
+                    Tarkista tarvittaessa mittayksiköt, callsign ja kartta.
+                  </strong>
                   <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.
+                  <br />
+                  Näiden asetusten tulisi olla viestiperusteiden asettamisen
+                  jälkeen kunnossa. Tarkista tai muuta niitä halutessasi.
                 </>
               }
             />
             <UnfoldableCard
-              title="1. Avaa Data Sync-valikko"
+              title={
+                <>
+                  <strong>Valitse</strong> haluamaisi karttapohja
+                </>
+              }
               styling="bg-backgroundLight"
-              steps={[
-                {
-                  description: (
-                    <>
-                      a. Päänäkymässä, avaa <strong>hampurilaisvalikko</strong>{" "}
-                      ja etsi <strong>Plugins.</strong>
-                    </>
-                  ),
-                  imageSrc: atakds1,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      b. Plugins-valikko avautuu. Paina <em>Data Syncin</em>{" "}
-                      riviltä kohtaa "Status: <strong>Not loaded</strong>."
-                    </>
-                  ),
-                  imageSrc: atakds2,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      c. Sovellus kysyy, ladataanko <em>Data Sync</em> käyttöön.
-                      Paina <strong>Load.</strong>
-                    </>
-                  ),
-                  imageSrc: atakds3,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      d. Data Syncin status muuttuu <strong>Loaded</strong>
-                      -tilaan.
-                    </>
-                  ),
-                  imageSrc: atakds4,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: <>Valmis! Voit poistua valikosta.</>,
-                },
-              ]}
+              description1={
+                <>
+                  Mikäli haluat valita karttapohjan (eri vaihtoehtoja
+                  saatavilla), toimi seuraavasti.
+                  <br />
+                  Valitse työkalurivistä (oikea yläkulma){" "}
+                  <strong> Kartat </strong>.
+                </>
+              }
+              image2Src={pic07}
+              image2Classes="m-3 w-[300px]"
+              description2={
+                <>
+                  <br />
+                  Totea <strong>OK</strong> muutamaan ilmoitukseen.
+                </>
+              }
+              image3Src={pic08}
+              image3Classes="m-3 w-[300px]"
+              description3={
+                <>
+                  <br />
+                  Valitse <strong>Mobile</strong> välilehdeltä{" "}
+                  <strong>02 Google Hybrid</strong> Karttapohja aktivoituu.
+                </>
+              }
+              image4Src={pic08}
+              image4Classes="m-3 w-[300px]"
+              description4={
+                <>
+                  <br />
+                  Pääset pois valikosta painamalla muutamia kertoja{" "}
+                  <strong>Back</strong>-nappia.
+                </>
+              }
             />
             <UnfoldableCard
-              title="2. Ota käyttöön Recon Feed"
+              title={
+                <>
+                  <strong>Tarkista</strong> tarvittaessa mittayksiköt
+                </>
+              }
               styling="bg-backgroundLight"
-              steps={[
-                {
-                  description: (
-                    <>
-                      <span>
-                        Päänäkymässä, avaa jälleen kolme viivaa-valikko
-                        (hampurilaisvalikko).
-                      </span>
-                    </>
-                  ),
-                  imageSrc: pic1,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      <span>
-                        Etsi valikosta <strong>Data Sync</strong> ja valitse se.
-                      </span>
-                    </>
-                  ),
-                },
-                {
-                  description: (
-                    <>
-                      <span>
-                        Avaamalla Data Sync-valikon, avautuu näkymä, jossa
-                        palvelimelta saatavilla olevat syötteet (feedit).
-                      </span>
-                    </>
-                  ),
-                },
-                {
-                  description: (
-                    <>
-                      <span>
-                        Valitse ohjeistettu syöte (kuvassa{" "}
-                        <strong>RECON</strong>).
-                      </span>
-                    </>
-                  ),
-                  imageSrc: pic2,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      <span>
-                        Valitse aukeavasta ikkunasta{" "}
-                        <strong> Download & Sync</strong>.
-                      </span>
-                    </>
-                  ),
-                  imageSrc: pic3,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      <span>
-                        <strong>Recon Feed</strong> on nyt käytössä. Saat siitä
-                        merkkejä kartallesi komentopaikalta.
-                      </span>
-                    </>
-                  ),
-                  note: (
-                    <>
-                      Tarkemmat ohjeet feedin käytöstä{" "}
-                      <strong>Käyttö joukossa</strong>-ohjeissa.
-                    </>
-                  ),
-                },
-              ]}
+              description1={
+                <>
+                  Android ATAKissa mittayksikköasetukset tulevat
+                  perustepaketista. Tarkista ne tarvittaessa seuraavasti.
+                  <br />
+                  <br />
+                  a. Palaa takaisin <strong>Settings</strong>-päävalikkoon
+                  peruuttamalla.
+                  <br />
+                  <br />
+                  b. Valitse <em>Display Preferences</em>.
+                </>
+              }
+              image2Src={Settings17}
+              image2Classes="m-3 w-[300px]"
+              description2={
+                <>
+                  <br />
+                  c. Valitse <em>Basic Display Preferences</em>.
+                </>
+              }
+              image3Src={Settings18}
+              image3Classes="m-3 w-[300px]"
+              description3={
+                <>
+                  <br />
+                  d. Valitse <em>Unit Display Format Preferences</em>.
+                </>
+              }
+              image4Src={UnitDisplay19}
+              image4Classes="m-3 w-[300px]"
+              description4={
+                <>
+                  <br />
+                  e. Valitse <em>Altitude Units</em>.
+                </>
+              }
+              image5Src={Altitude20}
+              image5Classes="m-3 w-[300px]"
+              description5={
+                <>
+                  <br />
+                  f. <strong>Vaihda</strong> yksiköksi{" "}
+                  <strong>Meters (m)</strong>.
+                </>
+              }
+              image6Src={UnitFormat21}
+              image6Classes="m-3 w-[300px]"
+              description6={
+                <>
+                  <br />
+                  g. Valitse <strong>Speed Units</strong>, ja valitse yksiköksi{" "}
+                  <strong>KM per Hour (kmph)</strong>
+                </>
+              }
+              image7Src={Speedunits24}
+              image7Classes="m-3 w-[300px]"
+              description7={
+                <>
+                  <br />
+                  h. valitse yksiköksi <strong>KM per Hour (kmph)</strong>
+                </>
+              }
+              image8Src={Meterstokilo25}
+              image8Classes="m-3 w-[300px]"
+              description8={
+                <>
+                  <br />
+                  j. Vieritä valikko alas kohtaan <strong>UNIT TRESHOLD</strong>
+                  . Valitse yksiköksi <strong>Meters to Kilometers.</strong>
+                </>
+              }
+              image9Src={Meterstokilo25}
+              image9Classes="m-3 w-[300px]"
+              description9={
+                <>
+                  <br />
+                  i. Vaihda arvoksi <strong>1000</strong>. Paina{" "}
+                  <strong>OK.</strong>
+                </>
+              }
+              imageSrc={Meterskmunits26}
+              imageClasses="m-3 w-[300px]"
+              description15={
+                <>
+                  Mittayksiköt ovat nyt asetettu. Poistu valikosta painamalla
+                  back-nappia useita kertoja.
+                </>
+              }
             />
             <UnfoldableCard
-              title="3. Aseta Auto Download päälle"
+              title={
+                <>
+                  Tarkista ja vaihda tarvittaessa <strong>Callsign</strong>
+                </>
+              }
               styling="bg-backgroundLight"
-              steps={[
-                {
-                  description: (
-                    <>
-                      Varmistetaan, että Auto Download on päällä. Palaa
-                      hampurilaisvalikon päänäkymään (kolme viivaa oikealla
-                      ylhäällä).
-                      <br />
-                      <br />
-                      Etsi <strong>Settings</strong>.
-                    </>
-                  ),
-                  imageSrc: pic4,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      Etsi asetus <strong>Auto Download Updates</strong> ja
-                      varmistu, että se on päällä.
-                    </>
-                  ),
-                  imageSrc: pic5,
-                  imageClasses: "m-3 w-[400px]",
-                },
-                {
-                  description: (
-                    <>
-                      Asetuksesta seuraa, että ATAK lataa automaattisesti
-                      päivitykset tilaamiisi feedeihin.
-                    </>
-                  ),
-                },
-              ]}
+              description1={
+                <>
+                  Peitenimesi Android ATAKissa tulee perustepaketissa. Mikäli
+                  sinun tarvitsee vaihtaa se, se tapahtuu näin.
+                  <br />
+                  <br />
+                  Valitse <strong>Callsign and Device Preferences.</strong>
+                </>
+              }
+              image2Src={Callsign11}
+              image2Classes="m-3 w-[300px]"
+              description2={
+                <>
+                  Valitse <strong>Callsign Preferences.</strong>
+                </>
+              }
+              image3Src={Csprefs12}
+              image3Classes="m-3 w-[300px]"
+              description4={
+                <>
+                  Valitse <strong>My Callsign.</strong>
+                </>
+              }
+              image5Src={Mycallsign13}
+              image5Classes="m-3 w-[300px]"
+              description5={
+                <>
+                  Anna omaksi tunnukseksi{" "}
+                  <strong>sinulle käsketty peite,</strong> esimerkiksi{" "}
+                  <em>Rambo</em>.
+                </>
+              }
+              image6Src={Omapeite14}
+              image6Classes="m-3 w-[300px]"
+              description7={
+                <>
+                  Paina <strong>OK.</strong>
+                </>
+              }
             />
           </div>
         </CardsContainer>
         <NavigateButtons
-          backUrl="/app/services/tak/quickstart/android3"
+          backUrl="/app/services/tak/quickstart/android4"
           forwardUrl="/app/services/tak/quickstart"
           alterForward="Valmis! Palaa tästä."
         />

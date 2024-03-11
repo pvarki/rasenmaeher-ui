@@ -29,11 +29,15 @@ export function Footer() {
           PVATK
         </a>
         <br />
-        &copy; Puolustusvoimat
+        &copy; PVATK. All rights reserved.
         <br />
-        Yhteys:{" "}
-        <a href="mailto:helpdesk@pvarki.fi" className="underline">
-          helpdesk@pvarki.fi
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform"
+          className="underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Kerro palautetta tai ideoita lomakkeella!
         </a>
       </div>
 
