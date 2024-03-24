@@ -13,6 +13,7 @@ import { CardsContainer } from "../../components/CardsContainer";
 import useHealthcheck from "../../hook/helpers/useHealthcheck";
 import key from "../../assets/icons/key.svg";
 import pencil from "../../assets/icons/pencil.svg";
+import { useTranslation } from "react-i18next";
 
 const TOKEN_REGEX = /^[A-Z0-9]{8,}$/;
 
@@ -37,6 +38,7 @@ const CodeSchema = yup.object().shape({
 });
 
 export function LoginView() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const params = useQueryParams();
   const { setOtpVerified } = useContext(UserTypeContext);
@@ -141,7 +143,9 @@ export function LoginView() {
                   >
                     <div className="flex items-center justify-center w-full h-full">
                       <img src={pencil} alt="pencil" className="h-5 w-5 mr-2" />
-                      {isLoading ? "Odottaa vastausta..." : "Kirjaudu koodilla"}
+                      {isLoading
+                        ? "Odottaa vastausta..."
+                        : t("login-with-code")}
                     </div>
                   </Button>
                 </div>
