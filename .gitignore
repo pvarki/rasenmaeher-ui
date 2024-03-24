@@ -25,3 +25,10 @@ mockServiceWorker.js
 *.sln
 *.sw?
 public/mockServiceWorker.js
+
+
+# Asset set folder
+src/assets/set/**
+
+
+.env
