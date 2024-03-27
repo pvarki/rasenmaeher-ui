@@ -10,22 +10,23 @@ import { Layout } from "../../components/Layout";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import trooper from "../../assets/icons/trooper3.png";
 import { CardsContainer } from "../../components/CardsContainer";
-
-const CALLSIGN_REGEX = /^[a-zA-Z0-9]{3,}$/;
-
-const CallsignSchema = yup.object().shape({
-  callsign: yup
-    .string()
-    .required("Peitenimi on pakollinen")
-    .min(3, "Peitenimen minimipituus on 3 merkkiä")
-    .matches(CALLSIGN_REGEX, "Sallitut merkit: a-z, A-Z, 0-9")
-    .max(30, "Peitenimen maksimipituus on 30 merkkiä"),
-});
+import { useTranslation } from "react-i18next";
 
 export function CallsignSetupStep() {
   const navigate = useNavigate();
   const loginCodeStore = useLoginCodeStore();
   const code = useLoginCodeStore((store) => store.code);
+  const { t } = useTranslation();
+
+  const CALLSIGN_REGEX = /^[a-zA-Z0-9]{3,}$/;
+  const CallsignSchema = yup.object().shape({
+    callsign: yup
+      .string()
+      .required(t("callsignsetup-callsign-required"))
+      .min(3, t("callsignsetup-callsign-min"))
+      .matches(CALLSIGN_REGEX, t("callsignsetup-callsign-allowed-chars"))
+      .max(30, t("callsignsetup-callsign-max")),
+  });
 
   const { mutate: loginAsAdmin, isLoading } = useLoginAsAdmin({
     onSuccess: (jwt) => {
@@ -81,17 +82,17 @@ export function CallsignSetupStep() {
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-2">
-            Anna peitenimesi.
+            {t("callsignsetup-give-your-callsign")}
           </h1>
           <img src={trooper} alt="Pvarki Logo" className="w-20 p-1" />
           <ServiceInfoCard
-            title="Peitenimi?"
-            details="Peitenimi on tunnisteesi palveluissa. Anna sinulle käsketyn mukainen peitenimi."
+            title={t("callsignsetup-enter-callsign-title")}
+            details={t("callsignsetup-enter-callsign-detail")}
           />
           <FormikProvider value={formik}>
             <Form className="flex flex-col items-center gap-3 w-full">
               <label className="flex flex-col gap-3 w-full text-white">
-                Peitenimesi:
+                {t("callsignsetup-your-callsign")}:
                 <Field
                   type="text"
                   name="callsign"
@@ -108,7 +109,7 @@ export function CallsignSetupStep() {
                     variant={{ color: "primary", width: "full" }}
                     disabled={!formik.isValid || isLoading}
                   >
-                    {isLoading ? "Odottaa vastausta..." : "Kirjaudu"}
+                    {isLoading ? t("awaiting-response") : t("login")}
                   </Button>
                 </div>
               </div>

@@ -9,8 +9,11 @@ import { useCopyToClipboard } from "../../hook/helpers/useCopyToClipboard";
 import useHealthcheck from "../../hook/helpers/useHealthcheck";
 import { CardsContainer } from "../../components/CardsContainer";
 import { Text } from "../../components/Text";
+import { useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
 
 export function EnrollmentView() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { fqdn } = useHealthcheck();
   const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
@@ -45,14 +48,14 @@ export function EnrollmentView() {
       <Layout showNavbar={true} showFooter={true}>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <Text title={subdomain || "Loading..."} />
-          <span className="text-white">Sinut on hyväksytty palveluun.</span>
+          <span className="text-white">{t("enrollment-approved")}</span>
           <Button
             onClick={() => {
               navigate("/login/createmtls");
               window.location.reload();
             }}
           >
-            Jatka painamalla tästä.
+            {t("continue-clicking-here")}
           </Button>
         </main>
       </Layout>
@@ -65,8 +68,8 @@ export function EnrollmentView() {
         <div className="flex flex-col items-center w-full gap-2 justify-center pt-0 p-2">
           <div className="pb-1">
             <Text
-              title="Olet odotustilassa!"
-              description="Ylläpitäjän pitää hyväksyä sinut palveluun. Näytä hänelle oheista QR-koodia, tai paina 'Kopioi linkki' ja lähetä hyväksyntälinkki."
+              title={t("awaiting-approval")}
+              description={t("waiting-approval-instruction")}
             />
           </div>
           <div className="p-2 bg-white rounded-lg">
@@ -77,44 +80,50 @@ export function EnrollmentView() {
               variant={{ color: "tertiary" }}
               onClick={() => handleCopy(approvalUrl)}
             >
-              {isCopied ? "Linkki kopioitu!" : "Kopioi linkki ylläpitäjälle"}
+              {isCopied ? t("link-copied") : t("copy-link")}
             </Button>
           </div>
           {copyError && (
             <span className="text-red-500">
-              Toiminto epäonnistui: {copyError.message}
+              {t("action-failed")}: {copyError.message}
             </span>
           )}
           <Text
             title={callsign}
-            description="Hyväksyntäkoodisi:"
+            description={t("approval-code")}
             description2={approveCode}
             styling2="font-consolas"
           />
 
           <UnfoldableCard
-            title="Odotat hyväksyntää palveluun (ohje)."
+            title={<Trans i18nKey="approval-waiting-title" />}
             styling="bg-backgroundLight"
             steps={[
               {
                 description: (
                   <>
-                    Odotat ylläpitäjän hyväksyntää palveluun. Hyväksyntä
-                    tapahtuu jollakin näistä kolmesta tavasta:
+                    <Trans i18nKey="approval-instruction-intro" />
                     <br />
-                    <br />
-                    <li>
-                      Ylläpitäjä skannaa oheisen <strong>QR-koodin</strong>,
-                      joka sisältää hyväksymislinkin.
-                    </li>
-                    <li>
-                      Kopioi ja lähetä ylläpitäjälle{" "}
-                      <strong>hyväksymislinkki.</strong>
-                    </li>
-                    <li>
-                      Lähetä ylläpitäjälle <strong>hyväksymiskoodisi</strong>,
-                      jonka hän syöttää hyväksyntänäkymäänsä.
-                    </li>
+                    <ul>
+                      <li>
+                        <Trans
+                          i18nKey="approval-instruction-qr"
+                          components={{ 1: <strong /> }}
+                        />
+                      </li>
+                      <li>
+                        <Trans
+                          i18nKey="approval-instruction-copy"
+                          components={{ 1: <strong /> }}
+                        />
+                      </li>
+                      <li>
+                        <Trans
+                          i18nKey="approval-instruction-send"
+                          components={{ 1: <strong /> }}
+                        />
+                      </li>
+                    </ul>
                   </>
                 ),
               },
