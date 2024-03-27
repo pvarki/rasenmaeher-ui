@@ -2,13 +2,16 @@
   "COMMON-VERBS": "COMMON-VERBS",
   "login": "Log In",
   "awaiting-response": "Awaiting response...",
+  "link-copied": "Link copied!",
+  "copy-link": "Copy approval link for your administrator",
 
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "An unidentified error occurred.",
   "login-to-service": "Log In to:",
   "loading": "Loading...",
-  "login-input-code": "Enter your Login Code here:",
+  "login-input-code": "Enter Login Code here",
   "login-with-code": "Login with Code",
+  "login-code-required": "Login code is required",
   "login-await-response": "Awaiting response...",
   "login-i-have-keys": "Got keys",
   "code-is-wrong": "Login code incorrect",
@@ -21,5 +24,19 @@
   "callsignsetup-give-your-callsign": "Enter your callsign.",
   "callsignsetup-enter-callsign-title": "Your Callsign?",
   "callsignsetup-enter-callsign-detail": "The callsign is your identifier in the services. Provide the callsign you have been assigned to.",
-  "callsignsetup-your-callsign": "Your Callsign:"
+  "callsignsetup-your-callsign": "Set your callsign",
+
+  "ENROLLMENTVIEW": "ENROLLMENTVIEW",
+  "enrollment-approved": "You have been approved for the service.",
+  "continue-clicking-here": "Continue by clicking here.",
+  "awaiting-approval": "You in the Waiting Room!",
+  "copy-link-admin": "Copy the approval link to the administrator",
+  "action-failed": "Action failed:",
+  "approval-code": "Your approval code:",
+  "waiting-approval-instruction": "You are in the Waiting Room awaiting  your administrator user to approve you. Show them the QR code below, or press 'Copy Link' and send the approval link.",
+  "approval-waiting-title": "Waiting for Approval (instructions).",
+  "approval-instruction-intro": "You are waiting for the administrator's approval to access the service. Approval can occur in one of these three ways:",
+  "approval-instruction-qr": "Your administrator scans the <strong>QR code</strong> above from your screen. It contains the approval link, which the admin can access.",
+  "approval-instruction-copy": "You may copy and send the <strong>approval link</strong> to your administrator, using a trusted method, such as email or an app.",
+  "approval-instruction-send": "Just send your <strong>approval code</strong> to your administrator, who will enter it into their approval view."
 }

@@ -2,6 +2,8 @@
   "COMMON-VERBS": "COMMON-VERBS",
   "login": "Kirjaudu",
   "awaiting-response": "Odottaa vastausta...",
+  "link-copied": "Link copied!",
+  "copy-link": "Copy link for the administrator",
 
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "Tapahtui tunnistamaton virhe.",
@@ -22,5 +24,18 @@
   "callsignsetup-give-your-callsign": "Anna peitenimesi.",
   "callsignsetup-enter-callsign-title": "Peitenimesi?",
   "callsignsetup-enter-callsign-detail": "Peitenimi on tunnisteesi palveluissa. Anna sinulle käsketyn mukainen peitenimi.",
-  "callsignsetup-your-callsign": "Peitenimesi:"
+  "callsignsetup-your-callsign": "Peitenimesi",
+
+  "ENROLLMENTVIEW": "ENROLLMENTVIEW",
+  "enrollment-approved": "Sinut on hyväksytty palveluun.",
+  "continue-clicking-here": "Jatka painamalla tästä.",
+  "awaiting-approval": "Olet odotustilassa!",
+  "copy-link-admin": "Kopioi linkki ylläpitäjälle.",
+  "action-failed": "Toiminto epäonnistui:",
+  "approval-code": "Hyväksyntäkoodisi:",
+  "approval-waiting-title": "Odotat hyväksyntää palveluun (ohje).",
+  "approval-instruction-intro": "Odotat ylläpitäjän hyväksyntää palveluun. Hyväksyntä tapahtuu jollakin näistä kolmesta tavasta:",
+  "approval-instruction-qr": "Ylläpitäjä skannaa oheisen <strong>QR-koodin</strong>, joka sisältää hyväksymislinkin.",
+  "approval-instruction-copy": "Kopioi ja lähetä ylläpitäjälle <strong>hyväksymislinkki.</strong>",
+  "approval-instruction-send": "Lähetä ylläpitäjälle <strong>hyväksymiskoodisi</strong>, jonka hän syöttää hyväksyntänäkymäänsä."
 }

@@ -8,7 +8,7 @@ void i18n
   .use(ChainedBackend)
   .use(initReactI18next)
   .init({
-    lng: "fi",
+    lng: "en",
     fallbackLng: "fi",
     backend: {
       backends: [
@@ -25,5 +25,9 @@ void i18n
     },
     interpolation: {
       escapeValue: false,
+    },
+    react: {
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
     },
   });
