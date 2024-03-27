@@ -4,7 +4,7 @@ import resourcesToBackend from "i18next-resources-to-backend";
 import ChainedBackend from "i18next-chained-backend";
 import LocalStorageBackend from "i18next-localstorage-backend";
 
-i18n
+void i18n
   .use(ChainedBackend)
   .use(initReactI18next)
   .init({

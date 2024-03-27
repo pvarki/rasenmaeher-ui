@@ -1,3 +1,26 @@
 {
-  "login-with-code": "Kirjaudu koodilla"
+  "COMMON-VERBS": "COMMON-VERBS",
+  "login": "Kirjaudu",
+  "awaiting-response": "Odottaa vastausta...",
+
+  "LOGINVIEW": "LOGINVIEW",
+  "error-occured": "Tapahtui tunnistamaton virhe.",
+  "login-to-service": "Kirjaudu palveluun:",
+  "loading": "Lataan...",
+  "login-input-code": "Kirjautumiskoodi",
+  "login-with-code": "Kirjaudu koodilla",
+  "login-code-required": "Koodi on pakollinen",
+  "login-await-response": "Odottaa vastausta...",
+  "login-i-have-keys": "Minulla on avaimet",
+  "code-is-wrong": "Koodi on virheellinen",
+
+  "CALLSIGNSETUPVIEW": "CALLSIGNSETUPVIEW",
+  "callsignsetup-callsign-required": "Peitenimi on pakollinen",
+  "callsignsetup-callsign-min": "Peitenimen minimipituus on 3 merkkiä",
+  "callsignsetup-callsign-max": "Peitenimen maksimipituus on 30 merkkiä",
+  "callsignsetup-callsign-allowed-chars": "Peitenimen maksimipituus on 30 merkkiä",
+  "callsignsetup-give-your-callsign": "Anna peitenimesi.",
+  "callsignsetup-enter-callsign-title": "Peitenimesi?",
+  "callsignsetup-enter-callsign-detail": "Peitenimi on tunnisteesi palveluissa. Anna sinulle käsketyn mukainen peitenimi.",
+  "callsignsetup-your-callsign": "Peitenimesi:"
 }

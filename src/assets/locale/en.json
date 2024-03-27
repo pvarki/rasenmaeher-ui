@@ -1,3 +1,25 @@
 {
-  "login-with-code": "Login with code"
+  "COMMON-VERBS": "COMMON-VERBS",
+  "login": "Log In",
+  "awaiting-response": "Awaiting response...",
+
+  "LOGINVIEW": "LOGINVIEW",
+  "error-occured": "An unidentified error occurred.",
+  "login-to-service": "Log In to:",
+  "loading": "Loading...",
+  "login-input-code": "Enter your Login Code here:",
+  "login-with-code": "Login with Code",
+  "login-await-response": "Awaiting response...",
+  "login-i-have-keys": "Got keys",
+  "code-is-wrong": "Login code incorrect",
+
+  "CALLSIGNSETUPVIEW": "CALLSIGNSETUPVIEW",
+  "callsignsetup-callsign-required": "Callsign is required",
+  "callsignsetup-callsign-min": "The minimum length for the callsign is 3 characters",
+  "callsignsetup-callsign-max": "The maximum length for the callsign is 30 characters",
+  "callsignsetup-callsign-allowed-chars": "Allowed characters: a-z, A-Z, 0-9",
+  "callsignsetup-give-your-callsign": "Enter your callsign.",
+  "callsignsetup-enter-callsign-title": "Your Callsign?",
+  "callsignsetup-enter-callsign-detail": "The callsign is your identifier in the services. Provide the callsign you have been assigned to.",
+  "callsignsetup-your-callsign": "Your Callsign:"
 }

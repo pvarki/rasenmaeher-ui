@@ -30,13 +30,6 @@ function useQueryParams() {
   return useMemo(() => new URLSearchParams(search), [search]);
 }
 
-const CodeSchema = yup.object().shape({
-  code: yup
-    .string()
-    .required("Koodi on pakollinen")
-    .matches(TOKEN_REGEX, "Koodi on virheellinen"),
-});
-
 export function LoginView() {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -49,6 +42,13 @@ export function LoginView() {
   const host = window.location.host;
   const mtlsUrl = `${protocol}//mtls.${host}/app/admin/`;
   const buttonStyle = "min-h-[70px]";
+
+  const CodeSchema = yup.object().shape({
+    code: yup
+      .string()
+      .required(t("login-code-required"))
+      .matches(TOKEN_REGEX, t("code-is-wrong")),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -102,16 +102,16 @@ export function LoginView() {
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-16">
-            Kirjaudu palveluun:
+            {t("login-to-service")}
           </h1>
           <img src={pvarkiLogo} alt="Pvarki Logo" className="w-20" />
           <span className="text-white text-center font-oswald font-bold text-3xl">
-            {deployment || "Loading..."}
+            {deployment || t("loading")}
           </span>
           <FormikProvider value={formik}>
             <Form className="flex flex-col items-center gap-3 w-full">
               <label className="flex flex-col gap-3 w-full text-white">
-                Kirjautumiskoodi:
+                {t("login-input-code") + ":"}
                 <Field
                   type="text"
                   name="code"
@@ -121,11 +121,11 @@ export function LoginView() {
                 />
                 <span className="text-red-500">
                   <ErrorMessage name="code" />
-                  {codeNotValid && <div>Koodi väärin.</div>}
+                  {codeNotValid && <div>{t("code-is-wrong")}</div>}
                   {isError && (
                     <div>
                       {(error as ApiError).response?.data?.detail ||
-                        "An error occurred"}
+                        t("error-occurred")}
                     </div>
                   )}
                 </span>
@@ -144,7 +144,7 @@ export function LoginView() {
                     <div className="flex items-center justify-center w-full h-full">
                       <img src={pencil} alt="pencil" className="h-5 w-5 mr-2" />
                       {isLoading
-                        ? "Odottaa vastausta..."
+                        ? t("login-await-response")
                         : t("login-with-code")}
                     </div>
                   </Button>
@@ -161,7 +161,7 @@ export function LoginView() {
                     >
                       <div className="flex items-center justify-center w-full h-full">
                         <img src={key} alt="keys" className="h-5 w-5 mr-2" />
-                        Minulla on avaimet
+                        {t("login-i-have-keys")}
                       </div>
                     </Button>
                   </Link>
