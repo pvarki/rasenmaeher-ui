@@ -40,6 +40,12 @@
   "approval-instruction-copy": "You may copy and send the <strong>approval link</strong> to your administrator, using a trusted method, such as email or an app.",
   "approval-instruction-send": "Just send your <strong>approval code</strong> to your administrator, who will enter it into their approval view.",
 
+  "MTLSINFOMODAL": "MTLSINFOMODAL",
+  "what-is-mtls": "What is mTLS?",
+  "what-is-mtls-title": "What is mTLS?",
+  "mtls-description": "By using an mTLS key installed on your device to connect to our service, we can ensure the connection comes <strong>directly from you.</strong> No one else can impersonate you. Likewise, you are assured that on the other end it's us. <br /><br /> All services from Rasenmaeher that you take into use encrypt their traffic with your mTLS key.",
+  "ok": "OK",
+
   "MTLSCREATEVIEW": "MTLSCREATEVIEW",
   "mtls-download-install-title": "Download and install the mTLS Certificate",
   "mtls-download-install-description": "You can use the service only, if your device has a mTLS Certificate of this server installed to your device. Download and install the key to your device.",

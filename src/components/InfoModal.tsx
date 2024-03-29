@@ -1,5 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { Button } from "./Button";
 
 interface InfoModalProps {
@@ -8,6 +9,7 @@ interface InfoModalProps {
 
 export function InfoModal({ triggerClassName }: InfoModalProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -16,7 +18,7 @@ export function InfoModal({ triggerClassName }: InfoModalProps) {
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
         <button className={triggerClassName} onClick={openModal}>
-          Mikä mTLS?
+          {t("what-is-mtls")}
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -24,19 +26,16 @@ export function InfoModal({ triggerClassName }: InfoModalProps) {
         <Dialog.Content className="fixed inset-0 flex items-center justify-center p-4">
           <div className="bg-background rounded-md max-w-md mx-auto p-8">
             <Dialog.Title className="text-lg text-white font-bold mb-4">
-              Mikä mTLS?
+              <Trans i18nKey="what-is-mtls-title" />
             </Dialog.Title>
             <Dialog.Description className="mb-4 text-white">
-              Kun käytät laitteellesi asennettua mTLS-avainta yhdistääksesi
-              palveluumme, voimme varmistua siitä, että yhteys tulee{" "}
-              <strong>juuri sinulta.</strong> Kukaan muu ei voi esiintyä sinuna.
-              Samoin sinä varmistut siitä, että vastapäässä olemme me. <br />
-              <br />
-              Kaikki Rasenmaeherista käyttöön ottamasi palvelut salaavat
-              liikenteensä mTLS-avaimellasi.
+              <Trans
+                i18nKey="mtls-description"
+                components={{ strong: <strong />, br: <br /> }}
+              />
             </Dialog.Description>
             <div className="flex justify-end">
-              <Button onClick={closeModal}>OK</Button>
+              <Button onClick={closeModal}>{t("ok")}</Button>
             </div>
           </div>
         </Dialog.Content>

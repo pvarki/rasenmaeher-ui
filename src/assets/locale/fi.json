@@ -39,6 +39,12 @@
   "approval-instruction-copy": "Kopioi ja lähetä ylläpitäjälle <strong>hyväksymislinkki.</strong>",
   "approval-instruction-send": "Lähetä ylläpitäjälle <strong>hyväksymiskoodisi</strong>, jonka hän syöttää hyväksyntänäkymäänsä.",
 
+  "MTLSINFOMODAL": "MTLSINFOMODAL",
+  "what-is-mtls": "Mikä mTLS?",
+  "what-is-mtls-title": "Mikä mTLS?",
+  "mtls-description": "Kun käytät laitteellesi asennettua mTLS-avainta yhdistääksesi palveluumme, voimme varmistua siitä, että yhteys tulee <strong>juuri sinulta.</strong> Kukaan muu ei voi esiintyä sinuna. Samoin sinä varmistut siitä, että vastapäässä olemme me. <br /><br /> Kaikki Rasenmaeherista käyttöön ottamasi palvelut salaavat liikenteensä mTLS-avaimellasi.",
+  "ok": "OK",
+
   "MTLSCREATEVIEW": "MTLSCREATEVIEW",
   "mtls-download-install-title": "Lataa ja asenna mTLS-avain",
   "mtls-download-install-description": "Voit käyttää palvelua vain, jos laitteellasi on siihen mTLS-avain. Lataa ja asenna avain laitteellesi.",
