@@ -89,5 +89,19 @@
   "ios-instructions.step3.description3": "The device will ask for the password for this key. The password is always the <strong>callsign</strong> you provided, for example, FIGHTER1.",
   "ios-instructions.step3.description4": "After a successful password entry, the device will announce that the profile, i.e., the key, is installed. Then return to the Rasenmaeher app in your browser. There, press the <strong>Access the service with your key</strong> button.",
   "ios-instructions.step3.description5": "The browser states that the application requires a client certificate (this will be the key you just installed). Press <strong>Continue.</strong>",
-  "ios-instructions.step3.description6": "Your key is now set up! From now on, whenever you reach Rasenmaeher, the service will recognize you by your key. <br /><br /> If you end up on the login page, press the \"I have a key\" button."
+  "ios-instructions.step3.description6": "Your key is now set up! From now on, whenever you reach Rasenmaeher, the service will recognize you by your key. <br /><br /> If you end up on the login page, press the \"I have a key\" button.",
+
+  "MTLSWINDOWSINSTRUCTIONS": "MTLSWINDOWSINSTRUCTIONS",
+  "windows-instructions.step1.title": "1. Download Key",
+  "windows-instructions.step1.description": "Press the <strong>Download Key</strong> button. You'll download the key. Open the key from your browser's Downloads menu, or from the notification popup.",
+  "windows-instructions.step2.title": "2. Install Key",
+  "windows-instructions.step2a.description": "a. Double-click on the key file <em>'YourCallsign.pfx'</em>. The key installation program will start. Choose <em>Store Location</em> as <strong>Local User</strong>.",
+  "windows-instructions.step2b.description": "b. The installation program will ask for the file. It is pre-filled, so press <strong>Next</strong>.",
+  "windows-instructions.step2c.description": "c. Next, you will be asked for a password. It is always <strong>your callsign</strong>, for example, BEAR10.<br /><br />For the <em>Import options</em> inquiry, only fill in <strong>Include all extended properties</strong> and press <strong>Next.</strong>",
+  "windows-instructions.step2d.description": "d. In the Certificate Store menu, let the default selection stand, i.e., choose <strong>Automatic</strong>.",
+  "windows-instructions.step2e.description": "e. The key installation is complete! Press <strong>Finish.</strong>",
+  "windows-instructions.step2f.description": "The installation program will give a notification of successful installation.",
+  "windows-instructions.step3.title": "3. Access the Service with Your Key",
+  "windows-instructions.step3a.description": "You are now ready! When you press the <em>Access the Service</em> button, the browser will ask which certificate you want to use. Press <strong>OK.</strong>",
+  "windows-instructions.step3b.description": "After this, you can always access the service. You do not need passwords because the service recognizes you by your mTLS key."
 }

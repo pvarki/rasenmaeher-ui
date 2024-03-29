@@ -88,5 +88,19 @@
   "ios-instructions.step3.description3": "Laite kysyy avaimen salasanaa. Salasana on aina antamasi <strong>peitenimi</strong>, esimerkiksi JANNE1.",
   "ios-instructions.step3.description4": "Onnistuneen salasanan jälkeen, laite ilmoittaa, että profiili eli avain on asennettu. Tämän jälkeen siirry takaisin Rasenmaeher-sovellukseen selaimellasi. Paina siellä <strong>Siirry palveluun avaimellasi</strong> -nappia",
   "ios-instructions.step3.description5": "Selain toteaa, että sovellus vaatii asiakasvarmenteen (eli juuri asentamasi avaimen). Paina <strong>Jatka.</strong>",
-  "ios-instructions.step3.description6": "Avain on nyt asetettu! Tämän jälkeen aina, kun saavut Rasenmaeheriin palvelu tunnistaa sinut omalla avaimellasi. <br /> <br /> Mikäli päädyt login-sivulle, paina 'Minulla on avain'-näppäintä."
+  "ios-instructions.step3.description6": "Avain on nyt asetettu! Tämän jälkeen aina, kun saavut Rasenmaeheriin palvelu tunnistaa sinut omalla avaimellasi. <br /> <br /> Mikäli päädyt login-sivulle, paina 'Minulla on avain'-näppäintä.",
+
+  "MTLSWINDOWSINSTRUCTIONS": "MTLSWINDOWSINSTRUCTIONS",
+  "windows-instructions.step1.title": "1. Lataa avain",
+  "windows-instructions.step1.description": "Paina <strong>Lataa avain</strong>-painiketta. Avain latautuu. Avaa avain selaimen Downloads-valikosta tai latauksesta ilmoittavasta popupista.",
+  "windows-instructions.step2.title": "2. Aseta avain",
+  "windows-instructions.step2a.description": "a. Kaksoisnapauta avainta <em>'Peitenimesi.pfx'</em>. Avaimen asennusohjelma käynnistyy. Valitse <em>Store Location</em> <strong>Local User</strong> (paikallinen käyttäjä).",
+  "windows-instructions.step2b.description": "b. Asennusohjelma kysyy tiedostoa. Se on valmiiksi täytettynä, joten paina <strong>Next</strong> (Seuraava).",
+  "windows-instructions.step2c.description": "c. Seuraavaksi kysytään salasanaa. Se on aina <strong>peitenimesi</strong>, esimerkiksi KARHU10.<br /><br /><em>Import options</em>-kyselyyn täytä ainoastaan <strong>Include all extended properties</strong> ja paina <strong>Next.</strong>",
+  "windows-instructions.step2d.description": "d. Certificate Store-valikossa anna oletuksen olla, eli valitse <strong>Automaattinen</strong>.",
+  "windows-instructions.step2e.description": "e. Avaimen asennus on valmis! Paina <strong>Finish.</strong>",
+  "windows-instructions.step2f.description": "Asennusohjelma antaa vielä ilmoituksen onnistuneesta asennuksesta.",
+  "windows-instructions.step3.title": "3. Siirry palveluun avaimellasi",
+  "windows-instructions.step3a.description": "Olet nyt valmis! Kun painat <em>Siirry palveluun</em>-painiketta, selain kysyy, mitä varmennetta haluat käyttää. Paina <strong>OK.</strong>",
+  "windows-instructions.step3b.description": "Tämän jälkeen pääset aina palveluun avaimellasi. Et tarvitse salasanoja, koska palvelu tunnistaa sinut avaimellasi."
 }
