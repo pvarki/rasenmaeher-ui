@@ -74,5 +74,20 @@
   "android-instructions.step2.description2": "The window prompts you to name the certificate. Your callsign is prefilled. Do not change the name, just press <strong>OK</strong>.",
   "android-instructions.step3.title": "3. Access the Service with Your Key",
   "android-instructions.step3.description1": "You are now ready! When you press the <em>Access the Service</em> button, the browser will ask which certificate you want to use. Press <strong>OK</strong>.",
-  "android-instructions.step3.description2": "After this, you can always access the service with your key. You don't need passwords because the service recognizes you by your key."
+  "android-instructions.step3.description2": "After this, you can always access the service with your key. You don't need passwords because the service recognizes you by your key.",
+
+  "MTLSIOSINSTRUCTIONS": "MTLSIOSINSTRUCTIONS",
+  "ios-instructions.step1.title": "1. Download Your Key",
+  "ios-instructions.step1.description1": "Press the <strong>Download Key</strong> button. Your device will ask, if you want to allow a profile to be downloaded. Press <strong>Allow</strong>.",
+  "ios-instructions.step1.description2": "Your device will notify you that the key has been downloaded.",
+  "ios-instructions.step2.title": "2. Open Your Key",
+  "ios-instructions.step2.description1": "Swipe down from the middle of the screen, and type <em>profile</em> into the search field that appears. Select <strong>VPN and Device Management</strong>.",
+  "ios-instructions.step2.description2": "In the VPN and Device Management menu, select the Downloaded Profile <strong>Personal Certificate</strong> - this is the key you just downloaded.",
+  "ios-instructions.step3.title": "3. Set Your Key",
+  "ios-instructions.step3.description1": "After selecting the key, your device will ask for your passcode. Enter it.",
+  "ios-instructions.step3.description2": "The device gives a warning. Press <strong>Install</strong> in the top right corner.",
+  "ios-instructions.step3.description3": "The device will ask for the password for this key. The password is always the <strong>callsign</strong> you provided, for example, FIGHTER1.",
+  "ios-instructions.step3.description4": "After a successful password entry, the device will announce that the profile, i.e., the key, is installed. Then return to the Rasenmaeher app in your browser. There, press the <strong>Access the service with your key</strong> button.",
+  "ios-instructions.step3.description5": "The browser states that the application requires a client certificate (this will be the key you just installed). Press <strong>Continue.</strong>",
+  "ios-instructions.step3.description6": "Your key is now set up! From now on, whenever you reach Rasenmaeher, the service will recognize you by your key. <br /><br /> If you end up on the login page, press the \"I have a key\" button."
 }
