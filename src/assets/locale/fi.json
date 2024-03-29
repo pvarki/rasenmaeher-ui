@@ -37,5 +37,12 @@
   "approval-instruction-intro": "Odotat ylläpitäjän hyväksyntää palveluun. Hyväksyntä tapahtuu jollakin näistä kolmesta tavasta:",
   "approval-instruction-qr": "Ylläpitäjä skannaa oheisen <strong>QR-koodin</strong>, joka sisältää hyväksymislinkin.",
   "approval-instruction-copy": "Kopioi ja lähetä ylläpitäjälle <strong>hyväksymislinkki.</strong>",
-  "approval-instruction-send": "Lähetä ylläpitäjälle <strong>hyväksymiskoodisi</strong>, jonka hän syöttää hyväksyntänäkymäänsä."
+  "approval-instruction-send": "Lähetä ylläpitäjälle <strong>hyväksymiskoodisi</strong>, jonka hän syöttää hyväksyntänäkymäänsä.",
+
+  "MTLSCREATEVIEW": "MTLSCREATEVIEW",
+  "mtls-download-install-title": "Lataa ja asenna mTLS-avain",
+  "mtls-download-install-description": "Voit käyttää palvelua vain, jos laitteellasi on siihen mTLS-avain. Lataa ja asenna avain laitteellesi.",
+  "mtls-installation-instructions": "mTLS-asennusohjeet",
+  "download-your-key": "Lataa avaimesi",
+  "navigate-with-your-key": "Siirry palveluun avaimellasi"
 }

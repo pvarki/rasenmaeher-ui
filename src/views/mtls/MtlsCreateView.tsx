@@ -12,6 +12,7 @@ import { IosInstructions } from "./IosMtlsInstructions";
 import { CardsContainer } from "../../components/CardsContainer";
 import { Text } from "../../components/Text";
 import { InfoModal } from "../../components/InfoModal";
+import { useTranslation } from "react-i18next";
 import key from "../../assets/icons/key.svg";
 
 export function MtlsCreateView() {
@@ -21,6 +22,7 @@ export function MtlsCreateView() {
   const { mutate: downloadCert } = useGetCertificate();
   const [callsign, setCallsign] = useState("");
   const [userOS, setUserOS] = useState("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     setUserOS(getOperatingSystem());
@@ -66,8 +68,8 @@ export function MtlsCreateView() {
     <Layout showNavbar={true} showFooter={true}>
       <CardsContainer>
         <Text
-          title="Lataa ja asenna mTLS-avain"
-          description="Voit käyttää palvelua vain, jos laitteellasi on siihen mTLS-avain. Lataa ja asenna avain laitteellesi."
+          title={t("mtls-download-install-title")}
+          description={t("mtls-download-install-description")}
         />
 
         <div className="flex flex-col items-center">
@@ -81,7 +83,7 @@ export function MtlsCreateView() {
             </div>
           </div>
         </div>
-        <Text title={`mTLS-asennusohjeet: ${userOS}`} />
+        <Text title={`${t("mtls-installation-instructions")}: ${userOS}`} />
         {renderInstructions()}
         <div className="flex flex-row pt-8 items-center gap-4">
           <Button
@@ -89,13 +91,13 @@ export function MtlsCreateView() {
             className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-success hover:bg-success-700 focus:ring-success-300 disabled:bg-success-200 min-w-[180px]" // Ensure you add min-w-[180px] or another specific width to control width and use h-20 for height
             onClick={() => callsign && downloadCert(callsign)}
           >
-            Lataa avaimesi
+            {t("download-your-key")}
           </Button>
           <a
             href={mtlsUrl}
             className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-primary hover:bg-primary-700 focus:ring-primary-300 disabled:bg-primary-200 min-w-[180px]" // Use the same classes here
           >
-            Siirry palveluun avaimellasi
+            {t("navigate-with-your-key")}
           </a>
         </div>
       </CardsContainer>
