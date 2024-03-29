@@ -63,5 +63,15 @@
   "mac-instructions.set-key.description1": "<strong>a.</strong> <strong>Valitse</strong> avainnipussa vasemmalta 1. <em>Järjestelmä</em> ja yläpalkista 2. <em>Varmenteet</em>.<br /><small> Kuvassa Avaimet. Tee ensin Varmenteet. Varmenteissa kaksoisnapauta varmennetta 'peitenimesi'ja valitse <em>Luottamus</em> - <em>Luota aina.</em>. Tämän jälkeen tee kuvan mukaiset muutokset <em>Avaimet</em>-valikossa. </small>",
   "mac-instructions.set-key.description2": "<strong>b.</strong> Kaksoisnapauta avaintasi <em>Peitenimesi.pfx</em>. Valitse <strong>Pääsynhallinta</strong>. Anna Mac-käyttäjätunnuksesi ja salasanasi.",
   "mac-instructions.set-key.description3": "<strong>c.</strong> Valitse asetus <strong>Salli kaikkien käyttää...</strong>, ja tallenna muutokset. Kysyttäessä anna Mac-käyttäjätunnuksesi ja salasanasi.",
-  "mac-instructions.set-key.description4": "Avain on nyt asetettu! Paina <strong>Siirry palveluun</strong>-näppäintä."
+  "mac-instructions.set-key.description4": "Avain on nyt asetettu! Paina <strong>Siirry palveluun</strong>-näppäintä.",
+
+  "MTLSANDROIDINSTRUCTIONS": "MTLSANDROIDINSTRUCTIONS",
+  "android-instructions.step1.title": "1. Lataa ja avaa avain",
+  "android-instructions.step1.description": "Paina <strong>Lataa avain</strong>-painiketta. Avain latautuu, ja valintaikkuna kysyy salasanaa. Salasana on aina <strong>peitenimesi</strong>.",
+  "android-instructions.step2.title": "2. Aseta avain",
+  "android-instructions.step2.description1": "Ikkuna kysyy varmenteen tyyppiä. Se on <strong>VPN- ja sovelluskäytön varmenne.</strong>",
+  "android-instructions.step2.description2": "Ikkuna pyytää nimeämään varmenteen. Valmiiksi täytettynä on peitenimesi. Älä muuta nimeä, paina vain <strong>OK.</strong>.",
+  "android-instructions.step3.title": "3. Siirry palveluun avaimellasi",
+  "android-instructions.step3.description1": "Olet nyt valmis! Kun painat <em>Siirry palveluun</em>-painiketta, selain kysyy, mitä varmennetta haluat käyttää. Paina <strong>OK.</strong>.",
+  "android-instructions.step3.description2": "Tämän jälkeen pääset aina palveluun avaimellasi. Et tarvitse salasanoja, koska palvelu tunnistaa sinut avaimellasi.>"
 }
