@@ -45,5 +45,18 @@
   "mtls-download-install-description": "You can use the service only, if your device has a mTLS Certificate of this server installed to your device. Download and install the key to your device.",
   "mtls-installation-instructions": "Installation instructions",
   "download-your-key": "Download your key",
-  "navigate-with-your-key": "Use your key to access the services"
+  "navigate-with-your-key": "Use your key to access the services",
+
+  "MTLSINSTRUCTIONS-MAC": "MTLSINSTRUCTIONS-MAC",
+  "mac-instructions.download-key.title": "1. Download Your Key",
+  "mac-instructions.download-key.description1": "Press the <strong>Download Key</strong> button. You will receive a file named <em>yourcallsign.pfx.</em>",
+  "mac-instructions.open-key.title": "2. Open Your Key",
+  "mac-instructions.open-key.description1": "<strong>a.</strong> <strong>Open</strong> your downloads folder and double-click the file. Mac Keychain will open.",
+  "mac-instructions.open-key.description2": "<strong>b.</strong> Keychain Access will ask for your Mac username and password. <strong>Enter</strong> them and press OK.",
+  "mac-instructions.open-key.description3": "<strong>c.</strong> You will be asked for the password of the item (key). The password is always <strong>your callsign just as it is</strong>. <br/><small>In the example, the password is <em>PROGRAMMFEHLERMAEHER4.</em></small><br/> If asked, where to save the keychain, the answer is <em>System</em>.",
+  "mac-instructions.set-key.title": "3. Set Up Your Key",
+  "mac-instructions.set-key.description1": "<strong>a.</strong> <strong>Select</strong> 1. <em>System</em> from the left bar of Mac Keychain. In the System view, at first, select 2. <em>Certificates</em> from the top bar. <br/> <br/> In the Certificates view, find a certificate named after your callsign. double-click your certificate 'yourcallsign' and choose <em>Trust</em> - <em>Always Trust.</em> Then follow the next guided changes in the <em>Keys</em> menu.</small>",
+  "mac-instructions.set-key.description2": "<strong>b.</strong> Double-click your key <em>YourCallsign.pfx</em>. Select <strong>Access Control</strong>. Enter your Mac username and password.",
+  "mac-instructions.set-key.description3": "<strong>c.</strong> Choose the option <strong>Allow all applications to access this item</strong>, and save the changes. When asked, enter your Mac username and password.",
+  "mac-instructions.set-key.description4": "Your key is now set up! Press the <strong>Navigate to the service</strong> button."
 }
