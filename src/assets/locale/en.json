@@ -22,6 +22,14 @@
   "privacyPolicy.description": "We collect information about users to provide better service and ensure the security of the service through monitoring. <br /><br />We do not share information with third parties for any commercial purposes. We do not use third-party tracking cookie services for information collection. <br /><br /><strong>Information we collect:</strong><li>Your IP address.</li><li>The country you are accessing from.</li><li>User agent, i.e., your browser and operating system.</li><li>Information you enter into the service.</li><br /><strong>What information we do not collect:</strong><li>Information based on third-party tracking cookies.</li><li>Any personal information, including email addresses and phone numbers.</li><br />The collected information is processed by the Finnish Defence Forces and personnel authorized by the Finnish Defence Forces, under the guidance of the FDF. <br /> The information is stored in the EU. <br /><br />By using the service, you agree to the collection of the information described above.",
   "privacyPolicy.okButton": "OK",
 
+  "ERRORVIEW": "ERRORVIEW",
+  "error.mtls_fail.title": "Invalid mTLS Key",
+  "error.mtls_fail.details": "Your browser thinks your mTLS key is invalid (or it is missing). Try closing the browser and starting it again, especially if you just installed the key on your device.",
+  "error.fall_back.title": "Error",
+  "error.fall_back.details": "An error occurred for which there is not yet an error message.",
+  "error.reporting.linkText": "When you have time, please report the error! Use the form behind this link, select Deploy App and Bug as the type of report. The developers thank you!",
+  "error.returnHome": "Return to Home Page",
+
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "An unidentified error occurred.",
   "login-to-service": "Log In to:",

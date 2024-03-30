@@ -22,6 +22,14 @@
   "privacyPolicy.description": "Keräämme tietoja käyttäjistä, jotta voimme tarjota parempaa palvelua ja varmistaa palvelun turvallisuuden valvonnalla. <br /><br />Emme luovuta tietoja kolmansille osapuolille mihinkään kaupallisiin tarkoituksiin. Emme käytä kolmannen osapuolen tarjoamia jäljittäviä evästepalveluita tiedon keräämiseen. <br /><br /><strong>Tietoja, mitä keräämme:</strong><li>IP-osoitteesi.</li><li>Maa, josta liikennöit.</li><li>User agent, eli käyttämäsi selain ja käyttöjärjestelmä.</li><li>Palveluun syöttämäsi tiedot.</li><br /><strong>Mitä tietoja emme kerää:</strong><li>Kolmannen osapuolen jäljittäviin eväisteisiin (3rd party tracking cookies) perustuvaa tietoa. </li><li>Mitään henkilötietoja, mukaanlukien sähköpostiosoitteita, puhelinnumeroja.</li><br />Tietoja käsittelee Puolustusvoimat ja Puolustusvoimien valtuuttama henkilöstö Puolustusvoimien ohjauksessa.<br />Kerättyä tietoa säilytetään Euroopan Unionin alueella. Käyttämällä palvelua hyväksyt tietosuojaselosteen.",
   "privacyPolicy.okButton": "OK",
 
+  "ERRORVIEW": "ERRORVIEW",
+  "error.mtls_fail.title": "Virheellinen mTLS-avain",
+  "error.mtls_fail.details": "Selaimen mielestä mTLS-avaimesi on virheellinen (tai sitä ei ole). Jos juuri asensit avaimen laitteellesi, kokeile sulkea selain ja käynnistää se uudelleen.",
+  "error.fall_back.title": "Virhe",
+  "error.fall_back.details": "Tapahtui virhe, jolle ei ole vielä virheilmoitusta.",
+  "error.reporting": "Tee ehtiessäsi virheilmoitus! Käytä tämän inkin takaa löytyvää lomaketta, valitse Rasenmaeher ja Bugi ilmoituksen tyypiksi. Kehittäjät kiittävät!",
+  "error.returnHome": "Palaa etusivulle",
+
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "Tapahtui tunnistamaton virhe.",
   "login-to-service": "Kirjaudu palveluun:",
