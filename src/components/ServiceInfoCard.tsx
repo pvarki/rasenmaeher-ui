@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ServiceInfoCardProps {
-  title?: string;
+  title?: React.ReactNode;
   image?: string;
   details?: React.ReactNode;
   children?: React.ReactNode;
