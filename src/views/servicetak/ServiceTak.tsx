@@ -1,6 +1,7 @@
 import tak from "../../assets/icons/taklogo.png";
 import usage from "../../assets/icons/sota.png";
 import phone from "../../assets/icons/byod2.png";
+import { Trans, useTranslation } from "react-i18next";
 import { CardsContainer } from "../../components/CardsContainer";
 import { FoldableCard } from "../../components/FoldableCard";
 import { UnfoldableCard } from "../../components/UnfoldableCard2";
@@ -14,6 +15,7 @@ import { useAlertDialog } from "../../components/AlertDialogService";
 export function ServiceTak() {
   const navigate = useNavigate();
   const { openDialog } = useAlertDialog();
+  const { t } = useTranslation();
   const { mutate: fetchFile, isLoading } = useFetchZipFile({
     onSuccess: ({ blob, filename }) => {
       const url = window.URL.createObjectURL(blob);
@@ -25,21 +27,24 @@ export function ServiceTak() {
       link.remove();
       window.URL.revokeObjectURL(url);
       openDialog({
-        title: "Viestiperusteet ladattu.",
+        title: t("serviceTak.grabZip.grabbedModalTitle"),
         description: (
           <div>
-            {
-              <>
-                Viestiperustepaketti ladattu. Paketti tulee ladata sovellukseen.
-                Seuraa käyttöönotto-ohjeita. <br /> <br />
-                <em> Paketin nimi:</em>
-                <br />"{filename}"
-              </>
-            }
-            ,
+            <>
+              {
+                <Trans
+                  i18nKey="serviceTak.grabZip.grabbedModalDescription"
+                  components={{
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
+              }{" "}
+              "{filename}"
+            </>
           </div>
         ),
-        confirmLabel: "Sulje",
+        confirmLabel: t("close"),
         confirmColor: "primary",
         onConfirm: () => {
           // just close the dialog
@@ -48,24 +53,23 @@ export function ServiceTak() {
     },
     onError: (error) => {
       const errorMessage =
-        error.message ||
-        "Viestiperustepaketin lataaminen epäonnistui. Yritä uudelleen myöhemmin.";
+        error.message || t("serviceTak.grabZip.grabbingGenericError");
       openDialog({
-        title: "Virhe",
+        title: t("serviceTak.grabZip.grabbingErrorTitle"),
         description: (
           <div>
             {
               <>
-                Viestiperustepaketin lataaminen epäonnistui. Yritä uudelleen
-                myöhemmin. <br /> <br />
-                <em> Virheilmoitus sovellukselta:</em>
-                <br />"{errorMessage}"
+                <Trans
+                  i18nKey="serviceTak.grabZip.grabbingErrorDescription"
+                  components={{ strong: <strong />, em: <em />, br: <br /> }}
+                />{" "}
+                "{errorMessage}"
               </>
             }
-            ,
           </div>
         ),
-        confirmLabel: "Sulje",
+        confirmLabel: t("close"),
         confirmColor: "primary",
         onConfirm: () => {
           // just close the dialog
@@ -81,34 +85,37 @@ export function ServiceTak() {
   return (
     <div>
       <CardsContainer>
-        <FoldableCard title="TAK" imageSrc={tak}>
+        <FoldableCard title={t("serviceTak.foldableCardTitle")} imageSrc={tak}>
           <div className="flex flex-col items-center justify-center p-5">
-            <ServiceInfoCard title="Tilannekuvasovellus TAK" image={tak} />
+            <ServiceInfoCard
+              title={t("serviceTak.serviceInfoCardTitle")}
+              image={tak}
+            />
             <UnfoldableCard
-              title="Näin otat käyttöön"
+              title={t("serviceTak.unfoldableCardTitle")}
               steps={[
                 {
                   description: (
-                    <>
-                      <strong>Käyttöönotto-ohje</strong> opastaa palvelun
-                      käyttöönoton laitteellesi.
-                    </>
+                    <Trans
+                      i18nKey="serviceTak.step1Description"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      Ohje <strong>Käyttö joukossa</strong> opastaa, miten
-                      käytät sovellusta perusmallin mukaisesti.
-                    </>
+                    <Trans
+                      i18nKey="serviceTak.step2Description"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      <strong>Viestiperustepaketti</strong> sisältää ladattavat
-                      henkilökohtaiset perusteesi.
-                    </>
+                    <Trans
+                      i18nKey="serviceTak.step3Description"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                 },
               ]}
@@ -124,7 +131,7 @@ export function ServiceTak() {
                 >
                   <div className="flex items-center justify-center w-full h-full">
                     <img src={phone} alt="keys" className="h-5 w-5 mr-2" />
-                    Ohje: Käyttöönotto
+                    {t("serviceTak.guideButton.quickStart")}
                   </div>
                 </Button>
               </div>
@@ -137,7 +144,7 @@ export function ServiceTak() {
                 >
                   <div className="flex items-center justify-center w-full h-full">
                     <img src={usage} alt="keys" className="h-5 w-5 mr-2" />
-                    Ohje: Käyttö joukossa
+                    {t("serviceTak.guideButton.usage")}
                   </div>
                 </Button>
               </div>
@@ -149,7 +156,9 @@ export function ServiceTak() {
               disabled={isLoading}
               styling="bg-success-700 m-2"
             >
-              {isLoading ? "Ladataan..." : "Lataa viestiperustepaketti"}
+              {isLoading
+                ? "serviceTak.grabZipButton.loading"
+                : t("serviceTak.grabZipButton")}
             </Button>
           </div>
         </FoldableCard>

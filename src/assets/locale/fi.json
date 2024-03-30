@@ -5,6 +5,7 @@
   "link-copied": "Link copied!",
   "copy-link": "Copy link for the administrator",
   "go-back": "Peruuta",
+  "close": "Sulje",
 
   "FOOTERS": "FOOTERS",
   "footer.loading": "Ladataan...",
@@ -220,5 +221,22 @@
   "enrollApprovalView.rejectedModal.dialogTitle": "Käyttäjä hylätty",
   "enrollApprovalView.acceptdModal.dialogTitle": "Hyväksy käyttäjä",
   "enrollApprovalView.list.waitingUsers": "small>Odottavat käyttäjät</small>",
-  "enrollApprovalView.list.noWaitingUsers": "Ei hyväksyntää odottavia käyttäjiä."
+  "enrollApprovalView.list.noWaitingUsers": "Ei hyväksyntää odottavia käyttäjiä.",
+
+  "SERVICETAK": "SERVICETAK",
+  "serviceTak.grabZip.grabbedModalTitle": "Viestiperusteet ladattu.",
+  "serviceTak.grabZip.grabbedModalDescription": "Viestiperustepaketti ladattu. Paketti tulee ladata sovellukseen. Seuraa käyttöönotto-ohjeita. <br /> <br /> <em>Paketin nimi:</em>",
+  "serviceTak.grabZip.grabbingGenericError": "Viestiperustepaketin lataaminen epäonnistui. Yritä uudelleen myöhemmin.",
+  "serviceTak.grabZip.grabbingErrorTitle": "Virhe",
+  "serviceTak.grabZip.grabbingErrorDescription": "Viestiperustepaketin lataaminen epäonnistui. Yritä uudelleen myöhemmin. <br /> <br /> <em> Virheilmoitus sovellukselta:</em>",
+  "serviceTak.foldableCardTitle": "TAK",
+  "serviceTak.serviceInfoCardTitle": "Tilannekuvasovellus TAK",
+  "serviceTak.unfoldableCardTitle": "Näin otat käyttöön",
+  "serviceTak.step1Description": "<strong>Käyttöönotto-ohje</strong> opastaa palvelun käyttöönoton laitteellesi.",
+  "serviceTak.step2Description": "Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät sovellusta perusmallin mukaisesti.",
+  "serviceTak.step3Description": "<strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi.",
+  "serviceTak.guideButton.quickStart": "Ohje: Käyttöönotto",
+  "serviceTak.guideButton.usage": "Ohje: Käyttö joukossa",
+  "serviceTak.grabZipButton": "Lataa viestiperustepaketti",
+  "serviceTak.grabZipButton.loading": "Ladataan..."
 }
