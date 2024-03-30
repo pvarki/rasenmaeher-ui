@@ -269,5 +269,21 @@
   "serviceTakUsageFlowCard.description1": "<small><strong>1. Fighter observes something reportable</strong><li>The fighter ensures their own group is informed.</li><li>The fighter sends a marker to the <em>HQ role.</em></li><li>Command post users are in the HQ role.</li><li>The command post receives the observation.</li></small>",
   "serviceTakUsageFlowCard.description2": "<small><strong>2. Command Post's action upon receiving an observation</strong><li>The command post <em>processes the observation:</em> </li><li>- i.e., verifies and interprets it, adding information</li><li>The command post sends a marker to the <strong>Recon Feed</strong></li></small>",
   "serviceTakUsageFlowCard.description3": "<small><strong>3. End situation</strong><li>All users are subscribers to the Recon Feed</li><li>All users see the new marker</li><li>Markers compose the <strong>intelligence situation picture</strong></li></small>",
-  "serviceTakUsageFlowCard.description4": "<small>Goal: The entire unit is aware of essential events within minutes of their observation.</small>"
+  "serviceTakUsageFlowCard.description4": "<small>Goal: The entire unit is aware of essential events within minutes of their observation.</small>",
+
+  "SERVICETAKUSAGEVIEW": "SERVICETAKUSAGEVIEW",
+  "serviceTakUsageView.navbarTitle": "TAK: Usage",
+  "serviceTakUsageView.serviceInfoCardTitle": "TAK - Usage",
+  "serviceTakUsageView.serviceInfoCardDetails": "Take  TAK to use with each platform, according to our standard model, with the instructions below. The easiest way to learn how to do it, is to work <strong>with a partner</strong> where one fighter displays the instructions, and the other follows them.",
+  "serviceTakUsageView.androidTitle": "Android",
+  "serviceTakUsageView.iosTitle": "iOS",
+  "serviceTakUsageView.windowsTitle": "Windows",
+
+  "SERVICETAKQUICKSTARTVIEW": "SERVICETAKQUICKSTARTVIEW",
+  "serviceTakQuickstartView.navbarTitle": "TAK: Quickstart",
+  "serviceTakQuickstartView.serviceInfoCardTitle": "Get Started with TAK!",
+  "serviceTakQuickstartView.serviceInfoCardDetails": "Select the setup instructions for your device. <br /><span>The easiest way to learn how to do it, is to work <strong>with a partner</strong> where one fighter displays the instructions, and the other follows them.</span>",
+  "serviceTakQuickstartView.androidTitle": "Android",
+  "serviceTakQuickstartView.iosTitle": "iOS",
+  "serviceTakQuickstartView.windowsTitle": "Windows"
 }

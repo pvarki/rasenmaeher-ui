@@ -267,5 +267,21 @@
   "serviceTakUsageFlowCard.description1": "<small><strong>1. Taistelija havaitsee ilmoitettavaa</strong><li>Taistelija varmistaa, että oma ryhmä tietää.</li><li>Taistelija lähettää merkin <em>HQ-roolille.</em></li><li>Komentopaikan käyttäjät ovat HQ-roolissa.</li><li>Komentopaikka vastaanottaa havainnon.</li></small>",
   "serviceTakUsageFlowCard.description2": "<small><strong>2. KNTOP toiminta vastaanottaessa havainto</strong><li>Komentopaikka <em>käsittelee havainnon:</em> </li><li>- eli varmentaa ja tulkitsee sen, lisäten tietoa</li><li>Komentopaikka lähettää merkin <strong>Recon Feediin</strong></li></small>",
   "serviceTakUsageFlowCard.description3": "<small><strong>3. Lopputilanne</strong><li>Kaikki käyttäjät ovat Recon Feedin tilaajia</li><li>Kaikki käyttäjät näkevät uuden merkin</li><li>Merkeistä koostuu <strong>tiedustelutilannekuva</strong></li></small>",
-  "serviceTakUsageFlowCard.description4": "<small>Tavoitetila: Koko joukko tietää olennaiset tapahtumat minuuttien kuluessa niiden havaitsemisesta.</small>"
+  "serviceTakUsageFlowCard.description4": "<small>Tavoitetila: Koko joukko tietää olennaiset tapahtumat minuuttien kuluessa niiden havaitsemisesta.</small>",
+
+  "SERVICETAKUSAGEVIEW": "SERVICETAKUSAGEVIEW",
+  "serviceTakUsageView.navbarTitle": "TAK: Käyttö joukossa",
+  "serviceTakUsageView.serviceInfoCardTitle": "TAK - Käyttö joukossa",
+  "serviceTakUsageView.serviceInfoCardDetails": "Ota TAK perusmallin mukaiseen käyttöön kullekin alustalle alla olevien ohjeiden avulla. Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.",
+  "serviceTakUsageView.androidTitle": "Android",
+  "serviceTakUsageView.iosTitle": "iOS",
+  "serviceTakUsageView.windowsTitle": "Windows",
+
+  "SERVICETAKQUICKSTARTVIEW": "SERVICETAKQUICKSTARTVIEW",
+  "serviceTakQuickstartView.navbarTitle": "TAK: Käyttöönotto",
+  "serviceTakQuickstartView.serviceInfoCardTitle": "Ota TAK käyttöön!",
+  "serviceTakQuickstartView.serviceInfoCardDetails": "Valitse käyttöönotto-ohje laitteesi mukaan. <br /><span>Helpoin tapa tehdä käyttöönotto on <strong>parin kanssa</strong> siten, että toinen taistelija näyttää ohjetta ja toinen tekee.</span>",
+  "serviceTakQuickstartView.androidTitle": "Android",
+  "serviceTakQuickstartView.iosTitle": "iOS",
+  "serviceTakQuickstartView.windowsTitle": "Windows"
 }
