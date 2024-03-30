@@ -162,5 +162,10 @@
   "userManagement.demote.demoteButton": "Alenna",
   "userManagement.list.admins": "<small>Ylläpitäjät</small>",
   "userManagement.list.users": "<small>Taistelijat</small>",
-  "userManagement.list.nothingToList": "Ei käyttäjiä."
+  "userManagement.list.nothingToList": "Ei käyttäjiä.",
+
+  "qRCodeView.navbarTitle": "Kutsukoodi <em>{{inviteCode}}</em>",
+  "qRCodeView.copyInviteLink": "Kopioi kutsulinkki",
+  "qRCodeView.linkCopied": "Linkki kopioitu!",
+  "qRCodeView.instructions": "1. <strong>Näytä</strong> käyttäjällesi tätä QR-koodia - <strong>TAI</strong> paina yltä <i>Kopioi kutsulinkki</i>, ja lähetä linkki käyttäjällesi esim. pikaviestillä.<br/>2. Käyttäjäsi pääsee QR:sta tai linkistä syöttämään <strong>peitenimensä</strong>.<br/>3. <strong>Hyväksy</strong> käyttäjäsi kirjautuminen.<br/><small><br/>Käyttäjän kirjautuminen hyväksytään kuvaamalla tämän näytöltä QR-koodi, tai hyväksymällä se<br/>käyttäjienhallinnan <strong>“Hyväksy\"</strong>-näkymässä.</small>"
 }

@@ -163,5 +163,11 @@
   "userManagement.demote.demoteButton": "Demote",
   "userManagement.list.admins": "<small>Administrators</small>",
   "userManagement.list.fighters": "<small>Fighters</small>",
-  "userManagement.list.nothingToList": "No users to list."
+  "userManagement.list.nothingToList": "No users to list.",
+
+  "QRCODEVIEW": "QRCODEVIEW",
+  "qRCodeView.navbarTitle": "Invite Code <em>{{inviteCode}}</em>",
+  "qRCodeView.copyInviteLink": "Copy invite link",
+  "qRCodeView.linkCopied": "Link copied!",
+  "qRCodeView.instructions": "1. <strong>Show</strong> this QR code to your user.<br/>2. Alternatively, press the <i>Copy invite link</i> button above, and paste the link to the user you want enroll for example, via instant messaging or email.<br/>3. Via the QR code or the link, your user can log in and get to set their <strong>callsign</strong>. <br/>4. After that, they are in the Waiting Room.<br/>5. <strong>Approve</strong> your user by one of the three ways.<br/><small><br/>You may approve your user either by taking the <strong>approval code</strong> from their Waiting Room screen, <strong>OR</strong> asking them to provide you the approval code as a link, <strong>OR</strong> by asking them their apporval code & using that it in the <strong>\"Approve Users\"</strong> view.</small>"
 }
