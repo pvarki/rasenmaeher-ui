@@ -30,6 +30,11 @@
   "error.reporting.linkText": "When you have time, please report the error! Use the form behind this link, select Deploy App and Bug as the type of report. The developers thank you!",
   "error.returnHome": "Return to Home Page",
 
+  "404VIEW": "404VIEW",
+  "notFoundView.title": "404 - Page Not Found",
+  "notFoundView.details": "Return to the application below.",
+  "notFoundView.returnButtonText": "Return to Application",
+
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "An unidentified error occurred.",
   "login-to-service": "Log In to:",

@@ -30,6 +30,11 @@
   "error.reporting": "Tee ehtiessäsi virheilmoitus! Käytä tämän inkin takaa löytyvää lomaketta, valitse Rasenmaeher ja Bugi ilmoituksen tyypiksi. Kehittäjät kiittävät!",
   "error.returnHome": "Palaa etusivulle",
 
+  "404VIEW": "404VIEW",
+  "notFoundView.title": "404 - Sivua ei löytynyt",
+  "notFoundView.details": "Palaa alta sovellukseen.",
+  "notFoundView.returnButtonText": "Palaa sovellukseen",
+
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "Tapahtui tunnistamaton virhe.",
   "login-to-service": "Kirjaudu palveluun:",
