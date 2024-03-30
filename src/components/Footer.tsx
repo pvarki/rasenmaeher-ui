@@ -40,13 +40,13 @@ export function Footer() {
           PVATK
         </a>
         <br />
+        &copy; <Trans i18nKey="footer.allRightsReservedPVATK" />
+        <br />
         <br />
         <Trans i18nKey="footer.allRightsReservedFDF" />
         <br />
         &copy; <Trans i18nKey="footer.allRightsReservedFDFnotice" />
         <br />
-        <br />
-        &copy; <Trans i18nKey="footer.allRightsReservedPVATK" />
         <br />
         <a
           href={feedbackLink}
