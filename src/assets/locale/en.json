@@ -240,5 +240,34 @@
   "serviceTak.guideButton.quickStart": "Quickstart Guide",
   "serviceTak.guideButton.usage": "Usage Guide",
   "serviceTak.grabZipButton": "Download your Client Package",
-  "serviceTak.grabZipButton.loading": "Loading..."
+  "serviceTak.grabZipButton.loading": "Loading...",
+
+  "SERVICETAKUSAGECARD": "SERVICETAKUSAGECARD",
+  "serviceTakUsageCard.title": "Purpose",
+  "serviceTakUsageCard.content": "<ul><li>Real-time tracking of friendlies <em>(GPS).</em></li><li>Send observations to the command post (HQ) for interpretation.</li><li>Follow the <strong>Recon Feed</strong> that your command post (HQ) creates for your unit.</li></ul>",
+
+  "SERVICETAKUSAGECONTENTS": "SERVICETAKUSAGECONTENTS",
+  "serviceTakUsageContents.title": "Guide sections",
+  "serviceTakUsageContent.details": "<ul><li>Move the map and see your own</li><li>Enable Recon Feed</li><li>Make observations with markers</li></ul>",
+
+  "SERVICETAKUSAGEATCPCARD": "SERVICETAKUSAGEATCPCARD",
+  "serviceTakUsageAtCPCard.title": "Being a Command Post TAK User",
+  "serviceTakUsageAtCPCard.description1": "1. TAK is a tool for collecting information from forces, and distributing it to them.",
+  "serviceTakUsageAtCPCard.description2": "2. As a command post, you create the unit's Feeds and use the team role <strong>HQ</strong> in TAK to receive and interpet observations from the fighters.",
+  "serviceTakUsageAtCPCard.description3": "3. Interpretating observations goes like this: Firstly, confirm the observation from its sender, then make conclusions <em>if possible</em>. Add all confirmed observations to the Recon Feed.",
+  "serviceTakUsageAtCPCard.description4": "4. Maintain the Recon Feed by sending markers to it, changing the information of markers in it, and removing them either when the information or the situation changes",
+
+  "SERVICETAKUSAGEBYFIGHTERCARD": "SERVICETAKUSAGEBYFIGHTERCARD",
+  "serviceTakUsageByFighterCard.title": "Using TAK as a Fighter",
+  "serviceTakUsageByFighterCard.description1": "1. When you make an observation, create a marker in TAK and <strong>send it</strong> to the HQ role.",
+  "serviceTakUsageByFighterCard.description2": "2. Follow your orders in <strong>how to</strong> report observations - in addition to sending a marker, make the observation known via other mediums as you've been ordered to.",
+  "serviceTakUsageByFighterCard.description3": "3. Follow the <strong>Recon Feed.</strong> Youe command post (HQ) creates and updates it for your unit.",
+  "serviceTakUsageByFighterCard.description4": "4. The Recon Feed contains an interpreted intelligence situation picture of your unit's observations, as well as yours.",
+
+  "SERVICETAKUSAGEFLOWCARD": "SERVICETAKUSAGEFLOWCARD",
+  "serviceTakUsageFlowCard.title": "Flowchart: Observation Data Flow",
+  "serviceTakUsageFlowCard.description1": "<small><strong>1. Fighter observes something reportable</strong><li>The fighter ensures their own group is informed.</li><li>The fighter sends a marker to the <em>HQ role.</em></li><li>Command post users are in the HQ role.</li><li>The command post receives the observation.</li></small>",
+  "serviceTakUsageFlowCard.description2": "<small><strong>2. Command Post's action upon receiving an observation</strong><li>The command post <em>processes the observation:</em> </li><li>- i.e., verifies and interprets it, adding information</li><li>The command post sends a marker to the <strong>Recon Feed</strong></li></small>",
+  "serviceTakUsageFlowCard.description3": "<small><strong>3. End situation</strong><li>All users are subscribers to the Recon Feed</li><li>All users see the new marker</li><li>Markers compose the <strong>intelligence situation picture</strong></li></small>",
+  "serviceTakUsageFlowCard.description4": "<small>Goal: The entire unit is aware of essential events within minutes of their observation.</small>"
 }

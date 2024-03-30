@@ -238,5 +238,34 @@
   "serviceTak.guideButton.quickStart": "Ohje: Käyttöönotto",
   "serviceTak.guideButton.usage": "Ohje: Käyttö joukossa",
   "serviceTak.grabZipButton": "Lataa viestiperustepaketti",
-  "serviceTak.grabZipButton.loading": "Ladataan..."
+  "serviceTak.grabZipButton.loading": "Ladataan...",
+
+  "SERVICETAKUSAGECARD": "SERVICETAKUSAGECARD",
+  "serviceTakUsageCard.title": "Käyttötarkoitus lyhyesti",
+  "serviceTakUsageCard.content": "<ul><li>Käyttäjiesi seuranta reaaliajassa <em>(GPS).</em></li><li>Lähetä havaintoja komentopaikalle. (HQ) tulkittavaksi</li><li>Seuraa <strong>Recon Feediä</strong>, mitä komentopaikka (HQ) muodostaa joukollesi.</li></ul>",
+
+  "SERVICETAKUSAGECONTENTS": "SERVICETAKUSAGECONTENTS",
+  "serviceTakUsageContents.title": "Ohjeen osat",
+  "serviceTakUsageContent.details": "<ul><li>Liikuta karttaa ja näe omat</li><li>Ota käyttöön Recon Feed</li><li>Tee havaintoja merkein</li></ul>",
+
+  "SERVICETAKUSAGEATCPCARD": "SERVICETAKUSAGEATCPCARD",
+  "serviceTakUsageAtCPCard.title": "TAK ja komentopaikka",
+  "serviceTakUsageAtCPCard.description1": "1. TAK on työkalu tiedon keräämiseen joukoilta, ja tiedon jakamiseen sille.",
+  "serviceTakUsageAtCPCard.description2": "2. Komentopaikkana käytät TAKissa Team Rolea <strong>HQ</strong>, joka luo Feedit sekä vastaanottaa ja käsittelee havaintoja.",
+  "serviceTakUsageAtCPCard.description3": "3. Tulkinta: Varmista havainto, tee johtopäätös <em>jos mahdollista</em>. Kaikki varmistetut havainnot Recon Feediin.",
+  "serviceTakUsageAtCPCard.description4": "4. Ylläpidä Recon Feediä lähettämällä siihen merkkejä, muuttamalla siinä olevien merkkien tietoja ja poistaessa niitä joko tiedon tai tilanteen muuttuessa.",
+
+  "SERVICETAKUSAGEBYFIGHTERCARD": "SERVICETAKUSAGEBYFIGHTERCARD",
+  "serviceTakUsageByFighterCard.title": "TAK ja taistelija",
+  "serviceTakUsageByFighterCard.description1": "1. Kun teet havainnon, tee siitä merkki ja lähetä se HQ-roolille.",
+  "serviceTakUsageByFighterCard.description2": "2. Toimi käsketysti - merkin lisäksi tee muut käsketyt ilmoitukset.",
+  "serviceTakUsageByFighterCard.description3": "3. Seuraa <strong>Recon Feediä</strong>, mitä komentopaikka (HQ) muodostaa joukollesi.",
+  "serviceTakUsageByFighterCard.description4": "4. Recon Feed sisältää tulkitun tiedustelutilannekuvan joukkosi havainnoista.",
+
+  "SERVICETAKUSAGEFLOWCARD": "SERVICETAKUSAGEFLOWCARD",
+  "serviceTakUsageFlowCard.title": "Flowchart: Havaintotiedon kulku",
+  "serviceTakUsageFlowCard.description1": "<small><strong>1. Taistelija havaitsee ilmoitettavaa</strong><li>Taistelija varmistaa, että oma ryhmä tietää.</li><li>Taistelija lähettää merkin <em>HQ-roolille.</em></li><li>Komentopaikan käyttäjät ovat HQ-roolissa.</li><li>Komentopaikka vastaanottaa havainnon.</li></small>",
+  "serviceTakUsageFlowCard.description2": "<small><strong>2. KNTOP toiminta vastaanottaessa havainto</strong><li>Komentopaikka <em>käsittelee havainnon:</em> </li><li>- eli varmentaa ja tulkitsee sen, lisäten tietoa</li><li>Komentopaikka lähettää merkin <strong>Recon Feediin</strong></li></small>",
+  "serviceTakUsageFlowCard.description3": "<small><strong>3. Lopputilanne</strong><li>Kaikki käyttäjät ovat Recon Feedin tilaajia</li><li>Kaikki käyttäjät näkevät uuden merkin</li><li>Merkeistä koostuu <strong>tiedustelutilannekuva</strong></li></small>",
+  "serviceTakUsageFlowCard.description4": "<small>Tavoitetila: Koko joukko tietää olennaiset tapahtumat minuuttien kuluessa niiden havaitsemisesta.</small>"
 }
