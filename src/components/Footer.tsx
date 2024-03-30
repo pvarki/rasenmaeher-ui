@@ -1,17 +1,28 @@
+import { Trans, useTranslation } from "react-i18next";
 import { InfoModal } from "./InfoModal";
 import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
+  const { i18n } = useTranslation();
   const isMtls = window.location.origin.includes("mtls.");
   const { version } = useHealthCheck();
+
+  // Determine the feedback link based on the current i18n language
+  const feedbackLink =
+    i18n.language === "fi"
+      ? "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform"
+      : "https://pvarki.fi/help";
+
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
 
-      <div className="pt-4 py-3">RASENMAEHER {version || "Loading..."}</div>
+      <div className="pt-4 py-3">
+        RASENMAEHER {version || <Trans i18nKey="footer.loading" />}
+      </div>
       {isMtls && (
         <div className="py-1 pb-3 text-xs">
-          Tunnistautunut mTLS:llä -{" "}
+          <Trans i18nKey="footer.authenticatedWithMtls" /> -{" "}
           <InfoModal triggerClassName="text-m text-blue-500 underline cursor-pointer" />
         </div>
       )}
@@ -19,7 +30,7 @@ export function Footer() {
       <hr className="mx-auto w-56" />
 
       <div className="py-5 text-xs">
-        Proudly served by{" "}
+        <Trans i18nKey="footer.proudlyServedBy" />{" "}
         <a
           href="https://github.com/pvarki"
           className="underline"
@@ -29,15 +40,21 @@ export function Footer() {
           PVATK
         </a>
         <br />
-        &copy; PVATK. All rights reserved.
+        <br />
+        <Trans i18nKey="footer.allRightsReservedFDF" />
+        <br />
+        &copy; <Trans i18nKey="footer.allRightsReservedFDFnotice" />
+        <br />
+        <br />
+        &copy; <Trans i18nKey="footer.allRightsReservedPVATK" />
         <br />
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform"
+          href={feedbackLink}
           className="underline"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Kerro palautetta tai ideoita lomakkeella!
+          <Trans i18nKey="footer.feedbackForm" />
         </a>
       </div>
 

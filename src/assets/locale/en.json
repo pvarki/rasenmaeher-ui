@@ -5,6 +5,15 @@
   "link-copied": "Link copied!",
   "copy-link": "Copy approval link for your administrator",
 
+  "FOOTER": "FOOTER",
+  "footer.loading": "Loading...",
+  "footer.authenticatedWithMtls": "Authenticated with mTLS",
+  "footer.proudlyServedBy": "Proudly served by",
+  "footer.allRightsReservedFDF": "FDF-UI, The FDF Logo & Background Images:",
+  "footer.allRightsReservedFDFnotice": " The Finnish Defence Forces. All rights reserved.",
+  "footer.allRightsReservedPVATK": "PVATK. All rights reserved.",
+  "footer.feedbackForm": "Share feedback or ideas to the Devs, through this form!",
+
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "An unidentified error occurred.",
   "login-to-service": "Log In to:",

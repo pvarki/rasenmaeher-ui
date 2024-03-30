@@ -5,6 +5,15 @@
   "link-copied": "Link copied!",
   "copy-link": "Copy link for the administrator",
 
+  "FOOTER": "FOOTER",
+  "footer.loading": "Ladataan...",
+  "footer.authenticatedWithMtls": "Tunnistautunut mTLS:llä",
+  "footer.proudlyServedBy": "Sovelluksen tarjoaa:",
+  "footer.allRightsReservedFDF": "FDF-UI, PV:n logo & taustakuvat:",
+  "footer.allRightsReservedFDFnotice": "Puolustusvoimat. Kaikki oikeudet pidätetään",
+  "footer.allRightsReservedPVATK": "PVATK. Kaikki oikeudet pidätetään.",
+  "footer.feedbackForm": "Kerro palautetta tai ideoita kehittäjille lomakkeella!",
+
   "LOGINVIEW": "LOGINVIEW",
   "error-occured": "Tapahtui tunnistamaton virhe.",
   "login-to-service": "Kirjaudu palveluun:",
