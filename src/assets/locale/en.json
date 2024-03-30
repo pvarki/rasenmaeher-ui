@@ -103,5 +103,14 @@
   "windows-instructions.step2f.description": "The installation program will give a notification of successful installation.",
   "windows-instructions.step3.title": "3. Access the Service with Your Key",
   "windows-instructions.step3a.description": "You are now ready! When you press the <em>Access the Service</em> button, the browser will ask which certificate you want to use. Press <strong>OK.</strong>",
-  "windows-instructions.step3b.description": "After this, you can always access the service. You do not need passwords because the service recognizes you by your mTLS key."
+  "windows-instructions.step3b.description": "After this, you can always access the service. You do not need passwords because the service recognizes you by your mTLS key.",
+
+  "ADMINHOMEVIEW": "ADMINHOMEVIEW",
+  "adminHomeView.welcome": "Welcome, admin user <em>{{callsign}}</em>.",
+  "adminHomeView.manageUsers": "Tap <strong>Manage users</strong> to enrol and manage users. The services available in this deployment are listed below. <br /><br /> Tap a service's <strong>icon</strong> below to get using it on your device.",
+  "adminHomeView.manageUsersTitle": "Manage Users",
+
+  "SOLDIERVIEW": "SOLDIERVIEW",
+  "soldierView.welcome": "Welcome, <em>{{callsign}}</em>.",
+  "soldierView.details": "The services available in this deployment are listed below. Tap a service's <strong>icon</strong> below to get using it on your device."
 }

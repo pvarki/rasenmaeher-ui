@@ -101,6 +101,15 @@
   "windows-instructions.step2e.description": "e. Avaimen asennus on valmis! Paina <strong>Finish.</strong>",
   "windows-instructions.step2f.description": "Asennusohjelma antaa vielä ilmoituksen onnistuneesta asennuksesta.",
   "windows-instructions.step3.title": "3. Siirry palveluun avaimellasi",
-  "windows-instructions.step3a.description": "Olet nyt valmis! Kun painat <em>Siirry palveluun</em>-painiketta, selain kysyy, mitä varmennetta haluat käyttää. Paina <strong>OK.</strong>",
-  "windows-instructions.step3b.description": "Tämän jälkeen pääset aina palveluun avaimellasi. Et tarvitse salasanoja, koska palvelu tunnistaa sinut avaimellasi."
+  "windows-instructions.step3a.description": "Olet nyt valmis! Kun painat <em>Siirry palveluun</em>-painiketta, selain kysyy, mitä varmennetta haluat käyttää. Valitse ja paina <strong>OK.</strong>",
+  "windows-instructions.step3b.description": "Tämän jälkeen pääset aina palveluun avaimellasi. Et tarvitse salasanoja, koska palvelu tunnistaa sinut avaimellasi.",
+
+  "ADMINHOMEVIEW": "ADMINHOMEVIEW",
+  "adminHomeView.welcome": "Tervetuloa, admin-käyttäjä <em>{{callsign}}.</em>",
+  "adminHomeView.manageUsers": "<strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita ympäristöösi. Joukkosi käytössä olevat palvelut ovat ohessa. <br /><br /> Paina palvelun <strong>kuvaketta</strong> ottaaksesi sen käyttöön omalla laitteellasi.",
+  "adminHomeView.manageUsersTitle": "Hallitse käyttäjiä",
+
+  "SOLDIERVIEW": "SOLDIERVIEW",
+  "soldierView.welcome": "Tervetuloa, <em>{{callsign}}</em>.",
+  "soldierView.details": "Joukkosi käytössä olevat palvelut ovat ohessa. Paina palvelun <strong>kuvaketta</strong> ottaaksesi sen käyttöön omalla laitteellasi."
 }

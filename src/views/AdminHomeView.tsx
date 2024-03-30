@@ -6,42 +6,39 @@ import { CardsContainer } from "../components/CardsContainer";
 import { Layout } from "../components/Layout";
 import { ServiceTak } from "./servicetak/ServiceTak";
 import { useUserType } from "../hook/auth/useUserType";
-import { BookmarkReminder } from "../components/BookmarkRemainder";
+import { Trans, useTranslation } from "react-i18next";
 
 export function AdminHomeView() {
   const { callsign } = useUserType();
+  const { t } = useTranslation();
+
   return (
     <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>
       <div className="flex flex-col flex-shrink-0 gap-3">
         <CardsContainer>
           <TextCard
             title={
-              <>
-                Tervetuloa, admin-käyttäjä <em>{callsign && `${callsign}`}.</em>{" "}
-              </>
+              <Trans
+                i18nKey="adminHomeView.welcome"
+                components={{ em: <em /> }}
+                values={{ callsign }}
+              />
             }
             details={
-              <>
-                <strong>Hallitse käyttäjiä</strong> lisätäksesi taistelijoita
-                ympäristöösi. Joukkosi käytössä olevat palvelut ovat ohessa.
-                <br />
-                <br />
-                Paina palvelun <strong>kuvaketta</strong> ottaaksesi sen
-                käyttöön omalla laitteellasi.
-              </>
+              <Trans
+                i18nKey="adminHomeView.manageUsers"
+                components={{ strong: <strong />, br: <br /> }}
+              />
             }
           />
 
           <Card
-            title="Hallitse käyttäjiä"
+            title={t("adminHomeView.manageUsersTitle")}
             image={trooper}
             url="/app/admin/manageusers"
           />
         </CardsContainer>
         <ServiceTak />
-        <CardsContainer>
-          <BookmarkReminder />
-        </CardsContainer>
       </div>
     </Layout>
   );
