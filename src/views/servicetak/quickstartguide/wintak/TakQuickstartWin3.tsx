@@ -47,7 +47,12 @@ export function TakQuickstartWin3() {
               }
             />
             <UnfoldableCard
-              title={t("TakQuickstartWin3.unfoldableCard1.title")}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
                 <Trans
@@ -59,167 +64,170 @@ export function TakQuickstartWin3() {
               image2Classes="mx-auto pr-5 w-[90px] p-4"
             />
             <UnfoldableCard
-              title={<>2. Hyväksy EULA</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Hetken kuluttua aukaa <strong>Device Setup Wizard</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard2.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic16}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
               description2={
-                <>
-                  Sen ensimmäisenä askeleena hyväksy <strong>EULA.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard2.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>3. Muodosta palvelinyhteys</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard3.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Seuraavaksi muodostetaan palvelinyhteys.
-                  <br />
-                  <br />
-                  a. Sovellus kysyy, haluatko tuoda data packagen. Tämä
-                  tarkoittaa viestiperustepakettiasi <strong>Nimi.zip.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard3.description1"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
               image2Src={pic17}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
               description2={
-                <>
-                  b. Valitse <strong>Yes</strong>. <br />
-                  <br />
-                  Osoita <strong>viestiperustepaketti</strong>{" "}
-                  latauskansiostasi/muualta.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard3.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic18}
               image3Classes="mx-auto pr-5 w-[300px] p-4"
               description3={
-                <>
-                  Kun olet valinnut paketin ja painanut Open, aukeaa{" "}
-                  <strong>Select Import Strategy</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard3.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
               image4Src={pic19}
               image4Classes="mx-auto pr-5 w-[300px] p-4"
               description4={
-                <>
-                  c. Valitse <strong>UserPreferenceImportStrategy</strong>, ja
-                  paina OK.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard3.description4"
+                  components={{ strong: <strong /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>4. Valitse karttapohja</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard4.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Viestiperustepaketin kanssa voi tulla erilaisia{" "}
-                  <strong>karttapohjia.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard4.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic20}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
-                <>
-                  Valitse haluamasi karttapohja. Huomaa, että karttapohjaa voi
-                  vaihtaa myöhemmin.
-                </>
+                <Trans i18nKey="TakQuickstartWin3.unfoldableCard4.description2" />
               }
             />
             <UnfoldableCard
-              title={<>5. Aseta Callsign</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard5.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Device Setup Wizard kysyy, haluatko määrittää peitenimesi
-                  (Callsign).
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard5.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic21}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
-                <>
-                  Valitse <strong>Yes</strong> ja anna sinulle käsketty
-                  peitenimi.
-                  <br />
-                  <br />
-                  Sovellus kysyy ylimääräisiä WMS (kartta)-palvelulähteitä.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard5.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic23}
               image3Classes="mx-auto pr-5 w-[400px] p-4"
-              description3={<>Näitä ei tarvita, tyhjennä ruudut ja paina OK.</>}
+              description3={
+                <Trans i18nKey="TakQuickstartWin3.unfoldableCard5.description3" />
+              }
             />
             <UnfoldableCard
-              title={<>6. Aseta pluginit</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard6.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Sovellus kysyy, asennetaako plugineja. Valitse{" "}
-                  <strong>DataSync</strong> ja paina OK.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard6.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic24}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
-                <>
-                  Seuraavaksi sovellus kysyy, ladataanko automaattisesti
-                  DTED-0-korkeusmallit.
-                </>
+                <Trans i18nKey="TakQuickstartWin3.unfoldableCard6.description2" />
               }
               image3Src={pic25}
               image3Classes="mx-auto pr-5 w-[400px] p-4"
               description3={
-                <>
-                  Valitse <strong>Yes</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard6.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>7. Tarkasta asetukset</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard7.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Nyt WinTAKin perusasetukset on tehty. Tarkastetaan vielä{" "}
-                  <strong>My Preferences.</strong>
-                </>
+                <Trans i18nKey="TakQuickstartWin3.unfoldableCard7.description1" />
               }
               image2Src={pic26}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
-                <>
-                  Peite (<strong>Callsign</strong>), joukon väri (
-                  <strong>My Team</strong>) ja rooli (<strong>My Role</strong>)
-                  tulee olla sinulle käsketyn mukaiset.{" "}
-                  <strong>My Display Type</strong> on Ground.
-                  <br />
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard7.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
-              note={<>Komentopaikkakäyttäjänä roolisi tulee olla HQ.</>}
+              note={t("TakQuickstartWin3.unfoldableCard7.note")}
               image4Src={pic27}
               image4Classes="mx-auto pr-10 w-[200px] p-4"
               description3={
-                <>
-                  <br />
-                  Tarkista myös <strong>TAK Network Status.</strong> Vihreä
-                  pilvi tarkoittaa, että palvelinyhteys on OK, punainen, että
-                  yhteys on poikki.
-                </>
+                <Trans i18nKey="TakQuickstartWin3.unfoldableCard7.description3" />
               }
               description4={
-                <>
-                  Jos yhteys ei ole muodostunut, tarkista ensin, onko
-                  internetyhteytesi kunnossa. Jos on, ja TAK Network Status on
-                  silti punainen, käynnistä sovellus uudelleen.
-                  <br />
-                  <br />
-                  Vianselvitysapua on tämän ohjeen lopussa.
-                </>
+                <Trans i18nKey="TakQuickstartWin3.unfoldableCard7.description4" />
               }
             />
           </div>

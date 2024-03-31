@@ -128,7 +128,6 @@ export function ServiceTak() {
                   variant={{ width: "full" }}
                   onClick={() => navigate("/app/services/tak/quickstart")}
                   styling="m-1 px-2"
-                  className="w-full h-full"
                 >
                   <div className="flex items-center justify-center w-full h-full">
                     <img src={phone} alt="keys" className="h-5 w-5 mr-2" />
@@ -142,7 +141,6 @@ export function ServiceTak() {
                   variant={{ width: "full" }}
                   onClick={() => navigate("/app/services/tak/usage")}
                   styling="m-1 px-2"
-                  className="w-full h-full"
                 >
                   <div className="flex items-center justify-center w-full h-full">
                     <img src={usage} alt="keys" className="h-5 w-5 mr-2" />
