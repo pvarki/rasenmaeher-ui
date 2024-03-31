@@ -6,6 +6,7 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 import pic9 from "../../../../assets/takguides/wintak/Kuva9.png";
 import pic10 from "../../../../assets/takguides/wintak/Kuva10.png";
 import pic11 from "../../../../assets/takguides/wintak/Kuva11.png";
@@ -14,16 +15,17 @@ import pic13 from "../../../../assets/takguides/wintak/Kuva13.png";
 import pic14 from "../../../../assets/takguides/wintak/Kuva13-1.png";
 
 export function TakQuickstartWin2() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="WinTAK käyttöönotto"
+        navbarTitle={t("TakQuickstartWin2.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Lataa ja asenna WinTAK (2/4)"
+          title={t("TakQuickstartWin2.statusBarTitle")}
           progressMax={4}
           progressNow={2}
         />
@@ -33,108 +35,101 @@ export function TakQuickstartWin2() {
               title="WinTAK"
               image={Wintak}
               details={
-                <>
-                  WinTAK käyttöönotto - vaihe 2:{" "}
-                  <strong>Lataa ja asenna WinTAK</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin2.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>1. Lataa WinTAK</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Lataa WinTAK-sovellus{" "}
-                  <strong>Puolustusvoimien osoittamasta paikasta</strong>.
-                  <br />
-                  <br />
-                  <strong>Lataa</strong> painamalla kuvaketta alta:
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard1.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={windownload}
               image2Link="https://arkipublic.blob.core.windows.net/ohjelmistot/WinTAK-CIV-latest.zip"
               image2Classes="w-[200px]"
-              note="Tärkeää! Lataa Windows-sovelluksia vain ohjeistetusta paikasta."
+              note={t("TakQuickstartWin2.unfoldableCard1.note")}
             />
             <UnfoldableCard
-              title={<>2. Avaa asennusohjelma</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Etsi latamaasi zip ja pura se. Etsi .msi-päätteinen
-                  asennusohjelma zipin sisältä Products-kansiosta
-                </>
+                <Trans i18nKey="TakQuickstartWin2.unfoldableCard2.description1" />
               }
               image2Src={pic9}
               image2Classes="mx-auto pr-5 w-[290px] p-4"
               description2={
-                <>Kaksoisnapauta .msi -tiedostoa. Aukeaa asennusohjelma.</>
+                <Trans i18nKey="TakQuickstartWin2.unfoldableCard2.description2" />
               }
             />
             <UnfoldableCard
-              title={<>3. Asenna käyttäen asennusohjelmaa</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard3.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  <br />
-                  Asenna WinTAK käyttäen Setup Wizardia.
-                </>
+                <Trans i18nKey="TakQuickstartWin2.unfoldableCard3.description1" />
               }
               image2Src={pic10}
               image2Classes="mx-auto pr-5 w-[300px] p-4"
               description2={
-                <>
-                  a. Paina <strong>Next</strong>. Valitse sovelluksen
-                  asennuskansio.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard3.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic11}
               image3Classes="mx-auto pr-5 w-[300px] p-4"
               description3={
-                <>
-                  b. Vaihda halutessasi asennuskansiota <strong>Browse</strong>
-                  -napin kautta. Paina <strong>Next</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard3.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
               image4Src={pic12}
               image4Classes="mx-auto pr-5 w-[300px] p-4"
               description4={
-                <>
-                  c. Valitse Setup Wizardissa asennettavat lisäosat.
-                  <br />
-                  Valitse ainakin seuraavat lisäosat:
-                  <ul>
-                    <li>
-                      <strong>Data Sync</strong>{" "}
-                    </li>
-                  </ul>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard3.description4"
+                  components={{ strong: <strong />, ul: <ul />, li: <li /> }}
+                />
               }
               image5Src={pic13}
               image5Classes="mx-auto pr-5 w-[300px] p-4"
               description5={
-                <>
-                  d. Paina <strong>Next</strong>. Wizard on valmis aloittamaan
-                  asennuksen, paina <strong>Install</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard3.description5"
+                  components={{ strong: <strong /> }}
+                />
               }
               image6Src={pic14}
               image6Classes="mx-auto pr-5 w-[300px] p-4"
               description6={
-                <>
-                  e. Paina <strong>Next</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin2.unfoldableCard3.description6"
+                  components={{ strong: <strong /> }}
+                />
               }
               description7={
-                <>
-                  <br />
-                  Sovellus on nyt asennettu.
-                  <br />
-                  Seuraavaksi avataan asennettu sovellus.
-                </>
+                <Trans i18nKey="TakQuickstartWin2.unfoldableCard3.description7" />
               }
             />
           </div>

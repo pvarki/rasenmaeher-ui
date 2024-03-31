@@ -5,6 +5,7 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 import pic1 from "../../../../assets/takguides/wintak/Kuva1.png";
 import pic2 from "../../../../assets/takguides/wintak/Kuva2.png";
 import pic3 from "../../../../assets/takguides/wintak/Kuva3.png";
@@ -15,16 +16,17 @@ import pic7 from "../../../../assets/takguides/wintak/Kuva7.png";
 import pic8 from "../../../../assets/takguides/wintak/Kuva8.png";
 
 export function TakQuickstartWin1() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="WinTAK käyttöönotto"
+        navbarTitle={t("TakQuickstartWin1.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Työaseman kieleksi englanti (1/4)"
+          title={t("TakQuickstartWin1.statusBarTitle")}
           progressMax={4}
           progressNow={1}
         />
@@ -34,137 +36,124 @@ export function TakQuickstartWin1() {
               title="WinTAK"
               image={Wintak}
               details={
-                <>
-                  WinTAK käyttöönotto - vaihe 1:{" "}
-                  <strong>työaseman kieli</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>1. Alueasetukseksi Yhdysvallat</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  WinTAKin toiminta edellyttää, että työaseman kieli on{" "}
-                  <strong>englanti</strong> ja alueasetus{" "}
-                  <strong>Yhdysvallat.</strong>
-                  <br />
-                  <br />
-                  Ennen sovelluksen asentamista, hae hakupalkista (vasen
-                  alakulma) asetusta <strong>Aika ja kieli</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard1.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic1}
               image2Classes="mx-auto pr-12 w-[240px] p-4"
               description2={
-                <>
-                  <br />
-                  Kirjoita hakuun <strong>Aika ja kieli</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard1.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic2}
               image3Classes="mx-auto pr-12 w-[240px] p-4"
               description3={
-                <>
-                  <br />
-                  Vaihdetaan ensin alueasetus. Valitse Aika ja kieli-valikon
-                  sivupalkista <strong>Alue</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard1.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
               image4Src={pic3}
               image4Classes="mx-auto pr-12 w-[400px] p-4"
               description4={
-                <>
-                  <br />
-                  Valitse kohtaan maa tai alue <strong>Yhdysvallat</strong>.
-                  Varmista, että alueasetuksissa on valittuna myös{" "}
-                  <strong>englanti (Yhdysvallat).</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard1.description4"
+                  components={{ strong: <strong /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>2. Kieleksi englanti (US)</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Valitse Aika ja kieli -valikon sivupalkista{" "}
-                  <strong>Kieli.</strong> Vaihdetaan näyttökieli.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard2.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic4}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
-                <>
-                  <br />
-                  Valitse Windowsin näyttökieleksi{" "}
-                  <strong>englanti (Yhdysvallat)</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard2.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic5}
               image3Classes="mx-auto pr-5 w-[400px] p-4"
               description3={
-                <>
-                  <br />
-                  Päätä näyttökielen vaihto kirjautumalla ulos ja uudelleen
-                  sisään.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard2.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
               image4Src={pic8}
               image4Classes="mx-auto pr-5 w-[400px] p-4"
               description4={
-                <>
-                  <small>
-                    <br />
-                    <em>
-                      Mikäli onnistuit nyt asettamaan näyttökieleksi englannin,
-                      kieliasetukset ovat valmiit. Ohjeen seuraava askel koskee
-                      tilannetta, missä englannin kieli puuttuu
-                      näyttökielivalikosta.
-                    </em>
-                  </small>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard2.description4"
+                  components={{ small: <small />, em: <em /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>3. Tarvittaessa lisää kielipaketti (englanti)</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard3.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Jos englannin kieltä ei löydy näyttökielivalikosta, paina{" "}
-                  <strong>Lisää kieli</strong> ja etsi se.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard3.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic6}
               image2Classes="mx-auto pr-5 w-[400px] p-4"
               description2={
-                <>
-                  Paina <strong>Asenna kielipaketti.</strong> Odota kielipaketin
-                  asentumista.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard3.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic7}
               image3Classes="mx-auto pr-5 w-[400px] p-4"
               description3={
-                <>
-                  Tämän jälkeen voit valita näyttökieleksi englannin{" "}
-                  <strong>ohjeen kohdan 2 mukaisesti</strong>o
-                  <br />
-                  <br />
-                  Päätä näyttökielen vaihto kirjautumalla ulos ja uudelleen
-                  sisään.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin1.unfoldableCard3.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
               image4Src={pic8}
               image4Classes="mx-auto pr-5 w-[400px] p-4"
               description4={
-                <>
-                  <br />
-                  Kieliasetukset ovat valmiit. Seuraavaksi asennetaan itse
-                  WinTAK-sovellus.
-                </>
+                <Trans i18nKey="TakQuickstartWin1.unfoldableCard3.description4" />
               }
             />
           </div>

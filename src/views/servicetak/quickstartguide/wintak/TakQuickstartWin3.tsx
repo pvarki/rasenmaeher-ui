@@ -5,6 +5,7 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 import pic14 from "../../../../assets/takguides/wintak/Kuva14.png";
 import pic16 from "../../../../assets/takguides/wintak/Kuva16.png";
 import pic17 from "../../../../assets/takguides/wintak/Kuva17.png";
@@ -19,38 +20,40 @@ import pic26 from "../../../../assets/takguides/wintak/Kuva26.png";
 import pic27 from "../../../../assets/takguides/wintak/Kuva27.png";
 
 export function TakQuickstartWin3() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="WinTAK käyttöönotto"
+        navbarTitle={t("TakQuickstartWin3.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
-        <StatusBar title="Aseta WinTAK (3/4)" progressMax={4} progressNow={3} />
+        <StatusBar
+          title={t("TakQuickstartWin3.statusBarTitle")}
+          progressMax={4}
+          progressNow={3}
+        />
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
               title="WinTAK"
               image={Wintak}
               details={
-                <>
-                  WinTAK käyttöönotto - vaihe 3: <strong>Aseta WinTAK</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>1. Avaa sovellus</>}
+              title={t("TakQuickstartWin3.unfoldableCard1.title")}
               styling="bg-backgroundLight"
               description1={
-                <>
-                  <span>
-                    Avaa <strong>WinTAK</strong>-sovellus työpöydältä.
-                  </span>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartWin3.unfoldableCard1.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic14}
               image2Classes="mx-auto pr-5 w-[90px] p-4"
