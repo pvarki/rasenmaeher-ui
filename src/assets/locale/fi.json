@@ -248,8 +248,8 @@
   "serviceTak.step1Description": "<strong>Käyttöönotto-ohje</strong> opastaa palvelun käyttöönoton laitteellesi.",
   "serviceTak.step2Description": "Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät sovellusta perusmallin mukaisesti.",
   "serviceTak.step3Description": "<strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi.",
-  "serviceTak.guideButton.quickStart": "Ohje: Käyttöönotto",
-  "serviceTak.guideButton.usage": "Ohje: Käyttö joukossa",
+  "serviceTak.guideButton.quickStart": "Käyttöönotto",
+  "serviceTak.guideButton.usage": "Käyttö joukossa",
   "serviceTak.grabZipButton": "Lataa viestiperustepaketti",
   "serviceTak.grabZipButton.loading": "Ladataan...",
 

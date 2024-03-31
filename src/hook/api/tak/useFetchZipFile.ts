@@ -1,4 +1,5 @@
 import { UseMutationOptions, useMutation } from "react-query";
+import { getOperatingSystem } from "../../helpers/getOperatingSystem";
 
 interface FileData {
   title: string;
@@ -25,7 +26,7 @@ async function fetchZipFile(): Promise<{ blob: Blob; filename: string }> {
   }
 
   const data = (await res.json()) as FilesResponse;
-  const fileData = data.files.tak[0]; // Assuming you want the first file in the 'tak' array
+  const fileData = data.files.tak[getOperatingSystem() === "iOS" ? 1 : 0]; // Use the second file, which should be 'itak.zip', if user OS is "iOS"
 
   const byteCharacters = atob(fileData.data.split("base64,")[1]);
   const byteNumbers = new Array(byteCharacters.length);

@@ -8,7 +8,7 @@ void i18n
   .use(ChainedBackend)
   .use(initReactI18next)
   .init({
-    lng: "en",
+    lng: "fi",
     fallbackLng: "fi",
     backend: {
       backends: [
