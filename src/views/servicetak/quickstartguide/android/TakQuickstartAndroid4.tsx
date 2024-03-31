@@ -5,6 +5,7 @@ import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 
 import atakds1 from "../../../../assets/takguides/atak/atakdatasync111.jpg";
 import atakds2 from "../../../../assets/takguides/atak/atakdatasync12.jpg";
@@ -17,16 +18,17 @@ import pic4 from "../../../../assets/takguides/atak/atakdatasync4.png";
 import pic5 from "../../../../assets/takguides/atak/atakdatasync5.png";
 
 export function TakQuickstartAndroid4() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="ATAK käyttöönotto"
+        navbarTitle={t("TakQuickstartAndroid4.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Ota käyttöön Data Sync (4/5)"
+          title={t("TakQuickstartAndroid4.statusBarTitle")}
           progressMax={5}
           progressNow={4}
         />
@@ -36,176 +38,171 @@ export function TakQuickstartAndroid4() {
               title="ATAK"
               image={ATAK}
               details={
-                <>
-                  ATAK käyttöönotto - vaihe 4:{" "}
-                  <strong>Ota käyttöön Data Sync</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid4.serviceInfoCard.details"
+                  components={{
+                    strong: <strong />,
+                    br: <br />,
+                  }}
+                />
               }
             />
             <UnfoldableCard
-              title="1. Avaa Data Sync-valikko"
+              title={t("TakQuickstartAndroid4.unfoldableCard1.title")}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      a. Päänäkymässä, avaa <strong>hampurilaisvalikko</strong>{" "}
-                      ja etsi <strong>Plugins.</strong>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard1.step1"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: atakds1,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      b. Plugins-valikko avautuu. Paina <em>Data Syncin</em>{" "}
-                      riviltä kohtaa "Status: <strong>Not loaded</strong>."
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard1.step2"
+                      components={{
+                        em: <em />,
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: atakds2,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      c. Sovellus kysyy, ladataanko <em>Data Sync</em> käyttöön.
-                      Paina <strong>Load.</strong>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard1.step3"
+                      components={{
+                        em: <em />,
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: atakds3,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      d. Data Syncin status muuttuu <strong>Loaded</strong>
-                      -tilaan.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard1.step4"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: atakds4,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: <>Valmis! Voit poistua valikosta.</>,
+                  description: t("TakQuickstartAndroid4.unfoldableCard1.step5"),
                 },
               ]}
             />
             <UnfoldableCard
-              title="2. Ota käyttöön Recon Feed"
+              title={t("TakQuickstartAndroid4.unfoldableCard2.title")}
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <>
-                      <span>
-                        Päänäkymässä, avaa jälleen kolme viivaa-valikko
-                        (hampurilaisvalikko).
-                      </span>
-                    </>
-                  ),
+                  description: t("TakQuickstartAndroid4.unfoldableCard2.step1"),
                   imageSrc: pic1,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        Etsi valikosta <strong>Data Sync</strong> ja valitse se.
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard2.step2"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                 },
                 {
-                  description: (
-                    <>
-                      <span>
-                        Avaamalla Data Sync-valikon, avautuu näkymä, jossa
-                        palvelimelta saatavilla olevat syötteet (feedit).
-                      </span>
-                    </>
-                  ),
+                  description: t("TakQuickstartAndroid4.unfoldableCard2.step3"),
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        Valitse ohjeistettu syöte (kuvassa{" "}
-                        <strong>RECON</strong>).
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard2.step4"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: pic2,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        Valitse aukeavasta ikkunasta{" "}
-                        <strong> Download & Sync</strong>.
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard2.step5"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: pic3,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        <strong>Recon Feed</strong> on nyt käytössä. Saat siitä
-                        merkkejä kartallesi komentopaikalta.
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard2.step6"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   note: (
-                    <>
-                      Tarkemmat ohjeet feedin käytöstä{" "}
-                      <strong>Käyttö joukossa</strong>-ohjeissa.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard2.note"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                 },
               ]}
             />
             <UnfoldableCard
-              title="3. Aseta Auto Download päälle"
+              title={t("TakQuickstartAndroid4.unfoldableCard3.title")}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Varmistetaan, että Auto Download on päällä. Palaa
-                      hampurilaisvalikon päänäkymään (kolme viivaa oikealla
-                      ylhäällä).
-                      <br />
-                      <br />
-                      Etsi <strong>Settings</strong>.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard3.step1"
+                      components={{
+                        br: <br />,
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: pic4,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      Etsi asetus <strong>Auto Download Updates</strong> ja
-                      varmistu, että se on päällä.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartAndroid4.unfoldableCard3.step2"
+                      components={{
+                        strong: <strong />,
+                      }}
+                    />
                   ),
                   imageSrc: pic5,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <>
-                      Asetuksesta seuraa, että ATAK lataa automaattisesti
-                      päivitykset tilaamiisi feedeihin.
-                    </>
-                  ),
+                  description: t("TakQuickstartAndroid4.unfoldableCard3.step3"),
                 },
               ]}
             />

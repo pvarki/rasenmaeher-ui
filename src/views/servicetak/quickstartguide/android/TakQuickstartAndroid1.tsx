@@ -7,18 +7,21 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 
 export function TakQuickstartAndroid1() {
+  const { t } = useTranslation();
+
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="ATAK käyttöönotto"
+        navbarTitle={t("takQuickstartAndroid1.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Asenna sovellukset (1/5)"
+          title={t("takQuickstartAndroid1.statusBarTitle")}
           progressMax={5}
           progressNow={1}
         />
@@ -26,65 +29,75 @@ export function TakQuickstartAndroid1() {
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
-              title="ATAK"
+              title={t("takQuickstartAndroid1.serviceInfoCardTitle")}
               image={ATAK}
               details={
-                <>
-                  ATAK käyttöönotto - vaihe 1:{" "}
-                  <strong>asenna sovellukset</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee.
-                </>
+                <Trans
+                  i18nKey="takQuickstartAndroid1.serviceInfoCard.details"
+                  components={{
+                    strong: <strong />,
+                    br: <br />,
+                  }}
+                />
               }
             />
             <UnfoldableCard
-              title="1. Lataa sovellukset"
+              title={t("takQuickstartAndroid1.unfoldableCard1.title")}
               styling="bg-backgroundLight"
               description1={
-                <>
-                  <h3>Lataa ATAK (1/2)</h3>
-                  <strong>Lataa</strong> ATAK-CIV-sovellus Play Storesta ja
-                  asenna se. Latauslinkki alla, <strong>paina</strong>:
-                </>
+                <Trans
+                  i18nKey="takQuickstartAndroid1.unfoldableCard1.description1"
+                  components={{
+                    strong: <strong />,
+                    h3: <h3 />,
+                  }}
+                />
               }
               image2Src={googleplay}
               image2Link="https://play.google.com/store/apps/details?id=com.atakmap.app.civ"
               image2Classes="w-[200px]"
               description2={
-                <>
-                  <h3>b. Lataa ATAK Data Sync-plugin (2/2)</h3>
-                  <strong>Lataa </strong>ATAK Data Sync-plugin, ja asenna se.
-                  Latauslinkki alla, <strong>paina</strong>:
-                </>
+                <Trans
+                  i18nKey="takQuickstartAndroid1.unfoldableCard1.description2"
+                  components={{
+                    strong: <strong />,
+                    h3: <h3 />,
+                  }}
+                />
               }
               image3Src={googleplay}
               image3Classes="w-[200px]"
               image3Link="https://play.google.com/store/apps/details?id=com.atakmap.android.datasync.plugin"
             />
             <UnfoldableCard
-              title="2. Lataa viestiperusteet"
+              title={t("takQuickstartAndroid1.unfoldableCard2.title")}
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Lataa tämän palvelun <strong>etusivulta</strong>{" "}
-                  viestiperusteet painamalla vihreää
-                  <strong> Lataa viestiperustepaketti</strong>-nappia.
-                  <br />
-                  <br />
-                  Tallenna .zip-tiedosto.
-                </>
+                <Trans
+                  i18nKey="takQuickstartAndroid1.unfoldableCard2.description1"
+                  components={{
+                    strong: <strong />,
+                    br: <br />,
+                  }}
+                />
               }
-              note="HUOMAA! Zip-tiedostoa ei tarvitse purkaa!"
+              note={t("takQuickstartAndroid1.unfoldableCard2.note")}
             />
             <UnfoldableCard
-              title="3. Avaa sovellus ja anna sille sen kysymät oikeudet"
+              title={t("takQuickstartAndroid1.unfoldableCard3.title")}
               styling="bg-backgroundLight"
-              description1="Avaa sovellus. Anna kaikki oikeudet, mitä applikaatio pyytää."
+              description1={t(
+                "takQuickstartAndroid1.unfoldableCard3.description1",
+              )}
               imageSrc={wait}
               imageClasses="m-3 w-[200px]"
               description2={
-                <em>Jos applikaatio antaa virheilmoituksen, valitse Wait. </em>
+                <Trans
+                  i18nKey="takQuickstartAndroid1.unfoldableCard3.description2"
+                  components={{
+                    em: <em />,
+                  }}
+                />
               }
             />
           </div>
