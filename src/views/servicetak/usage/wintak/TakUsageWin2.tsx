@@ -5,6 +5,7 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import { useTranslation, Trans } from "react-i18next";
 import Wintak from "../../../../assets/icons/wintak.png";
 
 import pic9 from "../../../../assets/takguides/wintak/Kuva39.png";
@@ -25,100 +26,87 @@ import pic27 from "../../../../assets/takguides/wintak/Kuva57.png";
 import pic28 from "../../../../assets/takguides/wintak/Kuva58.png";
 
 export function TakUsageWin2() {
+  const { t } = useTranslation();
   return (
     <div className="pb-32">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="Käyttö joukossa: WinTAK"
+        navbarTitle={<Trans i18nKey="takUsageWin2.navbarTitle" />}
         backUrl="/app/services/tak/Usage"
       >
         <StatusBar
-          title="Ylläpidä Recon Feediä (2/4)"
+          title={t("takUsageWin2.navbarTitle")}
           progressMax={4}
           progressNow={2}
         />
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
-              title="WinTAK"
+              title={<Trans i18nKey="takUsageWin2.serviceInfoCard.title" />}
               image={Wintak}
               details={
-                <>
-                  Käyttö joukossa WinTAK - vaihe 2:{" "}
-                  <strong>Ylläpidä Recon Feediä</strong>
-                  <br />
-                </>
+                <Trans
+                  i18nKey="takUsageWin2.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             >
               <ServiceTakUsageCard />
             </ServiceInfoCard>
             <UnfoldableCard
-              title="1. Luo Recon Feed"
+              title={<Trans i18nKey="takUsageWin2.unfoldableCard1.title" />}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      WinTAKin työkalurivillä <strong>Home Tab</strong>issä on
-                      Data Sync-työkalut.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard1.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic9,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      Tämä ohje olettaa, että toimit WinTAKilla{" "}
-                      <strong>komentopaikkana</strong> ja siksi luot tarvittavat
-                      feedit. <br /> <br />
-                      Paina <strong>New Feed</strong>.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard1.step2"
+                      components={{
+                        strong: <strong />,
+                        br: <br />,
+                        em: <em />,
+                      }}
+                    />
                   ),
                   imageSrc: pic10,
                   imageClasses: "m-3 w-[400px]",
                   note: (
-                    <>
-                      Huom. Komentopaikalla <em>yksi käyttäjä</em> luo
-                      tarvittavat feedit, ja muut ottavat ne käyttöön!
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard1.note1"
+                      components={{ em: <em /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      Luo uusi <strong>Feed</strong> seuraavilla tiedoilla:
-                      <ul>
-                        <li>
-                          <strong>Name</strong>: Recon
-                        </li>
-                        <li>
-                          <strong>Group</strong>: Public
-                        </li>
-                        <li>
-                          <strong>Default Role</strong>: Read Only
-                        </li>
-                      </ul>
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard1.step3"
+                      components={{ strong: <strong />, li: <li /> }}
+                    />
                   ),
                   imageSrc: pic11,
                   imageClasses: "m-3 w-[400px]",
                   note: (
-                    <>
-                      <em>
-                        (HUOMAA: Groupin oletusasetus pitää vaihtaa asetukseen{" "}
-                        <strong>Read Only</strong>.)
-                      </em>
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard1.note2"
+                      components={{ em: <em />, strong: <strong /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      Uusi feed on luotu. Feedin luojalla se näkyy heti
-                      tilattuna Data Sync-valikossa.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCard1.step4" />
                   ),
                   imageSrc: pic12,
                   imageClasses: "m-3 w-[400px]",
@@ -127,358 +115,252 @@ export function TakUsageWin2() {
             />
 
             <UnfoldableCard
-              title="2. Muut KNTOP-käyttäjät tilaavat feedin"
+              title={<Trans i18nKey="takUsageWin2.unfoldableCard2.title" />}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Muut komentopaikan (WinTAKin) käyttäjät tilaavat itselleen
-                      luodut feedit, perusmallissa <strong>RECON</strong>
-                      -feedin.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard2.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic12,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      Avautuvasta näkymästä valitse{" "}
-                      <strong>Download and stay synced.</strong>
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard2.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic13,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>Feed näkyy tällöin käyttäjän Data Sync-valikossa. </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCard2.step3" />
                   ),
                 },
               ]}
             />
             <UnfoldableCard
-              title="3. Vastaanota ilmoituksia"
+              title={<Trans i18nKey="takUsageWin2.unfoldableCard3.title" />}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      WinTAK tekee ilmoituksia kuvan mukaisilla
-                      notifikaatioilla.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCard3.step1" />
                   ),
                   imageSrc: pic15,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      Painamalla keltaisen lipun symbolia, avautuu{" "}
-                      <strong>Notifications</strong>-näkymä.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard3.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic17,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      Näkymässä ovat vastaanotetut ilmoitukset.{" "}
-                      <strong>Käsittele</strong> ilmoitukset seuraavan ohjeen
-                      mukaisesti ja lähetä sen päätteeksi ne{" "}
-                      <strong>Recon Feediin.</strong>
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard3.step3"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                 },
               ]}
             />
             <UnfoldableCard
-              title="4. Käsittele ilmoitukset Recon Feediin"
+              title={<Trans i18nKey="takUsageWin2.unfoldableCard4.title" />}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      a. Havainnot <strong>avataan ja käsitellään</strong> näin:
-                      <br></br>
-                      <ul>
-                        <li>
-                          1. Paina ilmoitusnäkymästä ilmoitusta, jonka haluat
-                          käsitellä.
-                        </li>
-                        <li>2. Karttanäkymä keskittyy havaintoon.</li>
-                        <li>3. Klikkaa kartalla olevaa havaintoa.</li>
-                        <li>
-                          4. Aukeaa <strong>ympyrävalikko</strong> (alla
-                          kuvassa).
-                        </li>
-                      </ul>
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard4.step1"
+                      components={{
+                        strong: <strong />,
+                        br: <br />,
+                        li: <li />,
+                      }}
+                    />
                   ),
                   imageSrc: pic18,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      b. Valitse ympyrävalikosta roskakorin oikealla puolella
-                      oleva Marker Details-kuvake. Aukeaa{" "}
-                      <strong>Marker Details</strong>
-                      -näkymä (alla kuvassa)
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard4.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic19,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      c. <strong>Käsittele havainto seuraavasti:</strong>
-                      <li>Lue kommentit</li>
-                      <li>Katso mahdollinen liite</li>
-                      <li>Vertaa tietoihisi komentopaikalla</li>
-                      <li>Varmista havainto joukolta.</li>
-                      <li>
-                        Jos et voi tehdä varmaa johtopäätöstä, jätä havainnoksi
-                        (tuntematon=keltainen)
-                      </li>
-                      <li>
-                        Kirjaa tulkintasi ja muutokset{" "}
-                        <strong>Remarkseihin.</strong>
-                        <br />
-                        <br />
-                        Perusmallin mukaisesti joukon tulisi ilmoittaa
-                        havainnosta myös sanomalla (välitettynä soveltuvalla
-                        tavalla).
-                      </li>
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard4.step3"
+                      components={{
+                        strong: <strong />,
+                        li: <li />,
+                        br: <br />,
+                      }}
+                    />
                   ),
                   note: (
-                    <>
-                      Kun kirjaat tulkintoja, muista erottaa johtopäätös
-                      alkuperäisestä kuvauksesta. Tee tämä merkinnällä{" "}
-                      <em>HQ JP: (arvio tai johtopäätös)</em>
-                      <br />
-                      <br />
-                      Muista myös TL JULK - käytä peitteistöä. <br />
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard4.note1"
+                      components={{ em: <em /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      b. Muuta havainnon tyyppiä (tuntematon, vih, oma, neutr)
-                      johtopäätöksesi perusteella Marker Details-näkymässä.{" "}
-                      <br /> Tee se klikkaamalla{" "}
-                      <strong>otsikon vasemmalla puolella</strong> olevaa ikonia
-                      (kamera: Quick Pic, merkki: esim. keltainen),{" "}
-                      <strong>"Change Affiliation".</strong>
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard4.step4"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic20,
                   imageClasses: "mx-auto pr-5 w-[300px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      "Change Affiliation" painettuasi, aukeaa{" "}
-                      <strong>Type-valikko.</strong> Muuta havainnon merkkiä
-                      johtopäätöksesi mukaisesti.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard4.step5"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
-                  imageSrc: pic23,
-
-                  note: (
-                    <>
-                      Huomioi TL JULK. Älä tuo käytössäsi olevaa yläjopon
-                      vihollistietoa tähän - käytä peitteitä.
-                    </>
-                  ),
-                },
-                {
-                  description: <>Merkki päivittyy.</>,
+                  note: <Trans i18nKey="takUsageWin2.unfoldableCard4.note2" />,
                 },
                 {
                   description: (
-                    <>
-                      Lopuksi lisäät merkin otsikkoon merkinnän{" "}
-                      <strong>(eteen alaviiva)</strong> siitä, että
-                      komentopaikka on käsitellyt merkin.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step6" />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
-                  imageSrc: pic25,
                 },
                 {
                   description: (
-                    <>
-                      Tämän jälkeen tee merkintä tiedusteludiaariin havainnosta
-                      ja jaa se <strong>Recon Feediin</strong> seuraavien
-                      ohjeiden avulla.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step7" />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                   imageSrc: pic25,
                 },
               ]}
             />
             <UnfoldableCard
               title={
-                <>
-                  <em>Esimerkki havainnon käsittelystä</em>
-                </>
+                <Trans
+                  i18nKey="takUsageWin2.unfoldableCardExample.title"
+                  components={{ em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Olet saanut ilmoituksen vartiopaikalta{" "}
-                      <em>lujaa poistuneesta pakettiautosta.</em> ja tästä
-                      keltaisen havaintomerkin. Avaa Marker Details ja paina
-                      Change Affiliation.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCardExample.step1"
+                      components={{ em: <em /> }}
+                    />
                   ),
                   imageSrc: pic20,
                   imageClasses: "mx-auto pr-5 w-[300px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      <strong>Type-valikko</strong> aukeaa. Et voi tehdä
-                      johtopäätöstä havainnon tyypistä, joten päivität vain sen
-                      ominaisuudet ilmoituksen perusteella.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCardExample.step2" />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                   imageSrc: pic23,
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      Valitset tyypiksi
-                      <em>
-                        Ground track--Equipment--Ground vehicle--Civilian--Multi
-                        passenger--Van
-                      </em>
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCardExample.step3" />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                   imageSrc: pic24,
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      Lopuksi lisäät merkin otsikkoon merkinnän{" "}
-                      <strong>(eteen alaviiva)</strong> siitä, että
-                      komentopaikka on käsitellyt merkin.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCardExample.step4" />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                   imageSrc: pic25,
                 },
-                {
-                  description: (
-                    <>
-                      Merkitse havainto tiedusteludiaariin ja lähetä se{" "}
-                      <strong>Recon Feediin</strong> seuraavien ohjeiden avulla.
-                    </>
-                  ),
-                },
               ]}
             />
             <UnfoldableCard
-              title={<>5. Päätä, onko heti ilmoitettava asia</>}
+              title={<Trans i18nKey="takUsageWin2.unfoldableCard5.title" />}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Päätä, onko havainto <em>heti ilmoitettava asia</em> vai
-                      ei.
-                      <br />
-                      <br /> Heti ilmoitettavat asiat on käsketty sinulle
-                      erikseen. <strong>Varmistu,</strong> että tiedät mitä ne
-                      ovat.
-                      <strong> Lähetä merkin</strong>
-                      lisäksi viesti heti ilmoitettavista asioista:
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard5.step1"
+                      components={{
+                        em: <em />,
+                        strong: <strong />,
+                        br: <br />,
+                      }}
+                    />
                   ),
-                  note: (
-                    <>
-                      TÄRKEÄÄ! Jos havainto on heti ilmoitettava asia, lähetä
-                      ilmoitus käsketyillä viestivälineillä käsketyille
-                      vastaanottajille.
-                      <br />
-                      Käytännön hyöty ratkaisee, lähetätkö viestin vai merkin
-                      ensin.
-                    </>
-                  ),
+                  note: <Trans i18nKey="takUsageWin2.unfoldableCard5.note1" />,
                 },
               ]}
             />
             <UnfoldableCard
-              title={<>7. Lähetä merkki Recon Feediin</>}
+              title={<Trans i18nKey="takUsageWin2.unfoldableCard7.title" />}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Jotta kaikki joukkosi TAK-käyttäjät pääsevät näkemään
-                      käsittelemäsi merkin, lähetä merkki Recon Feediin
-                      painamalla <strong>Marker Details</strong>-valikossa kuvan
-                      mukaista <strong>Send</strong>-nappia.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard7.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic26,
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      Valitse Include Attachments-kysymykseen{" "}
-                      <strong>Yes</strong>.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard7.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                   imageSrc: pic27,
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      Oikeaan reunaan aukeaa painamalla Send-nappia Marker
-                      Details-valikossa <strong>Send To</strong>-valikko.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCard7.step3" />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                   imageSrc: pic28,
+                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      <li>
-                        Avaa <strong>Data Sync Feeds-valinta.</strong>.
-                      </li>
-                      <li>Valitse Recon Feed.</li>
-                      <li>
-                        Paina alareunasta <strong>Send</strong>-nappia.
-                      </li>
-                      <br></br>
-                      Havainto on käsitelty ja jaettu joukolle.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin2.unfoldableCard7.step4"
+                      components={{
+                        strong: <strong />,
+                        li: <li />,
+                        br: <br />,
+                      }}
+                    />
                   ),
-                  imageClasses: "mx-auto pr-5 w-[400px] p-4",
                   imageSrc: pic25,
                 },
                 {
                   description: (
-                    <>
-                      Toimi näin jokaisen <strong>käsitellyn</strong> havainnon
-                      kanssa.
-                    </>
+                    <Trans i18nKey="takUsageWin2.unfoldableCard7.step5" />
                   ),
                 },
               ]}
