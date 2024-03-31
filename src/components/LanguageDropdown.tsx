@@ -1,5 +1,5 @@
-
-import { useTranslation } from 'react-i18next';import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { useTranslation } from "react-i18next";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 export function LanguageDropdown() {
   const { i18n } = useTranslation();
@@ -15,10 +15,16 @@ export function LanguageDropdown() {
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content className="flex flex-col text-xl bg-background border border-gray-300 shadow-lg rounded">
-          <DropdownMenu.Item className="p-2 text-white hover:bg-gray-800" onSelect={() => changeLanguage('en')}>
+          <DropdownMenu.Item
+            className="p-2 text-white hover:bg-gray-800"
+            onSelect={() => changeLanguage("en")}
+          >
             English
           </DropdownMenu.Item>
-          <DropdownMenu.Item className="p-2 text-white hover:bg-gray-800" onSelect={() => changeLanguage('fi')}>
+          <DropdownMenu.Item
+            className="p-2 text-white hover:bg-gray-800"
+            onSelect={() => changeLanguage("fi")}
+          >
             Suomi
           </DropdownMenu.Item>
           {/* Add more languages as needed */}

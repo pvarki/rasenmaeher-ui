@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { InfoModal } from "./InfoModal";
 import { LanguageDropdown } from "./LanguageDropdown";
@@ -5,14 +6,18 @@ import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
   const { i18n } = useTranslation();
+  const [feedbackLink, setFeedbackLink] = useState("");
   const isMtls = window.location.origin.includes("mtls.");
   const { version } = useHealthCheck();
 
-  // Determine the feedback link based on the current i18n language
-  const feedbackLink =
-    i18n.language === "fi"
-      ? "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform"
-      : "https://docs.google.com/forms/d/1BXMxeTt5TtmuhX9XsiZTH2yl-Fko-NVPUumvu40TUAM/viewform";
+  useEffect(() => {
+    // Update the feedback link whenever the language changes
+    const link =
+      i18n.language === "fi"
+        ? "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform"
+        : "https://docs.google.com/forms/d/1BXMxeTt5TtmuhX9XsiZTH2yl-Fko-NVPUumvu40TUAM/viewform";
+    setFeedbackLink(link);
+  }, [i18n.language]);
 
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
@@ -52,7 +57,7 @@ export function Footer() {
         <br />
         <a
           href={feedbackLink}
-          className="underline"
+          className="underline text-blue-500"
           target="_blank"
           rel="noopener noreferrer"
         >
