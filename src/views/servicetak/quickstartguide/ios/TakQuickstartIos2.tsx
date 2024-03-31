@@ -5,6 +5,7 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 import pic1 from "../../../../assets/takguides/itak/itakquickstart1.png";
 import pic2 from "../../../../assets/takguides/itak/itakquickstart2.png";
 import pic3 from "../../../../assets/takguides/itak/itakquickstart3.png";
@@ -13,16 +14,17 @@ import pic5 from "../../../../assets/takguides/itak/itakquickstart5.png";
 import pic7 from "../../../../assets/takguides/itak/itakquickstart7.png";
 
 export function TakQuickstartIos2() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="iTAK käyttöönotto"
+        navbarTitle={t("TakQuickstartIos2.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Tee perusasetukset (2/5)"
+          title={t("TakQuickstartIos2.statusBarTitle")}
           progressMax={5}
           progressNow={2}
         />
@@ -32,132 +34,113 @@ export function TakQuickstartIos2() {
               title="iTAK"
               image={ITAK}
               details={
-                <>
-                  iTAK käyttöönotto - vaihe 2:{" "}
-                  <strong>Tee perusasetukset</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa tulee avata iTAK-sovellus.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  1. <strong>Käynnistä sovellus</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Avaa <strong>iTAK</strong>-sovellus.
-                  <br />
-                  <br />
-                  Kun sovellus kysyy:{" "}
-                  <em>"iTAK haluaa etsiä lähiverkossa..."</em>, valitse{" "}
-                  <strong>Älä salli</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard1.description1"
+                  components={{ strong: <strong />, em: <em />, br: <br /> }}
+                />
               }
               image2Src={pic1}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
             />
             <UnfoldableCard
               title={
-                <>
-                  2. <strong>Anna</strong> oma Callsign
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Täytä <strong>Profile Settings</strong>:
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard2.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic2}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
-                <>
-                  <br />
-                  Anna <strong>Callsign-kenttään</strong> oma peitteesi,
-                  esimerkiksi <em>Rambo</em>.
-                  <br />
-                  <br />
-                  Phone-kenttää <strong>ei täytetä.</strong>
-                  <br />
-                  Paina lopuksi <em>Next.</em>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard2.description2"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  3. <strong>Aseta</strong> Team Settings
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard3.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Täytä <strong>Team Settings:</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard3.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic3}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
-                <>
-                  Valitse <strong>Select Team</strong>-kenttään rullavalikosta
-                  joukkosi (käsketty) väri.
-                  <br />
-                  <br />
-                  Valitse <strong>Select Team Role</strong>-kenttään
-                  rullavalikosta rooli <strong>Team Member</strong>, ellei muuta
-                  ole käsketty.
-                  <br />
-                  <br />
-                  <small>
-                    <em>Komentopaikkakäyttäjät asettavat roolin HQ.</em>
-                  </small>
-                  <br />
-                  <br />
-                  Paina lopuksi <strong>Next.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard3.description2"
+                  components={{
+                    strong: <strong />,
+                    small: <small />,
+                    em: <em />,
+                  }}
+                />
               }
             />
             <UnfoldableCard
-              title={<>4. Anna sovellukselle tarvittavat oikeudet</>}
+              title={
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard4.title"
+                  components={{ strong: <strong /> }}
+                />
+              }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  a. Aseta <strong>Privacy Settings</strong> sallimaan
-                  ilmoitukset (notifications) ja sijainnin (location services).
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard4.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic4}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
-                <>
-                  <br />
-                  <br />
-                  b. iOS kysyy tämän jälkeen, sallitko iTAKin lähettävän sinulle{" "}
-                  <strong>ilmoituksia</strong> ja{" "}
-                  <strong>käyttää sijaintiasi</strong>.
-                  <br />
-                  <br />
-                  Valitse ilmoituksiin <strong>Salli</strong>:
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard4.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic5}
               image3Classes="mx-auto pr-5 w-[240px] p-4"
               description3={
-                <>
-                  <br />
-                  <br />
-                  c. Valitse sijaintiin <strong>Salli käytettäessä</strong>:
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos2.unfoldableCard4.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
               image4Src={pic7}
               image4Classes="mx-auto pr-5 w-[240px] p-4"
               description4={
-                <>Tämän jälkeen siirrytään muodostamaan palvelinyhteys.</>
+                <Trans i18nKey="TakQuickstartIos2.unfoldableCard4.description4" />
               }
             />
           </div>

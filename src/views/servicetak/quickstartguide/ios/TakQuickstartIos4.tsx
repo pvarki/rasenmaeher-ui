@@ -5,22 +5,24 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 import pic21 from "../../../../assets/takguides/itak/itakquickstart21.png";
 import pic22 from "../../../../assets/takguides/itak/itakquickstart22.png";
 import pic23 from "../../../../assets/takguides/itak/itakquickstart23.png";
 import pic24 from "../../../../assets/takguides/itak/itakqucikstart22.png";
 
 export function TakQuickstartIos4() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="iTAK käyttöönotto"
+        navbarTitle={t("TakQuickstartIos4.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Aseta mittayksiköt (4/5)"
+          title={t("TakQuickstartIos4.statusBarTitle")}
           progressMax={5}
           progressNow={4}
         />
@@ -30,103 +32,92 @@ export function TakQuickstartIos4() {
               title="iTAK"
               image={ITAK}
               details={
-                <>
-                  iTAK käyttöönotto - vaihe 4:{" "}
-                  <strong>Aseta mittayksiköt</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa iTAK-sovelluksen tulee olla auki.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  1. <strong>Avaa</strong> asetukset
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  a. Avaa jälleen <strong>Asetukset</strong> vasemman yläkulman
-                  hammasrataskuvakkeesta.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard1.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic21}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
-                <>
-                  <br />
-                  b. Valitse Settings-päävalikosta <strong>Preferences.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard1.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic22}
               image3Classes="mx-auto pr-5 w-[240px] p-4"
               description3={
-                <>
-                  <br />
-                  Asetetaan oikeat mittayksiköt ja koordinattijärjestelmä.
-                </>
+                <Trans i18nKey="TakQuickstartIos4.unfoldableCard1.description3" />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  2. <strong>Aseta</strong> mittayksiköt
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Valitse <strong>Units of Measure</strong>:
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard2.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               description2={
-                <>
-                  Valitse Coordinate Formatiksi <strong>MGRS</strong>, ja
-                  Distance Formatiksi <strong>Meters</strong>.
-                  <br />
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard2.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic23}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
             />
             <UnfoldableCard
               title={
-                <>
-                  3. Halutessasi <strong>vaihda</strong> karttapohja
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard3.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  a. Halutessasi vaihda karttapohja Settings-päävalikosta
-                  painamalla <strong>Map Sourcea</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard3.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={pic21}
               image2Classes="mx-auto pr-5 w-[240px] p-4"
               description2={
-                <>
-                  <br />
-                  b. Valitse haluamasi karttapohja. Huom! Saatavuus vaihtelee.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard3.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic24}
               image3Classes="mx-auto pr-5 w-[240px] p-4"
               description3={
-                <>
-                  <br />
-                  Hienoa! Olet nyt asettanut iTAKin käyttökuntoon.
-                  <br />
-                  <br />
-                  <em>
-                    <small>
-                      Mikäli sinun tarvitsee tehdä muutoksia peitenimeesi,
-                      onnistuu se Settings-valikosta klikkaamalla peitenimeäsi.
-                    </small>
-                  </em>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos4.unfoldableCard3.description3"
+                  components={{ small: <small />, em: <em /> }}
+                />
               }
             />
           </div>
