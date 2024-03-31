@@ -1,5 +1,6 @@
 import { Trans, useTranslation } from "react-i18next";
 import { InfoModal } from "./InfoModal";
+import { LanguageDropdown } from "./LanguageDropdown";
 import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
@@ -11,19 +12,20 @@ export function Footer() {
   const feedbackLink =
     i18n.language === "fi"
       ? "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform"
-      : "https://pvarki.fi/help";
+      : "https://docs.google.com/forms/d/1BXMxeTt5TtmuhX9XsiZTH2yl-Fko-NVPUumvu40TUAM/viewform";
 
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
 
       <div className="pt-4 py-3">
-        RASENMAEHER {version || <Trans i18nKey="footer.loading" />}
+        RASENMAEHER {version || <Trans i18nKey="footer.loading" />} -{" "}
+        <LanguageDropdown />
       </div>
       {isMtls && (
         <div className="py-1 pb-3 text-xs">
-          <Trans i18nKey="footer.authenticatedWithMtls" /> -{" "}
-          <InfoModal triggerClassName="text-m text-blue-500 underline cursor-pointer" />
+          <InfoModal triggerClassName="text-m text-blue-500 underline cursor-pointer" />{" "}
+          - <Trans i18nKey="footer.authenticatedWithMtls" />
         </div>
       )}
 
