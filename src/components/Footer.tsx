@@ -1,23 +1,15 @@
-import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { InfoModal } from "./InfoModal";
 import { LanguageDropdown } from "./LanguageDropdown";
 import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
-  const { i18n } = useTranslation();
-  const [feedbackLink, setFeedbackLink] = useState("");
+  const { t } = useTranslation();
   const isMtls = window.location.origin.includes("mtls.");
   const { version } = useHealthCheck();
 
-  useEffect(() => {
-    // Update the feedback link whenever the language changes
-    const link =
-      i18n.language === "fi"
-        ? "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform"
-        : "https://docs.google.com/forms/d/1BXMxeTt5TtmuhX9XsiZTH2yl-Fko-NVPUumvu40TUAM/viewform";
-    setFeedbackLink(link);
-  }, [i18n.language]);
+  // Use the translation function to get the correct feedback form link
+  const feedbackLink = t("footer.feedbackFormLink");
 
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">

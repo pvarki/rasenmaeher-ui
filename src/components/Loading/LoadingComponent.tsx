@@ -1,4 +1,14 @@
-const LoadingComponent = ({ text = "Lataan.." }) => {
+import { useTranslation } from "react-i18next";
+
+interface LoadingComponentProps {
+  text?: string; // Optional prop to allow custom loading text keys
+}
+
+const LoadingComponent: React.FC<LoadingComponentProps> = ({
+  text = "loading",
+}) => {
+  const { t } = useTranslation();
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -8,7 +18,8 @@ const LoadingComponent = ({ text = "Lataan.." }) => {
           role="status"
           aria-label="loading"
         ></div>
-        <span className="text-lg text-white mt-2">{text}</span>
+        {/* Use the translation function `t` with the provided textKey */}
+        <span className="text-lg text-white mt-2">{t(text)}</span>
       </div>
     </div>
   );

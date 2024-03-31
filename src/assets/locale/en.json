@@ -6,6 +6,8 @@
   "copy-link": "Copy approval link for your administrator",
   "go-back": "Go back",
   "close": "Close",
+  "footer.feedbackFormLink": "https://docs.google.com/forms/d/1BXMxeTt5TtmuhX9XsiZTH2yl-Fko-NVPUumvu40TUAM/viewform",
+  "common.loadingText": "Loading...",
 
   "FOOTERS": "FOOTERS",
   "footer.loading": "Loading...",

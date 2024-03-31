@@ -6,6 +6,8 @@
   "copy-link": "Copy link for the administrator",
   "go-back": "Peruuta",
   "close": "Sulje",
+  "footer.feedbackFormLink": "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform",
+  "common.loadingText": "Lataan...",
 
   "FOOTERS": "FOOTERS",
   "footer.loading": "Ladataan...",
@@ -233,7 +235,7 @@
   "enrollApprovalView.rejectModal.dialogTitle": "Hylkää käyttäjä",
   "enrollApprovalView.rejectedModal.dialogTitle": "Käyttäjä hylätty",
   "enrollApprovalView.acceptdModal.dialogTitle": "Hyväksy käyttäjä",
-  "enrollApprovalView.list.waitingUsers": "small>Odottavat käyttäjät</small>",
+  "enrollApprovalView.list.waitingUsers": "<small>Odottavat käyttäjät</small>",
   "enrollApprovalView.list.noWaitingUsers": "Ei hyväksyntää odottavia käyttäjiä.",
 
   "SERVICETAK": "SERVICETAK",
