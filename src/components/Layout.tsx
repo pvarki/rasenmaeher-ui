@@ -2,14 +2,16 @@ import { Header } from "./Header";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { PublicFooter } from "./PublicFooter";
+import { Sidebar } from "./Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface LayoutProps {
   showNavbar?: boolean;
   showHeader?: boolean;
   showFooter?: boolean;
   showPublicFooter?: boolean;
+  showSidebar?: boolean;
   navbarTitle?: React.ReactNode;
   backUrl?: string;
   children?: React.ReactNode;
@@ -36,6 +38,8 @@ export function Layout({
     ? "mt-[calc(-50vh/3)] md:mt-[calc(-50vh/2)] lg:mt-[calc(-70vh/1.5)]"
     : "mt-4";
 
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div
       className={`layout flex flex-col min-h-screen ${
@@ -44,6 +48,14 @@ export function Layout({
     >
       {showNavbar && <Navbar title={navbarTitle} backUrl={backUrl} />}
       {showHeader && !showNavbar && <Header />}
+
+      {showNavbar && (
+        <Navbar
+          title={navbarTitle}
+          backUrl={backUrl}
+          toggleSidebar={() => setSidebarOpen(!isSidebarOpen)}
+        />
+      )}
 
       <div className="relative flex-grow">
         {heroImage && (
@@ -59,6 +71,7 @@ export function Layout({
       </div>
 
       {(showFooter && <Footer />) || (showPublicFooter && <PublicFooter />)}
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
     </div>
   );
 }
