@@ -5,6 +5,7 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import { Trans, useTranslation } from "react-i18next";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import pic27 from "../../../../assets/takguides/atak/27-BaseMap.png";
 import pic28 from "../../../../assets/takguides/atak/28-Map.png";
@@ -16,79 +17,80 @@ import frame5 from "../../../../assets/takguides/atak/Frame-5.png";
 import frame from "../../../../assets/takguides/atak/Frame.png";
 
 export function TakUsageAndroid1() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="ATAK: Käyttö joukossa"
+        navbarTitle={t("TakUsageAndroid1.navbarTitle")}
         backUrl="/app/services/tak/Usage"
       >
         <StatusBar
-          title="Liikuta karttaa ja näe omat (1/4)"
+          title={t("TakUsageAndroid1.statusBarTitle")}
           progressMax={3}
           progressNow={1}
         />
-
+        <CardsContainer>
+          <ServiceTakUsageCard />
+        </CardsContainer>
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
               title="ATAK"
               image={ATAK}
               details={
-                <>
-                  Käyttö joukossa ATAK - vaihe 1:{" "}
-                  <strong>liikuta karttaa ja näe omat</strong>
-                  <br />
-                </>
+                <Trans
+                  i18nKey="TakUsageAndroid1.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
-            >
-              <ServiceTakUsageCard />
-            </ServiceInfoCard>
+            />
             <UnfoldableCard
-              title="1. Liikuta karttaa"
+              title={
+                <Trans
+                  i18nKey="TakUsageAndroid1.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      <strong>Navigaationapit</strong> ovat vasemmassa
-                      yläkulmassa:
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid1.unfoldableCard1.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic27,
                   imageClasses: "m-3 w-[300px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        a. Liikuta karttapohjaa <strong>sormella.</strong>
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid1.unfoldableCard1.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: frame,
                   imageClasses: "align-right w-[50px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        b. Zoomaa karttaa <strong>nipistysotteella.</strong>
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid1.unfoldableCard1.step3"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: frame1,
                   imageClasses: "align-right w-[35px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        c. Käännä karttapohjaa{" "}
-                        <strong>kahdella sormella.</strong>
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid1.unfoldableCard1.step4"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: frame2,
                   imageClasses: "align-right w-[50px]",
@@ -96,40 +98,40 @@ export function TakUsageAndroid1() {
               ]}
             />
             <UnfoldableCard
-              title="2. Oma ja muiden sijainti"
+              title={
+                <Trans
+                  i18nKey="TakUsageAndroid1.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      <span>
-                        a. Oma sijaintisi näkyy <strong>nuolenpäänä.</strong>
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid1.unfoldableCard2.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: frame3,
                   imageClasses: "align-right w-[40px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        b. Muiden käyttäjien peitenimet alkavat näkyä
-                        zoomatessa.
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid1.unfoldableCard2.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: frame4,
                   imageClasses: "align-right w-[50px]",
                 },
                 {
                   description: (
-                    <>
-                      <span>
-                        c. Muiden käyttäjien pallokuvakkeen väri kuvaa joukkueen
-                        väriä (tai muuta käskettyä merkitystä).
-                      </span>
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid1.unfoldableCard2.step3"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: frame5,
                   imageClasses: "align-right w-[50px]",
@@ -140,12 +142,12 @@ export function TakUsageAndroid1() {
                 },
               ]}
             />
-            <NavigateButtons
-              backUrl="/app/services/tak/Usage"
-              forwardUrl="/app/services/tak/Usage/android2"
-            />
           </div>
         </CardsContainer>
+        <NavigateButtons
+          backUrl="/app/services/tak/Usage"
+          forwardUrl="/app/services/tak/Usage/android2"
+        />
       </Layout>
     </div>
   );
