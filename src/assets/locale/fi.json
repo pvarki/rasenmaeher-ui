@@ -606,5 +606,27 @@
   "TakUsageAndroid3.unfoldableCard3.description5": "Valitse aukeavasta valikosta <strong>Contact</strong>.",
   "TakUsageAndroid3.unfoldableCard3.description6": "Valitse vastaanottajaksi <strong>HQ</strong> ja lähetä.",
   "TakUsageAndroid3.unfoldableCard3.description7": "Hienoa! Tunnet nyt ATAK-sovelluksen käytön perustoimintamallin mukaisesti.",
-  "TakUsageAndroid3.alterForward": "Valmis! Palaa takaisin."
+  "TakUsageAndroid3.alterForward": "Valmis! Palaa takaisin.",
+
+  "TAKUSAGEIOS1": "TAKUSAGEIOS1",
+  "TakUsageIos1.navbarTitle": "iTAK käyttö joukossa",
+  "TakUsageIos1.statusBarTitle": "Lähetä merkkejä",
+  "TakUsageIos1.serviceInfoCard.details": "iTAK käyttö joukossa : <strong>Tee ja lähetä havaintoja</strong><br>",
+  "TakUsageIos1.unfoldableCard1.title": "1. Luo merkki",
+  "TakUsageIos1.unfoldableCard1.step1": "Voit luoda havaintomerkin seuraavasti.",
+  "TakUsageIos1.unfoldableCard1.step2": "Paina kohtaa, johon haluat merkin, kartalla pitkään. Syntyy merkki.",
+  "TakUsageIos1.unfoldableCard2.title": "2. Täydennä tiedot",
+  "TakUsageIos1.unfoldableCard2.step1": "Täydennä luomaasi merkkiin haluamaasi tietoa: mahdollisia <strong>liitteitä</strong> ja vähintään tietoa.",
+  "TakUsageIos1.unfoldableCard2.step2": "Painamalla <strong>Attachments</strong> voit lisätä mm. kuvia.",
+  "TakUsageIos1.unfoldableCard2.step3": "Painamalla <strong>Remarks</strong> voit lisätä merkinnät.",
+  "TakUsageIos1.unfoldableCard2.note": "Tärkeää! Muista lisätä kuvaus merkkiin.",
+  "TakUsageIos1.unfoldableCard3.title": "3. Lähetä merkki komentopaikalle",
+  "TakUsageIos1.unfoldableCard3.step1": "Lähetä merkki komentopaikalla painamalla sen symbolia kartalla ensin pitkään.",
+  "TakUsageIos1.unfoldableCard3.step2": "Aukeavassa näkymässä paina <strong>Share</strong>.",
+  "TakUsageIos1.unfoldableCard3.step3": "Valitse <strong>Share to Contacts</strong>.",
+  "TakUsageIos1.unfoldableCard3.step4": "Valitse Contacts-ruudusta (huom. kuvassa tyhjänä) sinulle käsketty <strong>komentopaikan tunnus</strong>, esim. KARHU1. Lähetä",
+  "TakUsageIos1.unfoldableCard3.note": "Muista, että merkki ei ole koskaan riittävä ilmoitus. Lähetä lisäksi aina sanoma käsketyllä menetelmällä havainnostasi.",
+  "TakUsageIos1.unfoldableCard4.title": "4. Vastaanota merkkejä Recon Feedistä",
+  "TakUsageIos1.unfoldableCard4.step1": "Jos olet käyttöönotto-ohjeen sivun 5 mukaisesti ottanut käyttöön Data Syncillä <strong>Recon Feedin</strong>, päivittyy sen sisältö automaattisesti kartallesi.",
+  "TakUsageIos1.unfoldableCard4.step2": "Tutki Recon Feedistä saamaasi tilannekuvaan kuuluvia merkkejä painamalla niitä."
 }

@@ -607,5 +607,27 @@
   "TakUsageAndroid3.unfoldableCard3.description5": "Select <strong>Contact</strong> from the menu that opens.",
   "TakUsageAndroid3.unfoldableCard3.description6": "Select <strong>HQ</strong> as the recipient and send.",
   "TakUsageAndroid3.unfoldableCard3.description7": "Great! You now know how to use the ATAK, according to our basic operating model.<br><br> Users with HQ role will then receive your mark. According to our basic model, they should be your Command Post users. <br /> <br/> Remember, a sent marker is never a sufficient notice. Confirm by sending the recipient a message in the instructed manner.",
-  "TakUsageAndroid3.alterForward": "Done! Go back."
+  "TakUsageAndroid3.alterForward": "Done! Go back.",
+
+  "TAKUSAGEIOS1": "TAKUSAGEIOS1",
+  "TakUsageIos1.navbarTitle": "Usage Guide: iTAK",
+  "TakUsageIos1.statusBarTitle": "Send Markers",
+  "TakUsageIos1.serviceInfoCard.details": "Usage Guide ITAK: <strong>Make and send observations</strong><br>",
+  "TakUsageIos1.unfoldableCard1.title": "1. Create a Marker",
+  "TakUsageIos1.unfoldableCard1.step1": "You can create an observation marker as follows.",
+  "TakUsageIos1.unfoldableCard1.step2": "Press and hold the location on the map where you want the marker to be placed. A marker will be created.",
+  "TakUsageIos1.unfoldableCard2.title": "2. Complete Information",
+  "TakUsageIos1.unfoldableCard2.step1": "Complete the marker with any information you want to include: possible <strong>attachments</strong> and at least some information.",
+  "TakUsageIos1.unfoldableCard2.step2": "By pressing <strong>Attachments</strong>, you can add, for example, images.",
+  "TakUsageIos1.unfoldableCard2.step3": "By pressing <strong>Remarks</strong>, you can add notes.",
+  "TakUsageIos1.unfoldableCard2.note": "Important! Remember to add a description to the marker.",
+  "TakUsageIos1.unfoldableCard3.title": "3. Send Marker to Command Post",
+  "TakUsageIos1.unfoldableCard3.step1": "Send the marker to your Command Post by long-pressing its symbol on the map.",
+  "TakUsageIos1.unfoldableCard3.step2": "In the window that opens, press <strong>Share</strong>.",
+  "TakUsageIos1.unfoldableCard3.step3": "Select <strong>Share to Contacts</strong>.",
+  "TakUsageIos1.unfoldableCard3.step4": "From the Contacts window (note: empty in the image), select the contacts that are Command Post users you, e.g., KARHU1, and send.<br><br>Note! Your superior should decide which users by which callsigns are the Command Post users. Differing from ATAK, you can't send markers to a role (such as HQ), which is how ATAK users send their markers according to our basic model.",
+  "TakUsageIos1.unfoldableCard3.note": "Remember, a marker is never a sufficient notification. Always send a message about your observation aswell.",
+  "TakUsageIos1.unfoldableCard4.title": "4. Receive Markers from Recon Feed",
+  "TakUsageIos1.unfoldableCard4.step1": "If you have activated the <strong>Recon Feed</strong> with Data Sync as instructed in the setup guide, its content will automatically update on your map.",
+  "TakUsageIos1.unfoldableCard4.step2": "Explore the markers that are part of the situational picture received from the Recon Feed by pressing them."
 }
