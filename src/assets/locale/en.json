@@ -80,7 +80,7 @@
 
   "MTLSCREATEVIEW": "MTLSCREATEVIEW",
   "mtls-download-install-title": "Download and install the mTLS Certificate",
-  "mtls-download-install-description": "You can use the service only, if your device has a mTLS Certificate of this server installed to your device. Download and install the key to your device.",
+  "mtls-download-install-description": "You can use the service only, if your device has a mTLS Certificate of this server installed. Download and install the key to your device.",
   "mtls-installation-instructions": "Installation instructions",
   "download-your-key": "Download your key",
   "navigate-with-your-key": "Use your key to access the services",
