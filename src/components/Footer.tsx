@@ -1,15 +1,20 @@
 import { Trans, useTranslation } from "react-i18next";
 import { InfoModal } from "./InfoModal";
-import { LanguageDropdown } from "./LanguageDropdown";
+import { DropdownMenu } from "./DropdownMenu";
+import { useLanguageChange } from "./Localization/LanguageChange";
 import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
   const { t } = useTranslation();
   const isMtls = window.location.origin.includes("mtls.");
   const { version } = useHealthCheck();
-
-  // Use the translation function to get the correct feedback form link
   const feedbackLink = t("footer.feedbackFormLink");
+  const { changeLanguage, availableLanguages } = useLanguageChange();
+
+  const languageItems = availableLanguages.map((language) => ({
+    label: language.name,
+    onSelect: () => changeLanguage(language.code),
+  }));
 
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
@@ -17,7 +22,7 @@ export function Footer() {
 
       <div className="pt-4 py-3">
         RASENMAEHER {version || <Trans i18nKey="footer.loading" />} -{" "}
-        <LanguageDropdown />
+        <DropdownMenu triggerLabel="Language" items={languageItems} />
       </div>
       {isMtls && (
         <div className="py-1 pb-3 text-xs">
