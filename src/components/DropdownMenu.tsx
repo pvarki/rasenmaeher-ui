@@ -1,5 +1,5 @@
-import React from 'react';
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import React from "react";
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 
 interface DropdownItem {
   label: string;
@@ -11,7 +11,10 @@ interface DropdownMenuProps {
   items: DropdownItem[];
 }
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({ triggerLabel, items }) => {
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({
+  triggerLabel,
+  items,
+}) => {
   return (
     <DropdownMenuPrimitive.Root>
       <DropdownMenuPrimitive.Trigger className="underline cursor-pointer">
