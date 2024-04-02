@@ -235,7 +235,7 @@
   "enrollApprovalView.acceptedModal.dialogTitle": "Käyttäjä hyväksytty",
   "enrollApprovalView.rejectModal.dialogTitle": "Hylkää käyttäjä",
   "enrollApprovalView.rejectedModal.dialogTitle": "Käyttäjä hylätty",
-  "enrollApprovalView.acceptdModal.dialogTitle": "Hyväksy käyttäjä",
+  "enrollApprovalView.acceptModal.dialogTitle": "Hyväksy käyttäjä",
   "enrollApprovalView.list.waitingUsers": "<small>Odottavat käyttäjät</small>",
   "enrollApprovalView.list.noWaitingUsers": "Ei hyväksyntää odottavia käyttäjiä.",
 
