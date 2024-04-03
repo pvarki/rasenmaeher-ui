@@ -5,10 +5,12 @@ import { Trans } from "react-i18next";
 
 export function PublicFooter() {
   const { changeLanguage, availableLanguages } = useLanguageChange();
-  const languageItems = availableLanguages.map((language) => ({
-    label: language.name,
-    onSelect: () => changeLanguage(language.code),
+  // Convert available languages to dropdown items
+  const languageItems = availableLanguages.map((lang) => ({
+    label: lang.name,
+    value: lang.code,
   }));
+
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
@@ -26,7 +28,11 @@ export function PublicFooter() {
 
       <div className="py-3 text-m">
         <PrivacyPolicyModal triggerClassName="text-m text-blue-500 underline cursor-pointer" />{" "}
-        <DropdownMenu triggerLabel="Language" items={languageItems} />
+        <DropdownMenu
+          triggerLabel="Language"
+          items={languageItems}
+          onSelect={(value) => changeLanguage(value)}
+        />
       </div>
       <hr className="mx-auto w-56" />
     </div>

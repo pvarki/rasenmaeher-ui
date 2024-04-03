@@ -11,9 +11,10 @@ export function Footer() {
   const feedbackLink = t("footer.feedbackFormLink");
   const { changeLanguage, availableLanguages } = useLanguageChange();
 
-  const languageItems = availableLanguages.map((language) => ({
-    label: language.name,
-    onSelect: () => changeLanguage(language.code),
+  // Convert available languages to dropdown items
+  const languageItems = availableLanguages.map((lang) => ({
+    label: lang.name,
+    value: lang.code,
   }));
 
   return (
@@ -22,7 +23,11 @@ export function Footer() {
 
       <div className="pt-4 py-3">
         RASENMAEHER {version || <Trans i18nKey="footer.loading" />} -{" "}
-        <DropdownMenu triggerLabel="Language" items={languageItems} />
+        <DropdownMenu
+          triggerLabel="Language"
+          items={languageItems}
+          onSelect={(value) => changeLanguage(value)}
+        />
       </div>
       {isMtls && (
         <div className="py-1 pb-3 text-xs">
