@@ -100,7 +100,7 @@ export function ServiceTak() {
               <Button
                 variant={{ width: "full" }}
                 onClick={handleDownloadButtonClick}
-                styling="m- px-3 bg-success text-white w-full"
+                styling="m-1 px-3 bg-success text-white w-full"
               >
                 {t("downloadClientPackage")}
               </Button>

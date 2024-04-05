@@ -18,12 +18,17 @@ const DropdownOsSelector: React.FC<DropdownOsSelectorProps> = ({
     onOSChange(selectedOS);
   }, [selectedOS, onOSChange]);
 
-  const triggerStyle = "p-2 bg-primary-800 rounded-md hover:bg-primary-900 cursor-pointer";
-  const contentStyle = "flex flex-col text-white bg-background rounded-md text-xl shadow-lg rounded";
+  const triggerStyle =
+    "p-2 bg-primary-800 rounded-md hover:bg-primary-900 cursor-pointer";
+  const contentStyle =
+    "flex flex-col text-white bg-background rounded-md text-xl shadow-lg rounded";
 
   return (
     <DropdownMenu
-      triggerLabel={osOptions.find(option => option.value === selectedOS)?.label || "Select OS"}
+      triggerLabel={
+        osOptions.find((option) => option.value === selectedOS)?.label ||
+        "Select OS"
+      }
       items={osOptions}
       onSelect={setSelectedOS}
       triggerStyle={triggerStyle}
