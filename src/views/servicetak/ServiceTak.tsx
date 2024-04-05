@@ -102,7 +102,7 @@ export function ServiceTak() {
                 onClick={handleDownloadButtonClick}
                 styling="m-1 px-3 bg-success text-white w-full"
               >
-                {t("downloadClientPackage")}
+                {t("serviceTak.grabZipButton")}
               </Button>
             </div>
           </div>
