@@ -35,7 +35,15 @@ export function useDownloadTakZipModal(): DownloadTakZipModalReturn {
     setLoading(true);
 
     fetchFile(undefined, {
-      onSuccess: () => {
+      onSuccess: ({ blob, filename }) => {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
         setLoading(false);
         openDialog({
           title: t("takZipDownload.downloadSuccessTitle"),
