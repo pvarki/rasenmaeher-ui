@@ -179,7 +179,7 @@
   "userManagement.demote.areYouSure": "Oletko varma, että haluat alentaa käyttäjän tavalliseksi käyttäjäksi?",
   "userManagement.demote.demoteButton": "Alenna",
   "userManagement.list.admins": "<small>Ylläpitäjät</small>",
-  "userManagement.list.users": "<small>Taistelijat</small>",
+  "userManagement.list.fighters": "<small>Taistelijat</small>",
   "userManagement.list.nothingToList": "Ei käyttäjiä.",
 
   "qRCodeView.navbarTitle": "Kutsukoodi <em>{{inviteCode}}</em>",
