@@ -12,7 +12,7 @@ void i18n
   .init({
     fallbackLng: "en",
     detection: {
-      order: ["navigator", "localStorage"],
+      order: ["localStorage", "navigator"],
       caches: ["localStorage"],
     },
     backend: {
