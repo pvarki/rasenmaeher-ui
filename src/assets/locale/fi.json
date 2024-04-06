@@ -9,6 +9,8 @@
   "download": "Lataa",
   "footer.feedbackFormLink": "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform",
   "common.loadingText": "Lataan...",
+  "navigateButtons.goBack": "Takaisin",
+  "navigateButtons.continue": "Jatka",
 
   "FOOTERS": "FOOTERS",
   "footer.loading": "Ladataan...",

@@ -8,6 +8,8 @@
   "close": "Close",
   "footer.feedbackFormLink": "https://docs.google.com/forms/d/1BXMxeTt5TtmuhX9XsiZTH2yl-Fko-NVPUumvu40TUAM/viewform",
   "common.loadingText": "Loading...",
+  "navigateButtons.goBack": "Go back",
+  "navigateButtons.continue": "Continue",
 
   "FOOTERS": "FOOTERS",
   "footer.loading": "Loading...",
