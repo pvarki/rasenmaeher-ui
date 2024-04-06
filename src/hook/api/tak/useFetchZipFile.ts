@@ -12,7 +12,9 @@ interface FilesResponse {
   };
 }
 
-async function fetchZipFile(): Promise<{ blob: Blob; filename: string }> {
+async function fetchZipFile(
+  os: string,
+): Promise<{ blob: Blob; filename: string }> {
   const res = await fetch("/api/v1/instructions/user", {
     method: "GET",
     headers: {
@@ -25,7 +27,8 @@ async function fetchZipFile(): Promise<{ blob: Blob; filename: string }> {
   }
 
   const data = (await res.json()) as FilesResponse;
-  const fileData = data.files.tak[0]; // Assuming you want the first file in the 'tak' array
+  const fileIndex = os === "iOS" ? 1 : 0; // iTAK package is at index 1
+  const fileData = data.files.tak[fileIndex];
 
   const byteCharacters = atob(fileData.data.split("base64,")[1]);
   const byteNumbers = new Array(byteCharacters.length);
@@ -45,10 +48,13 @@ type UseFetchZipFileOptions = UseMutationOptions<
   unknown
 >;
 
-export function useFetchZipFile(options?: UseFetchZipFileOptions) {
+export function useFetchZipFile(
+  selectedOS: string,
+  options?: UseFetchZipFileOptions,
+) {
   const fetchZipFileWrapped = async () => {
     try {
-      return await fetchZipFile();
+      return await fetchZipFile(selectedOS);
     } catch (error) {
       console.error("Error fetching zip file:", error);
       throw error;

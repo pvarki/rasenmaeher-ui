@@ -9,19 +9,22 @@ import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import { Trans, useTranslation } from "react-i18next";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 
 export function TakQuickstartAndroid2() {
+  const { t } = useTranslation();
+
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="ATAK käyttöönotto"
+        navbarTitle={t("TakQuickstartAndroid2.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Aseta viestiperusteet (2/5)"
+          title={t("TakQuickstartAndroid2.statusBarTitle")}
           progressMax={5}
           progressNow={2}
         />
@@ -32,91 +35,140 @@ export function TakQuickstartAndroid2() {
               title="ATAK"
               image={ATAK}
               details={
-                <>
-                  ATAK käyttöönotto - vaihe 2:{" "}
-                  <strong>aseta viestiperusteet</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.serviceInfoCard.details"
+                  components={{
+                    strong: <strong />,
+                    br: <br />,
+                  }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  1. <strong>Avaa</strong> <em>Select Data Package</em> -valikko
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard1.title"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
               styling="bg-backgroundLight"
               image2Classes="m-3 w-[300px]"
               description1={
-                <>
-                  Avatessa sovellus ensimmäistä kertaa, aukeaa TAK Device Setup.{" "}
-                  <br />
-                  Valitse <strong>Data Package</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard1.description1"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
               image2Src={data2}
               description2={
-                <>
-                  <strong>
-                    <em>Select Data Package</em>
-                  </strong>
-                  -valikko aukeaa.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard1.description2"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  2. <strong>Etsi</strong> ja <strong>valitse</strong>{" "}
-                  viestiperuste-zip
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard2.title"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                  }}
+                />
               }
               styling="bg-backgroundLight"
               imageSrc={etsi3}
               imageClasses="m-3 w-[300px]"
               description2={
-                <>
-                  Etsi kansio, johon latasit viestiperustetiedostosi{" "}
-                  <strong>Nimi.zip</strong>
-                  <br />
-                  Vinkki: Paina <strong>Date</strong> nähdäksesi viimeisimpänä
-                  ladatun tiedoston, todennäköisesti viestiperusteesi.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard2.description2"
+                  components={{
+                    strong: <strong />,
+                    br: <br />,
+                    em: <em />,
+                  }}
+                />
               }
-              description3={<>Valitse tiedosto.</>}
+              description3={
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard2.description3"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
+              }
             />
             <UnfoldableCard
               title={
-                <>
-                  3. Paina <strong>Done</strong> - asetukset latautuu
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard3.title"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                  }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Paina <strong>Done</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard3.description1"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
               image2Src={done4}
               image2Classes="m-3 w-[300px]"
               description2={
-                <>
-                  Saat muutaman ilmoituksen konfiguraatiotiedostojen
-                  latautumisesta.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard3.description2"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
               image3Src={ilmo5}
               image3Classes="m-3 w-[300px]"
-              description3={<>Alkukonfiguraatio on valmis.</>}
+              description3={
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard3.description3"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
+              }
               image4Src={yhteys6}
               image4Classes="m-3 w-[300px]"
               description4={
-                <>
-                  Tarkista oikeasta alakulmasta, että palvelinyhteytesi on
-                  aktivoitunut (vihreä merkkivalo).
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid2.unfoldableCard3.description4"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
             />
           </div>

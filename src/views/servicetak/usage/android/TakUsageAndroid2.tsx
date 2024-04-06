@@ -5,6 +5,7 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import { Trans, useTranslation } from "react-i18next";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import pic1 from "../../../../assets/takguides/atak/atakusage1.png";
 import pic3 from "../../../../assets/takguides/atak/atakusage3.png";
@@ -17,94 +18,91 @@ import pic8 from "../../../../assets/takguides/atak/atakusage8.png";
 import pic9 from "../../../../assets/takguides/atak/atakusage9.png";
 
 export function TakUsageAndroid2() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="Käyttö joukossa: ATAK"
+        navbarTitle={t("TakUsageAndroid2.navbarTitle")}
         backUrl="/app/services/tak/Usage"
       >
         <StatusBar
-          title="Point Dropper (2/3)"
+          title={t("TakUsageAndroid2.statusBarTitle")}
           progressMax={3}
           progressNow={2}
         />
+        <CardsContainer>
+          <ServiceTakUsageCard />
+        </CardsContainer>
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
               title="ATAK"
               image={ATAK}
               details={
-                <>
-                  Käyttö joukossa ATAK - vaihe 2:{" "}
-                  <strong>Tee havaintoja merkein: Point Dropper</strong>
-                  <br />
-                </>
+                <Trans
+                  i18nKey="TakUsageAndroid2.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
-            >
-              <ServiceTakUsageCard />
-            </ServiceInfoCard>
+            />
             <UnfoldableCard
-              title="1. ATAKin havaintotyökalut"
+              title={
+                <Trans
+                  i18nKey="TakUsageAndroid2.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      ATAKissa havaintoja voi tehdä kahdella eri tavalla:{" "}
-                      <strong>Point Dropper</strong> ja{" "}
-                      <strong>Quick Pic</strong>
-                      . <br /> <br /> <strong>Point Dropperilla</strong>{" "}
-                      merkitään havainto, johon voi liittää liitteitä, ml. kuvia
-                      laitteen galleriasta. <strong>Quick Picillä</strong>{" "}
-                      otetaan kuva suoraan TAKiin ja täydennetään tietoja.
-                      <br />
-                      <br />
-                      Tarkastellaan ensin Point Dropperia.
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard1.step1"
+                      components={{ strong: <strong />, br: <br /> }}
+                    />
                   ),
+                  imageSrc: pic1,
+                  imageClasses: "m-3 w-[300px]",
                 },
               ]}
             />
-
             <UnfoldableCard
-              title="2. Tee havaintoja Point Dropperilla"
+              title={
+                <Trans
+                  i18nKey="TakUsageAndroid2.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      a. Avaa kolme viivaa-valikko (hampurilaisvalikko), valitse{" "}
-                      <strong>Point Dropper</strong>.
-                      <br />
-                      <br />
-                      Tai paina haluamaasi kohtaa kartalla pitkään ja valitse
-                      Point Dropperin symboli avautuvasta ympyrävalikosta.
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard2.step1"
+                      components={{ strong: <strong />, br: <br /> }}
+                    />
                   ),
                   imageSrc: pic1,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
                   description: (
-                    <>
-                      b. Valitse lisättävän merkin tyyppi: havainto, eli
-                      <strong>keltainen</strong> merkki.
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard2.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic3,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
                   description: (
-                    <>
-                      c. Jos valitsit Point Dropperin hampurilaisvalikosta,
-                      täppää karttaa valitaksesi havainnolle sijainnin.
-                      <br />
-                      <br />
-                      Havaintomerkki ilmestyy kartalle.
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard2.step3"
+                      components={{ br: <br /> }}
+                    />
                   ),
                   imageSrc: pic31,
                   imageClasses: "m-3 w-[500px]",
@@ -112,96 +110,77 @@ export function TakUsageAndroid2() {
               ]}
             />
             <UnfoldableCard
-              title="3. Point Dropper: Muokkaa"
+              title={
+                <Trans
+                  i18nKey="TakUsageAndroid2.unfoldableCard3.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      a. Jos aiot muokata heti merkin lisäämisen jälkeen, poista
-                      ensinvalinta merkistä täppäämällä karttaa.{" "}
-                      <strong>Paina</strong> merkkiä, jotta ympyrävalikko
-                      aukeaa.
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard3.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic4,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
                   description: (
-                    <>
-                      b. Muokkaa merkin tietoja painamalla ympyrävalikossa
-                      roskakorin oikealla puolella olevaa <strong>edit</strong>
-                      -kuvaketta.
-                    </>
-                  ),
-                },
-                {
-                  description: (
-                    <>
-                      c. Aukeaa Havainnon tiedot-näkymä. Kelaa sen pohjalle.
-                      Alimmaisena on kenttä <strong>Remarks</strong>, jonne voi
-                      syöttää tekstiä painamalla <strong>kynäsymbolia</strong>.
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard3.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic5,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
-                  description: <>d. Syötä tekstiä.</>,
+                  description: (
+                    <Trans i18nKey="TakUsageAndroid2.unfoldableCard3.step3" />
+                  ),
                   imageSrc: pic6,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
                   description: (
-                    <>
-                      e. Samassa Havainnon tiedot -valikossa painamalla{" "}
-                      <strong>klemmari</strong>-kuvaketta näet havainnon
-                      liitteet.
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard3.step4"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic7,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
                   description: (
-                    <>
-                      f. Lisää uusia liitteitä painamalla <strong>+</strong>{" "}
-                      -kuvaketta valikon ylärivistä:
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard3.step5"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic8,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
                   description: (
-                    <>
-                      g. Kun olet täydentänyt havainnon tiedot, lähetä se{" "}
-                      <strong>Send</strong>-napilla HQ:lle:
-                    </>
+                    <Trans
+                      i18nKey="TakUsageAndroid2.unfoldableCard3.step6"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic9,
                   imageClasses: "m-3 w-[500px]",
                 },
                 {
                   description: (
-                    <>
-                      Tämän ohjeen opastaman perusmallin mukaisesti lähettämällä
-                      HQ:lle, HQ-käyttäjät (komentopaikalla) vastaanottavat
-                      merkin.
-                      <br />
-                      Tämän jälkeen komentopaikka{" "}
-                      <strong>vahvistaa ja tulkitsee</strong> ilmoituksen, ja
-                      lisää sen <strong>RECON-feediin</strong>. Havainto tulee
-                      näin osaksi joukon tiedustelutilannekuvaa.
-                      <br />
-                    </>
+                    <Trans i18nKey="TakUsageAndroid2.unfoldableCard3.step7" />
                   ),
                   note: (
-                    <>
-                      Muista, että merkki ei ole koskaan riittävä ilmoitus.
-                      Varmenna lähettämällä käsketyllä tavalla sanoma.
-                    </>
+                    <Trans i18nKey="TakUsageAndroid2.unfoldableCard3.note" />
                   ),
                 },
               ]}

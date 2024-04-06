@@ -1,4 +1,4 @@
-import { BookmarkReminder } from "../components/BookmarkRemainder";
+import { Trans } from "react-i18next";
 import { Layout } from "../components/Layout";
 import { CardsContainer } from "../components/CardsContainer";
 import { TextCard } from "../components/TextCard";
@@ -8,28 +8,27 @@ import taistelija from "../assets/heroimages/taistelija.jpeg";
 
 export function SoldierView() {
   const { callsign } = useUserType();
+
   return (
     <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>
       <CardsContainer>
         <TextCard
           title={
-            <>
-              Tervetuloa, <em>{callsign && `${callsign}`}.</em>{" "}
-            </>
+            <Trans
+              i18nKey="soldierView.welcome"
+              components={{ em: <em /> }}
+              values={{ callsign }}
+            />
           }
           details={
-            <>
-              Joukkosi käytössä olevat palvelut ovat ohessa. Paina palvelun{" "}
-              <strong>kuvaketta</strong> ottaaksesi sen käyttöön omalla
-              laitteellasi.
-            </>
+            <Trans
+              i18nKey="soldierView.details"
+              components={{ strong: <strong />, br: <br /> }}
+            />
           }
         />
       </CardsContainer>
       <ServiceTak />
-      <CardsContainer>
-        <BookmarkReminder />
-      </CardsContainer>
     </Layout>
   );
 }

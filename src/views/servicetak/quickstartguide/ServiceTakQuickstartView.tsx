@@ -7,9 +7,11 @@ import { Layout } from "../../../components/Layout";
 import { Card } from "../../../components/Card";
 import { CardsContainer } from "../../../components/CardsContainer";
 import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
+import { Trans, useTranslation } from "react-i18next";
 
 export function ServiceTakQuickstartView() {
   const cardContentRef = useRef<HTMLDivElement | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 60);
@@ -21,38 +23,33 @@ export function ServiceTakQuickstartView() {
         showNavbar={true}
         showFooter={true}
         heroImage={sanla}
-        navbarTitle="TAK: Käyttöönotto"
+        navbarTitle={t("serviceTakQuickstartView.navbarTitle")}
         backUrl="/"
       >
         <div ref={cardContentRef}>
           <CardsContainer>
             <ServiceInfoCard
-              title="Ota TAK käyttöön!"
+              title={t("serviceTakQuickstartView.serviceInfoCardTitle")}
               details={
-                <>
-                  Valitse käyttöönotto-ohje laitteesi mukaan.
-                  <br />
-                  <span>
-                    Helpoin tapa tehdä käyttöönotto on{" "}
-                    <strong>parin kanssa</strong> siten, että toinen taistelija
-                    näyttää ohjetta ja toinen tekee.
-                  </span>
-                </>
+                <Trans
+                  i18nKey="serviceTakQuickstartView.serviceInfoCardDetails"
+                  components={{ strong: <strong />, span: <span /> }}
+                />
               }
-            ></ServiceInfoCard>
+            />
 
             <Card
-              title="Android"
+              title={t("serviceTakQuickstartView.androidTitle")}
               image={android}
               url="/app/services/tak/quickstart/android1"
             />
             <Card
-              title="iOS"
+              title={t("serviceTakQuickstartView.iosTitle")}
               image={apple}
               url="/app/services/tak/quickstart/ios1"
             />
             <Card
-              title="Windows"
+              title={t("serviceTakQuickstartView.windowsTitle")}
               image={windows}
               url="/app/services/tak/quickstart/win1"
             />

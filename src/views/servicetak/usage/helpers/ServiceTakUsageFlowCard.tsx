@@ -1,3 +1,4 @@
+import { Trans } from "react-i18next";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import takusageflow from "../../../../assets/takguides/takusageflow.svg";
 
@@ -5,56 +6,43 @@ export function ServiceTakUsageFlowCard() {
   return (
     <div className="w-full m-2 p-0">
       <UnfoldableCard
-        title="Flowchart: Havaintotiedon kulku"
+        title={<Trans i18nKey="serviceTakUsageFlowCard.title" />}
         initialOpen={false}
         imageSrc={takusageflow}
         imageClasses="w-[500px]"
         description1={
-          <>
-            <small>
-              <strong>1. Taistelija havaitsee ilmoitettavaa</strong>
-              <li>Taistelija varmistaa, että oma ryhmä tietää.</li>
-              <li>
-                Taistelija lähettää merkin <em>HQ-roolille.</em>
-              </li>
-              <li>Komentopaikan käyttäjät ovat HQ-roolissa.</li>
-              <li>Komentopaikka vastaanottaa havainnon.</li>
-            </small>
-          </>
+          <Trans
+            i18nKey="serviceTakUsageFlowCard.description1"
+            components={{
+              strong: <strong />,
+              em: <em />,
+              small: <small />,
+              li: <li />,
+            }}
+          />
         }
         description2={
-          <>
-            <small>
-              <strong>2. KNTOP toiminta vastaanottaessa havainto</strong>
-              <li>
-                Komentopaikka <em>käsittelee havainnon:</em>{" "}
-              </li>
-              <li>- eli varmentaa ja tulkitsee sen, lisäten tietoa</li>
-              <li>
-                Komentopaikka lähettää merkin <strong>Recon Feediin</strong>
-              </li>
-            </small>
-          </>
+          <Trans
+            i18nKey="serviceTakUsageFlowCard.description2"
+            components={{
+              strong: <strong />,
+              em: <em />,
+              small: <small />,
+              li: <li />,
+            }}
+          />
         }
         description3={
-          <>
-            <small>
-              <strong>3. Lopputilanne</strong>
-              <li>Kaikki käyttäjät ovat Recon Feedin tilaajia</li>
-              <li>Kaikki käyttäjät näkevät uuden merkin</li>
-              <li>
-                Merkeistä koostuu <strong>tiedustelutilannekuva</strong>
-              </li>
-            </small>
-          </>
+          <Trans
+            i18nKey="serviceTakUsageFlowCard.description3"
+            components={{ strong: <strong />, small: <small />, li: <li /> }}
+          />
         }
         description4={
-          <>
-            <small>
-              Tavoitetila: Koko joukko tietää olennaiset tapahtumat minuuttien
-              kuluessa niiden havaitsemisesta.
-            </small>
-          </>
+          <Trans
+            i18nKey="serviceTakUsageFlowCard.description4"
+            components={{ small: <small /> }}
+          />
         }
       />
     </div>

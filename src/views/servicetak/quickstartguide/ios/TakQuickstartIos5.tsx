@@ -5,22 +5,24 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 import pic26 from "../../../../assets/takguides/itak/itakquickstart26.png";
 import pic27 from "../../../../assets/takguides/itak/itakquickstart27.png";
 import pic271 from "../../../../assets/takguides/itak/itakquickstart27-1.jpeg";
 import pic28 from "../../../../assets/takguides/itak/itakquickstart28.png";
 
 export function TakQuickstartIos5() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="iTAK käyttöönotto"
+        navbarTitle={t("TakQuickstartIos5.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Ota käyttöön Data Sync (5/5)"
+          title={t("TakQuickstartIos5.statusBarTitle")}
           progressMax={5}
           progressNow={5}
         />
@@ -30,26 +32,27 @@ export function TakQuickstartIos5() {
               title="iTAK"
               image={ITAK}
               details={
-                <>
-                  iTAK käyttöönotto - vaihe 5:{" "}
-                  <strong>Ota käyttöön Data Sync</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa iTAK-sovelluksen tulee olla auki.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos5.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
-              title="1. Avaa Data Sync-valikko"
+              title={
+                <Trans
+                  i18nKey="TakQuickstartIos5.unfoldableCard1.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Päänäkymässä, avaa työkaluvalikosta (alareunassa){" "}
-                      <strong>Data Sync</strong> -valikko. Vieritä oikealle
-                      löytääksesi valikon.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos5.unfoldableCard1.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic26,
                   imageClasses: "m-3 w-[300px]",
@@ -57,60 +60,67 @@ export function TakQuickstartIos5() {
               ]}
             />
             <UnfoldableCard
-              title="2. Tilaa feed"
+              title={
+                <Trans
+                  i18nKey="TakQuickstartIos5.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Data Sync-valikossa paina <strong>Subscribe</strong>{" "}
-                      -painiketta.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos5.unfoldableCard2.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic271,
                   imageClasses: "m-3 w-[300px]",
                 },
                 {
                   description: (
-                    <>
-                      Valitse saatavilla oleva palvelin (Rasenmaeher-palvelun
-                      niminen tulee näkyviin.)
-                    </>
+                    <Trans i18nKey="TakQuickstartIos5.unfoldableCard2.step2" />
                   ),
                   imageSrc: pic28,
                   imageClasses: "m-3 w-[300px]",
                 },
                 {
                   description: (
-                    <>
-                      Avautuvassa näkymässä, valitse <strong>RECON</strong>
-                      -feed.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos5.unfoldableCard2.step3"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
-                  note: <>Huom. Kuva puuttuu toistaiseksi.</>,
+                  note: t("TakQuickstartIos5.unfoldableCard2.note"),
                 },
               ]}
             />
             <UnfoldableCard
-              title="3. Feed käytössäsi"
+              title={
+                <Trans
+                  i18nKey="TakQuickstartIos5.unfoldableCard3.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
+              }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Tämän jälkeen käytössäsi on joukkosi komentopaikan luoma{" "}
-                      <strong>Recon Feed</strong>.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos5.unfoldableCard3.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic27,
                   imageClasses: "m-3 w-[300px]",
                 },
                 {
                   description: (
-                    <>
-                      Feed näkyy Data Sync-valikossasi. Feedin käyttöohjeet{" "}
-                      <strong>Käyttö joukossa-ohjeissa.</strong>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos5.unfoldableCard3.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                 },
               ]}
@@ -120,7 +130,7 @@ export function TakQuickstartIos5() {
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/ios4"
           forwardUrl="/app/services/tak/quickstart"
-          alterForward="Valmis! Palaa tästä."
+          alterForward={t("TakQuickstartIos5.alterForward")}
         />
       </Layout>
     </div>

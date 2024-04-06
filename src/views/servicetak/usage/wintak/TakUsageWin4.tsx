@@ -5,6 +5,7 @@ import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
+import { useTranslation, Trans } from "react-i18next";
 import Wintak from "../../../../assets/icons/wintak.png";
 
 import pic61 from "../../../../assets/takguides/wintak/Kuva61.png";
@@ -12,94 +13,92 @@ import pic62 from "../../../../assets/takguides/wintak/Kuva62.png";
 import pic63 from "../../../../assets/takguides/wintak/Kuva63.png";
 
 export function TakUsageWin4() {
+  const { t } = useTranslation();
   return (
     <div className="pb-32">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="Käyttö joukossa: WinTAK"
+        navbarTitle={<Trans i18nKey="takUsageWin3.navbarTitle" />}
         backUrl="/app/services/tak/usage"
       >
-        <StatusBar title="Tietohuolto (4/4)" progressMax={4} progressNow={4} />
+        <StatusBar
+          title={t("takUsageWin3.navbarTitle")}
+          progressMax={4}
+          progressNow={4}
+        />
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
-              title="WinTAK"
+              title={<Trans i18nKey="takUsageWin4.serviceInfoCard.title" />}
               image={Wintak}
               details={
-                <>
-                  Käyttö joukossa WinTAK - vaihe 4: <strong>Tietohuolto</strong>
-                  <br />
-                </>
+                <Trans
+                  i18nKey="takUsageWin4.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             >
               <ServiceTakUsageCard />
             </ServiceInfoCard>
             <UnfoldableCard
-              title="1. Liikuta ja tarkastele karttaa"
+              title={<Trans i18nKey="takUsageWin4.unfoldableCard1.title" />}
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      Palauta WinTAK tehdasasetuksille seuraavasti.
-                      <br />
-                      <br />
-                      Paina kolme päällekkäistä viivaa -symbolia
-                      (hampurilaisvalikko) vasemmassa yläkulmassa.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin4.unfoldableCard1.step1"
+                      components={{ br: <br /> }}
+                    />
                   ),
                   imageSrc: pic61,
                   imageClasses: "m-3 w-[200px]",
                 },
                 {
                   description: (
-                    <>
-                      Paina <strong>Roskakori</strong>-kuvaketta (
-                      <strong>Clear Content)</strong>.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin4.unfoldableCard1.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic62,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      <>Tee Clear Content-valikossa kuvan mukaiset valinnat:</>
-                    </>
+                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step3" />
                   ),
                   imageSrc: pic63,
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
                   description: (
-                    <>
-                      <strong>Clear Now</strong>-nappi ilmestyy, kun{" "}
-                      <strong>OFF-</strong>kytkimet on vedetty Locked-asentoon.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin4.unfoldableCard1.step4"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      Paina <strong>Clear Now!</strong>.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin4.unfoldableCard1.step5"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      Muista poistaa laitteelta käsin viestiperustepakettisi{" "}
-                      <em>Nimi.zip</em>.
-                    </>
+                    <Trans
+                      i18nKey="takUsageWin4.unfoldableCard1.step6"
+                      components={{ em: <em /> }}
+                    />
                   ),
                 },
                 {
                   description: (
-                    <>
-                      Tietohuolto on nyt suoritettu. Muista suorittaa
-                      tietohuolto aina operaation päätteeksi.
-                    </>
+                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step7" />
                   ),
                 },
               ]}
@@ -109,7 +108,7 @@ export function TakUsageWin4() {
         <NavigateButtons
           backUrl="/app/services/tak/usage/win3"
           forwardUrl="/app/services/tak/usage"
-          alterForward="Valmis! Palaa takaisin."
+          alterForward={t("TakUsageAndroid3.alterForward")}
         />
       </Layout>
     </div>

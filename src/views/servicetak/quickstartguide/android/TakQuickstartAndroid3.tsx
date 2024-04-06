@@ -5,22 +5,24 @@ import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-
+import { Trans, useTranslation } from "react-i18next";
 import Settings10 from "../../../../assets/takguides/atak/10-Settings1.png";
 import MyTeam15 from "../../../../assets/takguides/atak/15-MyTeam1.png";
 import MyRole16 from "../../../../assets/takguides/atak/16-MyRole1.png";
 
 export function TakQuickstartAndroid3() {
+  const { t } = useTranslation();
+
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="ATAK käyttöönotto"
+        navbarTitle={t("TakQuickstartAndroid3.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Tee asetukset (3/5)"
+          title={t("TakQuickstartAndroid3.statusBarTitle")}
           progressMax={5}
           progressNow={3}
         />
@@ -30,59 +32,88 @@ export function TakQuickstartAndroid3() {
               title="ATAK"
               image={ATAK}
               details={
-                <>
-                  ATAK käyttöönotto - vaihe 3: <strong>tee asetukset</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.serviceInfoCard.details"
+                  components={{
+                    strong: <strong />,
+                    br: <br />,
+                  }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  1. <strong>Avaa</strong> Settings
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.unfoldableCard1.title"
+                  components={{ strong: <strong /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Paina oikeassa yläkulmassa olevaa{" "}
-                  <strong>kolmea viivaa</strong> (hampurilaispainike).
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.unfoldableCard1.description1"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
               imageSrc={Settings10}
               imageClasses="m-3 w-[250px]"
               description2={
-                <>
-                  Mene valikon alareunaan, valitse <strong>Settings</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.unfoldableCard1.description2"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  3. <strong>Aseta</strong> Team ja Role
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.unfoldableCard2.title"
+                  components={{ strong: <strong /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Valitse <strong>My Team</strong> ja valitse sinulle käsketty
-                  väri.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.unfoldableCard2.description1"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
               image2Src={MyTeam15}
               image2Classes="m-3 w-[300px]"
               description2={
-                <>
-                  Valitse <strong>My Role.</strong> Kaikki paitsi komentopaikka
-                  käyttävät <strong>Team Member</strong>-roolia.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.unfoldableCard2.description2"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
               }
               image3Src={MyRole16}
               image3Classes="m-3 w-[300px]"
-              description3={<>Rooli ja tiimi on nyt asetettu.</>}
+              description3={
+                <Trans
+                  i18nKey="TakQuickstartAndroid3.unfoldableCard2.description3"
+                  components={{
+                    strong: <strong />,
+                    em: <em />,
+                    br: <br />,
+                  }}
+                />
+              }
             />
           </div>
         </CardsContainer>

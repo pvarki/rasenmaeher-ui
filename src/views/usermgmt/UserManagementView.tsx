@@ -12,6 +12,7 @@ import { useQueryClient } from "react-query";
 import { Button } from "../../components/Button";
 import { UnfoldableCard } from "../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
+import { useTranslation, Trans } from "react-i18next";
 import fightericon from "../../assets/icons/jager.svg";
 import adminicon from "../../assets/icons/alikessu.svg";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -34,6 +35,7 @@ export function UserManagementView() {
   const [selectedUser, setSelectedUser] = useState<UserDetails | null>(null);
   const [confirmPromote, setConfirmPromote] = useState(false);
   const [confirmDemote, setConfirmDemote] = useState(false);
+  const { t } = useTranslation();
   const { data: userList } = useUsers();
   const adminList = useMemo(
     () => userList?.filter((user) => user.roles.includes("admin")) ?? [],
@@ -42,13 +44,15 @@ export function UserManagementView() {
 
   const { mutate: deleteMutation } = useDeleteUser({
     onSuccess: () => {
-      setRejectionMessage("Käyttäjän hylkääminen onnistui.");
+      setRejectionMessage(t("userManagement.rejectionSuccessMessage"));
       setIsRejected(true);
       void queryClient.invalidateQueries(["enrollmentList"]);
       setDialogOpen(false);
     },
     onError: (error) => {
-      setRejectionMessage(`Hylkääminen epäonnistui: ${error.message}`);
+      setRejectionMessage(
+        `${t("userManagement.rejectionFailedMessage")}: ${error.message}`,
+      );
       setIsError(true);
     },
   });
@@ -119,14 +123,14 @@ export function UserManagementView() {
     if (isError) {
       return (
         <Button variant={{ color: "success" }} onClick={closeModal}>
-          OK
+          {t("OK")}
         </Button>
       );
     }
     if (isRejected) {
       return (
         <Button variant={{ color: "success" }} onClick={closeRejectionModal}>
-          OK
+          {t("OK")}
         </Button>
       );
     }
@@ -134,21 +138,21 @@ export function UserManagementView() {
       <>
         <Dialog.Close asChild>
           <Button variant={{ color: "tertiary" }} onClick={closeModal}>
-            Peruuta
+            {t("go-back")}
           </Button>
         </Dialog.Close>
         <Button
           variant={{ color: "error" }}
           onClick={() => setConfirmReject(true)}
         >
-          Poista
+          {t("userManagement.revoke.revokeButton")}
         </Button>
         {!isAdmin && (
           <Button
             variant={{ color: "success" }}
             onClick={() => setConfirmPromote(true)}
           >
-            Ylennä
+            {t("userManagement.promote.promoteButton")}
           </Button>
         )}
         {isAdmin && (
@@ -156,7 +160,7 @@ export function UserManagementView() {
             variant={{ color: "primary" }}
             onClick={() => setConfirmDemote(true)}
           >
-            Alenna
+            {t("userManagement.demote.demoteButton")}
           </Button>
         )}
       </>
@@ -171,46 +175,40 @@ export function UserManagementView() {
     [setSelectedUser, setDialogOpen],
   );
 
-  console.log("Is Dialog Open?", isDialogOpen);
-
   return (
     <Layout
       showNavbar={true}
       showFooter={true}
-      navbarTitle="Hallitse käyttäjiä"
+      navbarTitle={<Trans i18nKey="manageUsersView.manageUsers" />}
       backUrl="/app/admin/manageusers"
     >
       <CardsContainer>
         <ServiceInfoCard
-          title="Hallitse käyttäjiä"
+          title={<Trans i18nKey="manageUsersView.manageUsers" />}
           details={
-            <>
-              Listaa ja hallitse käyttäjiä. <strong>Adminit</strong> kykenevät
-              lisämään uusia käyttäjiä.<strong>Taistelijat</strong> ovat
-              peruskäyttäjiä, jotka pääsevät käyttämään palveluitasi.
-            </>
+            <Trans
+              i18nKey="userManagement.serviceInfoCard.details"
+              components={{ strong: <strong /> }}
+            />
           }
         >
           <UnfoldableCard
-            title="Näin se käy"
+            title={<Trans i18nKey="manageUsersView.unfoldableCardTitle" />}
             steps={[
               {
                 description: (
-                  <>
-                    <strong>Ylennä</strong> tai <strong>alenna</strong>{" "}
-                    käyttäjiä. Ylennetyt käyttäjät saavat samat oikeudet kuin
-                    sinä nyt.
-                  </>
+                  <Trans
+                    i18nKey="userManagement.howItWorks.whatPromote"
+                    components={{ strong: <strong /> }}
+                  />
                 ),
               },
               {
                 description: (
-                  <>
-                    Käyttäjien <strong>poistaminen</strong> poistaa käyttäjän
-                    pääsyn Rasenmaeheriin ja kaikkiin yhdistettyihin
-                    palveluihin. Poistettu käyttäjä ei esimerkisi enää voi
-                    yhdistää tilannekuvaasipalveluusi.
-                  </>
+                  <Trans
+                    i18nKey="userManagement.howItWorks.whatRemove"
+                    components={{ strong: <strong /> }}
+                  />
                 ),
               },
             ]}
@@ -225,7 +223,6 @@ export function UserManagementView() {
       <Dialog.Root
         open={isDialogOpen}
         onOpenChange={(open) => {
-          console.log("Dialog onOpenChange called, open:", open);
           setDialogOpen(open);
         }}
       >
@@ -233,10 +230,10 @@ export function UserManagementView() {
           <Dialog.Overlay className="bg-black opacity-60 data-[state=open]:animate-overlayShow fixed inset-0" />
           <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[500px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-background p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
             <Dialog.Title className="text-white m-0 text-lg text-bold font-medium">
-              Hallitse käyttäjää
+              {t("userManagement.mainDialogTitle")}
             </Dialog.Title>
             <Dialog.Description className="text-white mt-4 mb-5 text-md leading-normal">
-              Mitä haluat tehdä käyttäjälle?
+              {t("userManagement.mainDialogQuestion")}
             </Dialog.Description>
             <div className="flex justify-end pt-6 gap-[10px]">
               <DialogButtons />
@@ -249,17 +246,17 @@ export function UserManagementView() {
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
-              Oletko varma?
+              {t("userManagement.revoke.areYouSure")}
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-white">
-              Tämä toimintoa ei voi peruuttaa.
+              {t("userManagement.revoke.cantRollback")}
             </Dialog.Description>
             <div className="mt-4 flex justify-end gap-3">
               <Dialog.Close asChild>
-                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+                <Button variant={{ color: "tertiary" }}>{t("go-back")}</Button>
               </Dialog.Close>
               <Button variant={{ color: "error" }} onClick={handleReject}>
-                Olen, poista
+                {t("userManagement.revoke.yesIAmSure")}
               </Button>
             </div>
           </Dialog.Content>
@@ -270,7 +267,7 @@ export function UserManagementView() {
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
-              Käyttäjän poistaminen onnistui.
+              {t("userManagement.revoke.success")}
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-white">
               {rejectionMessage}
@@ -280,7 +277,7 @@ export function UserManagementView() {
                 variant={{ color: "success" }}
                 onClick={closeRejectionModal}
               >
-                OK
+                {t("OK")}
               </Button>
             </div>
           </Dialog.Content>
@@ -291,20 +288,20 @@ export function UserManagementView() {
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
-              Ylennä käyttäjä
+              {t("userManagement.promote.dialogTitle")}
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-white">
-              Oletko varma, että haluat ylentää käyttäjän adminiksi?
+              {t("userManagement.promote.areYouSure")}
             </Dialog.Description>
             <div className="mt-4 flex justify-end gap-3">
               <Dialog.Close asChild>
-                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+                <Button variant={{ color: "tertiary" }}>{t("go-back")}</Button>
               </Dialog.Close>
               <Button
                 variant={{ color: "success" }}
                 onClick={handleConfirmPromote}
               >
-                Ylennä
+                {t("userManagement.promote.promoteButton")}
               </Button>
             </div>
           </Dialog.Content>
@@ -313,19 +310,19 @@ export function UserManagementView() {
       <Dialog.Root>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
+          <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-backgroundLight rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
-              Ylennä käyttäjä
+              {t("userManagement.promote.dialogTitle")}
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-white">
-              Oletko varma, että haluat ylentää käyttäjän adminiksi?
+              {t("userManagement.promote.areYouSure")}
             </Dialog.Description>
             <div className="mt-4 flex justify-end gap-3">
               <Dialog.Close asChild>
-                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+                <Button variant={{ color: "tertiary" }}>{t("go-back")}</Button>
               </Dialog.Close>
               <Button variant={{ color: "success" }} onClick={handlePromote}>
-                Ylennä
+                {t("userManagement.promote.promoteButton")}
               </Button>
             </div>
           </Dialog.Content>
@@ -336,18 +333,17 @@ export function UserManagementView() {
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
-              Alenna käyttäjä
+              {t("userManagement.demote.dialogTitle")}
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-white">
-              Oletko varma, että haluat alentaa käyttäjän tavalliseksi
-              käyttäjäksi?
+              {t("userManagement.demote.areYouSure")}
             </Dialog.Description>
             <div className="mt-4 flex justify-end gap-3">
               <Dialog.Close asChild>
-                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+                <Button variant={{ color: "tertiary" }}>{t("go-back")}</Button>
               </Dialog.Close>
               <Button variant={{ color: "error" }} onClick={handleDemote}>
-                Alenna
+                {t("userManagement.demote.demoteButton")}
               </Button>
             </div>
           </Dialog.Content>
@@ -358,21 +354,20 @@ export function UserManagementView() {
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-8 bg-background rounded-md transform -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="text-lg text-white font-bold">
-              Alenna käyttäjä
+              {t("userManagement.demote.dialogTitle")}
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-white">
-              Oletko varma, että haluat alentaa käyttäjän tavalliseksi
-              käyttäjäksi?
+              {t("userManagement.demote.areYouSure")}
             </Dialog.Description>
             <div className="mt-4 flex justify-end gap-3">
               <Dialog.Close asChild>
-                <Button variant={{ color: "tertiary" }}>Peruuta</Button>
+                <Button variant={{ color: "tertiary" }}>{t("go-back")}</Button>
               </Dialog.Close>
               <Button
                 variant={{ color: "error" }}
                 onClick={handleConfirmDemote}
               >
-                Alenna
+                {t("userManagement.demote.demoteButton")}
               </Button>
             </div>
           </Dialog.Content>
@@ -433,9 +428,10 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
         <Accordion.Header className="flex w-full">
           <Accordion.Trigger className="text-white w-full items-center outline-none group justify-between py-0 pb-5 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden flex">
             {
-              <>
-                <small>Adminit </small>
-              </>
+              <Trans
+                i18nKey="userManagement.list.admins"
+                components={{ strong: <strong />, small: <small /> }}
+              />
             }
             <ChevronDownIcon
               className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
@@ -480,9 +476,10 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
         <Accordion.Header className="flex w-full">
           <Accordion.Trigger className="text-white w-full items-center outline-none group justify-between py-0 pb-5 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden flex">
             {
-              <>
-                <small>Taistelijat</small>
-              </>
+              <Trans
+                i18nKey="userManagement.list.fighters"
+                components={{ strong: <strong />, small: <small /> }}
+              />
             }
             <ChevronDownIcon
               className="text-white ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
@@ -521,7 +518,7 @@ function UserListAccordian({ onUserClick }: UserListAccordionProps) {
             })
           ) : (
             <div className="text-white py-3 px-3 border-t-2 border-[#4B4B4B]">
-              Ei käyttäjiä.
+              {<Trans i18nKey="userManagement.list.nothingToList" />}
             </div>
           )}
         </Accordion.Content>

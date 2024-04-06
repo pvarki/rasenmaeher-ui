@@ -13,10 +13,12 @@ import { CardsContainer } from "../../../components/CardsContainer";
 import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
 import { UnfoldableCard } from "../../../components/UnfoldableCard";
 import { useQueryClient } from "react-query";
+import { useTranslation, Trans } from "react-i18next";
 
 export function EnrollCodeListView() {
   const navigate = useNavigate();
   const { openDialog } = useAlertDialog();
+  const { t } = useTranslation();
 
   const { mutate: createInviteCode } = useCreateInviteCode({
     onSuccess: (inviteCode) => {
@@ -26,11 +28,10 @@ export function EnrollCodeListView() {
 
   const onCreateInviteCode = () => {
     openDialog({
-      title: "Luo uusi kutsukoodi",
-      description:
-        "Kutsukoodit toimivat monta kertaa. Luo uusi koodi vain, jos tarvitset - esimerkiksi, jos olet poistanut tai deaktivoinut edellisen.",
-      cancelLabel: "Peruuta",
-      confirmLabel: "Luo kutsukoodi",
+      title: t("enrollCodeListView.createNewCode.title"),
+      description: t("enrollCodeListView.createNewCode.description"),
+      cancelLabel: t("go-back"),
+      confirmLabel: t("enrollCodeListView.createNewCode.confirmButton"),
       onConfirm: () => createInviteCode(undefined),
       confirmColor: "primary",
     });
@@ -41,52 +42,75 @@ export function EnrollCodeListView() {
   return (
     <Layout
       showNavbar={true}
-      navbarTitle="Lisää käyttäjiä"
+      navbarTitle={t("enrollCodeListView.navbarTitle")}
       showFooter={true}
       backUrl="/app/admin/manageusers"
     >
       <CardsContainer>
         <ServiceInfoCard
-          title="Lisää käyttäjiä kutsukoodilla"
+          title={t("enrollCodeListView.serviceInfoCardTitle")}
           details={
-            <>
-              Avaa luotu kutsukoodi QR-koodinäkymään <strong>painamalla</strong>{" "}
-              koodia tai luo uusi kutsukoodi. Kutsukoodi toimii, kunnes se
-              poistetaan tai deaktivoidaan tilapäisesti.
-            </>
+            <Trans
+              i18nKey="enrollCodelistView.serviceInfoCardDetails"
+              components={{
+                strong: <strong />,
+                em: <em />,
+                li: <li />,
+                br: <br />,
+              }}
+            />
           }
         >
           <UnfoldableCard
-            title="Näin se käy"
+            title={t("manageUsersView.unfoldableCardTitle")}
             description1={
-              <>
-                <strong>Luo</strong> uusi kutsukoodi painamalla nappia tai käytä
-                aktiivista aiemmin luotua.
-              </>
+              <Trans
+                i18nKey="enrollCodeListView.howToDescription1"
+                components={{
+                  strong: <strong />,
+                  em: <em />,
+                  li: <li />,
+                  br: <br />,
+                }}
+              />
             }
             description2={
-              <>
-                <strong>Avaa</strong> kutsukoodi QR-koodinäkymään{" "}
-                <strong>painamalla</strong> koodia.{" "}
-                <strong>Näytä koodia</strong> käyttäjillesi.
-              </>
+              <Trans
+                i18nKey="enrollCodeListView.howToDescription2"
+                components={{
+                  strong: <strong />,
+                  em: <em />,
+                  li: <li />,
+                  br: <br />,
+                }}
+              />
             }
             description3={
-              <>
-                QR-koodilinkistä käyttäjä pääsee kirjautumaan ja syöttämään
-                peitenimensä.
-              </>
+              <Trans
+                i18nKey="enrollCodeListView.howToDescription3"
+                components={{
+                  strong: <strong />,
+                  em: <em />,
+                  li: <li />,
+                  br: <br />,
+                }}
+              />
             }
             description4={
-              <>
-                Tämän jälkeen käyttäjäsi odottaa <strong>hyväksyntää</strong>.
-                Näet hänet hyväksyntääsi odottavien listassa.
-              </>
+              <Trans
+                i18nKey="enrollCodeListView.howToDescription4"
+                components={{
+                  strong: <strong />,
+                  em: <em />,
+                  li: <li />,
+                  br: <br />,
+                }}
+              />
             }
           />
           <div className="mt-4 mb-4 w-full">
             <Button variant={{ width: "full" }} onClick={onCreateInviteCode}>
-              Luo uusi Kutsu
+              {t("enrollCodeListView.createNewCode.createButton")}
             </Button>
           </div>
           <div className="relative gap-3 flex flex-row items-center w-full bg-backgroundLight p-3 rounded-lg text-white">
@@ -97,7 +121,7 @@ export function EnrollCodeListView() {
             />
             <input
               className="bg-backgroundLight w-full rounded-lg text-white font-consolas"
-              placeholder="Suodata kutsukoodeja"
+              placeholder={t("enrollCodeListView.codes.inputField")}
             />
           </div>
           {inviteCodeList?.map((i) => {
@@ -123,8 +147,11 @@ function InviteCodeRow({
   active: boolean;
 }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const statusLabelColorClass = active ? "text-green-800" : "text-gray-500";
-  const statusLabelText = active ? "Aktiivinen" : "Deaktivoitu";
+  const statusLabelText = active
+    ? t("enrollCodeListView.codes.codeIsActive")
+    : t("enrollCodeListView.codes.codeIsDeactivated");
 
   return (
     <div
@@ -161,11 +188,32 @@ const DropdownMenuDemo = ({
 
   const onDelete = () => {
     openDialog({
-      title: "Olet poistamassa kutsukoodia",
-      description:
-        "Koodin poistaminen estää sen käytön lopullisesti. Käyttäjät, jotka ovat jo kirjautuneet tällä koodilla, eivät kuitenkaan menetä pääsyään palveluun.",
-      cancelLabel: "Peruuta",
-      confirmLabel: "Poista koodi",
+      title: (
+        <Trans
+          i18nKey="enrollCodeListView.codes.deleteModalTitle"
+          components={{
+            strong: <strong />,
+            em: <em />,
+            li: <li />,
+            br: <br />,
+          }}
+        />
+      ),
+      description: (
+        <Trans
+          i18nKey="enrollCodeListView.codes.deleteModalDescriptions"
+          components={{
+            strong: <strong />,
+            em: <em />,
+            li: <li />,
+            br: <br />,
+          }}
+        />
+      ),
+      cancelLabel: <Trans i18nKey="go-back" />,
+      confirmLabel: (
+        <Trans i18nKey="enrollCodeListView.codes.deleteModalConfimButton" />
+      ),
       onConfirm: () => {
         deleteInviteCode(inviteCode, {
           onSuccess: () => {
@@ -178,22 +226,22 @@ const DropdownMenuDemo = ({
 
   const onDeactivate = () => {
     openDialog({
-      title: "Olet deaktivoimassa kutsukoodia",
+      title: <Trans i18nKey="enrollCodeListView.codes.deactivateModalTitle" />,
       description: (
-        <div>
-          {
-            <>
-              Koodin deaktivointi estää sen käytön, kun koodi on deaktivoituna.
-              Käyttäjät, jotka ovat jo kirjautuneet tällä koodilla, eivät
-              kuitenkaan menetä pääsyään palveluun. <br /> <br /> Koodilla
-              kirjautumista yrittävä henkilö saa virheilmoitukseksi 'Koodi
-              väärin.'
-            </>
-          }
-        </div>
+        <Trans
+          i18nKey="enrollCodeListView.codes.deactivateModalDescription"
+          components={{
+            strong: <strong />,
+            em: <em />,
+            li: <li />,
+            br: <br />,
+          }}
+        />
       ),
-      cancelLabel: "Peruuta",
-      confirmLabel: "Deaktivoi koodi",
+      cancelLabel: <Trans i18nKey="go-back" />,
+      confirmLabel: (
+        <Trans i18nKey="enrollCodeListView.codes.deactivateModalConfimButton" />
+      ),
       onConfirm: () => {
         deactivateInviteCode(inviteCode, {
           onSuccess: () => {
@@ -206,22 +254,23 @@ const DropdownMenuDemo = ({
 
   const onReactivate = () => {
     openDialog({
-      title: "Olet aktivoimassa kutsukoodia",
+      title: <Trans i18nKey="enrollCodeListView.codes.activateModalTitle" />,
       description: (
-        <div>
-          {
-            <>
-              {" "}
-              Haluatko aktivoida kutsukoodin uudelleen? Kun koodi on aktivoitu,
-              voi sillä jälleen kirjautua palveluun hyväksyntää odottavaksi
-              käyttäjäksi.{" "}
-            </>
-          }
-        </div>
+        <Trans
+          i18nKey="enrollCodeListView.codes.activateModalDescription"
+          components={{
+            strong: <strong />,
+            em: <em />,
+            li: <li />,
+            br: <br />,
+          }}
+        />
       ),
-      cancelLabel: "Peruuta",
+      cancelLabel: <Trans i18nKey="go-back" />,
       confirmColor: "primary",
-      confirmLabel: "Aktivoi koodi",
+      confirmLabel: (
+        <Trans i18nKey="enrollCodeListView.codes.activateModalConfimButton" />
+      ),
       onConfirm: () => {
         reactivateInviteCode(inviteCode, {
           onSuccess: () => {
@@ -246,14 +295,34 @@ const DropdownMenuDemo = ({
           sideOffset={5}
           collisionPadding={12}
         >
-          <ActionItem label={"Näytä QR"} onClick={onShowQRCode} />
+          <ActionItem
+            label={
+              <Trans i18nKey="enrollCodeListView.codes.showQRCodeButton" />
+            }
+            onClick={onShowQRCode}
+          />
 
           {isActive ? (
-            <ActionItem label={"Deaktivoi koodi"} onClick={onDeactivate} />
+            <ActionItem
+              label={
+                <Trans i18nKey="enrollCodeListView.codes.deactivateModalConfimButton" />
+              }
+              onClick={onDeactivate}
+            />
           ) : (
-            <ActionItem label={"Aktivoi koodi"} onClick={onReactivate} />
+            <ActionItem
+              label={
+                <Trans i18nKey="enrollCodeListView.codes.activateModalConfimButton" />
+              }
+              onClick={onReactivate}
+            />
           )}
-          <ActionItem label={"Poista koodi"} onClick={onDelete} />
+          <ActionItem
+            label={
+              <Trans i18nKey="enrollCodeListView.codes.deleteModalConfimButton" />
+            }
+            onClick={onDelete}
+          />
           <DropdownMenu.Arrow className="fill-white" />
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
@@ -265,7 +334,7 @@ function ActionItem({
   label,
   onClick,
 }: {
-  label: string;
+  label: React.ReactNode;
   onClick?: () => void;
 }) {
   return (

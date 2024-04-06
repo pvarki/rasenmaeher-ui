@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./Button";
+import { useTranslation } from "react-i18next";
 
 interface NavigateButtonsProps {
   backUrl: string;
@@ -18,6 +19,7 @@ export function NavigateButtons({
   const navigate = useNavigate();
   const [backClicked, setBackClicked] = useState(false);
   const [ContinueClicked, setContinueClicked] = useState(false);
+  const { t } = useTranslation();
 
   const handleBackClick = () => {
     setBackClicked(true);
@@ -45,7 +47,7 @@ export function NavigateButtons({
             onPointerUp={() => setBackClicked(false)}
             onClick={handleBackClick}
           >
-            {alterBack || "Takaisin"}
+            {alterBack || t("navigateButtons.goBack")}
           </Button>
 
           <div className="self-stretch bg-neutral-800 flex w-1 h-11 flex-col" />
@@ -58,7 +60,7 @@ export function NavigateButtons({
             onPointerUp={() => setContinueClicked(false)}
             onClick={handleContinueClick}
           >
-            {alterForward || "Jatka"}
+            {alterForward || t("navigateButtons.continue")}
           </Button>
         </section>
       </div>

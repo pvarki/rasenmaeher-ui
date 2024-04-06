@@ -4,6 +4,7 @@ import { UserTypeFetcher } from "./hook/auth/userTypeFetcher";
 import { LoadingProvider } from "./components/Loading/LoadingProvider";
 import LoadingComponent from "./components/Loading/LoadingComponent";
 import { useUserType } from "./hook/auth/useUserType";
+import { useTranslation } from "react-i18next";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
 
 const Content = () => {
   const { isLoading } = useUserType();
+  const { t } = useTranslation();
 
   if (isLoading) {
-    return <LoadingComponent />;
+    return <LoadingComponent text={t("common.loadingText")} />;
   }
 
   return (
