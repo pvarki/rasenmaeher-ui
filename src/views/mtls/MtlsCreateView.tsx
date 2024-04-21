@@ -33,11 +33,9 @@ export function MtlsCreateView() {
     { label: "Android", value: "Android" },
     { label: "iOS", value: "iOS" },
   ];
-  const osToShowLabel = osOptions.find((option) => option.value === selectedOS)
-    ?.label;
-  const triggerLabelText = `${t("mtls-download-whichtoshow")} ${
-    osToShowLabel || ""
-  }`;
+  const osToShowLabel =
+    osOptions.find((option) => option.value === osToShow)?.label || userOS;
+  const triggerLabelText = `${t("mtls-download-whichtoshow")} ${osToShowLabel}`;
 
   useEffect(() => {
     setUserOS(getOperatingSystem());
