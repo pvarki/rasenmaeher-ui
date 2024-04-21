@@ -65,22 +65,20 @@ export function EnrollmentView() {
   return (
     <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
-        <div className="flex flex-col items-center w-full gap-2 justify-center pt-0 p-2">
-          <div className="pb-1">
+        <div className="flex flex-col items-center w-full justify-center">
+          <div className="w-full">
             <Text
               title={t("awaiting-approval")}
               description={t("waiting-approval-instruction")}
             />
           </div>
-          <div className="p-2 bg-white rounded-lg">
-            <QRCode value={approvalUrl} bgColor="#FFFFFF" />
-          </div>
-          <div className="w-full flex justify-end">
+          <div className="flex flex-col w-[80%] pb-3 justify-center">
             <Button
-              variant={{ color: "tertiary" }}
+              variant={{ color: "primary" }}
               onClick={() => handleCopy(approvalUrl)}
+              className="w-full h-[4rem] text-white rounded-lg bg-primary hover:bg-primary-700 focus:ring-4 focus:ring-primary-500 focus:outline-none"
             >
-              {isCopied ? t("link-copied") : t("copy-link")}
+              {isCopied ? t("admin-link-copied") : t("copy-link")}
             </Button>
           </div>
           {copyError && (
@@ -88,6 +86,13 @@ export function EnrollmentView() {
               {t("action-failed")}: {copyError.message}
             </span>
           )}
+          <div className="flex w-[90%] text-white justify-center pb-3 ">
+            {t("waiting-approval-instruction3")}
+          </div>
+          <div className="p-2 bg-white rounded-lg">
+            <QRCode value={approvalUrl} bgColor="#FFFFFF" />
+          </div>
+
           <Text
             title={callsign}
             description={t("approval-code")}
