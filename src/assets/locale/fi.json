@@ -87,6 +87,7 @@
   "mtls-installation-instructions": "mTLS-asennusohjeet",
   "download-your-key": "Lataa avaimesi",
   "navigate-with-your-key": "Siirry palveluun avaimellasi",
+  "mtls-download-whichtoshow": "mTLS-asennusohjeet:",
 
   "MTLSINSTRUCTIONS-MAC": "MTLSINSTRUCTIONS-MAC",
   "mac-instructions.download-key.title": "1. Lataa avaimesi",

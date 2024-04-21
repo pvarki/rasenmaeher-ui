@@ -1,6 +1,7 @@
 import { Button } from "../../components/Button";
 import { useGetCertificate } from "../../hook/api/useGetCertificate";
 import { Layout } from "../../components/Layout";
+import { DropdownMenu } from "../../components/DropdownMenu";
 import { useEffect, useState } from "react";
 import { useUserType } from "../../hook/auth/useUserType";
 import { getOperatingSystem } from "../../hook/helpers/getOperatingSystem";
@@ -17,12 +18,26 @@ import key from "../../assets/icons/key.svg";
 
 export function MtlsCreateView() {
   const { userType } = useUserType();
+  const [selectedOS, setSelectedOS] = useState("");
   const protocol = window.location.protocol;
   const host = window.location.host;
   const { mutate: downloadCert } = useGetCertificate();
   const [callsign, setCallsign] = useState("");
   const [userOS, setUserOS] = useState("");
   const { t } = useTranslation();
+  const osToShow = selectedOS || userOS;
+  const osOptions = [
+    { label: "Windows", value: "Windows" },
+    { label: "MacOS", value: "MacOS" },
+    { label: "Linux", value: "Linux" },
+    { label: "Android", value: "Android" },
+    { label: "iOS", value: "iOS" },
+  ];
+  const osToShowLabel = osOptions.find((option) => option.value === selectedOS)
+    ?.label;
+  const triggerLabelText = `${t("mtls-download-whichtoshow")} ${
+    osToShowLabel || ""
+  }`;
 
   useEffect(() => {
     setUserOS(getOperatingSystem());
@@ -48,7 +63,7 @@ export function MtlsCreateView() {
   }, []);
 
   const renderInstructions = () => {
-    switch (userOS) {
+    switch (osToShow) {
       case "Windows":
         return <WindowsInstructions />;
       case "MacOS":
@@ -83,7 +98,12 @@ export function MtlsCreateView() {
             </div>
           </div>
         </div>
-        <Text title={`${t("mtls-installation-instructions")}: ${userOS}`} />
+        <DropdownMenu
+          triggerLabel={triggerLabelText}
+          items={osOptions}
+          onSelect={(value) => setSelectedOS(value)}
+          triggerStyle="px-4 py-2 mb-4 min-w-[90%] bg-primary-500 text-white rounded cursor-pointer" //
+        />
         {renderInstructions()}
         <div className="flex flex-row pt-8 items-center gap-4">
           <Button
