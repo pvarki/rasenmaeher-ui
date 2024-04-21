@@ -39,10 +39,11 @@ export function QrCodeView() {
             <div className="p-2 bg-white rounded-lg">
               <QRCode value={inviteUrl} bgColor="#FFFFFF" />
             </div>
-            <div className="w-full flex justify-end">
+            <div className="w-[60%] p-4 flex justify-center">
               <Button
-                variant={{ color: "tertiary" }}
+                variant={{ color: "primary" }}
                 onClick={() => handleCopy(inviteUrl)}
+                className="w-full h-[4rem] text-white rounded-lg bg-primary hover:bg-primary-700 focus:ring-4 focus:ring-primary-500 focus:outline-none"
               >
                 {isCopied
                   ? t("qRCodeView.linkCopied")
