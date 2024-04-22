@@ -6,10 +6,20 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Button } from "../../../../components/Button";
+import { useDownloadTakZipModal } from "../../../../components/tak/DownloadTakZipModal";
 import { Trans, useTranslation } from "react-i18next";
+import LoadingComponent from "../../../../components/Loading/LoadingComponent";
 
 export function TakQuickstartIos1() {
   const { t } = useTranslation();
+  const { openDownloadModal, loading } = useDownloadTakZipModal();
+  if (loading) {
+    return <LoadingComponent text={t("takZipDownload.iAmDownloading")} />;
+  }
+  const handleDownloadButtonClick = () => {
+    (openDownloadModal as () => void)();
+  };
   return (
     <div className="pb-20">
       <Layout
@@ -57,6 +67,15 @@ export function TakQuickstartIos1() {
                   i18nKey="TakQuickstartIos1.unfoldableCard2.description1"
                   components={{ strong: <strong />, br: <br /> }}
                 />
+              }
+              description2={
+                <Button
+                  variant={{ width: "full" }}
+                  onClick={handleDownloadButtonClick}
+                  styling="m-1 px-3 bg-success text-white w-full"
+                >
+                  {t("serviceTak.grabZipButton")}
+                </Button>
               }
               note={t("TakQuickstartIos1.unfoldableCard2.note")}
             />
