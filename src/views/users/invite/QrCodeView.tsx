@@ -43,7 +43,7 @@ export function QrCodeView() {
               <Button
                 variant={{ color: "primary" }}
                 onClick={() => handleCopy(inviteUrl)}
-                className="w-full h-[4rem] text-white rounded-lg bg-primary hover:bg-primary-700 focus:ring-4 focus:ring-primary-500 focus:outline-none"
+                className="w-full h-[4rem] font-bold text-white rounded-lg bg-primary hover:bg-primary-700 focus:ring-4 focus:ring-primary-500 focus:outline-none"
               >
                 {isCopied
                   ? t("qRCodeView.linkCopied")

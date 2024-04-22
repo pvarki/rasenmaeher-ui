@@ -76,7 +76,7 @@ export function EnrollmentView() {
             <Button
               variant={{ color: "primary" }}
               onClick={() => handleCopy(approvalUrl)}
-              className="w-full h-[4rem] text-white rounded-lg bg-primary hover:bg-primary-700 focus:ring-4 focus:ring-primary-500 focus:outline-none"
+              className="w-full h-[4rem] text-white rounded-lg font-bold bg-primary hover:bg-primary-700 focus:ring-4 focus:ring-primary-500 focus:outline-none"
             >
               {isCopied ? t("admin-link-copied") : t("copy-link")}
             </Button>
