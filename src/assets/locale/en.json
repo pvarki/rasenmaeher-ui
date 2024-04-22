@@ -10,6 +10,8 @@
   "common.loadingText": "Loading...",
   "navigateButtons.goBack": "Go back",
   "navigateButtons.continue": "Continue",
+  "errors.callsign_in_use": "Callsign is already in use.",
+  "errors.unexpected_error": "An unexpected error occurred.",
 
   "FOOTERS": "FOOTERS",
   "footer.loading": "Loading...",

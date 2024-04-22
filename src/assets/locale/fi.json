@@ -11,6 +11,8 @@
   "common.loadingText": "Lataan...",
   "navigateButtons.goBack": "Takaisin",
   "navigateButtons.continue": "Jatka",
+  "errors.callsign_in_use": "Peitenimi on jo käytössä.",
+  "errors.unexpected_error": "Tapahtui odottamaton virhe.",
 
   "FOOTERS": "FOOTERS",
   "footer.loading": "Ladataan...",
