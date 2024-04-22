@@ -29,7 +29,6 @@ export function MtlsCreateView() {
   const osOptions = [
     { label: "Windows", value: "Windows" },
     { label: "MacOS", value: "MacOS" },
-    { label: "Linux", value: "Linux" },
     { label: "Android", value: "Android" },
     { label: "iOS", value: "iOS" },
   ];
