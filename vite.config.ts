@@ -25,7 +25,7 @@ export default async ({ mode }) => {
   });
 };
 
-const DEFAULT_ASSET_SET = "pv";
+const DEFAULT_ASSET_SET = "fdf";
 
 const ASSET_SET_STORE_PATH = "assetSetStore";
 const ASSET_SET_PATH = "src/assets/set";

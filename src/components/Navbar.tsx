@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import logo from "../assets/icons/jellona.png";
+import logo from "../assets/set/mainlogo.png";
 import useHealthcheck from "../hook/helpers/useHealthcheck";
 
 interface NavbarProps {

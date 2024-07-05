@@ -5,6 +5,9 @@ import ChainedBackend from "i18next-chained-backend";
 import LocalStorageBackend from "i18next-localstorage-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
+// Determine the asset set from the environment variable
+const assetSet = import.meta.env.VITE_ASSET_SET || "default";
+
 void i18n
   .use(ChainedBackend)
   .use(initReactI18next)
@@ -18,9 +21,12 @@ void i18n
     backend: {
       backends: [
         LocalStorageBackend,
-        resourcesToBackend(
-          async (lang: string) => import(`./assets/locale/${lang}.json`),
-        ),
+        resourcesToBackend(async (lang: string, namespace: string) => {
+          if (namespace === "dynamic") {
+            return import(`../assets/set/${assetSet}/locale/${lang}.json`);
+          }
+          return import(`./assets/locale/${lang}.json`);
+        }),
       ],
       backendOptions: [
         {
@@ -28,6 +34,8 @@ void i18n
         },
       ],
     },
+    ns: ["common", "dynamic"], // Add dynamic namespace
+    defaultNS: "common", // Set common as the default namespace
     interpolation: {
       escapeValue: false,
     },
@@ -36,3 +44,5 @@ void i18n
       transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
     },
   });
+
+export default i18n;
