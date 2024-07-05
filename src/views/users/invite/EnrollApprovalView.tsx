@@ -17,6 +17,7 @@ import { useFormik } from "formik";
 import { useApproveUser } from "../../../hook/api/useApproveUser";
 import { useRejectUser } from "../../../hook/api/useRejectUser";
 import { useQueryClient } from "react-query";
+import { useTranslation, Trans } from "react-i18next";
 import LoadingComponent from "../../../components/Loading/LoadingComponent";
 
 interface UserDetails {
@@ -43,6 +44,7 @@ export function EnrollApprovalView() {
   const [approvalMessage, setApprovalMessage] = useState("");
   const queryClient = useQueryClient();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const { mutate: approveMutation } = useApproveUser({
     onMutate: () => {
@@ -154,27 +156,27 @@ export function EnrollApprovalView() {
           <>
             <Dialog.Close asChild>
               <Button variant={{ color: "tertiary" }} onClick={closeModal}>
-                Peruuta
+                {t("go-back")}
               </Button>
             </Dialog.Close>
             <Button
               variant={{ color: "error" }}
               onClick={() => setApprovalState("rejecting")}
             >
-              Hylkää
+              {t("enrollApprovalView.rejectButton")}
             </Button>
             <Button
               variant={{ color: "success" }}
               onClick={() => void formik.submitForm()}
             >
-              Hyväksy
+              {t("enrollApprovalView.acceptButton")}
             </Button>
           </>
         );
       case "approved":
         return (
           <Button variant={{ color: "success" }} onClick={closeModal}>
-            OK
+            {t("OK")}
           </Button>
         );
       case "rejecting":
@@ -184,21 +186,25 @@ export function EnrollApprovalView() {
               variant={{ color: "tertiary" }}
               onClick={() => setApprovalState("initial")}
             >
-              Takaisin
+              {t("go-back")}
             </Button>
             <Button variant={{ color: "error" }} onClick={handleReject}>
-              Vahvista hylkäys
+              {t("enrollApprovalView.confirmRejectButton")}
             </Button>
           </>
         );
       case "rejected":
         return (
           <Button variant={{ color: "success" }} onClick={closeModal}>
-            OK
+            {t("OK")}
           </Button>
         );
       case "approving":
-        return <LoadingComponent text="Hyväksytään käyttäjää..." />;
+        return (
+          <LoadingComponent
+            text={t("enrollApprovalView.loadingComponentAccepting")}
+          />
+        );
       default:
         return null; // Handle other states if necessary
     }
@@ -210,17 +216,27 @@ export function EnrollApprovalView() {
         return (
           <>
             <Dialog.Description className="text-white mt-4 mb-5 text-md leading-normal">
-              {approvalMessage ||
-                "Syötä käyttäjän hyväksyntäkoodi ja paina Hyväksy."}
+              {approvalMessage || t("enrollApprovalView.acceptModal.InputCode")}
             </Dialog.Description>
             <div className="text-white m-0 mb-4 text-md">
               <p>
-                <strong>Peitenimi:</strong> <br />
+                <Trans
+                  i18nKey="enrollApprovalView.acceptModal.callsign"
+                  components={{
+                    strong: <strong />,
+                  }}
+                />{" "}
+                <br />
                 {selectedUser?.callsign}
               </p>
               <form onSubmit={formik.handleSubmit}>
                 <label htmlFor="approvalCode">
-                  <strong>Hyväksyntäkoodi:</strong>
+                  <Trans
+                    i18nKey="enrollApprovalView.acceptModal.code"
+                    components={{
+                      strong: <strong />,
+                    }}
+                  />
                 </label>
                 <input
                   id="approvalCode"
@@ -243,11 +259,11 @@ export function EnrollApprovalView() {
         return (
           <div className="text-white mt-2 text-md">
             <Dialog.Description className="text-white">
-              Käyttäjä on hyväksytty.
+              {t("enrollApprovalView.acceptModal.approved")}
             </Dialog.Description>
             <div className="mt-8 flex justify-end">
               <Button variant={{ color: "success" }} onClick={closeModal}>
-                OK
+                {t("OK")}
               </Button>
             </div>
           </div>
@@ -256,17 +272,17 @@ export function EnrollApprovalView() {
         return (
           <div className="text-white mt-2 text-md">
             <Dialog.Description className="text-white">
-              Oletko varma, että haluat hylätä käyttäjän?
+              {t("enrollApprovalView.acceptModal.rejectDescription")}
             </Dialog.Description>
             <div className="mt-8 flex justify-end">
               <Button
                 variant={{ color: "tertiary" }}
                 onClick={() => setApprovalState("initial")}
               >
-                Takaisin
+                {t("go-back")}
               </Button>
               <Button variant={{ color: "error" }} onClick={handleReject}>
-                Vahvista hylkäys
+                {t("enrollApprovalView.confirmRejectButton")}
               </Button>
             </div>
           </div>
@@ -279,7 +295,7 @@ export function EnrollApprovalView() {
             </Dialog.Description>
             <div className="mt-4 flex justify-end">
               <Button variant={{ color: "success" }} onClick={closeModal}>
-                OK
+                {t("OK")}
               </Button>
             </div>
           </div>
@@ -292,41 +308,55 @@ export function EnrollApprovalView() {
   return (
     <Layout
       showNavbar={true}
-      navbarTitle="Hyväksy käyttäjiä"
+      navbarTitle={t("enrollApprovalView.navbarTitle")}
       showFooter={true}
       backUrl="/app/admin/manageusers"
     >
       <CardsContainer>
         <ServiceInfoCard
-          title="Hyväksy käyttäjiä"
+          title={t("enrollApprovalView.navbarTitle")}
           details={
-            <>Hyväksyntää odottavat käyttäjät näkyvät tässä näkymässä.</>
+            <Trans
+              i18nKey="enrollApprovalView.howToDescription1"
+              components={{
+                strong: <strong />,
+                em: <em />,
+                br: <br />,
+              }}
+            />
           }
         >
           <UnfoldableCard
-            title="Näin se käy"
+            title={t("manageUsersView.unfoldableCardTitle")}
             description1={
-              <>
-                QR-kutsukoodia käyttänyt (tai kutsukoodin palvelun
-                login-näkymään syöttänyt) käyttäjä on{" "}
-                <em>odottaa hyväksyntää-tilassa</em>.
-              </>
+              <Trans
+                i18nKey="enrollApprovalView.howToDescription2"
+                components={{
+                  strong: <strong />,
+                  em: <em />,
+                  br: <br />,
+                }}
+              />
             }
             description2={
-              <>
-                <strong>Hyväksyntätapa 1:</strong>
-                <br /> Avaa kamera ja skannaa taistelijan näytöltä QR-koodi.
-                Aukeavalla sivulla hyväksyt taistelijan.
-              </>
+              <Trans
+                i18nKey="enrollApprovalView.howToDescription3"
+                components={{
+                  strong: <strong />,
+                  em: <em />,
+                  br: <br />,
+                }}
+              />
             }
             description3={
-              <>
-                <strong>Hyväksyntätapa 2:</strong>
-                <br />
-                Voit hyväksyä käyttäjän tässä näkymässä painamalla tämän
-                peitenimeä. Tämän jälkeen sinun on syötettävä hyväksyntäkoodi
-                käyttäjän näytöltä.
-              </>
+              <Trans
+                i18nKey="enrollApprovalView.howToDescription3"
+                components={{
+                  strong: <strong />,
+                  em: <em />,
+                  br: <br />,
+                }}
+              />
             }
           />
         </ServiceInfoCard>
@@ -342,14 +372,14 @@ export function EnrollApprovalView() {
           <Dialog.Content className="fixed top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 p-8 bg-background rounded-lg shadow-lg">
             <Dialog.Title className="text-lg text-white font-bold">
               {approvalState === "approved"
-                ? "Käyttäjä hyväksytty"
+                ? t("enrollApprovalView.acceptedModal.dialogTitle")
                 : approvalState === "rejecting"
-                ? "Hylkää käyttäjä?"
+                ? t("enrollApprovalView.rejectModal.dialogTitle")
                 : approvalState === "approving"
                 ? null
                 : approvalState === "rejected"
-                ? "Käyttäjä hylätty"
-                : "Hyväksy käyttäjä"}
+                ? t("enrollApprovalView.rejectedModal.dialogTitle")
+                : t("enrollApprovalView.acceptModal.dialogTitle")}
             </Dialog.Title>
             {renderDialogContent()}
           </Dialog.Content>
@@ -360,14 +390,13 @@ export function EnrollApprovalView() {
 }
 function WaitingListAccordion({ onUserClick }: WaitingListAccordionProps) {
   const { data: userList, isLoading, isError, error } = useEnrollmentList();
+  const { t } = useTranslation();
 
   if (isLoading) {
-    console.log("Loading user list...");
     return <div>Loading...</div>;
   }
 
   if (isError) {
-    console.error("Error loading user list:", error);
     return <div>Error: {error?.message}</div>;
   }
 
@@ -381,7 +410,6 @@ function WaitingListAccordion({ onUserClick }: WaitingListAccordionProps) {
   }
 
   const handleUserClick = (user: UserDetails): void => {
-    console.log("User clicked:", user);
     onUserClick(user);
   };
 
@@ -395,7 +423,12 @@ function WaitingListAccordion({ onUserClick }: WaitingListAccordionProps) {
       <Accordion.Item value="users" className="w-full bg-background rounded-lg">
         <Accordion.Header className="flex w-full">
           <Accordion.Trigger className="text-white w-full items-center outline-none group justify-between py-1 pl-3 pb-5 overflow-hidden flex">
-            <small>Odottavat käyttäjät</small>
+            <Trans
+              i18nKey="enrollApprovalView.list.waitingUsers"
+              components={{
+                small: <small />,
+              }}
+            />
             <ChevronDownIcon
               className="text-white transition-transform duration-300 group[data-state=open] rotate-180"
               aria-hidden
@@ -427,7 +460,9 @@ function WaitingListAccordion({ onUserClick }: WaitingListAccordionProps) {
               );
             })
           ) : (
-            <div className="p-4">Ei hyväksyntää odottavia käyttäjiä.</div>
+            <div className="p-4">
+              {t("enrollApprovalView.list.noWaitingUsers")}
+            </div>
           )}
         </Accordion.Content>
       </Accordion.Item>

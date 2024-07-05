@@ -3,10 +3,10 @@ import { ButtonColors } from "../Button";
 import { ReactNode } from "react";
 
 export interface AlertDialogProps {
-  title: string;
+  title: React.ReactNode;
   description: ReactNode | string;
-  confirmLabel: string;
-  cancelLabel?: string;
+  confirmLabel: React.ReactNode;
+  cancelLabel?: React.ReactNode;
   onConfirm: () => void;
   onCancel?: () => void;
   confirmColor?: ButtonColors;

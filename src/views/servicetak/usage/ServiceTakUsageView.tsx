@@ -12,9 +12,11 @@ import { ServiceTakUsageCard } from "./helpers/ServiceTakUsageCard";
 import { ServiceTakUsageAtCPCard } from "./helpers/ServiceTakUsageAtCPCard";
 import { ServiceTakUsageByFighterCard } from "./helpers/ServiceTakUsageByFighterCard";
 import { ServiceTakUsageFlowCard } from "./helpers/ServiceTakUsageFlowCard";
+import { Trans, useTranslation } from "react-i18next";
 
 export function ServiceTakUsageView() {
   const cardContentRef = useRef<HTMLDivElement | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 60);
@@ -26,25 +28,20 @@ export function ServiceTakUsageView() {
         showNavbar={true}
         showFooter={true}
         heroImage={sanla}
-        navbarTitle="TAK: Käyttö joukossa"
+        navbarTitle={t("serviceTakUsageView.navbarTitle")}
         backUrl="/"
       >
         <div className="flex flex-col flex-shrink-0" ref={cardContentRef}>
           <CardsContainer>
             <ServiceInfoCard
-              title="TAK - Käyttö joukossa"
+              title={t("serviceTakUsageView.serviceInfoCardTitle")}
               details={
-                <>
-                  Ota TAK perusmallin mukaiseen käyttöön kullekin alustalle alla
-                  olevien ohjeiden avulla.
-                  <br />
-                  <br />
-                  Helpoin tapa tehdä käyttöönotto on{" "}
-                  <strong>parin kanssa</strong> siten, että toinen taistelija
-                  näyttää ohjetta ja toinen tekee.
-                </>
+                <Trans
+                  i18nKey="serviceTakUsageView.serviceInfoCardDetails"
+                  components={{ strong: <strong /> }}
+                />
               }
-            ></ServiceInfoCard>
+            />
           </CardsContainer>
 
           <ServiceUsageCard>
@@ -56,17 +53,17 @@ export function ServiceTakUsageView() {
 
           <CardsContainer>
             <Card
-              title="Android"
+              title={t("serviceTakUsageView.androidTitle")}
               image={android}
               url="/app/services/tak/usage/android1"
             />
             <Card
-              title="iOS"
+              title={t("serviceTakUsageView.iosTitle")}
               image={apple}
               url="/app/services/tak/usage/ios1"
             />
             <Card
-              title="Windows"
+              title={t("serviceTakUsageView.windowsTitle")}
               image={windows}
               url="/app/services/tak/usage/win1"
             />

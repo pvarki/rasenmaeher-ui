@@ -5,6 +5,7 @@ import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import ATAK from "../../../../assets/icons/tak-logo.png";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 
 import Settings17 from "../../../../assets/takguides/atak/17-settings2.png";
 import Settings18 from "../../../../assets/takguides/atak/18-DisplaySettings1.png";
@@ -22,16 +23,17 @@ import Mycallsign13 from "../../../../assets/takguides/atak/13-MyCallsign1.png";
 import Omapeite14 from "../../../../assets/takguides/atak/14-OmaPeite1.png";
 
 export function TakQuickstartAndroid5() {
+  const { t } = useTranslation();
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="ATAK käyttöönotto"
+        navbarTitle={t("TakQuickstartAndroid5.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Tarkasta tarvittaessa mittayksiköt ja kartta (5/5)"
+          title={t("TakQuickstartAndroid5.statusBarTitle")}
           progressMax={5}
           progressNow={5}
         />
@@ -41,203 +43,180 @@ export function TakQuickstartAndroid5() {
               title="ATAK"
               image={ATAK}
               details={
-                <>
-                  ATAK käyttöönotto - vaihe 5:{" "}
-                  <strong>
-                    Tarkista tarvittaessa mittayksiköt, callsign ja kartta.
-                  </strong>
-                  <br />
-                  <br />
-                  Näiden asetusten tulisi olla viestiperusteiden asettamisen
-                  jälkeen kunnossa. Tarkista tai muuta niitä halutessasi.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  <strong>Valitse</strong> haluamaisi karttapohja
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard1.title"
+                  components={{ strong: <strong /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Mikäli haluat valita karttapohjan (eri vaihtoehtoja
-                  saatavilla), toimi seuraavasti.
-                  <br />
-                  Valitse työkalurivistä (oikea yläkulma){" "}
-                  <strong> Kartat </strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard1.description1"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
               image2Src={pic07}
               image2Classes="m-3 w-[300px]"
               description2={
-                <>
-                  <br />
-                  Totea <strong>OK</strong> muutamaan ilmoitukseen.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard1.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={pic08}
               image3Classes="m-3 w-[300px]"
               description3={
-                <>
-                  <br />
-                  Valitse <strong>Mobile</strong> välilehdeltä{" "}
-                  <strong>02 Google Hybrid</strong> Karttapohja aktivoituu.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard1.description3"
+                  components={{ strong: <strong /> }}
+                />
               }
               image4Src={pic08}
               image4Classes="m-3 w-[300px]"
               description4={
-                <>
-                  <br />
-                  Pääset pois valikosta painamalla muutamia kertoja{" "}
-                  <strong>Back</strong>-nappia.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard1.description4"
+                  components={{ strong: <strong /> }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  <strong>Tarkista</strong> tarvittaessa mittayksiköt
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.title"
+                  components={{ strong: <strong /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Android ATAKissa mittayksikköasetukset tulevat
-                  perustepaketista. Tarkista ne tarvittaessa seuraavasti.
-                  <br />
-                  <br />
-                  a. Palaa takaisin <strong>Settings</strong>-päävalikkoon
-                  peruuttamalla.
-                  <br />
-                  <br />
-                  b. Valitse <em>Display Preferences</em>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description1"
+                  components={{ strong: <strong />, em: <em />, br: <br /> }}
+                />
               }
               image2Src={Settings17}
               image2Classes="m-3 w-[300px]"
               description2={
-                <>
-                  <br />
-                  c. Valitse <em>Basic Display Preferences</em>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description2"
+                  components={{ em: <em /> }}
+                />
               }
               image3Src={Settings18}
               image3Classes="m-3 w-[300px]"
               description3={
-                <>
-                  <br />
-                  d. Valitse <em>Unit Display Format Preferences</em>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description3"
+                  components={{ em: <em /> }}
+                />
               }
               image4Src={UnitDisplay19}
               image4Classes="m-3 w-[300px]"
               description4={
-                <>
-                  <br />
-                  e. Valitse <em>Altitude Units</em>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description4"
+                  components={{ em: <em /> }}
+                />
               }
               image5Src={Altitude20}
               image5Classes="m-3 w-[300px]"
               description5={
-                <>
-                  <br />
-                  f. <strong>Vaihda</strong> yksiköksi{" "}
-                  <strong>Meters (m)</strong>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description5"
+                  components={{ em: <em /> }}
+                />
               }
               image6Src={UnitFormat21}
               image6Classes="m-3 w-[300px]"
               description6={
-                <>
-                  <br />
-                  g. Valitse <strong>Speed Units</strong>, ja valitse yksiköksi{" "}
-                  <strong>KM per Hour (kmph)</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description6"
+                  components={{ strong: <strong /> }}
+                />
               }
               image7Src={Speedunits24}
               image7Classes="m-3 w-[300px]"
               description7={
-                <>
-                  <br />
-                  h. valitse yksiköksi <strong>KM per Hour (kmph)</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description7"
+                  components={{ strong: <strong /> }}
+                />
               }
               image8Src={Meterstokilo25}
               image8Classes="m-3 w-[300px]"
               description8={
-                <>
-                  <br />
-                  j. Vieritä valikko alas kohtaan <strong>UNIT TRESHOLD</strong>
-                  . Valitse yksiköksi <strong>Meters to Kilometers.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description8"
+                  components={{ strong: <strong /> }}
+                />
               }
               image9Src={Meterstokilo25}
               image9Classes="m-3 w-[300px]"
               description9={
-                <>
-                  <br />
-                  i. Vaihda arvoksi <strong>1000</strong>. Paina{" "}
-                  <strong>OK.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard2.description9"
+                  components={{ strong: <strong /> }}
+                />
               }
               imageSrc={Meterskmunits26}
               imageClasses="m-3 w-[300px]"
               description15={
-                <>
-                  Mittayksiköt ovat nyt asetettu. Poistu valikosta painamalla
-                  back-nappia useita kertoja.
-                </>
+                <Trans i18nKey="TakQuickstartAndroid5.unfoldableCard2.description15" />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  Tarkista ja vaihda tarvittaessa <strong>Callsign</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard3.title"
+                  components={{ strong: <strong /> }}
+                />
               }
               styling="bg-backgroundLight"
               description1={
-                <>
-                  Peitenimesi Android ATAKissa tulee perustepaketissa. Mikäli
-                  sinun tarvitsee vaihtaa se, se tapahtuu näin.
-                  <br />
-                  <br />
-                  Valitse <strong>Callsign and Device Preferences.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard3.description1"
+                  components={{ strong: <strong /> }}
+                />
               }
               image2Src={Callsign11}
               image2Classes="m-3 w-[300px]"
               description2={
-                <>
-                  Valitse <strong>Callsign Preferences.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard3.description2"
+                  components={{ strong: <strong /> }}
+                />
               }
               image3Src={Csprefs12}
               image3Classes="m-3 w-[300px]"
               description4={
-                <>
-                  Valitse <strong>My Callsign.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard3.description4"
+                  components={{ strong: <strong /> }}
+                />
               }
               image5Src={Mycallsign13}
               image5Classes="m-3 w-[300px]"
               description5={
-                <>
-                  Anna omaksi tunnukseksi{" "}
-                  <strong>sinulle käsketty peite,</strong> esimerkiksi{" "}
-                  <em>Rambo</em>.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard3.description5"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               image6Src={Omapeite14}
               image6Classes="m-3 w-[300px]"
               description7={
-                <>
-                  Paina <strong>OK.</strong>
-                </>
+                <Trans
+                  i18nKey="TakQuickstartAndroid5.unfoldableCard3.description7"
+                  components={{ strong: <strong /> }}
+                />
               }
             />
           </div>
@@ -245,7 +224,7 @@ export function TakQuickstartAndroid5() {
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/android4"
           forwardUrl="/app/services/tak/quickstart"
-          alterForward="Valmis! Palaa tästä."
+          alterForward={t("TakQuickstartAndroid5.alterForward")}
         />
       </Layout>
     </div>

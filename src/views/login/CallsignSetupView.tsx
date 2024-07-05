@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginAsAdmin } from "../../hook/api/firstuser/useLoginAsAdmin";
 import { useLoginCodeStore } from "../../store/LoginCodeStore";
@@ -10,108 +10,123 @@ import { Layout } from "../../components/Layout";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import trooper from "../../assets/icons/trooper3.png";
 import { CardsContainer } from "../../components/CardsContainer";
+import { useTranslation } from "react-i18next";
 
-const CALLSIGN_REGEX = /^[a-zA-Z0-9]{3,}$/;
-
-const CallsignSchema = yup.object().shape({
-  callsign: yup
-    .string()
-    .required("Peitenimi on pakollinen")
-    .min(3, "Peitenimen minimipituus on 3 merkkiä")
-    .matches(CALLSIGN_REGEX, "Sallitut merkit: a-z, A-Z, 0-9")
-    .max(30, "Peitenimen maksimipituus on 30 merkkiä"),
-});
-
+interface StatusCodeError extends Error {
+  statusCode?: number;
+}
 export function CallsignSetupStep() {
   const navigate = useNavigate();
-  const loginCodeStore = useLoginCodeStore();
-  const code = useLoginCodeStore((store) => store.code);
+  const { code, codeType } = useLoginCodeStore();
+  const { t } = useTranslation();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { mutate: loginAsAdmin, isLoading } = useLoginAsAdmin({
+  const CallsignSchema = yup.object().shape({
+    callsign: yup
+      .string()
+      .required(t("callsignsetup-callsign-required"))
+      .min(3, t("callsignsetup-callsign-min"))
+      .matches(/^[a-zA-Z0-9]{3,30}$/, t("callsignsetup-callsign-allowed-chars"))
+      .max(30, t("callsignsetup-callsign-max")),
+  });
+
+  const handleCommonError = (error: StatusCodeError) => {
+    setIsSubmitting(false);
+    if (error.statusCode === 400) {
+      setErrorMessage(t("errors.callsign_in_use"));
+    } else {
+      setErrorMessage(t("errors.unexpected_error"));
+    }
+  };
+
+  const { mutate: loginAsAdmin, isLoading: isLoadingAdmin } = useLoginAsAdmin({
     onSuccess: (jwt) => {
       localStorage.setItem("token", jwt);
       localStorage.setItem("callsign", formik.values.callsign);
       window.location.reload();
       navigate("/login/createmtls");
     },
-    onError: () => {
-      loginCodeStore.reset();
-      navigate("/login");
-    },
+    onError: handleCommonError,
   });
 
-  const { mutate: initEnrollment } = useInitEnrollment({
-    onSuccess: (data) => {
-      localStorage.setItem("token", data.jwt);
-      localStorage.setItem("approveCode", data.approvecode);
-      localStorage.setItem("callsign", data.callsign);
-      window.location.reload();
-      navigate("/login/enrollment");
-    },
-    onError: () => {
-      loginCodeStore.reset();
-      navigate("/login");
-    },
-  });
-
-  useEffect(() => {
-    if (loginCodeStore.codeType === "unknown") {
-      navigate("/login");
-    }
-  }, [loginCodeStore.codeType, navigate]);
+  const { mutate: initEnrollment, isLoading: isLoadingEnrollment } =
+    useInitEnrollment({
+      onSuccess: (data) => {
+        localStorage.setItem("token", data.jwt);
+        localStorage.setItem("approveCode", data.approvecode);
+        localStorage.setItem("callsign", data.callsign);
+        window.location.reload();
+        navigate("/login/enrollment");
+      },
+      onError: handleCommonError,
+    });
 
   const formik = useFormik({
-    initialValues: {
-      callsign: "",
-    },
+    initialValues: { callsign: "" },
     validationSchema: CallsignSchema,
-    validateOnMount: true,
     onSubmit: (values) => {
-      if (loginCodeStore.codeType === "admin") {
-        loginAsAdmin({ callsign: values.callsign, code: code });
-      } else if (loginCodeStore.codeType === "user") {
-        console.log("init enrollment");
+      setIsSubmitting(true);
+      setErrorMessage(""); // Clear previous error messages
+      if (codeType === "admin") {
+        loginAsAdmin({ callsign: values.callsign, code });
+      } else if (codeType === "user") {
         initEnrollment({ callsign: values.callsign, invite_code: code });
       }
     },
   });
+
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setErrorMessage(""); // Clear the error message when user edits the form
+      formik.handleChange(event); // You still need Formik to handle the change
+    },
+    [formik],
+  );
 
   return (
     <Layout showNavbar={true} showFooter={true}>
       <CardsContainer>
         <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
           <h1 className="text-white text-center font-oswald font-bold text-2xl pt-2">
-            Anna peitenimesi.
+            {t("callsignsetup-give-your-callsign")}
           </h1>
           <img src={trooper} alt="Pvarki Logo" className="w-20 p-1" />
           <ServiceInfoCard
-            title="Peitenimi?"
-            details="Peitenimi on tunnisteesi palveluissa. Anna sinulle käsketyn mukainen peitenimi."
+            title={t("callsignsetup-enter-callsign-title")}
+            details={t("callsignsetup-enter-callsign-detail")}
           />
           <FormikProvider value={formik}>
             <Form className="flex flex-col items-center gap-3 w-full">
               <label className="flex flex-col gap-3 w-full text-white">
-                Peitenimesi:
+                {t("callsignsetup-your-callsign")}:
                 <Field
                   type="text"
                   name="callsign"
                   className="bg-gray-100 w-full p-2 rounded-lg text-black font-consolas"
+                  onChange={handleInputChange} // Bind the custom change handler
                 />
                 {formik.errors.callsign && (
                   <span className="text-red-500">{formik.errors.callsign}</span>
                 )}
+                {errorMessage && (
+                  <span className="text-red-500">{errorMessage}</span>
+                )}
               </label>
-              <div className="flex w-full items-stretch">
-                <div className="flex-1 px-1">
-                  <Button
-                    type="submit"
-                    variant={{ color: "primary", width: "full" }}
-                    disabled={!formik.isValid || isLoading}
-                  >
-                    {isLoading ? "Odottaa vastausta..." : "Kirjaudu"}
-                  </Button>
-                </div>
-              </div>
+              <Button
+                type="submit"
+                variant={{ color: "primary", width: "full" }}
+                disabled={
+                  !formik.isValid ||
+                  isSubmitting ||
+                  isLoadingAdmin ||
+                  isLoadingEnrollment
+                }
+              >
+                {isSubmitting || isLoadingAdmin || isLoadingEnrollment
+                  ? t("awaiting-response")
+                  : t("login")}
+              </Button>
             </Form>
           </FormikProvider>
         </main>

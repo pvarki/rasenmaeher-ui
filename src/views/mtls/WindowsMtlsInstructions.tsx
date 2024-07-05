@@ -1,3 +1,4 @@
+import { Trans } from "react-i18next";
 import { UnfoldableCard } from "../../components/UnfoldableCard2";
 import pic1 from "../../assets/mtls/mtls-windows-1.png";
 import pic2 from "../../assets/mtls/mtls-windows-2.png";
@@ -12,16 +13,15 @@ export function WindowsInstructions() {
   return (
     <main className="flex flex-col w-full gap-3">
       <UnfoldableCard
-        title="1. Lataa avain"
+        title={<Trans i18nKey="windows-instructions.step1.title" />}
         styling="bg-backgroundLight"
         steps={[
           {
             description: (
-              <>
-                Paina <strong>Lataa avain</strong>-painiketta. Avain latautuu.
-                Avaa avain selaimen Downloads-valikosta tai latauksesta
-                ilmoittavasta popupista.
-              </>
+              <Trans
+                i18nKey="windows-instructions.step1.description"
+                components={{ strong: <strong />, br: <br /> }}
+              />
             ),
             imageSrc: pic1,
             imageClasses: "m-3 w-[300px]",
@@ -29,70 +29,62 @@ export function WindowsInstructions() {
         ]}
       />
       <UnfoldableCard
-        title="2. Aseta avain"
+        title={<Trans i18nKey="windows-instructions.step2.title" />}
         styling="bg-backgroundLight"
         steps={[
           {
             description: (
-              <>
-                a. Kaksoisnapauta avainta <em>'Peitenimesi.pfx'</em>. Avaimen
-                asennusohjelma käynnistyy. Valitse <em>Store Location</em>{" "}
-                <strong>Local User</strong> (paikallinen käyttäjä.)
-              </>
+              <Trans
+                i18nKey="windows-instructions.step2a.description"
+                components={{ em: <em />, strong: <strong /> }}
+              />
             ),
             imageSrc: pic2,
             imageClasses: "m-3 w-[500px]",
           },
           {
             description: (
-              <>
-                b. Asennusohjelma kysyy tiedostoa. Se on valmiiksi täytettynä,
-                joten paina <strong>Next</strong> (Seuraava).
-              </>
+              <Trans
+                i18nKey="windows-instructions.step2b.description"
+                components={{ strong: <strong /> }}
+              />
             ),
             imageSrc: pic3,
             imageClasses: "m-3 w-[500px]",
           },
           {
             description: (
-              <>
-                c. Seuraavaksi kysytään salasanaa. Se on aina{" "}
-                <strong>peitenimesi</strong>, esimerkiksi KARHU10.
-                <br />
-                <br />
-                <em>Import options</em>- kyselyyn täytä ainoastaan{" "}
-                <strong>Include all extended properties</strong> ja paina{" "}
-                <strong>Next.</strong>
-              </>
+              <Trans
+                i18nKey="windows-instructions.step2c.description"
+                components={{ em: <em />, strong: <strong />, br: <br /> }}
+              />
             ),
             imageSrc: pic4,
             imageClasses: "m-3 w-[500px]",
           },
           {
             description: (
-              <>
-                d. Certificate Store-valikossa anna oletuksen olla, eli valitse{" "}
-                <strong>Automaattinen</strong>.
-              </>
+              <Trans
+                i18nKey="windows-instructions.step2d.description"
+                components={{ strong: <strong /> }}
+              />
             ),
             imageSrc: pic5,
             imageClasses: "m-3 w-[500px]",
           },
           {
             description: (
-              <>
-                e. Avaimen asennus on valmis! Paina <strong>Finish.</strong>
-              </>
+              <Trans
+                i18nKey="windows-instructions.step2e.description"
+                components={{ strong: <strong /> }}
+              />
             ),
             imageSrc: pic6,
             imageClasses: "m-3 w-[500px]",
           },
           {
             description: (
-              <>
-                Asennusohjelma antaa vielä ilmoituksen onnistuneesta
-                asennuksesta.
-              </>
+              <Trans i18nKey="windows-instructions.step2f.description" />
             ),
             imageSrc: pic7,
             imageClasses: "m-3 w-[500px]",
@@ -100,26 +92,22 @@ export function WindowsInstructions() {
         ]}
       />
       <UnfoldableCard
-        title="3. Siirry palveluun avaimellasi"
+        title={<Trans i18nKey="windows-instructions.step3.title" />}
         styling="bg-backgroundLight"
         steps={[
           {
             description: (
-              <>
-                Olet nyt valmis! Kun painat <em>Siirry palveluun</em>
-                -painiketta, selain kysyy, mitä varmennetta haluat käyttää.
-                Paina <strong>OK.</strong>
-              </>
+              <Trans
+                i18nKey="windows-instructions.step3a.description"
+                components={{ em: <em />, strong: <strong /> }}
+              />
             ),
             imageSrc: pic8,
             imageClasses: "m-3 w-[500px]",
           },
           {
             description: (
-              <>
-                Tämän jälkeen pääset aina palveluun avaimellasi. Et tarvitse
-                salasanoja, koska palvelu tunnistaa sinut avaimellasi.
-              </>
+              <Trans i18nKey="windows-instructions.step3b.description" />
             ),
           },
         ]}

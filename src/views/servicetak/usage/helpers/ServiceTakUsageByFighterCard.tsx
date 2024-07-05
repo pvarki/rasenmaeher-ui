@@ -1,30 +1,26 @@
+import { Trans } from "react-i18next";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 
 export function ServiceTakUsageByFighterCard() {
   return (
     <div className="w-full m-1 p-0">
       <UnfoldableCard
-        title="TAK ja taistelija"
+        title={<Trans i18nKey="serviceTakUsageByFighterCard.title" />}
         initialOpen={false}
         description1={
-          <>1. Kun teet havainnon, tee siitä merkki ja lähetä se HQ-roolille.</>
+          <Trans i18nKey="serviceTakUsageByFighterCard.description1" />
         }
         description2={
-          <>
-            2. Toimi käsketysti - merkin lisäksi tee muut käsketyt ilmoitukset.
-          </>
+          <Trans i18nKey="serviceTakUsageByFighterCard.description2" />
         }
         description3={
-          <>
-            3. Seuraa <strong>Recon Feediä</strong>, mitä komentopaikka (HQ)
-            muodostaa joukollesi.
-          </>
+          <Trans
+            i18nKey="serviceTakUsageByFighterCard.description3"
+            components={{ strong: <strong /> }}
+          />
         }
         description4={
-          <>
-            4. Recon Feed sisältää tulkitun tiedustelutilannekuvan joukkosi
-            havainnoista.
-          </>
+          <Trans i18nKey="serviceTakUsageByFighterCard.description4" />
         }
       />
     </div>

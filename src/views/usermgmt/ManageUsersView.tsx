@@ -8,6 +8,7 @@ import { Card } from "../../components/Card";
 import { CardsContainer } from "../../components/CardsContainer";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import { UnfoldableCard } from "../../components/UnfoldableCard";
+import { Trans } from "react-i18next";
 
 export function ManageUsersView() {
   const cardContentRef = useRef<HTMLDivElement | null>(null);
@@ -22,55 +23,55 @@ export function ManageUsersView() {
         showNavbar={true}
         showFooter={true}
         heroImage={sanla}
-        navbarTitle="Käyttäjienhallinta"
+        navbarTitle={<Trans i18nKey="manageUsersView.navbarTitle" />}
         backUrl="/app/admin"
       >
         <div ref={cardContentRef}>
           <CardsContainer>
             <ServiceInfoCard
-              title="Käyttäjienhallinta"
+              title={<Trans i18nKey="manageUsersView.serviceInfoCardTitle" />}
               details={
-                <>
-                  <strong>Lisää</strong>, <strong>hyväksy</strong> ja{" "}
-                  <strong>hallitse</strong> käyttäjiä.
-                </>
+                <Trans
+                  i18nKey="manageUsersView.serviceInfoCardDetails"
+                  components={{ strong: <strong /> }}
+                />
               }
-            >
-              <UnfoldableCard
-                title="Näin se käy"
-                description1={
-                  <>
-                    <strong>Luo</strong> ja avaa QR-kutsukoodi lisätäksesi
-                    käyttäjiä.
-                  </>
-                }
-                description2={
-                  <>
-                    <strong>Hyväksy</strong> koodilla kirjautuneet käyttäjät
-                    mukaan palveluusi.
-                  </>
-                }
-                description3={
-                  <>
-                    <strong>Hallitse</strong> nostamalla uusia admineja tai
-                    poistamalla käyttäjiä palvelustasi.
-                  </>
-                }
-              />
-            </ServiceInfoCard>
+            />
+
+            <UnfoldableCard
+              title={<Trans i18nKey="manageUsersView.unfoldableCardTitle" />}
+              description1={
+                <Trans
+                  i18nKey="manageUsersView.unfoldableCardDescription1"
+                  components={{ strong: <strong /> }}
+                />
+              }
+              description2={
+                <Trans
+                  i18nKey="manageUsersView.unfoldableCardDescription2"
+                  components={{ strong: <strong /> }}
+                />
+              }
+              description3={
+                <Trans
+                  i18nKey="manageUsersView.unfoldableCardDescription3"
+                  components={{ strong: <strong /> }}
+                />
+              }
+            />
 
             <Card
-              title="Lisää käyttäjiä"
+              title={<Trans i18nKey="manageUsersView.addUsers" />}
               image={android}
               url="/app/admin/user-management/code-list"
             />
             <Card
-              title="Hyväksy käyttäjiä"
+              title={<Trans i18nKey="manageUsersView.approveUsers" />}
               image={apple}
               url="/app/admin/user-management/approval"
             />
             <Card
-              title="Hallitse käyttäjiä"
+              title={<Trans i18nKey="manageUsersView.manageUsers" />}
               image={windows}
               url="/app/admin/user-management"
             />

@@ -5,6 +5,7 @@ import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
+import { Trans, useTranslation } from "react-i18next";
 import pic21 from "../../../../assets/takguides/itak/itakserver11.png";
 import pic22 from "../../../../assets/takguides/itak/itakserver21.png";
 import pic23 from "../../../../assets/takguides/itak/itakserver31.png";
@@ -13,16 +14,18 @@ import pic25 from "../../../../assets/takguides/itak/itakserver51.png";
 import pic26 from "../../../../assets/takguides/itak/itakserver61.png";
 
 export function TakQuickstartIos3() {
+  const { t } = useTranslation();
+
   return (
     <div className="pb-20">
       <Layout
         showNavbar={true}
         showFooter={false}
-        navbarTitle="iTAK käyttöönotto"
+        navbarTitle={t("TakQuickstartIos3.navbarTitle")}
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title="Muodosta palvelinyhteys (3/5)"
+          title={t("TakQuickstartIos3.statusBarTitle")}
           progressMax={5}
           progressNow={3}
         />
@@ -32,29 +35,33 @@ export function TakQuickstartIos3() {
               title="iTAK"
               image={ITAK}
               details={
-                <>
-                  iTAK käyttöönotto - vaihe 3:{" "}
-                  <strong>muodosta palvelinyhteys</strong>
-                  <br />
-                  Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen
-                  tekee. Tässä vaiheessa iTAK-sovelluksen tulee olla auki.
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos3.serviceInfoCard.details"
+                  components={{ strong: <strong />, br: <br /> }}
+                />
               }
             />
             <UnfoldableCard
               title={
-                <>
-                  1. <strong>Avaa</strong> Packages-valikko
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos3.unfoldableCard1.title"
+                  components={{ strong: <strong /> }}
+                />
               }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      a. Mene karttanäkymään ja rullaa työkaluriviä oikealle,
-                      kunnes löydät <strong>Package</strong>-kuvakkeen.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos3.unfoldableCard1.step1"
+                      components={{ strong: <strong /> }}
+                    />
+                  ),
+                  note: (
+                    <Trans
+                      i18nKey="TakQuickstartIos3.unfoldableCard1.step1.note"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic21,
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
@@ -63,60 +70,59 @@ export function TakQuickstartIos3() {
             />
             <UnfoldableCard
               title={
-                <>
-                  2. <strong>Lisää</strong> viestiperustepakettisi iTAKiin
-                </>
+                <Trans
+                  i18nKey="TakQuickstartIos3.unfoldableCard2.title"
+                  components={{ strong: <strong />, em: <em /> }}
+                />
               }
               styling="bg-backgroundLight"
               steps={[
                 {
                   description: (
-                    <>
-                      b. Packages-valikko aukeaa, se on tyhjä. Paina oikeasta
-                      alakulmasta <strong>plus</strong>-symbolia lisätäksesi
-                      viestiperustepakettisi.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos3.unfoldableCard2.step1"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic22,
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      c. Valitse <strong>Local Device</strong>.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos3.unfoldableCard2.step2"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic23,
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      d. Valitse pakettisi. Se on zip-tiedosto{" "}
-                      <em>Peitenimesi.zip.</em>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos3.unfoldableCard2.step3"
+                      components={{ em: <em /> }}
+                    />
                   ),
                   imageSrc: pic24,
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      e. Onnistumisen merkiksi Packages-valikon listalle nousee{" "}
-                      <em>palvelimen peitenimi</em> ja vihreä merkkivalo. Palaa
-                      karttanäkymään.
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos3.unfoldableCard2.step4"
+                      components={{ em: <em /> }}
+                    />
                   ),
                   imageSrc: pic25,
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
                   description: (
-                    <>
-                      Palvelinyhteys on nyt muodostettu. Sen merkkinä kartan
-                      oikeassa alakulmassa lukee vihreällä{" "}
-                      <strong>Connected.</strong>
-                    </>
+                    <Trans
+                      i18nKey="TakQuickstartIos3.unfoldableCard2.step5"
+                      components={{ strong: <strong /> }}
+                    />
                   ),
                   imageSrc: pic26,
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",

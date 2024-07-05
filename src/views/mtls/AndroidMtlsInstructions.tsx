@@ -1,3 +1,4 @@
+import { Trans } from "react-i18next";
 import { UnfoldableCard } from "../../components/UnfoldableCard2";
 import pic1 from "../../assets/mtls/mtls-android-1.jpg";
 import pic2 from "../../assets/mtls/mtls-android-2.jpg";
@@ -8,16 +9,15 @@ export function AndroidInstructions() {
   return (
     <main className="flex flex-col w-full gap-3">
       <UnfoldableCard
-        title="1. Lataa ja avaa avain"
+        title={<Trans i18nKey="android-instructions.step1.title" />}
         styling="bg-backgroundLight"
         steps={[
           {
             description: (
-              <>
-                Paina <strong>Lataa avain</strong>-painiketta. Avain latautuu,
-                ja valintaikkuna kysyy salasanaa. Salasana on aina{" "}
-                <strong>peitenimesi</strong>.
-              </>
+              <Trans
+                i18nKey="android-instructions.step1.description"
+                components={{ strong: <strong />, em: <em />, br: <br /> }}
+              />
             ),
             imageSrc: pic1,
             imageClasses: "m-3 w-[200px]",
@@ -25,25 +25,25 @@ export function AndroidInstructions() {
         ]}
       />
       <UnfoldableCard
-        title="2. Aseta avain"
+        title={<Trans i18nKey="android-instructions.step2.title" />}
         styling="bg-backgroundLight"
         steps={[
           {
             description: (
-              <>
-                Ikkuna kysyy varmenteen tyyppiä. Se on{" "}
-                <strong>VPN- ja sovelluskäytön varmenne.</strong>
-              </>
+              <Trans
+                i18nKey="android-instructions.step2.description1"
+                components={{ strong: <strong />, em: <em />, br: <br /> }}
+              />
             ),
             imageSrc: pic2,
             imageClasses: "m-3 w-[200px]",
           },
           {
             description: (
-              <>
-                Ikkuna pyytää nimeämään varmenteen. Valmiiksi täytettynä on
-                peitenimesi. Älä muuta nimeä, paina <strong>OK.</strong>
-              </>
+              <Trans
+                i18nKey="android-instructions.step2.description2"
+                components={{ strong: <strong />, em: <em />, br: <br /> }}
+              />
             ),
             imageSrc: pic3,
             imageClasses: "m-3 w-[200px]",
@@ -51,26 +51,25 @@ export function AndroidInstructions() {
         ]}
       />
       <UnfoldableCard
-        title="3. Siirry palveluun avaimellasi"
+        title={<Trans i18nKey="android-instructions.step3.title" />}
         styling="bg-backgroundLight"
         steps={[
           {
             description: (
-              <>
-                Olet nyt valmis! Kun painat <em>Siirry palveluun</em>
-                -painiketta, selain kysyy, mitä varmennetta haluat käyttää.
-                Paina <strong>OK.</strong>
-              </>
+              <Trans
+                i18nKey="android-instructions.step3.description1"
+                components={{ strong: <strong />, em: <em />, br: <br /> }}
+              />
             ),
             imageSrc: pic4,
             imageClasses: "m-3 w-[200px]",
           },
           {
             description: (
-              <>
-                Tämän jälkeen pääset aina palveluun avaimellasi. Et tarvitse
-                salasanoja, koska palvelu tunnistaa sinut avaimellasi.
-              </>
+              <Trans
+                i18nKey="android-instructions.step3.description2"
+                components={{ strong: <strong />, em: <em />, br: <br /> }}
+              />
             ),
           },
         ]}

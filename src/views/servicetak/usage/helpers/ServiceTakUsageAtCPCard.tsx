@@ -1,37 +1,31 @@
+import { Trans } from "react-i18next";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard";
 
 export function ServiceTakUsageAtCPCard() {
   return (
     <div className="w-full m-1 p-0">
       <UnfoldableCard
-        title="TAK ja komentopaikka"
+        title={<Trans i18nKey="serviceTakUsageAtCPCard.title" />}
         initialOpen={false}
         description1={
-          <>
-            1. TAK on työkalu tiedon keräämiseen joukoilta, ja tiedon jakamiseen
-            sille.
-          </>
+          <Trans
+            i18nKey="serviceTakUsageAtCPCard.description1"
+            components={{ br: <br /> }}
+          />
         }
         description2={
-          <>
-            2. Komentopaikkana käytät TAKissa Team Rolea <strong>HQ</strong>,
-            joka luo Feedit sekä vastaanottaa ja käsittelee havaintoja.
-          </>
+          <Trans
+            i18nKey="serviceTakUsageAtCPCard.description2"
+            components={{ strong: <strong /> }}
+          />
         }
         description3={
-          <>
-            3. Tulkinta: Varmista havainto, tee johtopäätös{" "}
-            <em>jos mahdollista</em>. Kaikki varmistetut havainnot Recon
-            Feediin.
-          </>
+          <Trans
+            i18nKey="serviceTakUsageAtCPCard.description3"
+            components={{ em: <em /> }}
+          />
         }
-        description4={
-          <>
-            4. Ylläpidä Recon Feediä lähettämällä siihen merkkejä, muuttamalla
-            siinä olevien merkkien tietoja ja poistaessa niitä joko tiedon tai
-            tilanteen muuttuessa.
-          </>
-        }
+        description4={<Trans i18nKey="serviceTakUsageAtCPCard.description4" />}
       />
     </div>
   );

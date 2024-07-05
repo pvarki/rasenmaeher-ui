@@ -1,6 +1,7 @@
 import { Button } from "../../components/Button";
 import { useGetCertificate } from "../../hook/api/useGetCertificate";
 import { Layout } from "../../components/Layout";
+import { DropdownMenu } from "../../components/DropdownMenu";
 import { useEffect, useState } from "react";
 import { useUserType } from "../../hook/auth/useUserType";
 import { getOperatingSystem } from "../../hook/helpers/getOperatingSystem";
@@ -12,15 +13,28 @@ import { IosInstructions } from "./IosMtlsInstructions";
 import { CardsContainer } from "../../components/CardsContainer";
 import { Text } from "../../components/Text";
 import { InfoModal } from "../../components/InfoModal";
+import { useTranslation } from "react-i18next";
 import key from "../../assets/icons/key.svg";
 
 export function MtlsCreateView() {
   const { userType } = useUserType();
+  const [selectedOS, setSelectedOS] = useState("");
   const protocol = window.location.protocol;
   const host = window.location.host;
   const { mutate: downloadCert } = useGetCertificate();
   const [callsign, setCallsign] = useState("");
   const [userOS, setUserOS] = useState("");
+  const { t } = useTranslation();
+  const osToShow = selectedOS || userOS;
+  const osOptions = [
+    { label: "Windows", value: "Windows" },
+    { label: "MacOS", value: "MacOS" },
+    { label: "Android", value: "Android" },
+    { label: "iOS", value: "iOS" },
+  ];
+  const osToShowLabel =
+    osOptions.find((option) => option.value === osToShow)?.label || userOS;
+  const triggerLabelText = `${t("mtls-download-whichtoshow")} ${osToShowLabel}`;
 
   useEffect(() => {
     setUserOS(getOperatingSystem());
@@ -46,7 +60,7 @@ export function MtlsCreateView() {
   }, []);
 
   const renderInstructions = () => {
-    switch (userOS) {
+    switch (osToShow) {
       case "Windows":
         return <WindowsInstructions />;
       case "MacOS":
@@ -66,8 +80,8 @@ export function MtlsCreateView() {
     <Layout showNavbar={true} showFooter={true}>
       <CardsContainer>
         <Text
-          title="Lataa ja asenna mTLS-avain"
-          description="Voit käyttää palvelua vain, jos laitteellasi on siihen mTLS-avain. Lataa ja asenna avain laitteellesi."
+          title={t("mtls-download-install-title")}
+          description={t("mtls-download-install-description")}
         />
 
         <div className="flex flex-col items-center">
@@ -81,21 +95,26 @@ export function MtlsCreateView() {
             </div>
           </div>
         </div>
-        <Text title={`mTLS-asennusohjeet: ${userOS}`} />
+        <DropdownMenu
+          triggerLabel={triggerLabelText}
+          items={osOptions}
+          onSelect={(value) => setSelectedOS(value)}
+          triggerStyle="px-4 py-2 mb-4 min-w-[90%] bg-primary-500 text-white rounded cursor-pointer" //
+        />
         {renderInstructions()}
         <div className="flex flex-row pt-8 items-center gap-4">
           <Button
             variant={{ color: "success" }}
-            className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-success hover:bg-success-700 focus:ring-success-300 disabled:bg-success-200 min-w-[180px]" // Ensure you add min-w-[180px] or another specific width to control width and use h-20 for height
+            className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-success hover:bg-success-700 focus:ring-success-300 disabled:bg-success-200 min-w-[180px]"
             onClick={() => callsign && downloadCert(callsign)}
           >
-            Lataa avaimesi
+            {t("download-your-key")}
           </Button>
           <a
             href={mtlsUrl}
-            className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-primary hover:bg-primary-700 focus:ring-primary-300 disabled:bg-primary-200 min-w-[180px]" // Use the same classes here
+            className="flex rounded-lg items-center justify-center h-20 px-4 text-center font-bold transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed text-white bg-primary hover:bg-primary-700 focus:ring-primary-300 disabled:bg-primary-200 min-w-[180px]"
           >
-            Siirry palveluun avaimellasi
+            {t("navigate-with-your-key")}
           </a>
         </div>
       </CardsContainer>
