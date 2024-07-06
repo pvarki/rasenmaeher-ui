@@ -36,6 +36,9 @@ async function prepareAssetSet() {
   if (process.env.VITE_ASSET_SET === undefined)
     console.log("No VITE_ASSET_SET set, using default:", DEFAULT_ASSET_SET);
 
+  // Ensure the ASSET_SET_PATH directory exists
+  await fs.promises.mkdir(ASSET_SET_PATH, { recursive: true });
+
   const currentSet = await fs.promises
     .readFile(path.join(ASSET_SET_PATH, SET_NAME_FILE), "utf-8")
     .then((data) => data.trim())
@@ -43,7 +46,7 @@ async function prepareAssetSet() {
 
   if (targetSet === currentSet) return;
 
-  console.log("Chancing to asset set:", targetSet);
+  console.log("Changing to asset set:", targetSet);
   await checkForAssetSet(targetSet);
   await clearAssetSet();
   await copyAssetSet(targetSet);
