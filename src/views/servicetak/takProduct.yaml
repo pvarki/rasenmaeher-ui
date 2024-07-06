@@ -4,7 +4,7 @@ content:
   content:
   - type: FoldableCard
     title: "TAK"
-    image: "foldableCardImage"
+    image: "TODO: foldableCardImage"
     content:
     - type: "div"
       classes:
@@ -15,26 +15,26 @@ content:
         - "p-5"
       content:
       - type: ServiceInfoCard
-        title: "serviceInfoCardTitle"
-        image: "serviceInfoCardImage"
+        title: "TAK Situational Awareness Application"
+        image: "TODO: serviceInfoCardImage"
       - type: UnfoldableCard
-        title: "unfoldableCardTitle"
+        title: "How to get started"
         steps:
         - description:
             type: div
             content:
             - type: strong
               content:
-              - "Käyttöönotto-ohje"
-            - " opastaa palvelun käyttöönoton laitteellesi."
+              - "Quickstart Guide"
+            - " tells you how to start using TAK on your device."
         - description:
             type: div
             content:
             - "The "
             - type: strong
               content:
-              - "Quickstart Guide"
-            - " tells you how to start using TAK on your device."
+              - "Usage Guide"
+            - " tells you how to use the application, according to our standard model."
         - description:
             type: div
             content:
@@ -44,8 +44,23 @@ content:
               - "Client Package"
             - " and install it to your TAK device according to the Quickstart Guide, to get using the app."
       - type: ServiceProductUsageCard
-        title: "usageCardTitle"
-        content: "usageCardContent"
+        title: "Purpose"
+        content:
+        - type: ul
+          content:
+          - type: li
+            content:
+            - "Real-time tracking of friendlies "
+            - type: em
+              content: "(GPS)."
+          - type: li
+            content: "Send observations to the command post (HQ) for interpretation."
+          - type: li
+            content:
+            - "Follow the "
+            - type: strong
+              content: "Recon Feed"
+            - "that your command post (HQ) creates for your unit."
       - type: div
         classes:
           - "flex"
@@ -76,7 +91,7 @@ content:
                 - type: Button
                   variant:
                      width: "full"
-                  onClick: "/app/services/tak/quickstart"
+                  onClick: "TODO: /app/services/tak/quickstart"
                   styling:
                   - "m-1"
                   - "w-full"
@@ -91,13 +106,13 @@ content:
                       - "h-full"
                     content:
                     - type: img
-                      src: "phone"
+                      src: "TODO: phone"
                       alt: "keys"
                       classes:
                       - "h-5"
                       - "w-5"
                       - "mr-2"
-                    - "guideButtonQuickStart"
+                    - "Quickstart"
           - type: div
             classes:
             - "p-1"
@@ -113,7 +128,7 @@ content:
               - type: Button
                 variant:
                   width: full
-                onClick: "/app/services/tak/usage"
+                onClick: "TODO: /app/services/tak/usage"
                 styling:
                 - "m-1"
                 - "px-2"
@@ -129,20 +144,20 @@ content:
                   - "h-full"
                   content:
                   - type: img
-                    src: "usage"
+                    src: "TODO: usage"
                     alt: "keys"
                     classes:
                     - "h-5"
                     - "w-5"
                     - "mr-2"
-                  - "guideButtonUsage"
+                  - "Usage Guide"
           - type: div
             classes:
             - "p-1"
         - type: Button
           variant:
             width: "full"
-          onClick: "handleDownloadButtonClick"
+          onClick: "TODO: handleDownloadButtonClick"
           styling:
           - "m-1"
           - "px-3"
@@ -150,4 +165,4 @@ content:
           - "text-white"
           - "w-full"
           content:
-          - "grabZipButton"
+          - "Download your Client Package"
