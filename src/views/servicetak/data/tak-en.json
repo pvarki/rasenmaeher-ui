@@ -1,0 +1,743 @@
+[
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartIos1",
+    "path": "quickstart/ios1",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartAndroid3",
+    "path": "quickstart/android3",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "ServiceTakQuickStart",
+    "path": "quickstart",
+    "body": [
+      {
+        "type": "div",
+        "classes": "pb-10",
+        "body": [
+          {
+            "type": "Layout",
+            "showNavbar": "true,",
+            "showFooter": "true,",
+            "heroImage": "../../../../assets/heroimages/rakennettu3.jpeg",
+            "navbarTitle": "serviceTakQuickstartView.navbarTitle",
+            "backUrl": "/",
+            "body": [
+              {
+                "type": "div",
+                "body": [
+                  {
+                    "type": "CardsContainer",
+                    "body": [
+                      {
+                        "type": "ServiceInfoCard",
+                        "title": "serviceTakQuickstartView.serviceInfoCardTitle",
+                        "body": [
+                          "Select the setup instructions for your device. ",
+                          {
+                            "type": "br"
+                          },
+                          {
+                            "type": "span",
+                            "body": [
+                              "The easiest way to learn how to do it, is to work ",
+                              {
+                                "type": "strong",
+                                "body": "with a partner"
+                              },
+                              " where one fighter displays the instructions, and the other follows them."
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Card",
+                        "title": "serviceTakQuickstartView.androidTitle",
+                        "image": "../../../assets/icons/android.svg",
+                        "url": "/app/services/tak/quickstart/android1"
+                      },
+                      {
+                        "type": "Card",
+                        "title": "serviceTakQuickstartView.iosTitle",
+                        "image": "../../../assets/icons/apple.svg",
+                        "url": "/app/services/tak/quickstart/ios1"
+                      },
+                      {
+                        "type": "Card",
+                        "title": "serviceTakQuickstartView.windowsTitle",
+                        "image": "../../../assets/icons/windows.svg",
+                        "url": "/app/services/tak/quickstart/win1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartAndroid1",
+    "path": "quickstart/android1",
+    "body": [
+      {
+        "type": "div",
+        "classes": [
+          "pb-20"
+        ],
+        "body": [
+          {
+            "type": "Layout",
+            "showNavbar": true,
+            "showFooter": false,
+            "navbarTitle": "takQuickstartAndroid1.navbarTitle",
+            "backUrl": "/app/services/tak/quickstart",
+            "body": [
+              {
+                "type": "StatusBar",
+                "title": "takQuickstartAndroid1.statusBarTitle",
+                "progressMax": 5,
+                "progressNow": 1
+              },
+              {
+                "type": "CardsContainer",
+                "body": [
+                  {
+                    "type": "div",
+                    "classes": [
+                      "flex",
+                      "flex-col",
+                      "items-center",
+                      "w-full",
+                      "gap-2",
+                      "justify-center",
+                      "p-5"
+                    ],
+                    "body": [
+                      {
+                        "type": "ServiceInfoCard",
+                        "title": "takQuickstartAndroid1.serviceInfoCardTitle",
+                        "image": "TODO: ATAK",
+                        "body": [
+                          "takQuickstartAndroid1.serviceInfoCard.details"
+                        ]
+                      },
+                      {
+                        "type": "UnfoldableCard",
+                        "title": "takQuickstartAndroid1.unfoldableCard1.title",
+                        "styling": "bg-backgroundLight",
+                        "description1": "takQuickstartAndroid1.unfoldableCard1.description1",
+                        "image2Src": "TODO: googleplay",
+                        "image2Link": "https://play.google.com/store/apps/details?id=com.atakmap.app.civ",
+                        "image2Classes": "w-[200px]",
+                        "description2": "takQuickstartAndroid1.unfoldableCard1.description2",
+                        "image3Src": "TODO: googleplay",
+                        "image3Classes": "w-[200px]",
+                        "image3Link": "https://play.google.com/store/apps/details?id=com.atakmap.android.datasync.plugin"
+                      },
+                      {
+                        "type": "UnfoldableCard",
+                        "title": "takQuickstartAndroid1.unfoldableCard2.title",
+                        "styling": "bg-backgroundLight",
+                        "description1": "takQuickstartAndroid1.unfoldableCard2.description1",
+                        "description2": [
+                          {
+                            "type": "Button",
+                            "variant": {
+                              "width": "full"
+                            },
+                            "onClick": "TODO: handleDownloadButtonClick",
+                            "styling": [
+                              "m-1",
+                              "px-3",
+                              "bg-success",
+                              "text-white",
+                              "w-full"
+                            ],
+                            "body": [
+                              "TODO: grabZipButton"
+                            ]
+                          }
+                        ],
+                        "note": "takQuickstartAndroid1.unfoldableCard2.note"
+                      },
+                      {
+                        "type": "UnfoldableCard",
+                        "title": "takQuickstartAndroid1.unfoldableCard3.title",
+                        "styling": "bg-backgroundLight",
+                        "description1": "takQuickstartAndroid1.unfoldableCard3.description1",
+                        "imageSrc": {
+                          "wait": null
+                        },
+                        "imageClasses": [
+                          "m-3",
+                          "w-[200px]"
+                        ],
+                        "description2": "takQuickstartAndroid1.unfoldableCard3.description2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "NavigateButtons",
+                "backUrl": "/app/services/tak/quickstart",
+                "forwardUrl": "/app/services/tak/quickstart/android2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "ServiceTak",
+    "body": [
+      {
+        "type": "CardsContainer",
+        "body": [
+          {
+            "type": "FoldableCard",
+            "title": "TAK",
+            "image": "../../assets/icons/taklogo.png",
+            "body": [
+              {
+                "type": "div",
+                "classes": [
+                  "flex",
+                  "flex-col",
+                  "items-center",
+                  "justify-center",
+                  "p-5"
+                ],
+                "body": [
+                  {
+                    "type": "ServiceInfoCard",
+                    "title": "TAK Situational Awareness Application",
+                    "image": "../../assets/icons/taklogo.png"
+                  },
+                  {
+                    "type": "UnfoldableCard",
+                    "title": "How to get started",
+                    "steps": [
+                      {
+                        "description": {
+                          "type": "div",
+                          "body": [
+                            {
+                              "type": "strong",
+                              "body": [
+                                "Quickstart Guide"
+                              ]
+                            },
+                            " tells you how to start using TAK on your device."
+                          ]
+                        }
+                      },
+                      {
+                        "description": {
+                          "type": "div",
+                          "body": [
+                            "The ",
+                            {
+                              "type": "strong",
+                              "body": [
+                                "Usage Guide"
+                              ]
+                            },
+                            " tells you how to use the application, according to our standard model."
+                          ]
+                        }
+                      },
+                      {
+                        "description": {
+                          "type": "div",
+                          "body": [
+                            "Download the ",
+                            {
+                              "type": "strong",
+                              "body": [
+                                "Client Package"
+                              ]
+                            },
+                            " and install it to your TAK device according to the Quickstart Guide, to get using the app."
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "ServiceProductUsageCard",
+                    "title": "Purpose",
+                    "body": [
+                      {
+                        "type": "ul",
+                        "body": [
+                          {
+                            "type": "li",
+                            "body": [
+                              "Real-time tracking of friendlies ",
+                              {
+                                "type": "em",
+                                "body": "(GPS)."
+                              }
+                            ]
+                          },
+                          {
+                            "type": "li",
+                            "body": "Send observations to the command post (HQ) for interpretation."
+                          },
+                          {
+                            "type": "li",
+                            "body": [
+                              "Follow the ",
+                              {
+                                "type": "strong",
+                                "body": "Recon Feed"
+                              },
+                              "that your command post (HQ) creates for your unit."
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "div",
+                    "classes": [
+                      "flex",
+                      "flex-col",
+                      "items-center",
+                      "justify-center",
+                      "px-0",
+                      "w-full"
+                    ],
+                    "body": [
+                      {
+                        "type": "div",
+                        "classes": [
+                          "flex",
+                          "w-full",
+                          "items-center",
+                          "justify-center",
+                          "items-stretch",
+                          "px-0"
+                        ],
+                        "body": [
+                          {
+                            "type": "div",
+                            "classes": [
+                              "flex-1",
+                              "px-0"
+                            ],
+                            "body": [
+                              {
+                                "type": "div",
+                                "classes": [
+                                  "w-full"
+                                ],
+                                "body": [
+                                  {
+                                    "type": "Button",
+                                    "variant": {
+                                      "width": "full"
+                                    },
+                                    "onClick": {
+                                      "type": "ServiceTakQuickStart"
+                                    },
+                                    "styling": [
+                                      "m-1",
+                                      "w-full",
+                                      "min-h-[4rem]"
+                                    ],
+                                    "body": [
+                                      {
+                                        "type": "div",
+                                        "classes": [
+                                          "flex",
+                                          "items-center",
+                                          "justify-center",
+                                          "w-full",
+                                          "h-full"
+                                        ],
+                                        "body": [
+                                          {
+                                            "type": "img",
+                                            "src": "../../assets/icons/byod2.png",
+                                            "alt": "keys",
+                                            "classes": [
+                                              "h-5",
+                                              "w-5",
+                                              "mr-2"
+                                            ]
+                                          },
+                                          "Quickstart"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "div",
+                            "classes": [
+                              "p-1"
+                            ]
+                          },
+                          {
+                            "type": "div",
+                            "classes": [
+                              "flex-1",
+                              "px-0"
+                            ],
+                            "body": [
+                              {
+                                "type": "div",
+                                "classes": [
+                                  "w-full"
+                                ],
+                                "body": [
+                                  {
+                                    "type": "Button",
+                                    "variant": {
+                                      "width": "full"
+                                    },
+                                    "onClick": {
+                                      "type": "ServiceTakUsage"
+                                    },
+                                    "styling": [
+                                      "m-1",
+                                      "px-2",
+                                      "w-full",
+                                      "min-h-[4rem]"
+                                    ],
+                                    "body": [
+                                      {
+                                        "type": "div",
+                                        "classes": [
+                                          "flex",
+                                          "items-center",
+                                          "justify-center",
+                                          "w-full",
+                                          "h-full"
+                                        ],
+                                        "body": [
+                                          {
+                                            "type": "img",
+                                            "src": "../../assets/icons/sota.png",
+                                            "alt": "keys",
+                                            "classes": [
+                                              "h-5",
+                                              "w-5",
+                                              "mr-2"
+                                            ]
+                                          },
+                                          "Usage Guide"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "div",
+                            "classes": [
+                              "p-1"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Button",
+                        "variant": {
+                          "width": "full"
+                        },
+                        "onClick": [
+                          {
+                            "type": "TakDownloadModal"
+                          }
+                        ],
+                        "styling": [
+                          "m-1",
+                          "px-3",
+                          "bg-success",
+                          "text-white",
+                          "w-full"
+                        ],
+                        "body": [
+                          "Download your Client Package"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartIos3",
+    "path": "quickstart/ios3",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageWin4",
+    "path": "usage/win4",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartWin3",
+    "path": "quickstart/win3",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartAndroid5",
+    "path": "quickstart/android5",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageWin2",
+    "path": "usage/win2",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartIos5",
+    "path": "quickstart/ios5",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageAndroid2",
+    "path": "usage/android2",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartWin1",
+    "path": "quickstart/win1",
+    "body": []
+  },
+  {
+    "type": "MultiDownloadModal",
+    "lang": "en",
+    "name": "TakDownloadModal",
+    "title": "Download Your Client Package",
+    "genericErrorMessage": "Unidentified error.",
+    "errorFromApplication": "Error message from the application:",
+    "description": [
+      "You are about to download your TAK Client Package as ",
+      {
+        "type": "DropdownOsSelector",
+        "options": [
+          {
+            "label": "iOS ITAK",
+            "value": "iOS"
+          },
+          {
+            "label": "Android ATAK tai Windows WinTAK",
+            "value": "Other"
+          }
+        ]
+      },
+      " -compatible.",
+      {
+        "type": "br"
+      },
+      {
+        "type": "br"
+      },
+      "Is this correct? If not, please change it using the selector above as necessary."
+    ]
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "ServiceTakUsage",
+    "path": "usage",
+    "body": [
+      {
+        "type": "div",
+        "classes": [
+          "pb-10"
+        ],
+        "body": [
+          {
+            "type": "Layout",
+            "showNavbar": true,
+            "showFooter": true,
+            "heroImage": "../../../assets/heroimages/kiikarit.jpeg",
+            "navbarTitle": "usageViewNavbarTitle",
+            "backUrl": "/",
+            "body": {
+              "type": "div",
+              "classes": [
+                "flex",
+                "flex-col",
+                "flex-shrink-0"
+              ],
+              "body": [
+                {
+                  "type": "CardsContainer",
+                  "body": [
+                    {
+                      "type": "ServiceInfoCard",
+                      "title": "serviceTakUsageView.serviceInfoCardTitle",
+                      "body": [
+                        "serviceTakUsageView.serviceInfoCardDetails"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "ServiceUsageCard",
+                  "body": [
+                    {
+                      "type": "ServiceProductUsageCard",
+                      "title": "usageCardTitle",
+                      "body": "usageCardContent"
+                    }
+                  ]
+                },
+                {
+                  "type": "CardsContainer",
+                  "body": [
+                    {
+                      "type": "Card",
+                      "title": "serviceTakUsageView.androidTitle",
+                      "image": "../../../../assets/icons/android.svg",
+                      "url": "/app/services/tak/usage/android1"
+                    },
+                    {
+                      "type": "Card",
+                      "title": "serviceTakUsageView.iosTitle",
+                      "image": "../../../../assets/icons/apple.svg",
+                      "url": "/app/services/tak/usage/ios1"
+                    },
+                    {
+                      "type": "Card",
+                      "title": "serviceTakUsageView.windowsTitle",
+                      "image": "../../../../assets/icons/windows.svg",
+                      "url": "/app/services/tak/usage/win1"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartWin4",
+    "path": "quickstart/win4",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartAndroid2",
+    "path": "quickstart/android2",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartIos2",
+    "path": "quickstart/ios2",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageIos1",
+    "path": "usage/ios1",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartAndroid4",
+    "path": "quickstart/android4",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageWin1",
+    "path": "usage/win1",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageAndroid1",
+    "path": "usage/android1",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartWin2",
+    "path": "quickstart/win2",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageAndroid3",
+    "path": "usage/android3",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakQuickstartIos4",
+    "path": "quickstart/ios4",
+    "body": []
+  },
+  {
+    "lang": "en",
+    "type": "view",
+    "name": "TakUsageWin3",
+    "path": "usage/win3",
+    "body": []
+  }
+]
