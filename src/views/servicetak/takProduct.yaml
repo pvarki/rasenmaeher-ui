@@ -1,0 +1,153 @@
+language: "en"
+content:
+- type: CardsContainer
+  content:
+  - type: FoldableCard
+    title: "TAK"
+    image: "foldableCardImage"
+    content:
+    - type: "div"
+      classes:
+        - "flex"
+        - "flex-col"
+        - "items-center"
+        - "justify-center"
+        - "p-5"
+      content:
+      - type: ServiceInfoCard
+        title: "serviceInfoCardTitle"
+        image: "serviceInfoCardImage"
+      - type: UnfoldableCard
+        title: "unfoldableCardTitle"
+        steps:
+        - description:
+            type: div
+            content:
+            - type: strong
+              content:
+              - "Käyttöönotto-ohje"
+            - " opastaa palvelun käyttöönoton laitteellesi."
+        - description:
+            type: div
+            content:
+            - "The "
+            - type: strong
+              content:
+              - "Quickstart Guide"
+            - " tells you how to start using TAK on your device."
+        - description:
+            type: div
+            content:
+            - "Download the "
+            - type: strong
+              content:
+              - "Client Package"
+            - " and install it to your TAK device according to the Quickstart Guide, to get using the app."
+      - type: ServiceProductUsageCard
+        title: "usageCardTitle"
+        content: "usageCardContent"
+      - type: div
+        classes:
+          - "flex"
+          - "flex-col"
+          - "items-center"
+          - "justify-center"
+          - "px-0"
+          - "w-full"
+        content:
+        - type: div
+          classes:
+          - "flex"
+          - "w-full"
+          - "items-center"
+          - "justify-center"
+          - "items-stretch"
+          - "px-0"
+          content:
+          - type: div
+            classes:
+            - "flex-1"
+            - "px-0"
+            content:
+            - type: div
+              classes:
+              - "w-full"
+              content:
+                - type: Button
+                  variant:
+                     width: "full"
+                  onClick: "/app/services/tak/quickstart"
+                  styling:
+                  - "m-1"
+                  - "w-full"
+                  - "min-h-[4rem]"
+                  content:
+                  - type: div
+                    classes:
+                      - "flex"
+                      - "items-center"
+                      - "justify-center"
+                      - "w-full"
+                      - "h-full"
+                    content:
+                    - type: img
+                      src: "phone"
+                      alt: "keys"
+                      classes:
+                      - "h-5"
+                      - "w-5"
+                      - "mr-2"
+                    - "guideButtonQuickStart"
+          - type: div
+            classes:
+            - "p-1"
+          - type: div
+            classes:
+            - flex-1
+            - px-0
+            content:
+            - type: div
+              classes:
+              - "w-full"
+              content:
+              - type: Button
+                variant:
+                  width: full
+                onClick: "/app/services/tak/usage"
+                styling:
+                - "m-1"
+                - "px-2"
+                - "w-full"
+                - "min-h-[4rem]"
+                content:
+                - type: div
+                  classes:
+                  - "flex"
+                  - "items-center"
+                  - "justify-center"
+                  - "w-full"
+                  - "h-full"
+                  content:
+                  - type: img
+                    src: "usage"
+                    alt: "keys"
+                    classes:
+                    - "h-5"
+                    - "w-5"
+                    - "mr-2"
+                  - "guideButtonUsage"
+          - type: div
+            classes:
+            - "p-1"
+        - type: Button
+          variant:
+            width: "full"
+          onClick: "handleDownloadButtonClick"
+          styling:
+          - "m-1"
+          - "px-3"
+          - "bg-success"
+          - "text-white"
+          - "w-full"
+          content:
+          - "grabZipButton"
