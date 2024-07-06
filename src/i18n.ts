@@ -5,9 +5,6 @@ import ChainedBackend from "i18next-chained-backend";
 import LocalStorageBackend from "i18next-localstorage-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-// Determine the asset set from the environment variable
-const assetSet = import.meta.env.VITE_ASSET_SET || "default";
-
 void i18n
   .use(ChainedBackend)
   .use(initReactI18next)

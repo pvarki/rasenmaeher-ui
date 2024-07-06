@@ -42,7 +42,7 @@ async function prepareAssetSet() {
   const currentSet = await fs.promises
     .readFile(path.join(ASSET_SET_PATH, SET_NAME_FILE), "utf-8")
     .then((data) => data.trim())
-    .catch(() => console.log("No current asset set"));
+    .catch(() => null); // Handle the case where the setName.txt file does not exist
 
   if (targetSet === currentSet) return;
 
@@ -61,19 +61,39 @@ async function checkForAssetSet(setName: string) {
 }
 
 async function clearAssetSet() {
-  for (const file of fs.readdirSync(ASSET_SET_PATH)) {
-    fs.unlinkSync(path.join(ASSET_SET_PATH, file));
-  }
+  const entries = await fs.promises.readdir(ASSET_SET_PATH, {
+    withFileTypes: true,
+  });
+  const unlinkPromises = entries.map((entry) => {
+    const fullPath = path.join(ASSET_SET_PATH, entry.name);
+    return entry.isDirectory()
+      ? deleteRecursively(fullPath)
+      : fs.promises.unlink(fullPath);
+  });
+  await Promise.all(unlinkPromises);
+}
+
+async function deleteRecursively(dirPath: string) {
+  const entries = await fs.promises.readdir(dirPath, { withFileTypes: true });
+  const unlinkPromises = entries.map((entry) => {
+    const fullPath = path.join(dirPath, entry.name);
+    return entry.isDirectory()
+      ? deleteRecursively(fullPath)
+      : fs.promises.unlink(fullPath);
+  });
+  await Promise.all(unlinkPromises);
+  await fs.promises.rmdir(dirPath);
 }
 
 async function copyAssetSet(setName: string) {
-  await fs.promises.writeFile(
-    path.join(ASSET_SET_PATH, SET_NAME_FILE),
-    setName,
-  );
   await fs.promises.cp(
     path.join(ASSET_SET_STORE_PATH, setName),
     path.join(ASSET_SET_PATH),
     { recursive: true, force: true },
+  );
+  // Ensure setName.txt is created after copying the assets
+  await fs.promises.writeFile(
+    path.join(ASSET_SET_PATH, SET_NAME_FILE),
+    setName,
   );
 }
