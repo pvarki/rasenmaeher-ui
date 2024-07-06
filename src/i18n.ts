@@ -23,7 +23,7 @@ void i18n
         LocalStorageBackend,
         resourcesToBackend(async (lang: string, namespace: string) => {
           if (namespace === "dynamic") {
-            return import(`../assets/set/${assetSet}/locale/${lang}.json`);
+            return import(`./assets/set/locale/${lang}.json`);
           }
           return import(`./assets/locale/${lang}.json`);
         }),

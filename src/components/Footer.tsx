@@ -5,10 +5,11 @@ import { useLanguageChange } from "./Localization/LanguageChange";
 import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
-  const { t } = useTranslation();
+  // Use both common and dynamic namespaces
+  const { t } = useTranslation(["common", "dynamic"]);
   const isMtls = window.location.origin.includes("mtls.");
   const { version } = useHealthCheck();
-  const feedbackLink = t("footer.feedbackFormLink");
+  const feedbackLink = t("footer.feedbackFormLink", { ns: "dynamic" });
   const { changeLanguage, availableLanguages } = useLanguageChange();
 
   // Convert available languages to dropdown items
@@ -49,12 +50,13 @@ export function Footer() {
           PVATK
         </a>
         <br />
-        &copy; <Trans i18nKey="footer.allRightsReservedPVATK" />
+        &copy; <Trans i18nKey="footer.allRightsReservedMain" ns="dynamic" />
         <br />
         <br />
-        <Trans i18nKey="footer.allRightsReservedFDF" />
+        <Trans i18nKey="footer.allRightsReservedSecond" ns="dynamic" />
         <br />
-        &copy; <Trans i18nKey="footer.allRightsReservedFDFnotice" />
+        &copy;{" "}
+        <Trans i18nKey="footer.allRightsReservedSecondNotice" ns="dynamic" />
         <br />
         <br />
         <a
@@ -63,7 +65,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Trans i18nKey="footer.feedbackForm" />
+          <Trans i18nKey="footer.feedbackForm" ns="dynamic" />
         </a>
       </div>
 

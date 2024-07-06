@@ -16,12 +16,13 @@ export function PublicFooter() {
       <hr className="mx-auto" />
 
       <div className="pt-4 py-4">
-        &copy; <Trans i18nKey="footer.allRightsReservedPVATK" />
+        &copy; <Trans i18nKey="footer.allRightsReservedMain" ns="dynamic" />
         <br />
         <br />
-        <Trans i18nKey="footer.allRightsReservedFDF" />
+        <Trans i18nKey="footer.allRightsReservedSecond" ns="dynamic" />
         <br />
-        &copy; <Trans i18nKey="footer.allRightsReservedFDFnotice" />
+        &copy;{" "}
+        <Trans i18nKey="footer.allRightsReservedSecondNotice" ns="dynamic" />
       </div>
 
       <hr className="mx-auto w-56" />
