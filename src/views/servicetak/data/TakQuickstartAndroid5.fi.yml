@@ -1,0 +1,5 @@
+- lang: "fi"
+  type: "view"
+  name: "TakQuickstartAndroid5"
+  path: "quickstart/android5"
+  body: []

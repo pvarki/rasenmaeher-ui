@@ -1,0 +1,5 @@
+- lang: "en"
+  type: "view"
+  name: "TakQuickstartAndroid4"
+  path: "quickstart/android4"
+  body: []

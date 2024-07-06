@@ -1,0 +1,5 @@
+- lang: "fi"
+  type: "view"
+  name: "ServiceTakUsage"
+  path: "usage"
+  body: []

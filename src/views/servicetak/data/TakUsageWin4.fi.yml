@@ -1,0 +1,5 @@
+- lang: "fi"
+  type: "view"
+  name: "TakUsageWin4"
+  path: "usage/win4"
+  body: []

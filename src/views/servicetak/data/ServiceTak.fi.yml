@@ -1,0 +1,174 @@
+- lang: "fi"
+  type: "view"
+  name: "ServiceTak"
+  body:
+  - type: CardsContainer
+    body:
+    - type: FoldableCard
+      title: "TAK"
+      image: "../../assets/icons/taklogo.png"
+      body:
+      - type: "div"
+        classes:
+        - "flex"
+        - "flex-col"
+        - "items-center"
+        - "justify-center"
+        - "p-5"
+        body:
+        - type: ServiceInfoCard
+          title: "TAK Situational Awareness Application"
+          image: "../../assets/icons/taklogo.png"
+        - type: UnfoldableCard
+          title: "How to get started"
+          steps:
+          - description:
+              type: div
+              body:
+              - type: strong
+                body:
+                - "Quickstart Guide"
+              - " tells you how to start using TAK on your device."
+          - description:
+              type: div
+              body:
+              - "The "
+              - type: strong
+                body:
+                - "Usage Guide"
+              - " tells you how to use the application, according to our standard model."
+          - description:
+              type: div
+              body:
+              - "Download the "
+              - type: strong
+                body:
+                - "Client Package"
+              - " and install it to your TAK device according to the Quickstart Guide, to get using the app."
+        - type: ServiceProductUsageCard
+          title: "Purpose"
+          body:
+          - type: ul
+            body:
+            - type: li
+              body:
+              - "Real-time tracking of friendlies "
+              - type: em
+                body: "(GPS)."
+            - type: li
+              body: "Send observations to the command post (HQ) for interpretation."
+            - type: li
+              body:
+              - "Follow the "
+              - type: strong
+                body: "Recon Feed"
+              - "that your command post (HQ) creates for your unit."
+        - type: div
+          classes:
+          - "flex"
+          - "flex-col"
+          - "items-center"
+          - "justify-center"
+          - "px-0"
+          - "w-full"
+          body:
+          - type: div
+            classes:
+            - "flex"
+            - "w-full"
+            - "items-center"
+            - "justify-center"
+            - "items-stretch"
+            - "px-0"
+            body:
+            - type: div
+              classes:
+              - "flex-1"
+              - "px-0"
+              body:
+              - type: div
+                classes:
+                - "w-full"
+                body:
+                - type: Button
+                  variant:
+                    width: "full"
+                  onClick:
+                    type: "ServiceTakQuickStart"
+                  styling:
+                  - "m-1"
+                  - "w-full"
+                  - "min-h-[4rem]"
+                  body:
+                  - type: div
+                    classes:
+                    - "flex"
+                    - "items-center"
+                    - "justify-center"
+                    - "w-full"
+                    - "h-full"
+                    body:
+                    - type: img
+                      src: "../../assets/icons/byod2.png"
+                      alt: "keys"
+                      classes:
+                      - "h-5"
+                      - "w-5"
+                      - "mr-2"
+                    - "Quickstart"
+            - type: div
+              classes:
+              - "p-1"
+            - type: div
+              classes:
+              - flex-1
+              - px-0
+              body:
+              - type: div
+                classes:
+                - "w-full"
+                body:
+                - type: Button
+                  variant:
+                    width: full
+                  onClick:
+                    type: "ServiceTakUsage"
+                  styling:
+                  - "m-1"
+                  - "px-2"
+                  - "w-full"
+                  - "min-h-[4rem]"
+                  body:
+                  - type: div
+                    classes:
+                    - "flex"
+                    - "items-center"
+                    - "justify-center"
+                    - "w-full"
+                    - "h-full"
+                    body:
+                    - type: img
+                      src: "../../assets/icons/sota.png"
+                      alt: "keys"
+                      classes:
+                      - "h-5"
+                      - "w-5"
+                      - "mr-2"
+                    - "Usage Guide"
+            - type: div
+              classes:
+              - "p-1"
+          - type: Button
+            variant:
+              width: "full"
+            onClick:
+            - type: "TakDownloadModal"
+            styling:
+            - "m-1"
+            - "px-3"
+            - "bg-success"
+            - "text-white"
+            - "w-full"
+            body:
+            - "Download your Client Package"
+

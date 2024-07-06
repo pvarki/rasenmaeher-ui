@@ -1,0 +1,5 @@
+- lang: "fi"
+  type: "view"
+  name: "TakQuickstartWin3"
+  path: "quickstart/win3"
+  body: []

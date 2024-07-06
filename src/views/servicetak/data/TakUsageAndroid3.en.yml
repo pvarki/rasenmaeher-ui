@@ -1,0 +1,5 @@
+- lang: "en"
+  type: "view"
+  name: "TakUsageAndroid3"
+  path: "usage/android3"
+  body: []

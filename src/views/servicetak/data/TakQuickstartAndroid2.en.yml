@@ -1,0 +1,5 @@
+- lang: "en"
+  type: "view"
+  name: "TakQuickstartAndroid2"
+  path: "quickstart/android2"
+  body: []

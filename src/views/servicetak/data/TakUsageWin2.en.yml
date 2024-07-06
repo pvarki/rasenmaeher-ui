@@ -1,0 +1,5 @@
+- lang: "en"
+  type: "view"
+  name: "TakUsageWin2"
+  path: "usage/win2"
+  body: []
