@@ -1,6 +1,7 @@
 import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
-import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
+import { ProductData } from "../../ProductData";
+import { useProductData } from "../../useProductData";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
@@ -14,9 +15,11 @@ import pic4 from "../../../../assets/takguides/atak/atakusage13.png";
 import pic5 from "../../../../assets/takguides/atak/atakusage14.png";
 import pic6 from "../../../../assets/takguides/atak/atakusage15.png";
 import pic7 from "../../../../assets/takguides/atak/atakusage16.png";
+import { ServiceProductUsageCard } from "../helpers/ServiceProductUsageCard";
 
 export function TakUsageAndroid3() {
-  const { t } = useTranslation();
+  const { t , i18n } = useTranslation();
+  const productData : ProductData = useProductData(i18n.language);
   return (
     <div className="pb-20">
       <Layout
@@ -31,7 +34,10 @@ export function TakUsageAndroid3() {
           progressNow={3}
         />
         <CardsContainer>
-          <ServiceTakUsageCard />
+          <ServiceProductUsageCard
+              title={productData.usageCardTitle}
+              content={productData.usageCardContent}
+          />
         </CardsContainer>
         <CardsContainer>
           <div className="flex flex-col items-center w-full gap-2 justify-center p-5">

@@ -1,5 +1,5 @@
 - lang: "en"
-  type: "view"
+  type: "View"
   name: "ServiceTakUsage"
   path: "usage"
   body:
@@ -35,13 +35,13 @@
           body:
           - type: Card
             title: "serviceTakUsageView.androidTitle"
-            image: "../../../../assets/icons/android.svg"
+            image: "../../../assets/icons/android.svg"
             url: "/app/services/tak/usage/android1"
           - type: Card
             title: "serviceTakUsageView.iosTitle"
-            image: "../../../../assets/icons/apple.svg"
+            image: "../../../assets/icons/apple.svg"
             url: "/app/services/tak/usage/ios1"
           - type: Card
             title: "serviceTakUsageView.windowsTitle"
-            image: "../../../../assets/icons/windows.svg"
+            image: "../../../assets/icons/windows.svg"
             url: "/app/services/tak/usage/win1"

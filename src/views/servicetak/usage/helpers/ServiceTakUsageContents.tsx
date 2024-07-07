@@ -1,8 +1,15 @@
-import { Trans } from "react-i18next";
+import {
+    Trans,
+    useTranslation,
+} from "react-i18next";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
-import { ServiceTakUsageCard } from "./ServiceTakUsageCard";
+import { ProductData } from "../../ProductData";
+import { useProductData } from "../../useProductData";
+import { ServiceProductUsageCard } from "./ServiceProductUsageCard";
 
 export function ServiceTakUsageContents() {
+  const { i18n} = useTranslation();
+  const productData : ProductData = useProductData(i18n.language);
   return (
     <ServiceInfoCard
       title={<Trans i18nKey="serviceTakUsageContents.title" />}
@@ -13,7 +20,10 @@ export function ServiceTakUsageContents() {
         />
       }
     >
-      <ServiceTakUsageCard />
+        <ServiceProductUsageCard
+            title={productData.usageCardTitle}
+            content={productData.usageCardContent}
+        />
     </ServiceInfoCard>
   );
 }

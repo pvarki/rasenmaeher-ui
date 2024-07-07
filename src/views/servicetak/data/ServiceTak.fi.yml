@@ -1,12 +1,12 @@
 - lang: "fi"
-  type: "view"
+  type: "View"
   name: "ServiceTak"
   body:
   - type: CardsContainer
     body:
     - type: FoldableCard
       title: "TAK"
-      image: "../../assets/icons/taklogo.png"
+      image: "../../../assets/icons/taklogo.png"
       body:
       - type: "div"
         classes:
@@ -18,7 +18,7 @@
         body:
         - type: ServiceInfoCard
           title: "TAK Situational Awareness Application"
-          image: "../../assets/icons/taklogo.png"
+          image: "../../../assets/icons/taklogo.png"
         - type: UnfoldableCard
           title: "How to get started"
           steps:
@@ -109,7 +109,7 @@
                     - "h-full"
                     body:
                     - type: img
-                      src: "../../assets/icons/byod2.png"
+                      src: "../../../assets/icons/byod2.png"
                       alt: "keys"
                       classes:
                       - "h-5"
@@ -148,7 +148,7 @@
                     - "h-full"
                     body:
                     - type: img
-                      src: "../../assets/icons/sota.png"
+                      src: "../../../assets/icons/sota.png"
                       alt: "keys"
                       classes:
                       - "h-5"

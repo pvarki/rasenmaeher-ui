@@ -1,5 +1,5 @@
 - lang: "en"
-  type: "view"
+  type: "View"
   name: "ServiceTakQuickStart"
   path: "quickstart"
   body:
@@ -7,8 +7,8 @@
     classes: "pb-10"
     body:
     - type: Layout
-      showNavbar: true,
-      showFooter: true,
+      showNavbar: True
+      showFooter: True
       heroImage: "../../../../assets/heroimages/rakennettu3.jpeg"
       navbarTitle: "serviceTakQuickstartView.navbarTitle"
       backUrl: "/"

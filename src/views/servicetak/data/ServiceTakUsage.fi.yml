@@ -1,5 +1,5 @@
 - lang: "fi"
-  type: "view"
+  type: "View"
   name: "ServiceTakUsage"
   path: "usage"
   body: []

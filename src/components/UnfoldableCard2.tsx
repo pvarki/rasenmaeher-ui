@@ -3,7 +3,7 @@ import { Step, StepProps } from "./Step";
 
 interface UnfoldableCardProps {
   title: React.ReactNode;
-  steps?: StepProps[];
+  steps?: readonly StepProps[];
   content?: React.ReactNode;
   children?: React.ReactNode;
   styling?: string;
@@ -26,7 +26,7 @@ export function UnfoldableCard({
 
   return (
     <div
-      className={`flex flex-col w-full p-4 rounded-md cursor-pointer bg-background ${styling}`}
+      className={`unfoldable-card flex flex-col w-full p-4 rounded-md cursor-pointer bg-background ${styling}`}
       onClick={handleClick}
     >
       <div className="flex justify-between items-center">

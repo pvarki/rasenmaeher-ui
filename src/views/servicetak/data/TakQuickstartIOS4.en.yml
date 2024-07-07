@@ -1,5 +1,5 @@
 - lang: "en"
-  type: "view"
+  type: "View"
   name: "TakQuickstartIos4"
   path: "quickstart/ios4"
   body: []

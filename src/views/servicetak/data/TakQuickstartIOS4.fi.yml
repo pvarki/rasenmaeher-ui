@@ -1,5 +1,5 @@
 - lang: "fi"
-  type: "view"
+  type: "View"
   name: "TakQuickstartIos1"
   path: "quickstart/ios1"
   body: []

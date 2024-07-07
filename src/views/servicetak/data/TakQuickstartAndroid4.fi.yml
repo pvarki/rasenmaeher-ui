@@ -1,5 +1,5 @@
 - lang: "fi"
-  type: "view"
+  type: "View"
   name: "TakQuickstartAndroid4"
   path: "quickstart/android4"
   body: []

@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { DropdownMenu } from "../DropdownMenu";
 
-interface DropdownOsSelectorProps {
+export interface DropdownOsOption {
+  readonly label: string;
+  readonly value: string;
+}
+
+export interface DropdownOsSelectorProps {
   initialOS: string;
-  osOptions: { label: string; value: string }[];
+  osOptions: DropdownOsOption[];
   onOSChange: (selectedOS: string) => void;
 }
 

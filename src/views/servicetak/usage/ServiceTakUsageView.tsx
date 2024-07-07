@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import android from "../../../assets/icons/android.svg";
 import sanla from "../../../assets/heroimages/kiikarit.jpeg";
 import apple from "../../../assets/icons/apple.svg";
@@ -8,15 +8,19 @@ import { Card } from "../../../components/Card";
 import { CardsContainer } from "../../../components/CardsContainer";
 import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
 import { ServiceUsageCard } from "../../../components/ServiceUsageCard";
-import { ServiceTakUsageCard } from "./helpers/ServiceTakUsageCard";
+import { ProductData } from "../ProductData";
+import { useProductData } from "../useProductData";
+import {
+  ServiceProductUsageCard,
+} from "./helpers/ServiceProductUsageCard";
 import { ServiceTakUsageAtCPCard } from "./helpers/ServiceTakUsageAtCPCard";
 import { ServiceTakUsageByFighterCard } from "./helpers/ServiceTakUsageByFighterCard";
 import { ServiceTakUsageFlowCard } from "./helpers/ServiceTakUsageFlowCard";
 import { Trans, useTranslation } from "react-i18next";
 
 export function ServiceTakUsageView() {
-  const cardContentRef = useRef<HTMLDivElement | null>(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const productData : ProductData = useProductData(i18n.language);
 
   useEffect(() => {
     window.scrollTo(0, 60);
@@ -28,10 +32,11 @@ export function ServiceTakUsageView() {
         showNavbar={true}
         showFooter={true}
         heroImage={sanla}
-        navbarTitle={t("serviceTakUsageView.navbarTitle")}
+        navbarTitle={productData.usageViewNavbarTitle}
         backUrl="/"
       >
-        <div className="flex flex-col flex-shrink-0" ref={cardContentRef}>
+        <div className="flex flex-col flex-shrink-0">
+
           <CardsContainer>
             <ServiceInfoCard
               title={t("serviceTakUsageView.serviceInfoCardTitle")}
@@ -45,7 +50,10 @@ export function ServiceTakUsageView() {
           </CardsContainer>
 
           <ServiceUsageCard>
-            <ServiceTakUsageCard />
+            <ServiceProductUsageCard
+              title={productData.usageCardTitle}
+              content={productData.usageCardContent}
+            />
             <ServiceTakUsageByFighterCard />
             <ServiceTakUsageAtCPCard />
             <ServiceTakUsageFlowCard />
@@ -68,6 +76,7 @@ export function ServiceTakUsageView() {
               url="/app/services/tak/usage/win1"
             />
           </CardsContainer>
+
         </div>
       </Layout>
     </div>

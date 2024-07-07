@@ -1,113 +1,145 @@
-import tak from "../../assets/icons/taklogo.png";
-import usage from "../../assets/icons/sota.png";
-import phone from "../../assets/icons/byod2.png";
-import { Trans, useTranslation } from "react-i18next";
-import { CardsContainer } from "../../components/CardsContainer";
-import { FoldableCard } from "../../components/FoldableCard";
-import { UnfoldableCard } from "../../components/UnfoldableCard2";
-import { ServiceInfoCard } from "../../components/ServiceInfoCard";
-import { Button } from "../../components/Button";
-import { useNavigate } from "react-router-dom";
-import { ServiceTakUsageCard } from "./usage/helpers/ServiceTakUsageCard";
-import { useDownloadTakZipModal } from "../../components/tak/DownloadTakZipModal";
-import LoadingComponent from "../../components/Loading/LoadingComponent";
+import { ProductContentRenderer } from "./ProductContentRenderer";
+import {
+    ProductContentService,
+    ProductContentServiceImpl,
+} from "./ProductContentService";
+import { Content } from "./types/Content";
+import EN_TAK_CONTENT from "./data/tak-en.json";
 
-export function ServiceTak() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-  const { openDownloadModal, loading } = useDownloadTakZipModal();
-  if (loading) {
-    return <LoadingComponent text={t("takZipDownload.iAmDownloading")} />;
-  }
-  const handleDownloadButtonClick = () => {
-    (openDownloadModal as () => void)();
-  };
+const CONTENT_SERVICE : ProductContentService = ProductContentServiceImpl.create( EN_TAK_CONTENT as Content[] );
 
-  return (
-    <div>
-      <CardsContainer>
-        <FoldableCard title={t("serviceTak.foldableCardTitle")} imageSrc={tak}>
-          <div className="flex flex-col items-center justify-center p-5">
-            <ServiceInfoCard
-              title={t("serviceTak.serviceInfoCardTitle")}
-              image={tak}
-            />
-            <UnfoldableCard
-              title={t("serviceTak.unfoldableCardTitle")}
-              steps={[
-                {
-                  description: (
-                    <Trans
-                      i18nKey="serviceTak.step1Description"
-                      components={{ strong: <strong /> }}
-                    />
-                  ),
-                },
-                {
-                  description: (
-                    <Trans
-                      i18nKey="serviceTak.step2Description"
-                      components={{ strong: <strong /> }}
-                    />
-                  ),
-                },
-                {
-                  description: (
-                    <Trans
-                      i18nKey="serviceTak.step3Description"
-                      components={{ strong: <strong /> }}
-                    />
-                  ),
-                },
-              ]}
-            />
+export function ServiceTak () {
 
-            <ServiceTakUsageCard />
-            <div className="flex flex-col items-center justify-center px-0 w-full">
-              <div className="flex w-full items-center justify-center items-stretch px-0">
-                <div className="flex-1 px-0">
-                  <div className="w-full">
-                    <Button
-                      variant={{ width: "full" }}
-                      onClick={() => navigate("/app/services/tak/quickstart")}
-                      styling="m-1 w-full min-h-[4rem]"
-                    >
-                      <div className="flex items-center justify-center w-full h-full">
-                        <img src={phone} alt="keys" className="h-5 w-5 mr-2" />
-                        {t("serviceTak.guideButton.quickStart")}
-                      </div>
-                    </Button>
-                  </div>
-                </div>
-                <div className="p-1" />
-                <div className="flex-1 px-0">
-                  <div className="w-full">
-                    <Button
-                      variant={{ width: "full" }}
-                      onClick={() => navigate("/app/services/tak/usage")}
-                      styling="m-1 px-2 w-full min-h-[4rem]"
-                    >
-                      <div className="flex items-center justify-center w-full h-full">
-                        <img src={usage} alt="keys" className="h-5 w-5 mr-2" />
-                        {t("serviceTak.guideButton.usage")}
-                      </div>
-                    </Button>
-                  </div>
-                </div>
-                <div className="p-1" />
-              </div>
+    // const navigate = useNavigate();
+    // const { i18n } = useTranslation();
+    // const productData : ProductData = useProductData( i18n.language );
 
-              <Button
-                variant={{ width: "full" }}
-                onClick={handleDownloadButtonClick}
-                styling="m-1 px-3 bg-success text-white w-full"
-              >
-                {t("serviceTak.grabZipButton")}
-              </Button>
-            </div>
-          </div>
-        </FoldableCard>
-      </CardsContainer>
-    </div>
-  );
+    // const { openDownloadModal, loading } = useDownloadModal( {
+    //     downloadTitle : productData.downloadTitle,
+    //     downloadItemTitle : productData.downloadItemTitle,
+    //     downloadButtonTitle : productData.downloadButtonTitle,
+    //     downloadSuccessTitle : productData.downloadSuccessTitle,
+    //     downloadSuccessDescription : productData.downloadSuccessDescription,
+    //     downloadErrorTitle : productData.downloadErrorTitle,
+    //     downloadErrorDescription : productData.downloadErrorDescription,
+    // } );
+
+    // if ( loading ) {
+    //     return <LoadingComponent text={ productData.iAmDownloading } />;
+    // }
+
+    // const handleDownloadButtonClick = () => {
+    //     (openDownloadModal as () => void)();
+    // };
+
+    const view = CONTENT_SERVICE.getView( 'ServiceTak' );
+    if ( !view ) {
+        console.warn( `Warning! Could not find view named ServiceTak` );
+    }
+    return ProductContentRenderer.render( view );
+
+    // return (
+    //   <div>
+    //     <CardsContainer>
+    //       <FoldableCard
+    //           title={productData.foldableCardTitle}
+    //           imageSrc={productData.foldableCardImage}>
+    //
+    //         <div className="flex flex-col items-center justify-center p-5">
+    //
+    //           <ServiceInfoCard
+    //             title={productData.serviceInfoCardTitle}
+    //             image={productData.serviceInfoCardImage}
+    //           />
+    //
+    //           <UnfoldableCard
+    //             title={productData.unfoldableCardTitle}
+    //             steps={[
+    //               {
+    //                 description: (
+    //                   <Trans
+    //                     i18nKey={ productData.unfoldableCardStep1Description }
+    //                     components={{ strong: <strong /> }}
+    //                   />
+    //                 ),
+    //               },
+    //               {
+    //                 description: (
+    //                   <Trans
+    //                     i18nKey={ productData.unfoldableCardStep2Description }
+    //                     components={{ strong: <strong /> }}
+    //                   />
+    //                 ),
+    //               },
+    //               {
+    //                 description: (
+    //                   <Trans
+    //                     i18nKey={ productData.unfoldableCardStep3Description }
+    //                     components={{ strong: <strong /> }}
+    //                   />
+    //                 ),
+    //               },
+    //             ]}
+    //           />
+    //
+    //           <ServiceProductUsageCard
+    //             title={productData.usageCardTitle}
+    //             content={productData.usageCardContent}
+    //           />
+    //
+    //           <div className="flex flex-col items-center justify-center px-0 w-full">
+    //
+    //             <div className="flex w-full items-center justify-center items-stretch px-0">
+    //
+    //               <div className="flex-1 px-0">
+    //                 <div className="w-full">
+    //                   <Button
+    //                     variant={{ width: "full" }}
+    //                     onClick={() => navigate("/app/services/tak/quickstart")}
+    //                     styling="m-1 w-full min-h-[4rem]"
+    //                   >
+    //                     <div className="flex items-center justify-center w-full h-full">
+    //                       <img src={phone} alt="keys" className="h-5 w-5 mr-2" />
+    //                       {productData.guideButtonQuickStart}
+    //                     </div>
+    //                   </Button>
+    //                 </div>
+    //               </div>
+    //
+    //               <div className="p-1" />
+    //
+    //               <div className="flex-1 px-0">
+    //                 <div className="w-full">
+    //                   <Button
+    //                     variant={{ width: "full" }}
+    //                     onClick={() => navigate("/app/services/tak/usage")}
+    //                     styling="m-1 px-2 w-full min-h-[4rem]"
+    //                   >
+    //                     <div className="flex items-center justify-center w-full h-full">
+    //                       <img src={usage} alt="keys" className="h-5 w-5 mr-2" />
+    //                       {productData.guideButtonUsage}
+    //                     </div>
+    //                   </Button>
+    //                 </div>
+    //               </div>
+    //
+    //               <div className="p-1" />
+    //
+    //             </div>
+    //
+    //             <Button
+    //               variant={{ width: "full" }}
+    //               onClick={handleDownloadButtonClick}
+    //               styling="m-1 px-3 bg-success text-white w-full"
+    //             >{productData.grabZipButton}</Button>
+    //
+    //           </div>
+    //
+    //         </div>
+    //
+    //       </FoldableCard>
+    //
+    //     </CardsContainer>
+    //   </div>
+    // );
 }

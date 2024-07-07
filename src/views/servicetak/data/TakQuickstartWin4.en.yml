@@ -1,5 +1,5 @@
 - lang: "en"
-  type: "view"
+  type: "View"
   name: "TakQuickstartWin4"
   path: "quickstart/win4"
   body: []

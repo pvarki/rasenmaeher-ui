@@ -2,7 +2,6 @@ import { Layout } from "../../../../components/Layout";
 import { StatusBar } from "../../../../components/StatusBar";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
-import { ServiceTakUsageCard } from "../helpers/ServiceTakUsageCard";
 import { UnfoldableCard } from "../../../../components/UnfoldableCard2";
 import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { useTranslation, Trans } from "react-i18next";
@@ -14,9 +13,13 @@ import pic4 from "../../../../assets/takguides/wintak/Kuva35.png";
 import pic5 from "../../../../assets/takguides/wintak/Kuva36.png";
 import pic6 from "../../../../assets/takguides/wintak/Kuva37.png";
 import pic7 from "../../../../assets/takguides/wintak/Kuva38.png";
+import { ProductData } from "../../ProductData";
+import { useProductData } from "../../useProductData";
+import { ServiceProductUsageCard } from "../helpers/ServiceProductUsageCard";
 
 export function TakUsageWin1() {
-  const { t } = useTranslation();
+  const { t , i18n } = useTranslation();
+  const productData : ProductData = useProductData(i18n.language);
   return (
     <div className="pb-32">
       <Layout
@@ -42,7 +45,10 @@ export function TakUsageWin1() {
                 />
               }
             >
-              <ServiceTakUsageCard />
+                <ServiceProductUsageCard
+                    title={productData.usageCardTitle}
+                    content={productData.usageCardContent}
+                />
             </ServiceInfoCard>
             <UnfoldableCard
               title={<Trans i18nKey="takUsageWin1.unfoldableCard1.title" />}

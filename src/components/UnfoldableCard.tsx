@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useAlertDialog } from "../components/AlertDialogService";
+import { useAlertDialog } from "./AlertDialogService";
 
 interface UnfoldableCardProps {
   title: React.ReactNode;
@@ -82,6 +82,89 @@ interface UnfoldableCardProps {
   note13?: React.ReactNode;
 }
 
+/**
+ * @deprecated Use the one from UnfoldableCard2.tsx!
+ *
+ * @param title
+ * @param content
+ * @param children
+ * @param styling
+ * @param initialOpen
+ * @param imageSrc
+ * @param imageLink
+ * @param imageClasses
+ * @param image2Src
+ * @param image2Link
+ * @param image2Classes
+ * @param image3Src
+ * @param image3Link
+ * @param image3Classes
+ * @param image4Src
+ * @param image4Link
+ * @param image4Classes
+ * @param image5Src
+ * @param image5Link
+ * @param image5Classes
+ * @param image6Src
+ * @param image6Link
+ * @param image6Classes
+ * @param image7Src
+ * @param image7Link
+ * @param image7Classes
+ * @param image8Src
+ * @param image8Link
+ * @param image8Classes
+ * @param image9Src
+ * @param image9Link
+ * @param image9Classes
+ * @param image10Src
+ * @param image10Link
+ * @param image10Classes
+ * @param image11Src
+ * @param image11Link
+ * @param image11Classes
+ * @param image12Src
+ * @param image12Link
+ * @param image12Classes
+ * @param image13Src
+ * @param image13Link
+ * @param image13Classes
+ * @param image14Src
+ * @param image14Link
+ * @param image14Classes
+ * @param image15Src
+ * @param image15Link
+ * @param image15Classes
+ * @param description1
+ * @param description2
+ * @param description3
+ * @param description4
+ * @param description5
+ * @param description6
+ * @param description7
+ * @param description8
+ * @param description9
+ * @param description10
+ * @param description11
+ * @param description12
+ * @param description13
+ * @param description14
+ * @param description15
+ * @param note
+ * @param note2
+ * @param note3
+ * @param note4
+ * @param note5
+ * @param note6
+ * @param note7
+ * @param note8
+ * @param note9
+ * @param note10
+ * @param note11
+ * @param note12
+ * @param note13
+ * @constructor
+ */
 export function UnfoldableCard({
   title,
   content,

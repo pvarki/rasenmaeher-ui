@@ -1,5 +1,5 @@
 - lang: "en"
-  type: "view"
+  type: "View"
   name: "TakQuickstartAndroid1"
   path: "quickstart/android1"
   body:
@@ -8,8 +8,8 @@
     - "pb-20"
     body:
     - type: Layout
-      showNavbar: true
-      showFooter: false
+      showNavbar: True
+      showFooter: False
       navbarTitle: "takQuickstartAndroid1.navbarTitle"
       backUrl: "/app/services/tak/quickstart"
       body:
@@ -31,7 +31,7 @@
           body:
           - type: ServiceInfoCard
             title: "takQuickstartAndroid1.serviceInfoCardTitle"
-            image: "TODO: ATAK"
+            image: "../../../assets/icons/tak-logo.png"
             body:
             - "takQuickstartAndroid1.serviceInfoCard.details"
           - type: UnfoldableCard
@@ -66,7 +66,7 @@
           - type: UnfoldableCard
             title: "takQuickstartAndroid1.unfoldableCard3.title"
             styling: "bg-backgroundLight"
-            description1: "takQuickstartAndroid1.unfoldableCard3.description1",
+            description1: "takQuickstartAndroid1.unfoldableCard3.description1"
             imageSrc: {wait}
             imageClasses:
             - "m-3"

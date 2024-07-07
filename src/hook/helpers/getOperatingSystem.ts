@@ -1,19 +1,22 @@
-export function getOperatingSystem() {
+export enum OperatingSystem {
+  MacOS = "MacOS",
+  Windows = "Windows",
+  Android = "Android",
+  iOS = "iOS",
+}
+
+export function getOperatingSystem(): OperatingSystem {
   const userAgent = window.navigator.userAgent;
   const platform = window.navigator.platform;
-  let os = null;
 
   if (/Mac/i.test(platform)) {
-    os = "MacOS";
+    return OperatingSystem.MacOS;
   } else if (/Win/i.test(platform)) {
-    os = "Windows";
+    return OperatingSystem.Windows;
   } else if (/Android/i.test(userAgent)) {
-    os = "Android";
+    return OperatingSystem.Android;
   } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
-    os = "iOS";
-  } else {
-    os = "Android"; // Default to Android
+    return OperatingSystem.iOS;
   }
-
-  return os;
+  return OperatingSystem.Android; // Default to Android
 }

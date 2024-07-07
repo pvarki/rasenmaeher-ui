@@ -1,5 +1,5 @@
 - lang: "fi"
-  type: "view"
+  type: "View"
   name: "TakUsageWin2"
   path: "usage/win2"
   body: []

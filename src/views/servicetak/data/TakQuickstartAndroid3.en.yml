@@ -1,5 +1,5 @@
 - lang: "en"
-  type: "view"
+  type: "View"
   name: "TakQuickstartAndroid3"
   path: "quickstart/android3"
   body: []
