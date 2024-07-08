@@ -10,9 +10,8 @@ export enum ContentType {
     UNFOLDABLE_CARD = "UnfoldableCard",
     SERVICE_PRODUCT_USAGE_CARD = "ServiceProductUsageCard",
 
-    // TODO: Implement in ProductContentRenderer
-    MULTI_DOWNLOAD_MODAL = "MultiDownloadModal",
-    // TODO: Implement in ProductContentRenderer
+    TAK_DOWNLOAD_MODAL = "TakDownloadModal",
+
     DROPDOWN_OS_SELECTOR = "DropdownOsSelector",
 
     BUTTON = "Button",

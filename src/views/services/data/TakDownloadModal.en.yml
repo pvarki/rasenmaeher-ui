@@ -1,6 +1,6 @@
-- type: MultiDownloadModal
+- type: TakDownloadModal
   lang: en
-  name: "TakDownloadModal"
+  name: "ArkiTakDownloadModal"
   title: "Download Your Client Package"
   genericErrorMessage: "Unidentified error."
   errorFromApplication: "Error message from the application:"
@@ -16,3 +16,12 @@
   - type: br
   - type: br
   - "Is this correct? If not, please change it using the selector above as necessary."
+  button:
+    title: "Download Client Package"
+  success:
+    title: "Client Package Downloaded."
+    description: "Your Client Package has been downloaded. Please install it to your application, according to the Quickstart Guide."
+  failure:
+    title: "Error in Downloading Client Package:"
+    description: "Downloading your Client Package failed. Please try again later."
+  iAmDownloading: "Fetching your package..."

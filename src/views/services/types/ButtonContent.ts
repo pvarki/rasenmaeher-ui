@@ -15,6 +15,12 @@ export interface ButtonContent extends BaseParentContent {
      * This will go to the "styles" property
      */
     readonly classes  ?: readonly string[];
+
+    readonly onClick ?: {
+        readonly navigate ?: string;
+        readonly modal ?: string;
+    };
+
     readonly body     ?: Content | readonly Content[];
 }
 

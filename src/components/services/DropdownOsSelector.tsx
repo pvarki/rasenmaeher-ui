@@ -7,17 +7,22 @@ export interface DropdownOsOption {
 }
 
 export interface DropdownOsSelectorProps {
-  initialOS: string;
-  osOptions: DropdownOsOption[];
-  onOSChange: (selectedOS: string) => void;
+  readonly initialOS   : string;
+  readonly osOptions   : readonly DropdownOsOption[];
+  readonly onOSChange  : (selectedOS: string) => void;
 }
 
-const DropdownOsSelector: React.FC<DropdownOsSelectorProps> = ({
+export const DropdownOsSelector: React.FC<DropdownOsSelectorProps> = ({
   initialOS,
   osOptions,
   onOSChange,
 }) => {
+
+  console.log(`DropdownOsSelector: initialOS: `, initialOS);
+
   const [selectedOS, setSelectedOS] = useState(initialOS);
+
+  console.log(`DropdownOsSelector: selectedOS: `, selectedOS);
 
   useEffect(() => {
     onOSChange(selectedOS);
@@ -41,5 +46,3 @@ const DropdownOsSelector: React.FC<DropdownOsSelectorProps> = ({
     />
   );
 };
-
-export default DropdownOsSelector;

@@ -98,7 +98,7 @@
                       variant:
                          width: "full"
                       onClick:
-                        type: "ServiceTakQuickStart"
+                        navigate: "/app/services/tak/quickstart"
                       classes:
                       - "m-1"
                       - "w-full"
@@ -136,7 +136,7 @@
                     variant:
                       width: "full"
                     onClick:
-                      type: "ServiceTakUsage"
+                      navigate: "/app/services/tak/usage"
                     classes:
                     - "m-1"
                     - "px-2"
@@ -166,7 +166,7 @@
               variant:
                 width: "full"
               onClick:
-              - type: "TakDownloadModal"
+                modal: "ArkiTakDownloadModal"
               classes:
               - "m-1"
               - "px-3"

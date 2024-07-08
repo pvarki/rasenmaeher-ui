@@ -1,4 +1,5 @@
 import { Layout } from "../../../../components/Layout";
+import { useTakDownloadModal } from "../../../../components/services/TakDownloadModal";
 import { StatusBar } from "../../../../components/StatusBar";
 import ITAK from "../../../../assets/icons/iTAK.png";
 import appstore from "../../../../assets/icons/appstore.svg";
@@ -7,19 +8,14 @@ import { ServiceInfoCard } from "../../../../components/ServiceInfoCard";
 import { CardsContainer } from "../../../../components/CardsContainer";
 import { NavigateButtons } from "../../../../components/NavigateButtons";
 import { Button } from "../../../../components/Button";
-import { useDownloadModal } from "../../../../components/tak/DownloadModal";
 import { Trans, useTranslation } from "react-i18next";
 import LoadingComponent from "../../../../components/Loading/LoadingComponent";
-import { ProductData } from "../../ProductData";
-import { useProductData } from "../../useProductData";
 
 export function TakQuickstartIos1() {
   const { t } = useTranslation();
-  const { i18n} = useTranslation();
-  const productData : ProductData = useProductData(i18n.language);
-  const { openDownloadModal, loading } = useDownloadModal(productData);
+  const { openDownloadModal, loading } = useTakDownloadModal();
   if (loading) {
-    return <LoadingComponent text={productData.iAmDownloading} />;
+    return <LoadingComponent text={loading} />;
   }
   const handleDownloadButtonClick = () => {
     (openDownloadModal as () => void)();
@@ -77,7 +73,7 @@ export function TakQuickstartIos1() {
                   variant={{ width: "full" }}
                   onClick={handleDownloadButtonClick}
                   styling="m-1 px-3 bg-success text-white w-full"
-                >{productData.grabZipButton}</Button>
+                >{'grabZipButton'}</Button>
               }
               note={t("TakQuickstartIos1.unfoldableCard2.note")}
             />

@@ -1,30 +1,30 @@
 import { Routes, Route } from "react-router-dom";
 
-import { ServiceTakQuickstartView } from "./views/servicetak/quickstartguide/ServiceTakQuickstartView";
-import { TakQuickstartAndroid1 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid1";
-import { TakQuickstartAndroid2 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid2";
-import { TakQuickstartAndroid3 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid3";
-import { TakQuickstartAndroid4 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid4";
-import { TakQuickstartAndroid5 } from "./views/servicetak/quickstartguide/android/TakQuickstartAndroid5";
-import { TakQuickstartIos1 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos1";
-import { TakQuickstartIos2 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos2";
-import { TakQuickstartIos3 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos3";
-import { TakQuickstartIos4 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos4";
-import { TakQuickstartIos5 } from "./views/servicetak/quickstartguide/ios/TakQuickstartIos5";
-import { TakQuickstartWin1 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin1";
-import { TakQuickstartWin2 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin2";
-import { TakQuickstartWin3 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin3";
-import { TakQuickstartWin4 } from "./views/servicetak/quickstartguide/wintak/TakQuickstartWin4";
+import { ServiceTakQuickstartView } from "./views/services/quickstartguide/ServiceTakQuickstartView";
+import { TakQuickstartAndroid1 } from "./views/services/quickstartguide/android/TakQuickstartAndroid1";
+import { TakQuickstartAndroid2 } from "./views/services/quickstartguide/android/TakQuickstartAndroid2";
+import { TakQuickstartAndroid3 } from "./views/services/quickstartguide/android/TakQuickstartAndroid3";
+import { TakQuickstartAndroid4 } from "./views/services/quickstartguide/android/TakQuickstartAndroid4";
+import { TakQuickstartAndroid5 } from "./views/services/quickstartguide/android/TakQuickstartAndroid5";
+import { TakQuickstartIos1 } from "./views/services/quickstartguide/ios/TakQuickstartIos1";
+import { TakQuickstartIos2 } from "./views/services/quickstartguide/ios/TakQuickstartIos2";
+import { TakQuickstartIos3 } from "./views/services/quickstartguide/ios/TakQuickstartIos3";
+import { TakQuickstartIos4 } from "./views/services/quickstartguide/ios/TakQuickstartIos4";
+import { TakQuickstartIos5 } from "./views/services/quickstartguide/ios/TakQuickstartIos5";
+import { TakQuickstartWin1 } from "./views/services/quickstartguide/wintak/TakQuickstartWin1";
+import { TakQuickstartWin2 } from "./views/services/quickstartguide/wintak/TakQuickstartWin2";
+import { TakQuickstartWin3 } from "./views/services/quickstartguide/wintak/TakQuickstartWin3";
+import { TakQuickstartWin4 } from "./views/services/quickstartguide/wintak/TakQuickstartWin4";
 
-import { ServiceTakUsageView } from "./views/servicetak/usage/ServiceTakUsageView";
-import { TakUsageAndroid1 } from "./views/servicetak/usage/android/TakUsageAndroid1";
-import { TakUsageAndroid2 } from "./views/servicetak/usage/android/TakUsageAndroid2";
-import { TakUsageAndroid3 } from "./views/servicetak/usage/android/TakUsageAndroid3";
-import { TakUsageIos1 } from "./views/servicetak/usage/ios/TakUsageIos1";
-import { TakUsageWin1 } from "./views/servicetak/usage/wintak/TakUsageWin1";
-import { TakUsageWin2 } from "./views/servicetak/usage/wintak/TakUsageWin2";
-import { TakUsageWin3 } from "./views/servicetak/usage/wintak/TakUsageWin3";
-import { TakUsageWin4 } from "./views/servicetak/usage/wintak/TakUsageWin4";
+import { ServiceTakUsageView } from "./views/services/usage/ServiceTakUsageView";
+import { TakUsageAndroid1 } from "./views/services/usage/android/TakUsageAndroid1";
+import { TakUsageAndroid2 } from "./views/services/usage/android/TakUsageAndroid2";
+import { TakUsageAndroid3 } from "./views/services/usage/android/TakUsageAndroid3";
+import { TakUsageIos1 } from "./views/services/usage/ios/TakUsageIos1";
+import { TakUsageWin1 } from "./views/services/usage/wintak/TakUsageWin1";
+import { TakUsageWin2 } from "./views/services/usage/wintak/TakUsageWin2";
+import { TakUsageWin3 } from "./views/services/usage/wintak/TakUsageWin3";
+import { TakUsageWin4 } from "./views/services/usage/wintak/TakUsageWin4";
 
 const TakRoutes = [
   {

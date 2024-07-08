@@ -1,4 +1,4 @@
-- type: MultiDownloadModal
+- type: DownloadModal
   lang: fi
   name: "TakDownloadModal"
   title: "Download Your Client Package"
