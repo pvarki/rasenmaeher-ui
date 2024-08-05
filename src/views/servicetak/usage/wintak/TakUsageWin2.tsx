@@ -62,7 +62,11 @@ export function TakUsageWin2() {
                   description: (
                     <Trans
                       i18nKey="takUsageWin2.unfoldableCard1.step1"
-                      components={{ strong: <strong /> }}
+                      components={{
+                        strong: <strong />,
+                        ul: <ul />,
+                        li: <li />,
+                      }}
                     />
                   ),
                   imageSrc: pic9,
@@ -76,6 +80,8 @@ export function TakUsageWin2() {
                         strong: <strong />,
                         br: <br />,
                         em: <em />,
+                        ul: <ul />,
+                        li: <li />,
                       }}
                     />
                   ),
@@ -92,7 +98,11 @@ export function TakUsageWin2() {
                   description: (
                     <Trans
                       i18nKey="takUsageWin2.unfoldableCard1.step3"
-                      components={{ strong: <strong />, li: <li /> }}
+                      components={{
+                        strong: <strong />,
+                        ul: <ul />,
+                        li: <li />,
+                      }}
                     />
                   ),
                   imageSrc: pic11,
