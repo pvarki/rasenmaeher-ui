@@ -53,6 +53,19 @@ export function Footer() {
         &copy; <Trans i18nKey="footer.allRightsReservedMain" ns="dynamic" />
         <br />
         <br />
+        <Trans i18nKey="footer.TAKServerCopyRightNotice" />
+        <br />
+        &copy; <Trans i18nKey="footer.TAKProductCenter" />{" "}
+        <a
+          href="https://github.com/TAK-Product-Center/Server"
+          className="underline text-blue-500"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Trans i18nKey="footer.TAKServerSource" />
+        </a>
+        <br />
+        <br />
         <Trans i18nKey="footer.allRightsReservedSecond" ns="dynamic" />
         <br />
         &copy;{" "}

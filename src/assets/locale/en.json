@@ -16,6 +16,9 @@
   "footer.loading": "Loading...",
   "footer.authenticatedWithMtls": "Authenticated with mTLS",
   "footer.proudlyServedBy": "Proudly served by",
+  "footer.TAKServerCopyRightNotice": "TAK Server released under GNU GPLv3 by",
+  "footer.TAKProductCenter": "TAK Product Center.",
+  "footer.TAKServerSource": "Source code in Github.",
   "footer.feedbackForm": "Share feedback or ideas to the Devs, through this form!",
 
   "PRIVACYPOLICYMODAL": "PRIVACYPOLICYMODAL",

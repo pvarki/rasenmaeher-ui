@@ -17,7 +17,10 @@
   "footer.loading": "Ladataan...",
   "footer.authenticatedWithMtls": "Tunnistautunut mTLS:llä",
   "footer.proudlyServedBy": "Sovelluksen tarjoaa:",
-  "footer.feedbackForm": "Kerro palautetta tai ideoita kehittäjille lomakkeella!",
+  "footer.TAKServerCopyRightNotice": "TAK Serverin tarjoaa GNU GPLv3 -lisenssillä",
+  "footer.TAKProductCenter": "TAK Product Center.",
+  "footer.TAKServerSource": "Lähdekoodi Githubissa.",
+  "footer.feedbackForm": "Share feedback or ideas to the Devs, through this form!",
 
   "PRIVACYPOLICYMODAL": "PRIVACYPOLICYMODAL",
   "privacyPolicy.triggerText": "Tietosuoja",
