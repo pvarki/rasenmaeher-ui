@@ -1,6 +1,7 @@
 {
   "COMMON-VERBS": "COMMON-VERBS",
-  "footer.feedbackFormLink": "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform",
+  "footer.feedbackFormText": "Anna palautetta sovelluksen kehittäjille käyttämällä tätä lomaketta!",
+  "footer.feedbackForm": "https://docs.google.com/forms/d/e/1FAIpQLSehHTASMmqszEMOVOwMvjUNOj-lcEGskk58sUjsmurJDlvFZw/viewform",
 
   "FOOTERS": "FOOTERS",
   "footer.allRightsReservedSecond": "FDF-UI, PV:n logo & taustakuvat:",

@@ -9,7 +9,7 @@ export function Footer() {
   const { t } = useTranslation(["common", "dynamic"]);
   const isMtls = window.location.origin.includes("mtls.");
   const { version } = useHealthCheck();
-  const feedbackLink = t("footer.feedbackFormLink", { ns: "dynamic" });
+  const feedbackLink = t("footer.feedbackForm", { ns: "dynamic" });
   const { changeLanguage, availableLanguages } = useLanguageChange();
 
   // Convert available languages to dropdown items
@@ -78,7 +78,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Trans i18nKey="footer.feedbackForm" ns="dynamic" />
+          <Trans i18nKey="footer.feedbackFormText" ns="dynamic" />
         </a>
       </div>
 
