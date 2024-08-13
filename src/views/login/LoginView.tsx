@@ -8,7 +8,7 @@ import { Button } from "../../components/Button";
 import { ErrorMessage, Field, Form, FormikProvider, useFormik } from "formik";
 import * as yup from "yup";
 import { Layout } from "../../components/Layout";
-import pvarkiLogo from "../../assets/icons/pvarki.png";
+import pvarkiLogo from "../../assets/set/mainlogo.png";
 import { CardsContainer } from "../../components/CardsContainer";
 import useHealthcheck from "../../hook/helpers/useHealthcheck";
 import key from "../../assets/icons/key.svg";

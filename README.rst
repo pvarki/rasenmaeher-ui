@@ -95,3 +95,13 @@ TLDR:
 - Ready to go.
 
 Remember to activate your virtualenv whenever working on the repo.
+
+Asset set
+^^^^^^^^^
+
+Asset set is loaded according to VITE_ASSET_SET enviroment variable.
+Changing asset set requires reloading vite.
+Folder assetSetStore contains files for for different sets that are copied to src/assets/set/ folder on startup.
+Current set is tracked with setName.txt file.
+
+When you want to use dynamic assets, you want to make sure your dynamic asset has equivalent for sets (both "fdf" and "neutral", so on). If the assets are images, you want to then import them to your components from /assets/set/* where the env-defined assets are placed by VITE on startup. If the assets are translation keys, make sure keys are present in locales under assetSetStore, and then use the "dynamic" namespace for accessing them.

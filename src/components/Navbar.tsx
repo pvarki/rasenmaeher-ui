@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import logo from "../assets/icons/jellona.png";
+import logo from "../assets/set/mainlogo.png";
 import useHealthcheck from "../hook/helpers/useHealthcheck";
 
 interface NavbarProps {
@@ -17,7 +17,7 @@ export function Navbar({ backUrl, title }: NavbarProps) {
       <img
         src={logo}
         alt="Logo"
-        className="absolute left-3 w-9 h-11 object-cover"
+        className="absolute left-3 w-11 h-11 object-cover"
       />
       <h1 className="text-white text-xl font-bold ml-3">{displayTitle}</h1>
       {backUrl && (

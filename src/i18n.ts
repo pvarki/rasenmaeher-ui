@@ -18,9 +18,12 @@ void i18n
     backend: {
       backends: [
         LocalStorageBackend,
-        resourcesToBackend(
-          async (lang: string) => import(`./assets/locale/${lang}.json`),
-        ),
+        resourcesToBackend(async (lang: string, namespace: string) => {
+          if (namespace === "dynamic") {
+            return import(`./assets/set/locale/${lang}.json`);
+          }
+          return import(`./assets/locale/${lang}.json`);
+        }),
       ],
       backendOptions: [
         {
@@ -28,6 +31,8 @@ void i18n
         },
       ],
     },
+    ns: ["common", "dynamic"], // Add dynamic namespace
+    defaultNS: "common", // Set common as the default namespace
     interpolation: {
       escapeValue: false,
     },
@@ -36,3 +41,5 @@ void i18n
       transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
     },
   });
+
+export default i18n;
