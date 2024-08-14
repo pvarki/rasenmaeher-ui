@@ -44,11 +44,11 @@
   "error-occured": "Tapahtui tunnistamaton virhe.",
   "login-to-service": "Kirjaudu palveluun:",
   "loading": "Lataan...",
-  "login-input-code": "Kirjautumiskoodi",
-  "login-with-code": "Kirjaudu koodilla",
+  "login-input-code": "Syötä kutsukoodi, jos olet luomassa tunnusta",
+  "login-with-code": "Luo tunnus",
   "login-code-required": "Koodi on pakollinen",
   "login-await-response": "Odottaa vastausta...",
-  "login-i-have-keys": "Minulla on avaimet",
+  "login-i-have-keys": "Kirjaudu palveluun",
   "code-is-wrong": "Koodi on virheellinen",
 
   "CALLSIGNSETUPVIEW": "CALLSIGNSETUPVIEW",
@@ -80,7 +80,7 @@
   "MTLSINFOMODAL": "MTLSINFOMODAL",
   "what-is-mtls": "Mikä mTLS?",
   "what-is-mtls-title": "Mikä mTLS?",
-  "mtls-description": "Kun käytät laitteellesi asennettua mTLS-avainta yhdistääksesi palveluumme, voimme varmistua siitä, että yhteys tulee <strong>juuri sinulta.</strong> Kukaan muu ei voi esiintyä sinuna. Samoin sinä varmistut siitä, että vastapäässä olemme me. <br /><br /> Kaikki Rasenmaeherista käyttöön ottamasi palvelut salaavat liikenteensä mTLS-avaimellasi.",
+  "mtls-description": "Kun käytät laitteellesi asennettua mTLS-avainta yhdistääksesi palveluumme, voimme varmistua siitä, että yhteys tulee <strong>juuri sinulta.</strong> Kukaan muu ei voi esiintyä sinuna. Samoin sinä varmistut siitä, että vastapäässä olemme me. <br /><br /> Kaikki Deploy Appista (Rasenmaeher) käyttöön ottamasi palvelut salaavat liikenteensä mTLS-avaimellasi.",
   "ok": "OK",
 
   "MTLSCREATEVIEW": "MTLSCREATEVIEW",
