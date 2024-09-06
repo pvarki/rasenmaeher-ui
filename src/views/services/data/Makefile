@@ -1,10 +1,16 @@
 
 all: build
 
-build: tak-en.json tak-fi.json
+build: update-rune tak-en.json tak-fi.json
 
-tak-en.json: *.en.yml build.py Makefile
-	./build.py . json en > tak-en.json
+rune:
+	git clone https://github.com/hyperifyio/rune.git rune
 
-tak-fi.json: *.fi.yml build.py Makefile
-	./build.py . json fi > tak-fi.json
+update-rune: rune
+	cd rune && git pull
+
+tak-en.json: *.en.yml rune rune/rune Makefile
+	rune/rune . json en > tak-en.json
+
+tak-fi.json: *.fi.yml rune rune/rune Makefile
+	rune/rune . json fi > tak-fi.json
