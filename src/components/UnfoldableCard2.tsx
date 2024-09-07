@@ -3,7 +3,7 @@ import { Step, StepProps } from "./Step";
 
 interface UnfoldableCardProps {
   title: React.ReactNode;
-  steps?: StepProps[];
+  steps?: readonly StepProps[];
   content?: React.ReactNode;
   children?: React.ReactNode;
   styling?: string;
