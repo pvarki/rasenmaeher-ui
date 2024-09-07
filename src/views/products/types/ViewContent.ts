@@ -9,7 +9,6 @@ import { ContentType } from "./ContentType";
  * View content type.
  */
 export interface ViewContent extends RootContent {
-    readonly lang  : string;
     readonly type  : ContentType;
     readonly name  : string;
     readonly path ?: string;

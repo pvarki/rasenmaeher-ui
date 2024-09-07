@@ -8,6 +8,7 @@ import {
 import {
     RootContent,
 } from "./RootContent";
+import { TranslationContent } from "./TranslationContent";
 import {
     ViewContent,
 } from "./ViewContent";
@@ -15,7 +16,7 @@ import {
 /**
  * Any accepted dynamic content DTO type
  */
-export type Content = ViewContent | TakDownloadModalContent | RootContent | BaseContent | string;
+export type Content = ViewContent | TakDownloadModalContent | RootContent | BaseContent | TranslationContent | string;
 
 export function isContentOrArray (value: unknown) : value is Content | readonly Content[] {
 

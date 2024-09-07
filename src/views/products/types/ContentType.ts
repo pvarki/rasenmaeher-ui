@@ -1,7 +1,11 @@
+
 /**
  * Content DTO types currently supported
  */
 export enum ContentType {
+
+    I18N = "i18n",
+
     VIEW = "View",
     STEP = "Step",
     CARDS_CONTAINER = "CardsContainer",
@@ -34,4 +38,47 @@ export enum ContentType {
     HR = "hr",
     BR = "br",
     IMG = "img",
+}
+
+
+/**
+ * Returns true if the value is valid ContentType.
+ *
+ * @param value
+ */
+export function isContentType (value: unknown) : value is ContentType {
+    if (!value) return false;
+    if (typeof value !== 'string') return false;
+    switch(value) {
+        case ContentType.I18N: return true;
+        case ContentType.VIEW: return true;
+        case ContentType.STEP: return true;
+        case ContentType.CARDS_CONTAINER: return true;
+        case ContentType.FOLDABLE_CARD: return true;
+        case ContentType.SERVICE_INFO_CARD: return true;
+        case ContentType.UNFOLDABLE_CARD: return true;
+        case ContentType.SERVICE_PRODUCT_USAGE_CARD: return true;
+        case ContentType.TAK_DOWNLOAD_MODAL: return true;
+        case ContentType.DROPDOWN_OS_SELECTOR: return true;
+        case ContentType.BUTTON: return true;
+        case ContentType.DIV: return true;
+        case ContentType.SPAN: return true;
+        case ContentType.H1: return true;
+        case ContentType.H2: return true;
+        case ContentType.H3: return true;
+        case ContentType.H4: return true;
+        case ContentType.H5: return true;
+        case ContentType.H6: return true;
+        case ContentType.UL: return true;
+        case ContentType.LI: return true;
+        case ContentType.I: return true;
+        case ContentType.P: return true;
+        case ContentType.EM: return true;
+        case ContentType.STRONG: return true;
+        case ContentType.A: return true;
+        case ContentType.HR: return true;
+        case ContentType.BR: return true;
+        case ContentType.IMG: return true;
+    }
+    return false;
 }
