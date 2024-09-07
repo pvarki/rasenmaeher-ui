@@ -1,0 +1,23 @@
+{
+  "serviceTak.foldableCardTitle": "TAK",
+  "serviceTak.serviceInfoCardTitle": "TAK Situational Awareness Application",
+  "serviceTak.unfoldableCardTitle": "How to get started",
+  "serviceTak.quickstartGuideTitle": "Quickstart Guide",
+  "serviceTak.step1Description": " tells you how to start using TAK on your device.",
+  "serviceTak.step2DescriptionPrefix": "The ",
+  "serviceTak.usageGuideTitle": "Usage Guide",
+  "serviceTak.step2Description": " tells you how to use the application, according to our standard model.",
+  "serviceTak.step3DescriptionSuffix": "Download the ",
+  "serviceTak.clientPackageTitle": "Client Package",
+  "serviceTak.step3Description": " and install it to your TAK device according to the Quickstart Guide, to get using the app.",
+  "serviceTakUsageCard.title": "Purpose",
+  "serviceTakUsageCard.content.p1": "Real-time tracking of friendlies ",
+  "serviceTakUsageCard.content.p2": "(GPS).",
+  "serviceTakUsageCard.content.p3": "Send observations to the command post (HQ) for interpretation.",
+  "serviceTakUsageCard.content.p4": "Follow the ",
+  "serviceTakUsageCard.content.p5": "Recon Feed",
+  "serviceTakUsageCard.content.p6": " that your command post (HQ) creates for your unit.",
+  "serviceTak.guideButton.quickStart": "Quickstart",
+  "serviceTak.guideButton.usage": "Usage Guide",
+  "serviceTak.grabZipButton": "Download your Client Package"
+}
