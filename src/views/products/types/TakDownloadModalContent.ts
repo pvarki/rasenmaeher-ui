@@ -9,7 +9,6 @@ import { ContentType } from "./ContentType";
  * Defines dynamic content DTO for {@link useTakDownloadModal} hook
  */
 export interface TakDownloadModalContent extends RootContent {
-    readonly lang: string;
     readonly type: ContentType;
     readonly name: string;
     readonly title: string;

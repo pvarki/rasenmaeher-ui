@@ -11,6 +11,13 @@ import {
     ContentType,
 } from "./types/ContentType";
 import {
+    TranslationCollection,
+} from "./types/TranslationCollection";
+import {
+    isTranslationContent,
+} from "./types/TranslationContent";
+import { TranslationData } from "./types/TranslationData";
+import {
     isViewContent,
     ViewContent,
 } from "./types/ViewContent";
@@ -66,6 +73,11 @@ export interface ProductContentService {
      * @param f
      */
     addDropdownOsSelectorChangeListener ( f: PublicEventCallback ) : PublicEventDestructor;
+
+    /**
+     * Returns dynamic translations from the product content JSON
+     */
+    getTranslations (lang: string) : TranslationData;
 
 }
 
@@ -146,7 +158,6 @@ export class ProductContentServiceImpl implements ProductContentService {
      * @inheritDoc
      */
     public getItem(name: string, type ?: ContentType) : RootContent | undefined {
-
         if (type) {
             return this._items.find((item : Content) => {
                 return (
@@ -156,14 +167,12 @@ export class ProductContentServiceImpl implements ProductContentService {
                 );
             }) as RootContent | undefined;
         }
-
         return this._items.find((item : Content) => {
             return (
                 isRootContent(item)
                 && item.name === name
             );
         }) as RootContent | undefined;
-
     }
 
     /**
@@ -203,6 +212,37 @@ export class ProductContentServiceImpl implements ProductContentService {
      */
     public getSelectedOS () : OperatingSystem {
         return this._selectedOS;
+    }
+
+    public _getTranslations () : TranslationCollection {
+        let ret : TranslationCollection = {};
+        this._items.forEach((item: Content): void => {
+            if (isTranslationContent(item)) {
+                Object.keys(item.data).forEach((lang: string): void => {
+                    if (Object.prototype.hasOwnProperty.call(ret, lang)) {
+                        ret = {
+                            ...ret,
+                            [lang]: {
+                                ...ret[lang],
+                                ...item.data[lang],
+                            }
+                        };
+                    } else {
+                        ret = {
+                            ...ret,
+                            [lang]: item.data[lang]
+                        };
+                    }
+                });
+                ret = {...ret, ...item.data};
+            }
+        });
+        return ret;
+    }
+
+    public getTranslations (lang: string) : TranslationData {
+        const translations = this._getTranslations();
+        return Object.prototype.hasOwnProperty.call(translations, lang) ? translations[lang] : {};
     }
 
 }
