@@ -1,9 +1,8 @@
-import EN_TAK_CONTENT from "./data/tak-en.json";
+import TAK_CONTENT from "./data/tak.json";
 import {
     ProductContentService,
     ProductContentServiceImpl,
 } from "./ProductContentService";
 import { Content } from "./types/Content";
 
-export const CONTENT_SERVICE : ProductContentService = ProductContentServiceImpl.create( EN_TAK_CONTENT as Content[] );
-
+export const CONTENT_SERVICE : ProductContentService = ProductContentServiceImpl.create( TAK_CONTENT as Content[] );

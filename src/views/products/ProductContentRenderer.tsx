@@ -87,7 +87,7 @@ export class ProductContentRenderer {
         }
 
         if (typeof content === "string") {
-            return <>{content}</>;
+            return <>{context.t(content)}</>;
         }
 
         if (typeof content === "object" && Array.isArray(content)) {
