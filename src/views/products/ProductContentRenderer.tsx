@@ -1,4 +1,5 @@
 import { ReactNode, Fragment } from "react";
+import { Trans } from "react-i18next";
 import { Button } from "../../components/Button";
 import { CardsContainer } from "../../components/CardsContainer";
 import { FoldableCard } from "../../components/FoldableCard";
@@ -87,7 +88,16 @@ export class ProductContentRenderer {
         }
 
         if (typeof content === "string") {
-            return <>{context.t(content)}</>;
+            return <Trans
+                i18nKey={content}
+                components={{
+                    strong: <strong />,
+                    em: <em />,
+                    ul: <ul />,
+                    li: <li />,
+                }}
+                ns={"productContent"}
+            />;
         }
 
         if (typeof content === "object" && Array.isArray(content)) {
