@@ -34,6 +34,11 @@ FROM builder_base as production_build
 COPY ./docker/entrypoint.sh /docker-entrypoint.sh
 WORKDIR /app
 COPY . /app
+
+# Set the VITE_ASSET_SET environment variable during the build
+ARG VITE_ASSET_SET=neutral
+ENV VITE_ASSET_SET=$VITE_ASSET_SET
+
 RUN npm install  \
     && chmod a+x /docker-entrypoint.sh \
     && npm run build \

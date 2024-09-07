@@ -31,6 +31,7 @@ export function PrivacyPolicyModal({ triggerClassName }: InfoModalProps) {
             <Dialog.Description className="mb-4 text-white">
               <Trans
                 i18nKey="privacyPolicy.description"
+                ns="dynamic"
                 components={{ strong: <strong />, li: <li />, br: <br /> }}
               />
             </Dialog.Description>
