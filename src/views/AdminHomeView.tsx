@@ -4,7 +4,7 @@ import { Card } from "../components/Card";
 import { TextCard } from "../components/TextCard";
 import { CardsContainer } from "../components/CardsContainer";
 import { Layout } from "../components/Layout";
-import { ServiceTak } from "./servicetak/ServiceTak";
+import { ServiceView } from "./products/ServiceView";
 import { useUserType } from "../hook/auth/useUserType";
 import { Trans, useTranslation } from "react-i18next";
 
@@ -38,7 +38,7 @@ export function AdminHomeView() {
             url="/app/admin/manageusers"
           />
         </CardsContainer>
-        <ServiceTak />
+        <ServiceView name={'ServiceTak'} />
       </div>
     </Layout>
   );
