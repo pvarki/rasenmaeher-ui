@@ -179,12 +179,6 @@
                             "description": {
                               "type": "div",
                               "body": [
-                                {
-                                  "type": "strong",
-                                  "body": [
-                                    "serviceTak.quickstartGuideTitle"
-                                  ]
-                                },
                                 "serviceTak.step1Description"
                               ]
                             }
@@ -193,13 +187,6 @@
                             "description": {
                               "type": "div",
                               "body": [
-                                "serviceTak.step2DescriptionPrefix",
-                                {
-                                  "type": "strong",
-                                  "body": [
-                                    "serviceTak.usageGuideTitle"
-                                  ]
-                                },
                                 "serviceTak.step2Description"
                               ]
                             }
@@ -208,13 +195,6 @@
                             "description": {
                               "type": "div",
                               "body": [
-                                "serviceTak.step3DescriptionSuffix",
-                                {
-                                  "type": "strong",
-                                  "body": [
-                                    "serviceTak.clientPackageTitle"
-                                  ]
-                                },
                                 "serviceTak.step3Description"
                               ]
                             }
@@ -225,36 +205,7 @@
                         "type": "ServiceProductUsageCard",
                         "title": "serviceTakUsageCard.title",
                         "body": [
-                          {
-                            "type": "ul",
-                            "body": [
-                              {
-                                "type": "li",
-                                "body": [
-                                  "serviceTakUsageCard.content.p1",
-                                  {
-                                    "type": "em",
-                                    "body": "serviceTakUsageCard.content.p2"
-                                  }
-                                ]
-                              },
-                              {
-                                "type": "li",
-                                "body": "serviceTakUsageCard.content.p3"
-                              },
-                              {
-                                "type": "li",
-                                "body": [
-                                  "serviceTakUsageCard.content.p4",
-                                  {
-                                    "type": "strong",
-                                    "body": "serviceTakUsageCard.content.p5"
-                                  },
-                                  "serviceTakUsageCard.content.p6"
-                                ]
-                              }
-                            ]
-                          }
+                          "serviceTakUsageCard.content"
                         ]
                       },
                       {
@@ -673,21 +624,11 @@
         "serviceTak.foldableCardTitle": "TAK",
         "serviceTak.serviceInfoCardTitle": "TAK Situational Awareness Application",
         "serviceTak.unfoldableCardTitle": "How to get started",
-        "serviceTak.quickstartGuideTitle": "Quickstart Guide",
-        "serviceTak.step1Description": " tells you how to start using TAK on your device.",
-        "serviceTak.step2DescriptionPrefix": "The ",
-        "serviceTak.usageGuideTitle": "Usage Guide",
-        "serviceTak.step2Description": " tells you how to use the application, according to our standard model.",
-        "serviceTak.step3DescriptionSuffix": "Download the ",
-        "serviceTak.clientPackageTitle": "Client Package",
-        "serviceTak.step3Description": " and install it to your TAK device according to the Quickstart Guide, to get using the app.",
+        "serviceTak.step1Description": "<strong>Quickstart Guide</strong> tells you how to start using TAK on your device.",
+        "serviceTak.step2Description": "The <strong>Usage Guide</strong> tells you how to use the application, according to our standard model.",
+        "serviceTak.step3Description": "Download the <strong>Client Package</strong> and install it to your TAK device according to the Quickstart Guide, to get using the app.",
         "serviceTakUsageCard.title": "Purpose",
-        "serviceTakUsageCard.content.p1": "Real-time tracking of friendlies ",
-        "serviceTakUsageCard.content.p2": "(GPS).",
-        "serviceTakUsageCard.content.p3": "Send observations to the command post (HQ) for interpretation.",
-        "serviceTakUsageCard.content.p4": "Follow the ",
-        "serviceTakUsageCard.content.p5": "Recon Feed",
-        "serviceTakUsageCard.content.p6": " that your command post (HQ) creates for your unit.",
+        "serviceTakUsageCard.content": "<ul><li>Real-time tracking of friendlies <em>(GPS).</em></li><li>Send observations to the command post (HQ) for interpretation.</li><li>Follow the <strong>Recon Feed</strong> that your command post (HQ) creates for your unit.</li></ul>",
         "serviceTak.guideButton.quickStart": "Quickstart",
         "serviceTak.guideButton.usage": "Usage Guide",
         "serviceTak.grabZipButton": "Download your Client Package"
