@@ -32,7 +32,7 @@ export function FoldableCard({ title, imageSrc, children }: FoldableCardProps) {
 
   return (
     <div
-      className="relative flex flex-col w-full p-0 rounded-md cursor-pointer m-2 bg-backgroundLight"
+      className="foldable-card relative flex flex-col w-full p-0 rounded-md cursor-pointer m-2 bg-backgroundLight"
       onClick={handleClick}
     >
       {!isOpen && imageSrc && (
