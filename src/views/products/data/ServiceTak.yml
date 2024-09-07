@@ -28,44 +28,19 @@
             - description:
                 type: div
                 body:
-                - type: strong
-                  body:
-                  - "serviceTak.quickstartGuideTitle"
                 - "serviceTak.step1Description"
             - description:
                 type: div
                 body:
-                - "serviceTak.step2DescriptionPrefix"
-                - type: strong
-                  body:
-                  - "serviceTak.usageGuideTitle"
                 - "serviceTak.step2Description"
             - description:
                 type: div
                 body:
-                - "serviceTak.step3DescriptionSuffix"
-                - type: strong
-                  body:
-                  - "serviceTak.clientPackageTitle"
                 - "serviceTak.step3Description"
           - type: ServiceProductUsageCard
             title: "serviceTakUsageCard.title"
             body:
-            - type: ul
-              body:
-              - type: li
-                body:
-                - "serviceTakUsageCard.content.p1"
-                - type: em
-                  body: "serviceTakUsageCard.content.p2"
-              - type: li
-                body: "serviceTakUsageCard.content.p3"
-              - type: li
-                body:
-                - "serviceTakUsageCard.content.p4"
-                - type: strong
-                  body: "serviceTakUsageCard.content.p5"
-                - "serviceTakUsageCard.content.p6"
+            - "serviceTakUsageCard.content"
           - type: div
             classes:
             - "flex"
