@@ -26,7 +26,7 @@ export function UnfoldableCard({
 
   return (
     <div
-      className={`flex flex-col w-full p-4 rounded-md cursor-pointer bg-background ${styling}`}
+      className={`unfoldable-card-2 flex flex-col w-full p-4 rounded-md cursor-pointer bg-background ${styling}`}
       onClick={handleClick}
     >
       <div className="flex justify-between items-center">
