@@ -1,9 +1,11 @@
 import { useState, useCallback, useMemo } from "react";
 import { useTranslation, Trans } from "react-i18next";
-import DropdownOsSelector from "./DropdownOsSelector";
-import { useFetchZipFile } from "../../hook/api/tak/useFetchZipFile";
+import { DropdownOsSelector } from "./DropdownOsSelector";
+import {
+  useFetchZipFile,
+} from "../../hook/api/tak/useFetchZipFile";
 import { getOperatingSystem } from "../../hook/helpers/getOperatingSystem";
-import { useAlertDialog } from "../../components/AlertDialogService";
+import { useAlertDialog } from "../AlertDialogService";
 
 interface DownloadTakZipModalReturn {
   openDownloadModal: () => void;
@@ -12,8 +14,8 @@ interface DownloadTakZipModalReturn {
 
 export function useDownloadTakZipModal(): DownloadTakZipModalReturn {
   const { t } = useTranslation();
-  const initialOS = getOperatingSystem() === "iOS" ? "iOS" : "Other";
-  const [selectedOS, setSelectedOS] = useState(initialOS);
+  const initialOS : "iOS" | "Other" = getOperatingSystem() === "iOS" ? "iOS" : "Other";
+  const [selectedOS, setSelectedOS] = useState<"iOS" | "Other">(initialOS);
   const { openDialog } = useAlertDialog();
   const [loading, setLoading] = useState(false);
   const { mutate: fetchFile, isLoading } = useFetchZipFile(selectedOS);
@@ -28,7 +30,7 @@ export function useDownloadTakZipModal(): DownloadTakZipModalReturn {
   );
 
   const handleOSChange = useCallback((newOS: string) => {
-    setSelectedOS(newOS);
+    setSelectedOS(newOS === "iOS" ? "iOS" : "Other");
   }, []);
 
   const handleDownload = useCallback(() => {

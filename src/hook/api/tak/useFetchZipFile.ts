@@ -13,7 +13,7 @@ interface FilesResponse {
 }
 
 async function fetchZipFile(
-  os: string,
+  os: "iOS" | "Other",
 ): Promise<{ blob: Blob; filename: string }> {
   const res = await fetch("/api/v1/instructions/user", {
     method: "GET",
@@ -62,7 +62,7 @@ type UseFetchZipFileOptions = UseMutationOptions<
 >;
 
 export function useFetchZipFile(
-  selectedOS: string,
+  selectedOS: "iOS" | "Other",
   options?: UseFetchZipFileOptions,
 ) {
   const fetchZipFileWrapped = async () => {
