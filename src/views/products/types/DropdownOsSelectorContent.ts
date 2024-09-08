@@ -22,6 +22,6 @@ export interface DropdownOsSelectorContent extends BaseContent {
 export function isDropdownOsSelectorContent (value: unknown) : value is DropdownOsSelectorContent {
     return (
         isBaseContent(value)
-        && value.type === ContentType.DROPDOWN_OS_SELECTOR
+        && value?.type === ContentType.DROPDOWN_OS_SELECTOR
     );
 }
