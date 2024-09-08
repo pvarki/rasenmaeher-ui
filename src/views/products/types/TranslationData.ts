@@ -1,3 +1,5 @@
+import { isRegularObject } from "../helpers/isRegularObject";
+import { isString } from "../helpers/isString";
 
 /**
  * Collection of translations in key-value pairs for a single language.
@@ -13,10 +15,9 @@ export interface TranslationData {
  */
 export function isTranslationData ( value: unknown) : value is TranslationData {
     return (
-        !!value
-        && (typeof value === 'object')
-        && Object.keys(value).findIndex((key: string): boolean => {
-            return typeof (value as unknown as {[key: string]: unknown})[key] !== 'string';
-        }) < 0
+        isRegularObject(value)
+        && Object.keys(value).findIndex(
+            (key: string): boolean => !isString( value[key] )
+        ) < 0
     );
 }

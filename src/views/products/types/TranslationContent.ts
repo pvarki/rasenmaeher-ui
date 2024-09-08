@@ -1,3 +1,4 @@
+import { isRegularObject } from "../helpers/isRegularObject";
 import {
     ContentType,
 } from "./ContentType";
@@ -18,9 +19,8 @@ export interface TranslationContent {
  */
 export function isTranslationContent ( value: unknown) : value is TranslationContent {
     return (
-        !!value
-        && (typeof value === 'object')
-        && (value as unknown as {[key: string]: unknown})?.type === ContentType.I18N
-        && isTranslationCollection((value as unknown as {[key: string]: unknown})?.data)
+        isRegularObject(value)
+        && value?.type === ContentType.I18N
+        && isTranslationCollection(value?.data)
     );
 }

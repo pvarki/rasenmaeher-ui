@@ -1,10 +1,15 @@
-import { ContentType } from "./ContentType";
+import { isArrayOrUndefined } from "../helpers/isArray";
+import { isRegularObject } from "../helpers/isRegularObject";
+import {
+    ContentType,
+    isContentTypeOrString,
+} from "./ContentType";
 
 /**
  * Base content type (e.g. when it's an object, not a string)
  */
 export interface BaseContent {
-    readonly type     : ContentType;
+    readonly type     : ContentType | string;
     readonly classes ?: readonly string[];
 }
 
@@ -15,8 +20,8 @@ export interface BaseContent {
  */
 export function isBaseContent ( value: unknown) : value is BaseContent {
     return (
-        !!value
-        && (typeof value === 'object')
-        && typeof ((value as unknown as {[key: string]: string})?.type) === "string"
+        isRegularObject(value)
+        && isContentTypeOrString(value?.type)
+        && isArrayOrUndefined(value?.classes)
     );
 }

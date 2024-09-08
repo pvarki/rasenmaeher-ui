@@ -32,6 +32,6 @@ export interface ButtonContent extends BaseParentContent {
 export function isButtonContent (value: unknown) : value is ButtonContent {
     return (
         isBaseParentContent(value)
-        && value.type === ContentType.BUTTON
+        && value?.type === ContentType.BUTTON
     );
 }

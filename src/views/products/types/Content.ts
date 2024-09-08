@@ -1,7 +1,10 @@
+import { isArray } from "../helpers/isArray";
+import { isString } from "../helpers/isString";
 import {
     BaseContent,
     isBaseContent,
 } from "./BaseContent";
+import { ComponentContent } from "./ComponentContent";
 import {
     TakDownloadModalContent,
 } from "./TakDownloadModalContent";
@@ -16,17 +19,14 @@ import {
 /**
  * Any accepted dynamic content DTO type
  */
-export type Content = ViewContent | TakDownloadModalContent | RootContent | BaseContent | TranslationContent | string;
+export type Content = ViewContent | ComponentContent | TakDownloadModalContent | RootContent | BaseContent | TranslationContent | string;
 
 export function isContentOrArray (value: unknown) : value is Content | readonly Content[] {
-
-    if (typeof value === "string") {
+    if (isString(value)) {
         return true;
     }
-
-    if (typeof value === "object" && Array.isArray(value)) {
-        return value.every( (item) => isContentOrArray(item) );
+    if (isArray(value)) {
+        return value.every( isContentOrArray );
     }
-
     return isBaseContent(value);
 }

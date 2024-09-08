@@ -1,10 +1,12 @@
+import { isRegularObject } from "../helpers/isRegularObject";
+import { isString } from "../helpers/isString";
 import {
     BaseContent,
     isBaseContent,
 } from "./BaseContent";
 import {
     ContentType,
-    isContentType,
+    isContentTypeOrString,
 } from "./ContentType";
 
 /**
@@ -12,8 +14,9 @@ import {
  * These are usually views or modals.
  */
 export interface RootContent extends BaseContent {
-    readonly type : ContentType;
-    readonly name : string;
+    readonly type     : ContentType | string;
+    readonly classes ?: readonly string[];
+    readonly name     : string;
 }
 
 /**
@@ -24,7 +27,8 @@ export interface RootContent extends BaseContent {
 export function isRootContent ( value: unknown) : value is RootContent {
     return (
         isBaseContent(value)
-        && isContentType((value as unknown as {[key: string]: string})?.type)
-        && typeof ((value as unknown as {[key: string]: string})?.name) === "string"
+        && isRegularObject(value)
+        && isContentTypeOrString(value?.type)
+        && isString(value?.name)
     );
 }
