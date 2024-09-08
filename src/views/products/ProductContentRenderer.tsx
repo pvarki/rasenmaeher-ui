@@ -6,26 +6,27 @@ import { FoldableCard } from "../../components/FoldableCard";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
 import { StepProps } from "../../components/Step";
 import { DropdownOsSelector } from "../../components/tak/DropdownOsSelector";
-import { UnfoldableCard } from "../../components/UnfoldableCard2";
+import { UnfoldableCard as UnfoldableCard2 } from "../../components/UnfoldableCard2";
 import { parseOperatingSystem } from "../../hook/helpers/getOperatingSystem";
+import { isArray } from "./helpers/isArray";
+import { isString } from "./helpers/isString";
 import { RendererContext } from "./RendererContextImpl";
 import { CONTENT_SERVICE } from "./ContentService";
 import { isBaseContent } from "./types/BaseContent";
 import { isBaseParentContent } from "./types/BaseParentContent";
 import { isButtonContent } from "./types/ButtonContent";
 import { isCardsContainerContent } from "./types/CardsContainerContent";
+import { isComponentContent } from "./types/ComponentContent";
 import { Content } from "./types/Content";
 import { ContentType } from "./types/ContentType";
 import { isDropdownOsSelectorContent } from "./types/DropdownOsSelectorContent";
 import { isFoldableCardContent } from "./types/FoldableCardContent";
 import { RootContent } from "./types/RootContent";
 import { isServiceInfoCardContent } from "./types/ServiceInfoCardContent";
-import { isServiceProductUsageCardContent } from "./types/ServiceProductUsageCardContent";
 import { StepContent } from "./types/StepContent";
 import { isTakDownloadModalContent } from "./types/TakDownloadModalContent";
 import { isUnfoldableCardContent } from "./types/UnfoldableCardContent";
 import { isViewContent } from "./types/ViewContent";
-import { ServiceTakUsageCard } from "../servicetak/usage/helpers/ServiceTakUsageCard";
 
 /**
  * Renders dynamic product specific content from product integration API.
@@ -79,7 +80,7 @@ export class ProductContentRenderer {
      * @param context
      */
     public static render (
-        content  : Content | readonly Content[] | null | undefined,
+        content : Content | readonly Content[] | null | undefined,
         context : RendererContext,
     ) : ReactNode {
 
@@ -87,7 +88,7 @@ export class ProductContentRenderer {
             return <>{content}</>;
         }
 
-        if (typeof content === "string") {
+        if (isString(content)) {
             return <Trans
                 i18nKey={content}
                 components={{
@@ -100,9 +101,9 @@ export class ProductContentRenderer {
             />;
         }
 
-        if (typeof content === "object" && Array.isArray(content)) {
+        if (isArray(content)) {
             return <>{
-                content.map((item: Content, index: number): ReactNode => {
+                (content as readonly Content[]).map((item: Content, index: number): ReactNode => {
                     return <Fragment key={`index:${index}`}>{ this.render(item, context) }</Fragment>
                 })
             }</>;
@@ -113,6 +114,10 @@ export class ProductContentRenderer {
         }
 
         if (isViewContent(content)) {
+            return this.render(content.body, context);
+        }
+
+        if (isComponentContent(content)) {
             return this.render(content.body, context);
         }
 
@@ -136,21 +141,13 @@ export class ProductContentRenderer {
         }
 
         if (isUnfoldableCardContent(content)) {
-            return <UnfoldableCard
+            return <UnfoldableCard2
                 title={this.render(content.title, context)}
                 steps={content.steps ? this.prepareSteps(content.steps ?? [], context) : undefined}
                 content={content.content ? this.render(content.content, context) : undefined}
                 styling={content?.classes ? this.prepareClassName(content?.classes ?? []) : undefined}
                 initialOpen={content?.initialOpen}
-            >{this.render(content?.body, context)}</UnfoldableCard>
-        }
-
-        if (isServiceProductUsageCardContent(content)) {
-            return <ServiceTakUsageCard />
-            // return <ServiceProductUsageCard
-            //     title={content.title}
-            //     content={this.render(content.content, context)}
-            // >{this.render(content?.body, context)}</ServiceTakUsageCard>
+            >{this.render(content?.body, context)}</UnfoldableCard2>
         }
 
         if (isButtonContent(content)) {
@@ -294,6 +291,13 @@ export class ProductContentRenderer {
 
         }
 
+        // Implements user defined components
+        const component = context.contentService.getComponent(content.type);
+        if (component) {
+            return this.render(component, context);
+        }
+
+        console.warn(`Warning! Unimplemented content type: ${content?.type}`);
         return <></>;
     }
 
