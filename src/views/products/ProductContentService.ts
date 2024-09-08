@@ -3,6 +3,10 @@ import {
     OperatingSystem,
 } from "../../hook/helpers/getOperatingSystem";
 import {
+    ComponentContent,
+    isComponentContent,
+} from "./types/ComponentContent";
+import {
     RootContent,
     isRootContent,
 } from "./types/RootContent";
@@ -48,6 +52,13 @@ export interface ProductContentService {
      * @param name
      */
     getView(name: string) : ViewContent | undefined;
+
+    /**
+     * Fetch a component by name.
+     *
+     * @param name
+     */
+    getComponent(name: string) : ComponentContent | undefined;
 
     /**
      * Fetch any top-level item by name and optional type.
@@ -146,12 +157,24 @@ export class ProductContentServiceImpl implements ProductContentService {
      * @inheritDoc
      */
     public getView (name: string) : ViewContent | undefined {
-        return this._items.find((item : Content) => {
-            return (
-                isViewContent(item)
+        return this._items.find((item : Content) =>
+            (
+                isViewContent( item )
                 && item.name === name
-            );
-        }) as ViewContent | undefined;
+            )
+        ) as ViewContent | undefined;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public getComponent (name: string) : ComponentContent | undefined {
+        return this._items.find(
+            (item : Content) => (
+                isComponentContent( item )
+                && item?.name === name
+            )
+        ) as ComponentContent | undefined;
     }
 
     /**
@@ -159,20 +182,20 @@ export class ProductContentServiceImpl implements ProductContentService {
      */
     public getItem(name: string, type ?: ContentType) : RootContent | undefined {
         if (type) {
-            return this._items.find((item : Content) => {
-                return (
-                    isRootContent(item)
+            return this._items.find((item : Content) =>
+                (
+                    isRootContent( item )
                     && item.name === name
                     && item.type === type
-                );
-            }) as RootContent | undefined;
+                )
+            ) as RootContent | undefined;
         }
-        return this._items.find((item : Content) => {
-            return (
-                isRootContent(item)
+        return this._items.find((item : Content) =>
+            (
+                isRootContent( item )
                 && item.name === name
-            );
-        }) as RootContent | undefined;
+            )
+        ) as RootContent | undefined;
     }
 
     /**
