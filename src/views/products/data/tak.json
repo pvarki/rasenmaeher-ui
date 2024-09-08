@@ -202,11 +202,7 @@
                         ]
                       },
                       {
-                        "type": "ServiceProductUsageCard",
-                        "title": "serviceTakUsageCard.title",
-                        "body": [
-                          "serviceTakUsageCard.content"
-                        ]
+                        "type": "ServiceTakUsageCard"
                       },
                       {
                         "type": "div",
@@ -610,6 +606,30 @@
     "name": "TakUsageAndroid1",
     "path": "usage/android1",
     "body": []
+  },
+  {
+    "type": "Component",
+    "name": "ServiceTakUsageCard",
+    "body": [
+      {
+        "type": "div",
+        "classes": [
+          "w-full",
+          "m-1",
+          "p-0"
+        ],
+        "body": [
+          {
+            "type": "UnfoldableCard",
+            "title": "serviceTakUsageCard.title",
+            "initialOpen": false,
+            "content": [
+              "serviceTakUsageCard.content"
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "i18n",
