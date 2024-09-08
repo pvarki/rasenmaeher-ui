@@ -25,6 +25,6 @@ export interface StepContent extends BaseParentContent {
 export function isStepContent ( value: unknown) : value is StepContent {
     return (
         isBaseParentContent(value)
-        && value.type === ContentType.STEP
+        && value?.type === ContentType.STEP
     );
 }

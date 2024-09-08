@@ -1,3 +1,4 @@
+import { isRegularObject } from "../helpers/isRegularObject";
 import {
     isTranslationData,
     TranslationData,
@@ -17,8 +18,7 @@ export interface TranslationCollection {
  */
 export function isTranslationCollection ( value: unknown) : value is TranslationCollection {
     return (
-        !!value
-        && (typeof value === 'object')
+        isRegularObject(value)
         && Object.keys(value).findIndex((key: string): boolean => {
             return !isTranslationData( (value as unknown as {[key: string]: unknown})[key] );
         }) < 0

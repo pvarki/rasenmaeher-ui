@@ -32,6 +32,6 @@ export interface TakDownloadModalContent extends RootContent {
 export function isTakDownloadModalContent ( value: unknown) : value is TakDownloadModalContent {
     return (
         isRootContent(value)
-        && value.type === ContentType.TAK_DOWNLOAD_MODAL
+        && value?.type === ContentType.TAK_DOWNLOAD_MODAL
     );
 }

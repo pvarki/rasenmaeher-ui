@@ -1,3 +1,8 @@
+import { isRegularObject } from "../helpers/isRegularObject";
+import {
+    isString,
+    isStringOrUndefined,
+} from "../helpers/isString";
 import {
     BaseParentContent,
     isBaseParentContent,
@@ -23,8 +28,9 @@ export interface FoldableCardContent extends BaseParentContent {
 export function isFoldableCardContent (value: unknown) : value is FoldableCardContent {
     return (
         isBaseParentContent(value)
-        && value.type === ContentType.FOLDABLE_CARD
-        && typeof (value as unknown as {[key: string]: string})?.title === "string"
-        && (typeof (value as unknown as {[key: string]: string})?.image === "string" || (value as unknown as {[key: string]: string}).image === undefined)
+        && isRegularObject(value)
+        && value?.type === ContentType.FOLDABLE_CARD
+        && isString(value?.title)
+        && isStringOrUndefined(value?.image)
     );
 }

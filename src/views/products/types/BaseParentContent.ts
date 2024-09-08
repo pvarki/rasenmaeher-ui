@@ -1,3 +1,5 @@
+import { isRegularObject } from "../helpers/isRegularObject";
+import { isString } from "../helpers/isString";
 import {
     BaseContent,
     isBaseContent,
@@ -22,6 +24,7 @@ export interface BaseParentContent extends BaseContent {
 export function isBaseParentContent ( value: unknown) : value is BaseParentContent {
     return (
         isBaseContent(value)
-        && typeof ((value as unknown as {[key: string]: string})?.type) === "string"
+        && isRegularObject(value)
+        && isString(value?.type)
     );
 }

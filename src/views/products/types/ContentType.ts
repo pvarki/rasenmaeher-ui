@@ -1,3 +1,4 @@
+import { isString } from "../helpers/isString";
 
 /**
  * Content DTO types currently supported
@@ -7,11 +8,16 @@ export enum ContentType {
     I18N = "i18n",
 
     VIEW = "View",
+    COMPONENT = "Component",
     STEP = "Step",
     CARDS_CONTAINER = "CardsContainer",
     FOLDABLE_CARD = "FoldableCard",
     SERVICE_INFO_CARD = "ServiceInfoCard",
     UNFOLDABLE_CARD = "UnfoldableCard",
+
+    /**
+     * @deprecated Use custom Rune components. See ContentType.COMPONENT.
+     */
     SERVICE_PRODUCT_USAGE_CARD = "ServiceProductUsageCard",
 
     TAK_DOWNLOAD_MODAL = "TakDownloadModal",
@@ -48,7 +54,7 @@ export enum ContentType {
  */
 export function isContentType (value: unknown) : value is ContentType {
     if (!value) return false;
-    if (typeof value !== 'string') return false;
+    if (!isString(value)) return false;
     switch(value) {
         case ContentType.I18N: return true;
         case ContentType.VIEW: return true;
@@ -81,4 +87,12 @@ export function isContentType (value: unknown) : value is ContentType {
         case ContentType.IMG: return true;
     }
     return false;
+}
+
+export function isContentTypeOrUndefined (value: unknown): value is ContentType | undefined {
+    return value === undefined || isContentType(value);
+}
+
+export function isContentTypeOrString (value: unknown): value is ContentType | string {
+    return isString(value);
 }
