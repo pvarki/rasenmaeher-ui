@@ -37,10 +37,7 @@
                 type: div
                 body:
                 - "serviceTak.step3Description"
-          - type: ServiceProductUsageCard
-            title: "serviceTakUsageCard.title"
-            body:
-            - "serviceTakUsageCard.content"
+          - type: ServiceTakUsageCard
           - type: div
             classes:
             - "flex"
