@@ -23,6 +23,6 @@ export interface ViewContent extends RootContent {
 export function isViewContent (value: unknown) : value is ViewContent {
     return (
         isRootContent(value)
-        && value.type === ContentType.VIEW
+        && value?.type === ContentType.VIEW
     );
 }

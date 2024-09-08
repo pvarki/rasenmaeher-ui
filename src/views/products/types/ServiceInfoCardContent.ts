@@ -1,3 +1,5 @@
+import { isRegularObject } from "../helpers/isRegularObject";
+import { isStringOrUndefined } from "../helpers/isString";
 import {
     BaseParentContent,
     isBaseParentContent,
@@ -24,6 +26,8 @@ export interface ServiceInfoCardContent extends BaseParentContent {
 export function isServiceInfoCardContent (value: unknown) : value is ServiceInfoCardContent {
     return (
         isBaseParentContent(value)
+        && isRegularObject(value)
         && value.type === ContentType.SERVICE_INFO_CARD
+        && isStringOrUndefined(value?.image)
     );
 }
