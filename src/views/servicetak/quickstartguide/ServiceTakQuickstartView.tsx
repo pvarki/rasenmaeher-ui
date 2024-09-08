@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import android from "../../../assets/icons/android.svg";
 import sanla from "../../../assets/heroimages/rakennettu3.jpeg";
 import apple from "../../../assets/icons/apple.svg";
@@ -10,7 +10,6 @@ import { ServiceInfoCard } from "../../../components/ServiceInfoCard";
 import { Trans, useTranslation } from "react-i18next";
 
 export function ServiceTakQuickstartView() {
-  const cardContentRef = useRef<HTMLDivElement | null>(null);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export function ServiceTakQuickstartView() {
         navbarTitle={t("serviceTakQuickstartView.navbarTitle")}
         backUrl="/"
       >
-        <div ref={cardContentRef}>
+        <div>
           <CardsContainer>
             <ServiceInfoCard
               title={t("serviceTakQuickstartView.serviceInfoCardTitle")}
