@@ -31,7 +31,11 @@ void i18n
       ],
       backendOptions: [
         {
-          expirationTime: 7 * 24 * 60 * 60 * 1000, // 7 days
+          expirationTime: import.meta.env.PROD ? (
+              7 * 24 * 60 * 60 * 1000 // 7 days in production
+          ) : (
+              1000                    // one second when not a production
+          ),
         },
       ],
     },
