@@ -274,8 +274,9 @@
   "takZipDownload.downloadErrorDescription": "Viestiperustepaketin lataaminen epäonnistui. Yritä myöhemmin uudelleen.",
   "takZipDownload.errorFromApplication": "Virheilmoitus sovellukselta:",
   "takZipDownload.genericErrorMessage": "Tunnistamaton virhe.",
-  "takZipDownload.androidOrWin": "Android ATAK tai Windows WinTAK",
+  "takZipDownload.osOptions.androidOrWin": "Android ATAK tai Windows WinTAK",
   "takZipDownload.osOptions.ios": "iOS ITAK",
+  "takZipDownload.osOptions.tracker": "TAK Tracker",
   "takZipDownload.iAmDownloading": "Hankin perustepakettiasi...",
 
   "SERVICETAKUSAGECARD": "SERVICETAKUSAGECARD",

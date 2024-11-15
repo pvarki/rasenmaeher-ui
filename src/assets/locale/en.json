@@ -274,8 +274,9 @@
   "takZipDownload.downloadErrorDescription": "Downloading your Client Package failed. Please try again later.",
   "takZipDownload.errorFromApplication": "Error message from the application:",
   "takZipDownload.genericErrorMessage": "Unidentified error.",
-  "takZipDownload.androidOrWin": "Android ATAK or Windows WinTAK",
+  "takZipDownload.osOptions.androidOrWin": "Android ATAK or Windows WinTAK",
   "takZipDownload.osOptions.ios": "iOS ITAK",
+  "takZipDownload.osOptions.tracker": "TAK Tracker package",
   "takZipDownload.iAmDownloading": "Fetching your package...",
 
   "SERVICETAKUSAGECARD": "SERVICETAKUSAGECARD",
