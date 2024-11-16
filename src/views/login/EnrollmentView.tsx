@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import QRCode from "react-qr-code";
 import { useOwnEnrollmentStatus } from "../../hook/api/useOwnEnrollmentStatus";
 import { useNavigate } from "react-router-dom";
@@ -29,25 +29,15 @@ export function EnrollmentView() {
     }
   }, [approveCode, callsign, navigate]);
 
-  const [isEnrolled, setIsEnrolled] = useState(false);
-
-  // Check enrollment status periodically
+  // Check enrollment status periodically and navigate on success
   useOwnEnrollmentStatus({
     onSuccess: (enrolled) => {
       if (enrolled) {
-        setIsEnrolled(true);
+        navigate("/login/createmtls");
       }
     },
     refetchInterval: 1000,
-    enabled: !isEnrolled,
   });
-
-  // Redirect to createmtls when enrollment is approved
-  useEffect(() => {
-    if (isEnrolled) {
-      navigate("/login/createmtls");
-    }
-  }, [isEnrolled, navigate]);
 
   // Render the waiting for approval view
   return (

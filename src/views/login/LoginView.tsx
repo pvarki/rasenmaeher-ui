@@ -66,7 +66,7 @@ export function LoginView() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const upperCaseValue = e.target.value.toUpperCase();
-    // Set shouldValidate to false to avoid returning a Promise
+    // Using void to intentionally ignore the Promise returned by setFieldValue, to suppress eslint
     void setFieldValue("code", upperCaseValue, false);
   };
 
