@@ -67,7 +67,7 @@ export function LoginView() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const upperCaseValue = e.target.value.toUpperCase();
     // Set shouldValidate to false to avoid returning a Promise
-    setFieldValue("code", upperCaseValue, false);
+    void setFieldValue("code", upperCaseValue, false);
   };
 
   const handleInputFocus = () => {
@@ -104,7 +104,7 @@ export function LoginView() {
   useEffect(() => {
     if (values.code && isValid && !isLoading && !hasAutoSubmitted) {
       setHasAutoSubmitted(true);
-      submitForm();
+      void submitForm();
     }
   }, [values.code, isValid, isLoading, hasAutoSubmitted, submitForm]);
 
