@@ -27,7 +27,20 @@ async function fetchZipFile(
   }
 
   const data = (await res.json()) as FilesResponse;
-  const fileIndex = os === "iOS" ? 1 : 0; // iTAK package is at index 1
+
+  // Map OS to file indices: Other, iOS and tracker
+  const osToFileIndex: { [key: string]: number } = {
+    Other: 0, // ATAK package
+    iOS: 1, // iTAK package
+    tracker: 2, // Tracker package
+  };
+
+  const fileIndex = osToFileIndex[os];
+
+  if (fileIndex === undefined) {
+    throw new Error(`Unsupported OS: ${os}`);
+  }
+
   const fileData = data.files.tak[fileIndex];
 
   const byteCharacters = atob(fileData.data.split("base64,")[1]);

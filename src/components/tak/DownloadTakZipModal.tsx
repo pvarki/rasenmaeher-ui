@@ -21,7 +21,8 @@ export function useDownloadTakZipModal(): DownloadTakZipModalReturn {
   const osOptions: { label: string; value: string }[] = useMemo(
     () => [
       { label: t("takZipDownload.osOptions.ios"), value: "iOS" },
-      { label: t("takZipDownload.androidOrWin"), value: "Other" },
+      { label: t("takZipDownload.osOptions.androidOrWin"), value: "Other" },
+      { label: t("takZipDownload.osOptions.tracker"), value: "tracker" },
     ],
     [t],
   );
@@ -114,7 +115,7 @@ export function useDownloadTakZipModal(): DownloadTakZipModalReturn {
       confirmColor: "success",
       cancelLabel: t("go-back"),
       onCancel: () => {
-        // just close the modal
+        // Just close the modal
       },
     });
   }, [getDescriptionText, handleDownload, isLoading, openDialog, t]);

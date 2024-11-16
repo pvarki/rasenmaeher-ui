@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect } from "react";
 import QRCode from "react-qr-code";
 import { useOwnEnrollmentStatus } from "../../hook/api/useOwnEnrollmentStatus";
 import { useNavigate } from "react-router-dom";
@@ -6,17 +6,13 @@ import { UnfoldableCard } from "../../components/UnfoldableCard2";
 import { Button } from "../../components/Button";
 import { Layout } from "../../components/Layout";
 import { useCopyToClipboard } from "../../hook/helpers/useCopyToClipboard";
-import useHealthcheck from "../../hook/helpers/useHealthcheck";
 import { CardsContainer } from "../../components/CardsContainer";
 import { Text } from "../../components/Text";
-import { useTranslation } from "react-i18next";
-import { Trans } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 
 export function EnrollmentView() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { fqdn } = useHealthcheck();
-  const subdomain = useMemo(() => fqdn.split(".")[0], [fqdn]);
   const { isCopied, copyError, handleCopy } = useCopyToClipboard();
   const callsign = localStorage.getItem("callsign") ?? undefined;
   const approveCode = localStorage.getItem("approveCode") ?? undefined;
@@ -26,42 +22,24 @@ export function EnrollmentView() {
     callsign ?? ""
   }&&approvalcode=${approveCode ?? ""}`;
 
+  // Redirect to login if approveCode or callsign is missing
   useEffect(() => {
     if (!approveCode || !callsign) {
       navigate("/login");
     }
   }, [approveCode, callsign, navigate]);
 
-  const [isEnrolled, setIsEnrolled] = useState(false);
+  // Check enrollment status periodically and navigate on success
   useOwnEnrollmentStatus({
-    onSuccess: (isEnrolled) => {
-      if (isEnrolled) {
-        setIsEnrolled(true);
+    onSuccess: (enrolled) => {
+      if (enrolled) {
+        navigate("/login/createmtls");
       }
     },
     refetchInterval: 1000,
-    enabled: !isEnrolled,
   });
 
-  if (isEnrolled) {
-    return (
-      <Layout showNavbar={true} showFooter={true}>
-        <main className="px-10 flex flex-col gap-3 items-center justify-start h-full">
-          <Text title={subdomain || "Loading..."} />
-          <span className="text-white">{t("enrollment-approved")}</span>
-          <Button
-            onClick={() => {
-              navigate("/login/createmtls");
-              window.location.reload();
-            }}
-          >
-            {t("continue-clicking-here")}
-          </Button>
-        </main>
-      </Layout>
-    );
-  }
-
+  // Render the waiting for approval view
   return (
     <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
@@ -92,14 +70,12 @@ export function EnrollmentView() {
           <div className="p-2 bg-white rounded-lg">
             <QRCode value={approvalUrl} bgColor="#FFFFFF" />
           </div>
-
           <Text
             title={callsign}
             description={t("approval-code")}
             description2={approveCode}
             styling2="font-consolas"
           />
-
           <UnfoldableCard
             title={<Trans i18nKey="approval-waiting-title" />}
             styling="bg-backgroundLight"
