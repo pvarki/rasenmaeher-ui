@@ -57,7 +57,7 @@
   "callsignsetup-callsign-allowed-chars": "Allowed characters: a-z, A-Z, 0-9",
   "callsignsetup-give-your-callsign": "Enter your callsign.",
   "callsignsetup-enter-callsign-title": "Your Callsign?",
-  "callsignsetup-enter-callsign-detail": "The callsign is your identifier in the services. Provide the callsign you have been assigned to.",
+  "callsignsetup-enter-callsign-detail": "Welcome! You are creating your identity to this service. The callsign will be your identifier. Provide the callsign you have been assigned to.",
   "callsignsetup-your-callsign": "Set your callsign",
 
   "ENROLLMENTVIEW": "ENROLLMENTVIEW",

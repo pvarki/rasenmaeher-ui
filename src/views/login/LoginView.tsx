@@ -1,5 +1,4 @@
-import { useMemo } from "react";
-import { useContext, useState } from "react";
+import { useMemo, useEffect, useContext, useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { UserTypeContext } from "../../hook/auth/userTypeFetcher";
 import { useCheckCode } from "../../hook/api/useCheckCode";
@@ -38,6 +37,7 @@ export function LoginView() {
   const loginCodeStore = useLoginCodeStore();
   const { deployment } = useHealthcheck();
   const [codeNotValid, setCodeNotValid] = useState(false);
+  const [hasAutoSubmitted, setHasAutoSubmitted] = useState(false);
   const protocol = window.location.protocol;
   const host = window.location.host;
   const mtlsUrl = `${protocol}//mtls.${host}/app/admin/`;
@@ -61,9 +61,13 @@ export function LoginView() {
     },
   });
 
+  // Destructure formik properties
+  const { values, isValid, submitForm, setFieldValue } = formik;
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const upperCaseValue = e.target.value.toUpperCase();
-    void formik.setFieldValue("code", upperCaseValue);
+    // Set shouldValidate to false to avoid returning a Promise
+    setFieldValue("code", upperCaseValue, false);
   };
 
   const handleInputFocus = () => {
@@ -77,7 +81,7 @@ export function LoginView() {
     error,
   } = useCheckCode({
     onSuccess: (data) => {
-      loginCodeStore.setCode(formik.values.code);
+      loginCodeStore.setCode(values.code);
       if (data.isAdminCodeValid) {
         loginCodeStore.setCodeType("admin");
         setOtpVerified(true);
@@ -96,6 +100,13 @@ export function LoginView() {
       formik.setErrors({ code: errorMessage });
     },
   });
+
+  useEffect(() => {
+    if (values.code && isValid && !isLoading && !hasAutoSubmitted) {
+      setHasAutoSubmitted(true);
+      submitForm();
+    }
+  }, [values.code, isValid, isLoading, hasAutoSubmitted, submitForm]);
 
   return (
     <Layout showNavbar={false} showFooter={false} showPublicFooter={true}>
@@ -138,7 +149,7 @@ export function LoginView() {
                       width: "full",
                     }}
                     type="submit"
-                    disabled={!formik.isValid || isLoading}
+                    disabled={!isValid || isLoading}
                     styling={buttonStyle}
                   >
                     <div className="flex items-center justify-center w-full h-full">
