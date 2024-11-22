@@ -29,5 +29,19 @@
   "takQuickstartAndroid1.unfoldableCard3.title": "3. Avaa sovellus ja anna sille sen kysymät oikeudet",
   "takQuickstartAndroid1.unfoldableCard3.description1": "Avaa sovellus. Anna kaikki oikeudet, mitä applikaatio pyytää.",
   "takQuickstartAndroid1.unfoldableCard3.description2": "<em>Jos applikaatio antaa virheilmoituksen, valitse Wait.</em>",
-  "takQuickstartAndroid1.serviceInfoCardTitle": "ATAK"
+  "takQuickstartAndroid1.serviceInfoCardTitle": "ATAK",
+  "TakQuickstartAndroid2.navbarTitle": "ATAK käyttöönotto",
+  "TakQuickstartAndroid2.statusBarTitle": "Aseta viestiperusteet (2/5)",
+  "TakQuickstartAndroid2.serviceInfoCard.details": "ATAK käyttöönotto - vaihe 2: <strong>aseta viestiperusteet</strong><br>Suositus: Aseta parin kanssa - toinen näyttää ohjeita, toinen tekee. Tässä vaiheessa ATAK-sovelluksen tulee olla auki.",
+  "TakQuickstartAndroid2.unfoldableCard1.title": "1. <strong>Avaa</strong> <em>Select Data Package</em> -valikko",
+  "TakQuickstartAndroid2.unfoldableCard1.description1": "Avatessa sovellus ensimmäistä kertaa, aukeaa TAK Device Setup. <br>Valitse <strong>Data Package</strong>.",
+  "TakQuickstartAndroid2.unfoldableCard1.description2": "<strong><em>Select Data Package</em></strong>-valikko aukeaa.",
+  "TakQuickstartAndroid2.unfoldableCard2.title": "2. <strong>Etsi</strong> ja <strong>valitse</strong> viestiperuste-zip",
+  "TakQuickstartAndroid2.unfoldableCard2.description2": "Etsi kansio, johon latasit viestiperustetiedostosi <strong>Nimi.zip</strong><br>Vinkki: Paina <strong>Date</strong> nähdäksesi viimeisimpänä ladatun tiedoston, todennäköisesti viestiperusteesi.",
+  "TakQuickstartAndroid2.unfoldableCard2.description3": "Valitse tiedosto.",
+  "TakQuickstartAndroid2.unfoldableCard3.title": "3. Paina <strong>Done</strong> - asetukset latautuu",
+  "TakQuickstartAndroid2.unfoldableCard3.description1": "Paina <strong>Done</strong>.",
+  "TakQuickstartAndroid2.unfoldableCard3.description2": "Saat muutaman ilmoituksen konfiguraatiotiedostojen latautumisesta.",
+  "TakQuickstartAndroid2.unfoldableCard3.description3": "Alkukonfiguraatio on valmis.",
+  "TakQuickstartAndroid2.unfoldableCard3.description4": "Tarkista oikeasta alakulmasta, että palvelinyhteytesi on aktivoitunut (vihreä merkkivalo)."
 }
