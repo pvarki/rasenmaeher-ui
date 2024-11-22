@@ -1,9 +1,19 @@
 import { ReactNode, Fragment } from "react";
 import { Trans } from "react-i18next";
+import { isBoolean } from "tailwind-variants/dist/utils";
 import { Button } from "../../components/Button";
-import { CardsContainer } from "../../components/CardsContainer";
+import { Card } from "../../components/Card";
 import { FoldableCard } from "../../components/FoldableCard";
+import { Layout } from "../../components/Layout";
+import {
+    NavigateButtons,
+    NavigateButtonsProps,
+} from "../../components/NavigateButtons";
 import { ServiceInfoCard } from "../../components/ServiceInfoCard";
+import {
+    StatusBar,
+    StatusBarProps,
+} from "../../components/StatusBar";
 import { StepProps } from "../../components/Step";
 import { DropdownOsSelector } from "../../components/tak/DropdownOsSelector";
 import { UnfoldableCard as UnfoldableCard2 } from "../../components/UnfoldableCard2";
@@ -13,16 +23,35 @@ import { isString } from "./helpers/isString";
 import { RendererContext } from "./RendererContextImpl";
 import { CONTENT_SERVICE } from "./ContentService";
 import { isBaseContent } from "./types/BaseContent";
-import { isBaseParentContent } from "./types/BaseParentContent";
+import {
+    isBaseParentContent,
+} from "./types/BaseParentContent";
 import { isButtonContent } from "./types/ButtonContent";
-import { isCardsContainerContent } from "./types/CardsContainerContent";
+import {
+    CardContent,
+    CardContentProps,
+    isCardContent,
+} from "./types/CardContent";
 import { isComponentContent } from "./types/ComponentContent";
 import { Content } from "./types/Content";
 import { ContentType } from "./types/ContentType";
 import { isDropdownOsSelectorContent } from "./types/DropdownOsSelectorContent";
 import { isFoldableCardContent } from "./types/FoldableCardContent";
+import {
+    isLayoutContent,
+    LayoutContent,
+    LayoutContentProps,
+} from "./types/LayoutContent";
+import {
+    isNavigateButtonsContent,
+    NavigateButtonsContent,
+} from "./types/NavigateButtonsContent";
 import { RootContent } from "./types/RootContent";
 import { isServiceInfoCardContent } from "./types/ServiceInfoCardContent";
+import {
+    isStatusBarContent,
+    StatusBarContent,
+} from "./types/StatusBarContent";
 import { StepContent } from "./types/StepContent";
 import { isTakDownloadModalContent } from "./types/TakDownloadModalContent";
 import { isUnfoldableCardContent } from "./types/UnfoldableCardContent";
@@ -89,6 +118,15 @@ export class ProductContentRenderer {
         }
 
         if (isString(content)) {
+
+            if (content.startsWith("Component.Param.") && context?.componentContent && context?.stateContent) {
+                const key = content.substring("Component.Param.".length)
+                const data : {[key: string]: Content | readonly Content[] | null | undefined} = context.stateContent as unknown as {[key: string]: Content | readonly Content[] | null | undefined};
+                if (Object.prototype.hasOwnProperty.call(data, key) && data[key]) {
+                    return this.render(data[key], context);
+                }
+            }
+
             return <Trans
                 i18nKey={content}
                 components={{
@@ -96,6 +134,13 @@ export class ProductContentRenderer {
                     em: <em />,
                     ul: <ul />,
                     li: <li />,
+                    h1: <h1 />,
+                    h2: <h2 />,
+                    h3: <h3 />,
+                    h4: <h4 />,
+                    h5: <h5 />,
+                    h6: <h6 />,
+                    span: <span />,
                 }}
                 ns={"productContent"}
             />;
@@ -103,9 +148,12 @@ export class ProductContentRenderer {
 
         if (isArray(content)) {
             return <>{
-                (content as readonly Content[]).map((item: Content, index: number): ReactNode => {
-                    return <Fragment key={`index:${index}`}>{ this.render(item, context) }</Fragment>
-                })
+                (content as readonly Content[]).map(
+                    (item: Content, index: number): ReactNode =>
+                        <Fragment key={ `index:${ index }` }>{
+                            this.render( item, context )
+                        }</Fragment>
+                )
             }</>;
         }
 
@@ -117,19 +165,47 @@ export class ProductContentRenderer {
             return this.render(content.body, context);
         }
 
+        if (isLayoutContent(content)) {
+            return <Layout { ...this._getLayoutProps(content, context) }>{
+                this.render(content?.body, context)
+            }</Layout>;
+        }
+
         if (isComponentContent(content)) {
             return this.render(content.body, context);
         }
 
-        if (isCardsContainerContent(content)) {
-            return <CardsContainer>{this.render(content?.body, context)}</CardsContainer>
+        if (isCardContent(content)) {
+            return <Card {...this._getCardProps(content, context)}>{
+                this.render(content?.body, context)
+            }</Card>;
+        }
+
+        if (isNavigateButtonsContent(content)) {
+            return <NavigateButtons {...this._getNavigateButtonsProps(content)} />;
+        }
+
+        if (isStatusBarContent(content)) {
+            return <StatusBar {...this._getStatusBarProps(content, context)} />;
+        }
+
+        if (content?.type === ContentType.COMPONENT_CHILDREN) {
+            if (context.stateContent === undefined) {
+                console.warn(`Warning! No parent found for: ${content?.type}`);
+                return <></>;
+            }
+            if (isBaseParentContent(context.stateContent)) {
+                return this.render(context.stateContent.body, context.createContextWithoutParent());
+            }
+            console.warn(`Warning! No body found for: ${content?.type}: `, context.stateContent);
+            return <></>;
         }
 
         if (isFoldableCardContent(content)) {
             return <FoldableCard
                 title={content.title}
                 imageSrc={content.image}
-            >{this.render(content?.body, context)}</FoldableCard>
+            >{this.render(content?.body, context)}</FoldableCard>;
         }
 
         if (isServiceInfoCardContent(content)) {
@@ -137,7 +213,7 @@ export class ProductContentRenderer {
                 title={this.render(content.title, context)}
                 image={content.image}
                 details={this.render(content?.details, context)}
-            >{this.render(content?.body, context)}</ServiceInfoCard>
+            >{this.render(content?.body, context)}</ServiceInfoCard>;
         }
 
         if (isUnfoldableCardContent(content)) {
@@ -147,10 +223,23 @@ export class ProductContentRenderer {
                 content={content.content ? this.render(content.content, context) : undefined}
                 styling={content?.classes ? this.prepareClassName(content?.classes ?? []) : undefined}
                 initialOpen={content?.initialOpen}
-            >{this.render(content?.body, context)}</UnfoldableCard2>
+            >{this.render(content?.body, context)}</UnfoldableCard2>;
         }
 
         if (isButtonContent(content)) {
+
+            const action = isString(content.onClick) ? content.onClick : undefined;
+            if (action) {
+                return <Button
+                    variant={content.variant}
+                    onClick={() => {
+                        if (Object.prototype.hasOwnProperty.call(context.contentActions, action)) {
+                            context.contentActions[action]()
+                        }
+                    }}
+                    styling={this.prepareClassName(content.classes)}
+                >{this.render(content?.body, context)}</Button>
+            }
 
             const where = content.onClick?.navigate;
             if (where) {
@@ -294,11 +383,66 @@ export class ProductContentRenderer {
         // Implements user defined components
         const component = context.contentService.getComponent(content.type);
         if (component) {
-            return this.render(component, context);
+            return <>{this.render(component, context.createComponentContext(component, content))}</>
         }
 
         console.warn(`Warning! Unimplemented content type: ${content?.type}`);
         return <></>;
     }
 
+    private static _getCardProps( value: CardContent, context : RendererContext ) : CardContentProps {
+        return {
+            ... { title : this.render(value?.title, context) },
+            ... (value?.details !== undefined ? { details : this.render(value?.details, context)} : {}),
+            ... (value?.image !== undefined ? { image : value?.image } : {}),
+            ... (value?.url !== undefined ? { url : value?.url } : {}),
+        };
+    }
+
+    private static _getNavigateButtonsProps( value: NavigateButtonsContent ) : NavigateButtonsProps {
+        return {
+            ... { backUrl : value.backUrl },
+            ... { forwardUrl : value.forwardUrl },
+            ... (value?.alterBack !== undefined ? { alterBack : value?.alterBack } : {}),
+            ... (value?.alterForward !== undefined ? { alterForward : value?.alterForward } : {}),
+        };
+    }
+
+    private static _getStatusBarProps( value: StatusBarContent, context : RendererContext ) : StatusBarProps {
+        return {
+            ... { title : this.render(value?.title, context)  },
+            ... { progressMax : parseInteger(value.progressMax) ?? 1 },
+            ... { progressNow : parseInteger(value.progressNow) ?? 1 },
+        };
+    }
+
+    private static _getLayoutProps( value: LayoutContent, context : RendererContext ) : LayoutContentProps {
+        return {
+            ... (value?.showNavbar !== undefined ? { showNavbar : parseBoolean(value?.showNavbar) } : {}),
+            ... (value?.showHeader !== undefined ? { showHeader : parseBoolean(value?.showHeader) } : {}),
+            ... (value?.showFooter !== undefined ? { showFooter : parseBoolean(value?.showFooter) } : {}),
+            ... (value?.showPublicFooter !== undefined ? { showPublicFooter : parseBoolean(value?.showPublicFooter) } : {}),
+            ... (value?.navbarTitle !== undefined ? { navbarTitle : this.render(value?.navbarTitle, context) } : {}),
+            ... (value?.backUrl !== undefined ? { backUrl : value?.backUrl } : {}),
+            ... (value?.heroImage !== undefined ? { heroImage : value?.heroImage } : {}),
+        };
+    }
+
+}
+
+function parseBoolean (value: unknown) : boolean {
+    if (isString(value)) {
+        return value.toLowerCase() == "true"
+    }
+    if (isBoolean(value)) {
+        return value == true
+    }
+    return false
+}
+
+function parseInteger (value: unknown) : number | undefined {
+    if (isString(value)) {
+        return parseInt(value, 10);
+    }
+    return undefined
 }
