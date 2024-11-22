@@ -4,28 +4,23 @@ import { isString } from "../helpers/isString";
  * Content DTO types currently supported
  */
 export enum ContentType {
-
     I18N = "i18n",
-
+    ASSET = "Asset",
+    LAYOUT = "Layout",
     VIEW = "View",
     COMPONENT = "Component",
     STEP = "Step",
+    CARD = "Card",
+    NAVIGATE_BUTTONS = "NavigateButtons",
+    STATUS_BAR = "StatusBar",
+    COMPONENT_CHILDREN = "Component.Children",
     CARDS_CONTAINER = "CardsContainer",
     FOLDABLE_CARD = "FoldableCard",
     SERVICE_INFO_CARD = "ServiceInfoCard",
     UNFOLDABLE_CARD = "UnfoldableCard",
-
-    /**
-     * @deprecated Use custom Rune components. See ContentType.COMPONENT.
-     */
-    SERVICE_PRODUCT_USAGE_CARD = "ServiceProductUsageCard",
-
     TAK_DOWNLOAD_MODAL = "TakDownloadModal",
-
     DROPDOWN_OS_SELECTOR = "DropdownOsSelector",
-
     BUTTON = "Button",
-
     DIV = "div",
     SPAN = "span",
     H1 = "h1",
@@ -57,13 +52,18 @@ export function isContentType (value: unknown) : value is ContentType {
     if (!isString(value)) return false;
     switch(value) {
         case ContentType.I18N: return true;
+        case ContentType.ASSET: return true;
+        case ContentType.LAYOUT: return true;
         case ContentType.VIEW: return true;
         case ContentType.STEP: return true;
+        case ContentType.CARD: return true;
+        case ContentType.NAVIGATE_BUTTONS: return true;
+        case ContentType.STATUS_BAR: return true;
+        case ContentType.COMPONENT_CHILDREN: return true;
         case ContentType.CARDS_CONTAINER: return true;
         case ContentType.FOLDABLE_CARD: return true;
         case ContentType.SERVICE_INFO_CARD: return true;
         case ContentType.UNFOLDABLE_CARD: return true;
-        case ContentType.SERVICE_PRODUCT_USAGE_CARD: return true;
         case ContentType.TAK_DOWNLOAD_MODAL: return true;
         case ContentType.DROPDOWN_OS_SELECTOR: return true;
         case ContentType.BUTTON: return true;
