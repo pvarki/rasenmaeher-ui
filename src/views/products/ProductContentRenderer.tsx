@@ -62,13 +62,30 @@ import { isViewContent } from "./types/ViewContent";
  */
 export class ProductContentRenderer {
 
+    private static ComponentParamPrefix = "Component.Param.";
+
     /**
      *
      * @param value
+     * @param context
      */
-    public static prepareClassName (value: readonly string[] | undefined) : string {
+    public static prepareClassName (
+        value: readonly string[] | undefined,
+        context : RendererContext,
+    ) : string {
         if (!value) return "";
-        return value.join(' ');
+        return value.map((item: string) : string => {
+            if (item.startsWith(this.ComponentParamPrefix) && context?.componentContent && context?.stateContent) {
+                const key = item.substring(this.ComponentParamPrefix.length)
+                const data : {[key: string]: Content | readonly Content[] | null | undefined} = context.stateContent as unknown as {[key: string]: Content | readonly Content[] | null | undefined};
+                if (Object.prototype.hasOwnProperty.call(data, key) && data[key]) {
+                    if (isString(data[key])) {
+                        return data[key] as unknown as string
+                    }
+                }
+            }
+            return item
+        }).join(' ');
     }
 
     /**
@@ -83,7 +100,7 @@ export class ProductContentRenderer {
         return {
             imageSrc     : value?.image,
             imageLink    : value?.imageLink,
-            imageClasses : this.prepareClassName(value?.classes),
+            imageClasses : this.prepareClassName(value?.classes, context),
             description  : this.render(value.description, context),
             note         : this.render(value.note, context)
         };
@@ -119,8 +136,8 @@ export class ProductContentRenderer {
 
         if (isString(content)) {
 
-            if (content.startsWith("Component.Param.") && context?.componentContent && context?.stateContent) {
-                const key = content.substring("Component.Param.".length)
+            if (content.startsWith(this.ComponentParamPrefix) && context?.componentContent && context?.stateContent) {
+                const key = content.substring(this.ComponentParamPrefix.length)
                 const data : {[key: string]: Content | readonly Content[] | null | undefined} = context.stateContent as unknown as {[key: string]: Content | readonly Content[] | null | undefined};
                 if (Object.prototype.hasOwnProperty.call(data, key) && data[key]) {
                     return this.render(data[key], context);
@@ -221,7 +238,7 @@ export class ProductContentRenderer {
                 title={this.render(content.title, context)}
                 steps={content.steps ? this.prepareSteps(content.steps ?? [], context) : undefined}
                 content={content.content ? this.render(content.content, context) : undefined}
-                styling={content?.classes ? this.prepareClassName(content?.classes ?? []) : undefined}
+                styling={content?.classes ? this.prepareClassName(content?.classes ?? [], context) : undefined}
                 initialOpen={content?.initialOpen}
             >{this.render(content?.body, context)}</UnfoldableCard2>;
         }
@@ -237,7 +254,7 @@ export class ProductContentRenderer {
                             context.contentActions[action]()
                         }
                     }}
-                    styling={this.prepareClassName(content.classes)}
+                    styling={this.prepareClassName(content.classes, context)}
                 >{this.render(content?.body, context)}</Button>
             }
 
@@ -246,7 +263,7 @@ export class ProductContentRenderer {
                 return <Button
                     variant={content.variant}
                     onClick={() => context.navigate(where)}
-                    styling={this.prepareClassName(content.classes)}
+                    styling={this.prepareClassName(content.classes, context)}
                 >{this.render(content?.body, context)}</Button>
             }
 
@@ -262,7 +279,7 @@ export class ProductContentRenderer {
                             console.log(`Opening modal: ${modal}: `, item);
                             context.openDownloadModal(item)
                         }}
-                        styling={this.prepareClassName(content.classes)}
+                        styling={this.prepareClassName(content.classes, context)}
                     >{this.render(content?.body, context)}</Button>
                 }
 
@@ -273,7 +290,7 @@ export class ProductContentRenderer {
                     onClick={() => {
                         console.warn(`Warning! The modal was unknown type: ${modal}: `, item);
                     }}
-                    styling={this.prepareClassName(content.classes)}
+                    styling={this.prepareClassName(content.classes, context)}
                 >{this.render(content?.body, context)}</Button>
             }
 
@@ -283,7 +300,7 @@ export class ProductContentRenderer {
                 onClick={() => {
                     console.warn(`Warning! Button did not have any action defined: `, content);
                 }}
-                styling={this.prepareClassName(content.classes)}
+                styling={this.prepareClassName(content.classes, context)}
             >{this.render(content?.body, context)}</Button>
 
         }
@@ -299,63 +316,63 @@ export class ProductContentRenderer {
         if (isBaseParentContent(content)) {
 
             if (content?.type === ContentType.DIV) {
-                return <div className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</div>
+                return <div className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</div>
             }
 
             if (content?.type === ContentType.SPAN) {
-                return <span className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</span>
+                return <span className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</span>
             }
 
             if (content?.type === ContentType.H1) {
-                return <h1 className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</h1>
+                return <h1 className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</h1>
             }
 
             if (content?.type === ContentType.H2) {
-                return <h2 className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</h2>
+                return <h2 className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</h2>
             }
 
             if (content?.type === ContentType.H3) {
-                return <h3 className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</h3>
+                return <h3 className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</h3>
             }
 
             if (content?.type === ContentType.H4) {
-                return <h4 className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</h4>
+                return <h4 className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</h4>
             }
 
             if (content?.type === ContentType.H5) {
-                return <h5 className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</h5>
+                return <h5 className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</h5>
             }
 
             if (content?.type === ContentType.H6) {
-                return <h6 className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</h6>
+                return <h6 className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</h6>
             }
 
             if (content?.type === ContentType.UL) {
-                return <ul className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</ul>
+                return <ul className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</ul>
             }
 
             if (content?.type === ContentType.LI) {
-                return <li className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</li>
+                return <li className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</li>
             }
 
             if (content?.type === ContentType.I) {
-                return <i className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</i>
+                return <i className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</i>
             }
 
             if (content?.type === ContentType.P) {
-                return <p className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</p>
+                return <p className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</p>
             }
 
             if (content?.type === ContentType.EM) {
-                return <em className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</em>
+                return <em className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</em>
             }
 
             if (content?.type === ContentType.STRONG) {
-                return <strong className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</strong>
+                return <strong className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</strong>
             }
 
             if (content?.type === ContentType.A) {
-                return <a className={this.prepareClassName(content.classes)}>{this.render(content?.body, context)}</a>
+                return <a className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</a>
             }
 
         }
@@ -363,16 +380,16 @@ export class ProductContentRenderer {
         if (isBaseContent(content)) {
 
             if (content?.type === ContentType.HR) {
-                return <hr className={this.prepareClassName(content.classes)} />
+                return <hr className={this.prepareClassName(content.classes, context)} />
             }
 
             if (content?.type === ContentType.BR) {
-                return <br className={this.prepareClassName(content.classes)} />
+                return <br className={this.prepareClassName(content.classes, context)} />
             }
 
             if (content?.type === ContentType.IMG) {
                 return <img
-                    className={this.prepareClassName(content.classes)}
+                    className={this.prepareClassName(content.classes, context)}
                     alt={(content as unknown as {alt ?: string}).alt}
                     src={(content as unknown as {src ?: string}).src}
                 />
