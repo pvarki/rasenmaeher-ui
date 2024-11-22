@@ -1,119 +1,5 @@
 [
   {
-    "type": "View",
-    "name": "TakQuickstartAndroid5",
-    "path": "quickstart/android5",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartAndroid4",
-    "path": "quickstart/android4",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartAndroid3",
-    "path": "quickstart/android3",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartAndroid2",
-    "path": "quickstart/android2",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartWin4",
-    "path": "quickstart/win4",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartWin1",
-    "path": "quickstart/win1",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakUsageIos1",
-    "path": "usage/ios1",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartWin2",
-    "path": "quickstart/win2",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartWin3",
-    "path": "quickstart/win3",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakUsageWin3",
-    "path": "usage/win3",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartIos2",
-    "path": "quickstart/ios2",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartIos3",
-    "path": "quickstart/ios3",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakUsageWin2",
-    "path": "usage/win2",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartIos1",
-    "path": "quickstart/ios1",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakUsageWin1",
-    "path": "usage/win1",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartIos4",
-    "path": "quickstart/ios4",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakUsageWin4",
-    "path": "usage/win4",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakQuickstartIos5",
-    "path": "quickstart/ios5",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakUsageAndroid2",
-    "path": "usage/android2",
-    "body": []
-  },
-  {
     "type": "TakDownloadModal",
     "name": "TakDownloadModal",
     "title": "Download Your Client Package",
@@ -158,19 +44,8 @@
   },
   {
     "type": "View",
-    "name": "TakUsageAndroid3",
-    "path": "usage/android3",
-    "body": []
-  },
-  {
-    "type": "View",
-    "name": "TakUsageAndroid1",
-    "path": "usage/android1",
-    "body": []
-  },
-  {
-    "type": "View",
     "name": "TakQuickstartAndroid1",
+    "path": "quickstart/android1",
     "body": [
       {
         "type": "div",
@@ -329,6 +204,11 @@
     ]
   },
   {
+    "type": "View",
+    "name": "TakQuickstartWin4",
+    "path": "quickstart/win4"
+  },
+  {
     "type": "Component",
     "name": "Image",
     "body": [
@@ -357,6 +237,16 @@
         "onClick": "Component.Param.onClick"
       }
     ]
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartIos4",
+    "path": "quickstart/ios4"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartIos5",
+    "path": "quickstart/ios5"
   },
   {
     "type": "Component",
@@ -406,6 +296,16 @@
     ]
   },
   {
+    "type": "View",
+    "name": "TakQuickstartWin2",
+    "path": "quickstart/win2"
+  },
+  {
+    "type": "View",
+    "name": "TakUsageAndroid3",
+    "path": "usage/android3"
+  },
+  {
     "type": "Component",
     "name": "ServiceTakUsageAtCPCard",
     "body": [
@@ -451,6 +351,11 @@
         ]
       }
     ]
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartIos2",
+    "path": "quickstart/ios2"
   },
   {
     "type": "Component",
@@ -539,6 +444,11 @@
     ]
   },
   {
+    "type": "View",
+    "name": "TakUsageIos1",
+    "path": "usage/ios1"
+  },
+  {
     "type": "Component",
     "name": "CardsContainer",
     "body": [
@@ -566,6 +476,26 @@
     ]
   },
   {
+    "type": "View",
+    "name": "TakUsageWin1",
+    "path": "usage/win1"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartIos3",
+    "path": "quickstart/ios3"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartWin3",
+    "path": "quickstart/win3"
+  },
+  {
+    "type": "View",
+    "name": "TakUsageAndroid2",
+    "path": "usage/android2"
+  },
+  {
     "type": "Component",
     "name": "Description",
     "body": [
@@ -587,6 +517,16 @@
     ]
   },
   {
+    "type": "View",
+    "name": "TakUsageAndroid1",
+    "path": "usage/android1"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartAndroid5",
+    "path": "quickstart/android5"
+  },
+  {
     "type": "Component",
     "name": "Note",
     "body": [
@@ -606,6 +546,21 @@
         ]
       }
     ]
+  },
+  {
+    "type": "View",
+    "name": "TakUsageWin2",
+    "path": "usage/win2"
+  },
+  {
+    "type": "View",
+    "name": "TakUsageWin3",
+    "path": "usage/win3"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartAndroid4",
+    "path": "quickstart/android4"
   },
   {
     "type": "View",
@@ -843,6 +798,16 @@
   },
   {
     "type": "View",
+    "name": "TakQuickstartWin1",
+    "path": "quickstart/win1"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartIos1",
+    "path": "quickstart/ios1"
+  },
+  {
+    "type": "View",
     "name": "ServiceTakUsage",
     "path": "usage",
     "body": [
@@ -927,6 +892,21 @@
         ]
       }
     ]
+  },
+  {
+    "type": "View",
+    "name": "TakUsageWin4",
+    "path": "usage/win4"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartAndroid3",
+    "path": "quickstart/android3"
+  },
+  {
+    "type": "View",
+    "name": "TakQuickstartAndroid2",
+    "path": "quickstart/android2"
   },
   {
     "type": "View",
