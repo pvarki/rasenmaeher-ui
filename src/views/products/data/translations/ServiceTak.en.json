@@ -29,5 +29,19 @@
   "takQuickstartAndroid1.unfoldableCard3.title": "3. Open the ATAK app and grant it the requested permissions",
   "takQuickstartAndroid1.unfoldableCard3.description1": "Open the app. Grant all permissions the application requests.",
   "takQuickstartAndroid1.unfoldableCard3.description2": "<em>If the application gives an error message, select Wait.</em>",
-  "takQuickstartAndroid1.serviceInfoCardTitle": "ATAK"
+  "takQuickstartAndroid1.serviceInfoCardTitle": "ATAK",
+  "TakQuickstartAndroid2.navbarTitle": "ATAK Quickstart",
+  "TakQuickstartAndroid2.statusBarTitle": "Import your Client Package (2/5)",
+  "TakQuickstartAndroid2.serviceInfoCard.details": "ATAK Quickstart - phase 2: <strong>Import your Client Package</strong><br>Recommendation: Pair up - one displays the instructions, the other follows them. The ATAK application should be open at this stage.",
+  "TakQuickstartAndroid2.unfoldableCard1.title": "1. In TAK, <strong>Open</strong> the <em>Select Data Package</em> menu.",
+  "TakQuickstartAndroid2.unfoldableCard1.description1": "When opening the app for the first time, the TAK Device Setup appears. <br>Select <strong>Data Package</strong>.",
+  "TakQuickstartAndroid2.unfoldableCard1.description2": "The <strong><em>Select Data Package</em></strong> menu will open.",
+  "TakQuickstartAndroid2.unfoldableCard2.title": "2. <strong>Find</strong> and <strong>select</strong> the message base zip",
+  "TakQuickstartAndroid2.unfoldableCard2.description2": "Find the folder where you downloaded your Client Package file '<strong>Name.zip</strong>' <br>Tip: Press <strong>Date</strong> to see the most recently downloaded file, likely your client package.",
+  "TakQuickstartAndroid2.unfoldableCard2.description3": "Select the file.",
+  "TakQuickstartAndroid2.unfoldableCard3.title": "3. Press <strong>Done</strong> - settings will load",
+  "TakQuickstartAndroid2.unfoldableCard3.description1": "Press <strong>Done</strong>.",
+  "TakQuickstartAndroid2.unfoldableCard3.description2": "You will receive several notifications about the loading of configuration files.",
+  "TakQuickstartAndroid2.unfoldableCard3.description3": "The initial configuration is complete.",
+  "TakQuickstartAndroid2.unfoldableCard3.description4": "Check from the bottom right corner that your server connection has been activated (green light)."
 }
