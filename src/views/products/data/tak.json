@@ -90,7 +90,9 @@
                       {
                         "type": "UnfoldableCard",
                         "title": "takQuickstartAndroid1.unfoldableCard1.title",
-                        "styling": "bg-backgroundLight",
+                        "classes": [
+                          "bg-backgroundLight"
+                        ],
                         "body": [
                           {
                             "type": "Description",
@@ -125,7 +127,9 @@
                       {
                         "type": "UnfoldableCard",
                         "title": "takQuickstartAndroid1.unfoldableCard2.title",
-                        "styling": "bg-backgroundLight",
+                        "classes": [
+                          "bg-backgroundLight"
+                        ],
                         "body": [
                           {
                             "type": "Description",
@@ -164,7 +168,9 @@
                       {
                         "type": "UnfoldableCard",
                         "title": "takQuickstartAndroid1.unfoldableCard3.title",
-                        "styling": "bg-backgroundLight",
+                        "classes": [
+                          "bg-backgroundLight"
+                        ],
                         "body": [
                           {
                             "type": "Description",
