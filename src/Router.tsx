@@ -9,6 +9,7 @@ import { MtlsCreateView } from "./views/mtls/MtlsCreateView";
 import { AdminRouteWrapper } from "./AdminRoutes";
 import { UserRouteWrapper } from "./UserRoutes";
 import { TakRouteWrapper } from "./TakRoutes";
+import { LivelogRouteWrapper } from "./LivelogRoutes";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,18 @@ const router = createBrowserRouter([
         allowedUserTypes={["user", "admin"]}
       >
         <TakRouteWrapper />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/app/services/livelog/*",
+    element: (
+      <ProtectedRoute
+        requireValidUser={true}
+        requireAuthType="mtls"
+        allowedUserTypes={["user", "admin"]}
+      >
+        <LivelogRouteWrapper />
       </ProtectedRoute>
     ),
   },
