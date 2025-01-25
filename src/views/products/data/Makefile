@@ -12,8 +12,8 @@ update-rune: rune
 clean:
 	rm -f tak.json livelog.json
 
-tak.json: tak/*.yml tak/*.html  tak/*.md tak/translations rune rune/rune.py Makefile
+tak.json: tak/*.yml tak/*.html tak/*.md tak/translations rune rune/rune.py Makefile
 	rune/rune.py tak json > $@
 
-livelog.json: livelog/*.md rune rune/rune.py Makefile
+livelog.json: livelog/*.html livelog/*.md livelog/translations rune rune/rune.py Makefile
 	rune/rune.py livelog json > $@
