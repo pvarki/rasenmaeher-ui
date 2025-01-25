@@ -31,14 +31,32 @@ export enum ContentType {
     H6 = "h6",
     UL = "ul",
     LI = "li",
+    OL = "ol",
     I = "i",
     P = "p",
     EM = "em",
+    BLOCKQUOTE = "blockquote",
     STRONG = "strong",
     A = "a",
     HR = "hr",
     BR = "br",
     IMG = "img",
+    PRE = "pre",
+    TABLE = "table",
+    THEAD = "thead",
+    TBODY = "tbody",
+    TFOOT = "tfoot",
+    TR = "tr",
+    TH = "th",
+    TD = "td",
+    B = "b",
+    U = "u",
+    CODE = "code",
+    DEL = "del",
+    SUP = "sup",
+    SUB = "sub",
+    AUDIO = "audio",
+    VIDEO = "video",
 }
 
 
@@ -85,6 +103,23 @@ export function isContentType (value: unknown) : value is ContentType {
         case ContentType.HR: return true;
         case ContentType.BR: return true;
         case ContentType.IMG: return true;
+        case ContentType.BLOCKQUOTE: return true;
+        case ContentType.OL: return true;
+        case ContentType.PRE: return true;
+        case ContentType.TABLE: return true;
+        case ContentType.THEAD: return true;
+        case ContentType.TBODY: return true;
+        case ContentType.TFOOT: return true;
+        case ContentType.TR: return true;
+        case ContentType.TH: return true;
+        case ContentType.B: return true;
+        case ContentType.U: return true;
+        case ContentType.CODE: return true;
+        case ContentType.DEL: return true;
+        case ContentType.SUP: return true;
+        case ContentType.SUB: return true;
+        case ContentType.AUDIO: return true;
+        case ContentType.VIDEO: return true;
     }
     return false;
 }
