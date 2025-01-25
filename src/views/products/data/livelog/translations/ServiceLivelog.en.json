@@ -12,6 +12,8 @@
   "serviceLivelog.grabZipButton": "Open Livelog",
   "serviceLivelogUsageView.navbarTitle": "Livelog Usage Guide",
   "serviceLivelogUsageView.title": "Livelog",
-  "serviceLivelogQuickstartView.navbarTitle": "Livelog Quick Start Guide",
-  "serviceLivelogQuickstartView.title": "Livelog Quick Start"
+  "serviceLivelogUsageView.subtitle1": "1. Creating a new event",
+  "serviceLivelogUsageView.subtitle2": "2. Searching existing events",
+  "serviceLivelogUsageView.subtitle3": "3. Viewing existing events",
+  "serviceLivelogUsageView.subtitle4": "4. Single event view"
 }
