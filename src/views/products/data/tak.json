@@ -502,27 +502,6 @@
     "path": "usage/android2"
   },
   {
-    "type": "Component",
-    "name": "Description",
-    "body": [
-      {
-        "type": "p",
-        "classes": [
-          "description",
-          "m-2",
-          "text-white",
-          "prose",
-          "prose-white"
-        ],
-        "body": [
-          {
-            "type": "Component.Children"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "type": "View",
     "name": "TakUsageAndroid1",
     "path": "usage/android1"
@@ -1137,6 +1116,27 @@
                 ]
               }
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Component",
+    "name": "Description",
+    "body": [
+      {
+        "type": "p",
+        "classes": [
+          "description",
+          "m-2",
+          "text-white",
+          "prose",
+          "prose-white"
+        ],
+        "body": [
+          {
+            "type": "Component.Children"
           }
         ]
       }
