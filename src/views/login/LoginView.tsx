@@ -55,7 +55,7 @@ export function LoginView() {
       code: params.get("code")?.toUpperCase() ?? "",
     },
     validationSchema: CodeSchema,
-    validateOnMount: true,
+    validateOnMount: !!params.get("code"), // Only validate on mount if `code` is in the URL
     onSubmit: (values) => {
       checkCode(values.code);
     },
@@ -66,7 +66,6 @@ export function LoginView() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const upperCaseValue = e.target.value.toUpperCase();
-    // Using void to intentionally ignore the Promise returned by setFieldValue, to suppress eslint
     void setFieldValue("code", upperCaseValue, false);
   };
 
@@ -149,7 +148,7 @@ export function LoginView() {
                       width: "full",
                     }}
                     type="submit"
-                    disabled={!isValid || isLoading}
+                    disabled={!values.code && !isLoading} // Button only disabled when empty or loading
                     styling={buttonStyle}
                   >
                     <div className="flex items-center justify-center w-full h-full">
