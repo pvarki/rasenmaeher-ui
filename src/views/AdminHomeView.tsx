@@ -39,6 +39,7 @@ export function AdminHomeView() {
           />
         </CardsContainer>
         <ServiceView name={'ServiceTak'} />
+        <ServiceView name={'ServiceLivelog'} />
       </div>
     </Layout>
   );
