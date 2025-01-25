@@ -1,0 +1,3 @@
+<p class="description m-2 text-white prose prose-white">
+    <Component.Children></Component.Children>
+</p>
