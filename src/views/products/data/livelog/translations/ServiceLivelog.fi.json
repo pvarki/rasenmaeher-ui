@@ -12,6 +12,8 @@
   "serviceLivelog.grabZipButton": "Avaa Liveloki",
   "serviceLivelogUsageView.navbarTitle": "Livelokin käyttöohje",
   "serviceLivelogUsageView.title": "Livelokin käyttöohje",
-  "serviceLivelogQuickstartView.navbarTitle": "Livelokin käyttöohje",
-  "serviceLivelogQuickstartView.title": "Livelokin käyttöohje"
+  "serviceLivelogUsageView.subTitle1": "1. Creating a new event",
+  "serviceLivelogUsageView.subTitle2": "2. Searching existing events",
+  "serviceLivelogUsageView.subTitle3": "3. Viewing existing events",
+  "serviceLivelogUsageView.subTitle4": "4. Single event view"
 }
