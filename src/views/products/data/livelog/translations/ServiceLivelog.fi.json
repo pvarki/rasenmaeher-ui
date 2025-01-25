@@ -1,0 +1,17 @@
+{
+  "serviceLivelog.foldableCardTitle": "Livelog",
+  "serviceLivelog.serviceInfoCardTitle": "Lokisovellus Livelog",
+  "serviceLivelog.unfoldableCardTitle": "Näin otat käyttöön",
+  "serviceLivelog.step1Description": "<strong>Käyttöönotto-ohje</strong> opastaa palvelun käyttöönoton laitteellesi.",
+  "serviceLivelog.step2Description": "Ohje <strong>Käyttö joukossa</strong> opastaa, miten käytät sovellusta perusmallin mukaisesti.",
+  "serviceLivelog.step3Description": "<strong>Viestiperustepaketti</strong> sisältää ladattavat henkilökohtaiset perusteesi.",
+  "serviceLivelogUsageCard.title": "Käyttötarkoitus lyhyesti",
+  "serviceLivelogUsageCard.content": "<ul><li>Käyttäjiesi seuranta reaaliajassa <em>(GPS).</em></li><li>Lähetä havaintoja komentopaikalle. (HQ) tulkittavaksi</li><li>Seuraa <strong>Recon Feediä</strong>, mitä komentopaikka (HQ) muodostaa joukollesi.</li></ul>",
+  "serviceLivelog.guideButton.quickStart": "Käyttöönotto",
+  "serviceLivelog.guideButton.usage": "Käyttö joukossa",
+  "serviceLivelog.grabZipButton": "Avaa Liveloki",
+  "serviceLivelogUsageView.navbarTitle": "Livelokin käyttöohje",
+  "serviceLivelogUsageView.title": "Livelokin käyttöohje",
+  "serviceLivelogQuickstartView.navbarTitle": "Livelokin käyttöohje",
+  "serviceLivelogQuickstartView.title": "Livelokin käyttöohje"
+}
