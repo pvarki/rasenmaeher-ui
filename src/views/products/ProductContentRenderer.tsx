@@ -74,18 +74,61 @@ export class ProductContentRenderer {
         context : RendererContext,
     ) : string {
         if (!value) return "";
+
         return value.map((item: string) : string => {
             if (item.startsWith(this.ComponentParamPrefix) && context?.componentContent && context?.stateContent) {
                 const key = item.substring(this.ComponentParamPrefix.length)
                 const data : {[key: string]: Content | readonly Content[] | null | undefined} = context.stateContent as unknown as {[key: string]: Content | readonly Content[] | null | undefined};
-                if (Object.prototype.hasOwnProperty.call(data, key) && data[key]) {
-                    if (isString(data[key])) {
-                        return data[key] as unknown as string
-                    }
+                if (Object.prototype.hasOwnProperty.call(data, key) && isString(data[key])) {
+                    return data[key] as unknown as string
                 }
             }
             return item
         }).join(' ');
+    }
+
+    /**
+     *
+     * @param value
+     * @param context
+     */
+    public static prepareImgAlt (
+        value: string | undefined,
+        context : RendererContext,
+    ) : string {
+        if (!value) return "";
+        if (value.startsWith(this.ComponentParamPrefix) && context?.componentContent && context?.stateContent) {
+            const key = value.substring(this.ComponentParamPrefix.length)
+            const data : {[key: string]: Content | readonly Content[] | null | undefined} = context.stateContent as unknown as {[key: string]: Content | readonly Content[] | null | undefined};
+            if (Object.prototype.hasOwnProperty.call(data, key) && data[key]) {
+                if (isString(data[key])) {
+                    return data[key] as unknown as string
+                }
+            }
+        }
+        return value
+    }
+
+    /**
+     *
+     * @param value
+     * @param context
+     */
+    public static prepareImgSrc (
+        value: string | undefined,
+        context : RendererContext,
+    ) : string {
+        if (!value) return "";
+        if (value.startsWith(this.ComponentParamPrefix) && context?.componentContent && context?.stateContent) {
+            const key = value.substring(this.ComponentParamPrefix.length)
+            const data : {[key: string]: Content | readonly Content[] | null | undefined} = context.stateContent as unknown as {[key: string]: Content | readonly Content[] | null | undefined};
+            if (Object.prototype.hasOwnProperty.call(data, key) && data[key]) {
+                if (isString(data[key])) {
+                    return data[key] as unknown as string
+                }
+            }
+        }
+        return value
     }
 
     /**
@@ -390,8 +433,8 @@ export class ProductContentRenderer {
             if (content?.type === ContentType.IMG) {
                 return <img
                     className={this.prepareClassName(content.classes, context)}
-                    alt={(content as unknown as {alt ?: string}).alt}
-                    src={(content as unknown as {src ?: string}).src}
+                    alt={ this.prepareImgAlt((content as unknown as {alt ?: string}).alt, context) }
+                    src={ this.prepareImgSrc((content as unknown as {src ?: string}).src, context) }
                 />
             }
 
