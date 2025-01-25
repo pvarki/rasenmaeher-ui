@@ -12,5 +12,5 @@ update-rune: rune
 clean:
 	rm -f tak.json
 
-tak.json: *.yml *.html ./translations/*.json rune rune/rune.py Makefile
-	rune/rune.py . json > $@
+tak.json: tak/*.yml tak/*.html tak/translations rune rune/rune.py Makefile
+	rune/rune.py tak json > $@
