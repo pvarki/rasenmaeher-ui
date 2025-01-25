@@ -1143,6 +1143,23 @@
     ]
   },
   {
+    "type": "View",
+    "name": "MyComponent",
+    "body": [
+      {
+        "type": "MyComponent",
+        "body": [
+          {
+            "type": "div",
+            "body": [
+              "Hello, World!"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "type": "i18n",
     "data": {
       "fi": {
