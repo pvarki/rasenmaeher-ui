@@ -193,6 +193,7 @@ export class ProductContentRenderer {
                     strong: <strong />,
                     em: <em />,
                     ul: <ul />,
+                    ol: <ol />,
                     li: <li />,
                     h1: <h1 />,
                     h2: <h2 />,
@@ -396,6 +397,74 @@ export class ProductContentRenderer {
 
             if (content?.type === ContentType.LI) {
                 return <li className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</li>
+            }
+
+            if (content?.type === ContentType.BLOCKQUOTE) {
+                return <blockquote className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</blockquote>
+            }
+
+            if (content?.type === ContentType.OL) {
+                return <ol className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</ol>
+            }
+
+            if (content?.type === ContentType.PRE) {
+                return <pre className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</pre>
+            }
+
+            if (content?.type === ContentType.TABLE) {
+                return <table className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</table>
+            }
+
+            if (content?.type === ContentType.THEAD) {
+                return <thead className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</thead>
+            }
+
+            if (content?.type === ContentType.TBODY) {
+                return <tbody className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</tbody>
+            }
+
+            if (content?.type === ContentType.TFOOT) {
+                return <tfoot className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</tfoot>
+            }
+
+            if (content?.type === ContentType.TR) {
+                return <tr className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</tr>
+            }
+
+            if (content?.type === ContentType.TH) {
+                return <th className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</th>
+            }
+
+            if (content?.type === ContentType.B) {
+                return <b className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</b>
+            }
+
+            if (content?.type === ContentType.U) {
+                return <u className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</u>
+            }
+
+            if (content?.type === ContentType.CODE) {
+                return <code className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</code>
+            }
+
+            if (content?.type === ContentType.DEL) {
+                return <del className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</del>
+            }
+
+            if (content?.type === ContentType.SUP) {
+                return <sup className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</sup>
+            }
+
+            if (content?.type === ContentType.SUB) {
+                return <sub className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</sub>
+            }
+
+            if (content?.type === ContentType.AUDIO) {
+                return <audio className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</audio>
+            }
+
+            if (content?.type === ContentType.VIDEO) {
+                return <video className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</video>
             }
 
             if (content?.type === ContentType.I) {
