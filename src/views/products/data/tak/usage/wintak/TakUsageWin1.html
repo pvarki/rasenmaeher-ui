@@ -1,5 +1,5 @@
 <View name="TakUsageWin1" path="usage/win1">
-    <div className="pb-32">
+    <div class="pb-32">
       <Layout
         showNavbar="true"
         showFooter="false"
@@ -7,18 +7,16 @@
         backUrl="/app/services/tak/usage"
       >
         <StatusBar
-          title={t("takUsageWin1.navbarTitle")}
+          title="takUsageWin1.navbarTitle"
           progressMax={4}
           progressNow={1}
         />
         <CardsContainer>
-          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+          <div class="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
               title="takUsageWin1.serviceInfoCard.title"
               image="../../../../../../assets/icons/wintak.png"
-              details={
-                <Trans i18nKey="takUsageWin1.serviceInfoCard.details" />
-              }
+              details="takUsageWin1.serviceInfoCard.details"
             >
               <ServiceTakUsageCard />
             </ServiceInfoCard>
@@ -27,73 +25,55 @@
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard1.step1" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard1.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva32.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard1.step2" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard1.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva33.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard1.step3" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard1.step3",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva34.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard1.step4" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard1.step4",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva35.png",
                   imageClasses: "m-3 w-[400px]",
                 },
               ]}
             />
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin1.unfoldableCard2.title" />}
+              title="takUsageWin1.unfoldableCard2.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard2.step1" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard2.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva37.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard2.step2" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard2.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva36.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard2.step3" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard2.step3",
                 },
               ]}
             />
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin1.unfoldableCard3.title" />}
+              title="takUsageWin1.unfoldableCard3.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard3.step1" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard3.step1",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin1.unfoldableCard3.step2" />
-                  ),
+                  description: "takUsageWin1.unfoldableCard3.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva38.png",
                   imageClasses: "m-3 w-[400px]",
                 },

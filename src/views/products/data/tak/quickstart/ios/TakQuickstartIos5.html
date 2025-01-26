@@ -2,96 +2,67 @@
   name="TakQuickstartIos5"
   path="quickstart/ios5"
 >
-  <div className="pb-20">
+  <div class="pb-20">
       <Layout
         showNavbar="true"
         showFooter="false"
-        navbarTitle={t("TakQuickstartIos5.navbarTitle")}
+        navbarTitle="TakQuickstartIos5.navbarTitle"
         backUrl="/app/services/tak/quickstart"
       >
         <StatusBar
-          title={t("TakQuickstartIos5.statusBarTitle")}
+          title="TakQuickstartIos5.statusBarTitle"
           progressMax="5"
           progressNow="5"
         />
         <CardsContainer>
-          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+          <div class="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
               title="iTAK"
               image="../../../../../../assets/icons/iTAK.png"
-              details={
-                <Trans i18nKey="TakQuickstartIos5.serviceInfoCard.details"
-                />
-              }
+              details="TakQuickstartIos5.serviceInfoCard.details"
             />
             <UnfoldableCard
-              title={
-                <Trans i18nKey="TakQuickstartIos5.unfoldableCard1.title"
-                />
-              }
+              title="TakQuickstartIos5.unfoldableCard1.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="TakQuickstartIos5.unfoldableCard1.step1"
-                    />
-                  ),
+                  description: "TakQuickstartIos5.unfoldableCard1.step1",
                   imageSrc: "../../../../../../assets/takguides/itak/itakquickstart26.png",
                   imageClasses: "m-3 w-[300px]",
                 },
               ]}
             />
             <UnfoldableCard
-              title={
-                <Trans i18nKey="TakQuickstartIos5.unfoldableCard2.title"
-                />
-              }
+              title="TakQuickstartIos5.unfoldableCard2.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="TakQuickstartIos5.unfoldableCard2.step1"
-                    />
-                  ),
+                  description: "TakQuickstartIos5.unfoldableCard2.step1",
                   imageSrc: "../../../../../../assets/takguides/itak/itakquickstart27-1.jpeg",
                   imageClasses: "m-3 w-[300px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="TakQuickstartIos5.unfoldableCard2.step2" />
-                  ),
+                  description: "TakQuickstartIos5.unfoldableCard2.step2",
                   imageSrc: "../../../../../../assets/takguides/itak/itakquickstart28.png",
                   imageClasses: "m-3 w-[300px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="TakQuickstartIos5.unfoldableCard2.step3"
-                    />
-                  ),
+                  description: "TakQuickstartIos5.unfoldableCard2.step3",
                   note: t("TakQuickstartIos5.unfoldableCard2.note"),
                 },
               ]}
             />
             <UnfoldableCard
-              title={
-                <Trans i18nKey="TakQuickstartIos5.unfoldableCard3.title"
-                />
-              }
+              title="TakQuickstartIos5.unfoldableCard3.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="TakQuickstartIos5.unfoldableCard3.step1"
-                    />
-                  ),
+                  description: "TakQuickstartIos5.unfoldableCard3.step1",
                   imageSrc: "../../../../../../assets/takguides/itak/itakquickstart27.png",
                   imageClasses: "m-3 w-[300px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="TakQuickstartIos5.unfoldableCard3.step2"
-                    />
-                  ),
+                  description: "TakQuickstartIos5.unfoldableCard3.step2",
                 },
               ]}
             />
@@ -100,7 +71,7 @@
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/ios4"
           forwardUrl="/app/services/tak/quickstart"
-          alterForward={t("TakQuickstartIos5.alterForward")}
+          alterForward="TakQuickstartIos5.alterForward"
         />
       </Layout>
     </div>
