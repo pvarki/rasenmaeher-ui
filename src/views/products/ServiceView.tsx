@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import LoadingComponent from "../../components/Loading/LoadingComponent";
 import { useDownloadTakZipModal } from "../../components/tak/DownloadTakZipModal";
-import { CONTENT_SERVICE } from "./ContentService";
+import { ContentService } from "./ContentService";
 import { ProductContentRenderer } from "./ProductContentRenderer";
 import {
     RendererContext,
@@ -12,16 +13,22 @@ import { ContentActions } from "./types/ContentActions";
 import { ContentType } from "./types/ContentType";
 
 export interface ServiceViewProps {
-    readonly name : string;
+    readonly serviceName : string;
+    readonly viewName : string;
     readonly actions ?: ContentActions;
 }
 
 export function ServiceView ( props: ServiceViewProps ) {
-    const {t} = useTranslation("productContent");
-    const viewName = props.name;
+    const serviceName = props.serviceName;
+    const {t} = useTranslation(`productContent:${serviceName}`);
+    const viewName = props.viewName;
     const actions = props.actions;
     const navigate = useNavigate();
-    let view = CONTENT_SERVICE.getView( viewName );
+    useEffect(() => {
+        window.scrollTo(0, 60);
+    }, []);
+    const contentService = ContentService.getContentService(serviceName);
+    let view = contentService.getView( viewName );
     if ( !view ) {
         // TODO: Implement 404 error view
         console.warn( `Warning! Could not find view named: ${viewName}` );
@@ -31,6 +38,6 @@ export function ServiceView ( props: ServiceViewProps ) {
     if ( loading ) {
         return <LoadingComponent text={ 'loading' } />;
     }
-    const context : RendererContext = RendererContextImpl.create(t, navigate, openDownloadModal, CONTENT_SERVICE, actions);
+    const context : RendererContext = RendererContextImpl.create(t, navigate, openDownloadModal, contentService, actions);
     return ProductContentRenderer.render( view, context );
 }

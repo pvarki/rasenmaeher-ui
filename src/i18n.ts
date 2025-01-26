@@ -4,7 +4,7 @@ import resourcesToBackend from "i18next-resources-to-backend";
 import ChainedBackend from "i18next-chained-backend";
 import LocalStorageBackend from "i18next-localstorage-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { CONTENT_SERVICE } from "./views/products/ContentService";
+import { ContentService } from "./views/products/ContentService";
 
 void i18n
   .use(ChainedBackend)
@@ -20,9 +20,12 @@ void i18n
       backends: [
         LocalStorageBackend,
         resourcesToBackend(async (lang: string, namespace: string) => {
-          if (namespace === "productContent") {
-            return CONTENT_SERVICE.getTranslations(lang);
-          }
+          const serviceNames = ContentService.getContentServiceNames();
+          serviceNames.forEach((name:string) => {
+            if (namespace === `productContent:${name}`) {
+              return ContentService.getContentService(name).getTranslations(lang);
+            }
+          })
           if (namespace === "dynamic") {
             return import(`./assets/set/locale/${lang}.json`);
           }
