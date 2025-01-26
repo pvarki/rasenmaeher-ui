@@ -1,0 +1,144 @@
+<View name="TakQuickstartAndroid4" path="quickstart/android4">
+  <div className="pb-20">
+    <Layout
+      showNavbar="true"
+      showFooter="false"
+      navbarTitle={"TakQuickstartAndroid4.navbarTitle"}
+      backUrl="/app/services/tak/quickstart"
+    >
+      <StatusBar
+        title={"TakQuickstartAndroid4.statusBarTitle"}
+        progressMax="5"
+        progressNow="4"
+      />
+      <CardsContainer>
+        <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+          <ServiceInfoCard
+            title="ATAK"
+            image="../../../../../../assets/icons/tak-logo.png"
+            details={
+              <Trans i18nKey="TakQuickstartAndroid4.serviceInfoCard.details"
+              />
+            }
+          />
+          <UnfoldableCard
+            title={t("TakQuickstartAndroid4.unfoldableCard1.title")}
+            styling="bg-backgroundLight"
+            steps={[
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard1.step1"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync111.jpg",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard1.step2"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync12.jpg",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard1.step3"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync13.jpg",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard1.step4"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync14.jpg",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: "TakQuickstartAndroid4.unfoldableCard1.step5",
+              },
+            ]}
+          />
+          <UnfoldableCard
+            title={t("TakQuickstartAndroid4.unfoldableCard2.title")}
+            styling="bg-backgroundLight"
+            steps={[
+              {
+                description: "TakQuickstartAndroid4.unfoldableCard2.step1",
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync1.png",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard2.step2"
+                  />
+                ),
+              },
+              {
+                description: "TakQuickstartAndroid4.unfoldableCard2.step3",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard2.step4"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/datasyncatak99.png",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard2.step5"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync3.png",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard2.step6"
+                  />
+                ),
+                note: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard2.note"
+                  />
+                ),
+              },
+            ]}
+          />
+          <UnfoldableCard
+            title={"TakQuickstartAndroid4.unfoldableCard3.title"}
+            styling="bg-backgroundLight"
+            steps={[
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard3.step1"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync4.png",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: (
+                  <Trans i18nKey="TakQuickstartAndroid4.unfoldableCard3.step2"
+                  />
+                ),
+                imageSrc: "../../../../../../assets/takguides/atak/atakdatasync5.png",
+                imageClasses: "m-3 w-[400px]",
+              },
+              {
+                description: "TakQuickstartAndroid4.unfoldableCard3.step3",
+              },
+            ]}
+          />
+        </div>
+      </CardsContainer>
+      <NavigateButtons
+        backUrl="/app/services/tak/quickstart/android3"
+        forwardUrl="/app/services/tak/quickstart/android5"
+      />
+    </Layout>
+  </div>
+</View>
