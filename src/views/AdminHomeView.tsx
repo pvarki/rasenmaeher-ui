@@ -38,8 +38,8 @@ export function AdminHomeView() {
             url="/app/admin/manageusers"
           />
         </CardsContainer>
-        <ServiceView name={'ServiceTak'} />
-        <ServiceView name={'ServiceLivelog'} />
+        <ServiceView serviceName={'tak'} viewName={'ServiceTak'} />
+        <ServiceView serviceName={'livelog'} viewName={'ServiceLivelog'} />
       </div>
     </Layout>
   );

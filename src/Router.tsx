@@ -8,8 +8,7 @@ import { NotFoundView } from "./views/NotFoundView";
 import { MtlsCreateView } from "./views/mtls/MtlsCreateView";
 import { AdminRouteWrapper } from "./AdminRoutes";
 import { UserRouteWrapper } from "./UserRoutes";
-import { TakRouteWrapper } from "./TakRoutes";
-import { LivelogRouteWrapper } from "./LivelogRoutes";
+import { ServiceRouteWrapper } from "./ServiceRoutes";
 
 const router = createBrowserRouter([
   {
@@ -76,7 +75,7 @@ const router = createBrowserRouter([
         requireAuthType="mtls"
         allowedUserTypes={["user", "admin"]}
       >
-        <TakRouteWrapper />
+        <ServiceRouteWrapper serviceName={'tak'} />
       </ProtectedRoute>
     ),
   },
@@ -88,7 +87,7 @@ const router = createBrowserRouter([
         requireAuthType="mtls"
         allowedUserTypes={["user", "admin"]}
       >
-        <LivelogRouteWrapper />
+        <ServiceRouteWrapper serviceName={'livelog'} />
       </ProtectedRoute>
     ),
   },

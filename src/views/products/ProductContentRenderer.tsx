@@ -18,10 +18,10 @@ import { StepProps } from "../../components/Step";
 import { DropdownOsSelector } from "../../components/tak/DropdownOsSelector";
 import { UnfoldableCard as UnfoldableCard2 } from "../../components/UnfoldableCard2";
 import { parseOperatingSystem } from "../../hook/helpers/getOperatingSystem";
+import { DOWNLOAD_OPTIONS_SERVICE } from "./ContentService";
 import { isArray } from "./helpers/isArray";
 import { isString } from "./helpers/isString";
 import { RendererContext } from "./RendererContextImpl";
-import { CONTENT_SERVICE } from "./ContentService";
 import { isBaseContent } from "./types/BaseContent";
 import {
     isBaseParentContent,
@@ -191,6 +191,7 @@ export class ProductContentRenderer {
                 i18nKey={content}
                 components={{
                     strong: <strong />,
+                    br: <br />,
                     em: <em />,
                     ul: <ul />,
                     ol: <ol />,
@@ -202,6 +203,7 @@ export class ProductContentRenderer {
                     h5: <h5 />,
                     h6: <h6 />,
                     span: <span />,
+                    small: <small />,
                 }}
                 ns={"productContent"}
             />;
@@ -351,9 +353,9 @@ export class ProductContentRenderer {
 
         if (isDropdownOsSelectorContent(content)) {
             return <DropdownOsSelector
-                initialOS={content?.initialOS ?? CONTENT_SERVICE.getSelectedOS() === 'iOS' ? 'iOS' : 'Other'}
+                initialOS={content?.initialOS ?? DOWNLOAD_OPTIONS_SERVICE.getSelectedOS() === 'iOS' ? 'iOS' : 'Other'}
                 osOptions={content.options}
-                onOSChange={(newOS: string) => CONTENT_SERVICE.setSelectedOS(parseOperatingSystem(newOS))}
+                onOSChange={(newOS: string) => DOWNLOAD_OPTIONS_SERVICE.setSelectedOS(parseOperatingSystem(newOS))}
             />
         }
 
