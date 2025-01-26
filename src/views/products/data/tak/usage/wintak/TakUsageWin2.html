@@ -1,62 +1,48 @@
 <View name="TakUsageWin2" path="usage/win2">
-    <div className="pb-32">
+    <div class="pb-32">
       <Layout
         showNavbar="true"
         showFooter="false"
-        navbarTitle={<Trans i18nKey="takUsageWin2.navbarTitle" />}
+        navbarTitle="takUsageWin2.navbarTitle"
         backUrl="/app/services/tak/Usage"
       >
         <StatusBar
-          title={t("takUsageWin2.navbarTitle")}
+          title="takUsageWin2.navbarTitle"
           progressMax={4}
           progressNow={2}
         />
         <CardsContainer>
-          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+          <div class="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
-              title={<Trans i18nKey="takUsageWin2.serviceInfoCard.title" />}
+              title="takUsageWin2.serviceInfoCard.title"
               image="../../../../../../assets/icons/wintak.png"
-              details={
-                <Trans i18nKey="takUsageWin2.serviceInfoCard.details" />
-              }
+              details="takUsageWin2.serviceInfoCard.details"
             >
               <ServiceTakUsageCard />
             </ServiceInfoCard>
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin2.unfoldableCard1.title" />}
+              title="takUsageWin2.unfoldableCard1.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard1.step1" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard1.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva39.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard1.step2" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard1.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva40.png",
                   imageClasses: "m-3 w-[400px]",
-                  note: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard1.note1" />
-                  ),
+                  note: "takUsageWin2.unfoldableCard1.note1",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard1.step3" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard1.step3",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva41.png",
                   imageClasses: "m-3 w-[400px]",
-                  note: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard1.note2" />
-                  ),
+                  note: "takUsageWin2.unfoldableCard1.note2",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard1.step4" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard1.step4",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva42.png",
                   imageClasses: "m-3 w-[400px]",
                 },
@@ -64,189 +50,139 @@
             />
 
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin2.unfoldableCard2.title" />}
+              title="takUsageWin2.unfoldableCard2.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard2.step1" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard2.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva42.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard2.step2" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard2.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva43.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard2.step3" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard2.step3",
                 },
               ]}
             />
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin2.unfoldableCard3.title" />}
+              title="takUsageWin2.unfoldableCard3.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard3.step1" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard3.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva45.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard3.step2" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard3.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva47.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard3.step3" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard3.step3",
                 },
               ]}
             />
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin2.unfoldableCard4.title" />}
+              title="takUsageWin2.unfoldableCard4.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step1" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard4.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva48.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step2" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard4.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva49.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step3" />
-                  ),
-                  note: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.note1" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard4.step3",
+                  note: "takUsageWin2.unfoldableCard4.note1",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step4" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard4.step4",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva50.png",
                   imageClasses: "mx-auto pr-5 w-[300px] p-4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step5" />
-                  ),
-                  note: <Trans i18nKey="takUsageWin2.unfoldableCard4.note2" />,
+                  description: "takUsageWin2.unfoldableCard4.step5",
+                  note: "takUsageWin2.unfoldableCard4.note2",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step6" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard4.step6",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard4.step7" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard4.step7",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva55.png",
                 },
               ]}
             />
             <UnfoldableCard
-              title={
-                <Trans i18nKey="takUsageWin2.unfoldableCardExample.title" />
-              }
+              title="takUsageWin2.unfoldableCardExample.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCardExample.step1" />
-                  ),
+                  description: "takUsageWin2.unfoldableCardExample.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva50.png",
                   imageClasses: "mx-auto pr-5 w-[300px] p-4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCardExample.step2" />
-                  ),
+                  description: "takUsageWin2.unfoldableCardExample.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva53.png",
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCardExample.step3" />
-                  ),
+                  description: "takUsageWin2.unfoldableCardExample.step3",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva54.png",
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCardExample.step4" />
-                  ),
+                  description: "takUsageWin2.unfoldableCardExample.step4",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva55.png",
                 },
               ]}
             />
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin2.unfoldableCard5.title" />}
+              title="takUsageWin2.unfoldableCard5.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard5.step1" />
-                  ),
-                  note: <Trans i18nKey="takUsageWin2.unfoldableCard5.note1" />,
+                  description: "takUsageWin2.unfoldableCard5.step1",
+                  note: "takUsageWin2.unfoldableCard5.note1",
                 },
               ]}
             />
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin2.unfoldableCard7.title" />}
+              title="takUsageWin2.unfoldableCard7.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard7.step1" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard7.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva56.png",
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard7.step2" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard7.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva57.png",
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard7.step3" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard7.step3",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva58.png",
                   imageClasses: "mx-auto pr-5 w-[400px] p-4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard7.step4" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard7.step4",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva55.png",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin2.unfoldableCard7.step5" />
-                  ),
+                  description: "takUsageWin2.unfoldableCard7.step5",
                 },
               ]}
             />

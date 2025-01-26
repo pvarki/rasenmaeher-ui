@@ -1,71 +1,55 @@
 <View name="TakUsageWin4" path="usage/win4">
-    <div className="pb-32">
+    <div class="pb-32">
       <Layout
         showNavbar="true"
         showFooter="false"
-        navbarTitle={<Trans i18nKey="takUsageWin3.navbarTitle" />}
+        navbarTitle="takUsageWin3.navbarTitle"
         backUrl="/app/services/tak/usage"
       >
         <StatusBar
-          title={t("takUsageWin3.navbarTitle")}
+          title="takUsageWin3.navbarTitle"
           progressMax={4}
           progressNow="4"
         />
         <CardsContainer>
-          <div className="flex flex-col items-center w-full gap-2 justify-center p-5">
+          <div class="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
-              title={<Trans i18nKey="takUsageWin4.serviceInfoCard.title" />}
+              title="takUsageWin4.serviceInfoCard.title"
               image="../../../../../../assets/icons/wintak.png"
-              details={
-                <Trans i18nKey="takUsageWin4.serviceInfoCard.details" />
-              }
+              details="takUsageWin4.serviceInfoCard.details"
             >
               <ServiceTakUsageCard />
             </ServiceInfoCard>
             <UnfoldableCard
-              title={<Trans i18nKey="takUsageWin4.unfoldableCard1.title" />}
+              title="takUsageWin4.unfoldableCard1.title"
               styling="bg-backgroundLight"
               steps={[
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step1" />
-                  ),
+                  description: "takUsageWin4.unfoldableCard1.step1",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva61.png",
                   imageClasses: "m-3 w-[200px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step2" />
-                  ),
+                  description: "takUsageWin4.unfoldableCard1.step2",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva62.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step3" />
-                  ),
+                  description: "takUsageWin4.unfoldableCard1.step3",
                   imageSrc: "../../../../../../assets/takguides/wintak/Kuva63.png",
                   imageClasses: "m-3 w-[400px]",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step4" />
-                  ),
+                  description: "takUsageWin4.unfoldableCard1.step4",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step5" />
-                  ),
+                  description: "takUsageWin4.unfoldableCard1.step5",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step6" />
-                  ),
+                  description: "takUsageWin4.unfoldableCard1.step6",
                 },
                 {
-                  description: (
-                    <Trans i18nKey="takUsageWin4.unfoldableCard1.step7" />
-                  ),
+                  description: "takUsageWin4.unfoldableCard1.step7",
                 },
               ]}
             />
@@ -74,7 +58,7 @@
         <NavigateButtons
           backUrl="/app/services/tak/usage/win3"
           forwardUrl="/app/services/tak/usage"
-          alterForward={t("TakUsageAndroid3.alterForward")}
+          alterForward="TakUsageAndroid3.alterForward"
         />
       </Layout>
     </div>
