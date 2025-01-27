@@ -8,9 +8,9 @@
       >
         <StatusBar
           title="TakUsageAndroid3.statusBarTitle"
-          progressMax={3}
+          progressMax="3"
           progressNow="3"
-        />
+        ></StatusBar>
         <CardsContainer>
           <ServiceTakUsageCard />
         </CardsContainer>
@@ -20,10 +20,10 @@
               title="ATAK"
               image="../../../../../../assets/icons/tak-logo.png"
               details="TakUsageAndroid3.serviceInfoCard.details"
-            />
+            ></ServiceInfoCard>
             <UnfoldableCard
               title="TakUsageAndroid2.unfoldableCard1.title"
-              styling="bg-backgroundLight"
+              class="bg-backgroundLight"
               steps={[
                 {
                   description: "TakUsageAndroid2.unfoldableCard1.step1",
@@ -34,7 +34,7 @@
             />
             <UnfoldableCard
               title="TakUsageAndroid3.unfoldableCard2.title"
-              styling="bg-backgroundLight"
+              class="bg-backgroundLight"
               steps={[
                 {
                   description: "TakUsageAndroid3.unfoldableCard2.description1",
@@ -53,7 +53,7 @@
             />
             <UnfoldableCard
               title="TakUsageAndroid3.unfoldableCard3.title"
-              styling="bg-backgroundLight"
+              class="bg-backgroundLight"
               steps={[
                 {
                   description: "TakUsageAndroid3.unfoldableCard3.description1",
@@ -94,7 +94,7 @@
           backUrl="/app/services/tak/usage/android2"
           forwardUrl="/app/services/tak/usage"
           alterForward="TakUsageAndroid3.alterForward"
-        />
+        ></NavigateButtons>
       </Layout>
     </div>
 </View>
