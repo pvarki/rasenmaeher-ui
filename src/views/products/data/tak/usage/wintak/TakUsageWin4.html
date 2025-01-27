@@ -8,9 +8,9 @@
       >
         <StatusBar
           title="takUsageWin3.navbarTitle"
-          progressMax={4}
+          progressMax="4"
           progressNow="4"
-        />
+        ></StatusBar>
         <CardsContainer>
           <div class="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
@@ -18,11 +18,11 @@
               image="../../../../../../assets/icons/wintak.png"
               details="takUsageWin4.serviceInfoCard.details"
             >
-              <ServiceTakUsageCard />
+              <ServiceTakUsageCard></ServiceTakUsageCard>
             </ServiceInfoCard>
             <UnfoldableCard
               title="takUsageWin4.unfoldableCard1.title"
-              styling="bg-backgroundLight"
+              class="bg-backgroundLight"
               steps={[
                 {
                   description: "takUsageWin4.unfoldableCard1.step1",
@@ -59,7 +59,7 @@
           backUrl="/app/services/tak/usage/win3"
           forwardUrl="/app/services/tak/usage"
           alterForward="TakUsageAndroid3.alterForward"
-        />
+        ></NavigateButtons>
       </Layout>
     </div>
 </View>
