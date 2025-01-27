@@ -11,48 +11,45 @@
       >
         <StatusBar
           title="TakQuickstartWin4.statusBarTitle"
-          progressMax={4}
+          progressMax="4"
           progressNow="4"
-        />
+        ></StatusBar>
         <CardsContainer>
           <div class="flex flex-col items-center w-full gap-2 justify-center p-5">
             <ServiceInfoCard
               title="WinTAK"
               image="../../../../../../assets/icons/wintak.png"
               details="TakQuickstartWin4.serviceInfoCard.details"
-            />
+            ></ServiceInfoCard>
             <UnfoldableCard
               title="TakQuickstartWin4.unfoldableCard1.title"
-              styling="bg-backgroundLight"
-              description1="TakQuickstartWin4.unfoldableCard1.description1"
-              image2Src="../../../../../../assets/takguides/wintak/Kuva28.png"
-              image2Classes="mx-auto pr-12 w-[200px] p-4"
-              description2="TakQuickstartWin4.unfoldableCard1.description2"
-              image3Src="../../../../../../assets/takguides/wintak/Kuva29.png"
-              image3Classes="mx-auto pr-5 w-[300px] p-4"
-              description3="TakQuickstartWin4.unfoldableCard1.description3"
-              image4Src="../../../../../../assets/takguides/wintak/Kuva29.png"
-              image4Classes="mx-auto pr-5 w-[300px] p-4"
-              description4="TakQuickstartWin4.unfoldableCard1.description4"
-              image5Src="../../../../../../assets/takguides/wintak/Kuva30.png"
-              image5Classes="mx-auto pr-5 w-[300px] p-4"
-              description5="TakQuickstartWin4.unfoldableCard1.description5"
-              image6Src="../../../../../../assets/takguides/wintak/Kuva31.png"
-              image6Classes="mx-auto pr-5 w-[300px] p-4"
-              description6="TakQuickstartWin4.unfoldableCard1.description6"
-            />
+              class="bg-backgroundLight"
+            >
+              <Description>TakQuickstartWin4.unfoldableCard1.description1</Description>
+              <Image class="mx-auto pr-12 w-[200px] p-4" src="../../../../../../assets/takguides/wintak/Kuva28.png"></Image>
+              <Description>TakQuickstartWin4.unfoldableCard1.description2</Description>
+              <Image class="mx-auto pr-5 w-[300px] p-4" src="../../../../../../assets/takguides/wintak/Kuva29.png"></Image>
+              <Description>TakQuickstartWin4.unfoldableCard1.description3</Description>
+              <Image class="mx-auto pr-5 w-[300px] p-4" src="../../../../../../assets/takguides/wintak/Kuva29.png"></Image>
+              <Description>TakQuickstartWin4.unfoldableCard1.description4</Description>
+              <Image class="mx-auto pr-5 w-[300px] p-4" src="../../../../../../assets/takguides/wintak/Kuva30.png"></Image>
+              <Description>TakQuickstartWin4.unfoldableCard1.description5</Description>
+              <Image class="mx-auto pr-5 w-[300px] p-4" src="../../../../../../assets/takguides/wintak/Kuva31.png"></Image>
+              <Description>TakQuickstartWin4.unfoldableCard1.description6</Description>
+            </UnfoldableCard>
             <UnfoldableCard
               title="TakQuickstartWin4.unfoldableCard2.title"
-              styling="bg-backgroundLight"
-              description1="TakQuickstartWin4.unfoldableCard2.description1"
-            />
+              class="bg-backgroundLight"
+            >
+              <Description>TakQuickstartWin4.unfoldableCard2.description1</Description>
+            </UnfoldableCard>
           </div>
         </CardsContainer>
         <NavigateButtons
           backUrl="/app/services/tak/quickstart/win3"
           forwardUrl="/app/services/tak/quickstart"
           alterForward="TakQuickstartWin4.alterForward"
-        />
+        ></NavigateButtons>
       </Layout>
     </div>
 </View>
