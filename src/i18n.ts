@@ -6,6 +6,9 @@ import LocalStorageBackend from "i18next-localstorage-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { ContentService } from "./views/products/ContentService";
 
+export const I18N_CONTENT_SERVICE_NS_PREFIX = 'productContent:';
+const CONTENT_SERVICE_NAMES = ContentService.getContentServiceNames();
+
 void i18n
   .use(ChainedBackend)
   .use(initReactI18next)
@@ -20,12 +23,14 @@ void i18n
       backends: [
         LocalStorageBackend,
         resourcesToBackend(async (lang: string, namespace: string) => {
-          const serviceNames = ContentService.getContentServiceNames();
-          serviceNames.forEach((name:string) => {
-            if (namespace === `productContent:${name}`) {
-              return ContentService.getContentService(name).getTranslations(lang);
-            }
-          })
+
+          const serviceName : string | undefined = CONTENT_SERVICE_NAMES.find((name:string) => {
+            return namespace === `${I18N_CONTENT_SERVICE_NS_PREFIX}${name}`;
+          });
+          if (serviceName) {
+            return Promise.resolve( ContentService.getContentService(serviceName).getTranslations(lang) );
+          }
+
           if (namespace === "dynamic") {
             return import(`./assets/set/locale/${lang}.json`);
           }
@@ -42,7 +47,8 @@ void i18n
         },
       ],
     },
-    ns: ["common", "dynamic", "productContent"], // Add dynamic namespace
+    ns: ["common", "dynamic", ...CONTENT_SERVICE_NAMES.map((name: string) : string => `${I18N_CONTENT_SERVICE_NS_PREFIX}${name}`)], // Add dynamic namespaces
+    // ns: ["common", "dynamic", "productContent"], // Add dynamic namespace
     defaultNS: "common", // Set common as the default namespace
     interpolation: {
       escapeValue: false,

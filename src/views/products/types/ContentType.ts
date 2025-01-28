@@ -57,6 +57,12 @@ export enum ContentType {
     SUB = "sub",
     AUDIO = "audio",
     VIDEO = "video",
+    HEADER = "header",
+    MAIN = "main",
+    NAV = "nav",
+    FOOTER = "footer",
+    SECTION = "section",
+    ARTICLE = "article",
 }
 
 
@@ -119,7 +125,12 @@ export function isContentType (value: unknown) : value is ContentType {
         case ContentType.SUP: return true;
         case ContentType.SUB: return true;
         case ContentType.AUDIO: return true;
-        case ContentType.VIDEO: return true;
+        case ContentType.HEADER: return true;
+        case ContentType.MAIN: return true;
+        case ContentType.NAV: return true;
+        case ContentType.FOOTER: return true;
+        case ContentType.SECTION: return true;
+        case ContentType.ARTICLE: return true;
     }
     return false;
 }

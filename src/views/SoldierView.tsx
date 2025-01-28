@@ -29,6 +29,7 @@ export function SoldierView() {
         />
       </CardsContainer>
       <ServiceView serviceName={'tak'} viewName={'ServiceTak'} />
+      <ServiceView serviceName={'livelog'} viewName={'ServiceLivelog'} />
     </Layout>
   );
 }
