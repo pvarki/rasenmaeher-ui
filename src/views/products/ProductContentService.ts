@@ -35,6 +35,9 @@ export interface PublicEventDestructor {
  */
 export interface ProductContentService {
 
+    /** Get the name of the service */
+    getName () : string;
+
     /**
      * Initialize the service with some data.
      *
@@ -82,11 +85,14 @@ export interface ProductContentService {
  */
 export class ProductContentServiceImpl implements ProductContentService {
 
+    protected _name : string;
     protected _items : readonly Content[];
 
     protected constructor (
+        name : string,
         items: readonly Content[],
     ) {
+        this._name = name;
         this._items = items;
     }
 
@@ -94,9 +100,10 @@ export class ProductContentServiceImpl implements ProductContentService {
      * Create service instance
      */
     public static create (
+        name : string,
         items ?: readonly Content[],
     ) : ProductContentService {
-        return new ProductContentServiceImpl(items ?? []);
+        return new ProductContentServiceImpl(name, items ?? []);
     }
 
     /**
@@ -104,6 +111,13 @@ export class ProductContentServiceImpl implements ProductContentService {
      */
     public setContent (items: readonly Content[]) : void {
         this._items = items;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public getName () : string {
+        return this._name;
     }
 
     /**
