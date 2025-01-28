@@ -92,6 +92,18 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/app/services/rune/*",
+    element: (
+      <ProtectedRoute
+        requireValidUser={true}
+        requireAuthType="mtls"
+        allowedUserTypes={["user", "admin"]}
+      >
+        <ServiceRouteWrapper serviceName={'rune'} />
+      </ProtectedRoute>
+    ),
+  },
+  {
     path: "/login/createmtls",
     element: (
       <ProtectedRoute requireAuthType="jwt" requireValidUser={true}>

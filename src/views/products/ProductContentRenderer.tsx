@@ -18,6 +18,7 @@ import { StepProps } from "../../components/Step";
 import { DropdownOsSelector } from "../../components/tak/DropdownOsSelector";
 import { UnfoldableCard as UnfoldableCard2 } from "../../components/UnfoldableCard2";
 import { parseOperatingSystem } from "../../hook/helpers/getOperatingSystem";
+import { I18N_CONTENT_SERVICE_NS_PREFIX } from "../../i18n";
 import { DOWNLOAD_OPTIONS_SERVICE } from "./ContentService";
 import { isArray } from "./helpers/isArray";
 import { isString } from "./helpers/isString";
@@ -93,6 +94,28 @@ export class ProductContentRenderer {
      * @param context
      */
     public static prepareImgAlt (
+        value: string | undefined,
+        context : RendererContext,
+    ) : string {
+        if (!value) return "";
+        if (value.startsWith(this.ComponentParamPrefix) && context?.componentContent && context?.stateContent) {
+            const key = value.substring(this.ComponentParamPrefix.length)
+            const data : {[key: string]: Content | readonly Content[] | null | undefined} = context.stateContent as unknown as {[key: string]: Content | readonly Content[] | null | undefined};
+            if (Object.prototype.hasOwnProperty.call(data, key) && data[key]) {
+                if (isString(data[key])) {
+                    return data[key] as unknown as string
+                }
+            }
+        }
+        return value
+    }
+
+    /**
+     *
+     * @param value
+     * @param context
+     */
+    public static prepareAHref (
         value: string | undefined,
         context : RendererContext,
     ) : string {
@@ -202,10 +225,11 @@ export class ProductContentRenderer {
                     h4: <h4 />,
                     h5: <h5 />,
                     h6: <h6 />,
+                    a: <a />,
                     span: <span />,
                     small: <small />,
                 }}
-                ns={"productContent"}
+                ns={I18N_CONTENT_SERVICE_NS_PREFIX+context.contentService.getName()}
             />;
         }
 
@@ -481,12 +505,40 @@ export class ProductContentRenderer {
                 return <em className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</em>
             }
 
+            if (content?.type === ContentType.HEADER) {
+                return <header className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</header>
+            }
+
+            if (content?.type === ContentType.MAIN) {
+                return <main className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</main>
+            }
+
+            if (content?.type === ContentType.NAV) {
+                return <nav className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</nav>
+            }
+
+            if (content?.type === ContentType.FOOTER) {
+                return <footer className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</footer>
+            }
+
+            if (content?.type === ContentType.SECTION) {
+                return <section className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</section>
+            }
+
+            if (content?.type === ContentType.ARTICLE) {
+                return <article className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</article>
+            }
+
             if (content?.type === ContentType.STRONG) {
                 return <strong className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</strong>
             }
 
             if (content?.type === ContentType.A) {
-                return <a className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</a>
+                return (
+                    <a className={this.prepareClassName(content.classes, context)}
+                       href={ this.prepareAHref((content as unknown as {href ?: string}).href, context) }
+                    >{this.render(content?.body, context)}</a>
+                );
             }
 
         }

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import LoadingComponent from "../../components/Loading/LoadingComponent";
 import { useDownloadTakZipModal } from "../../components/tak/DownloadTakZipModal";
+import { I18N_CONTENT_SERVICE_NS_PREFIX } from "../../i18n";
 import { ContentService } from "./ContentService";
 import { ProductContentRenderer } from "./ProductContentRenderer";
 import {
@@ -20,7 +21,7 @@ export interface ServiceViewProps {
 
 export function ServiceView ( props: ServiceViewProps ) {
     const serviceName = props.serviceName;
-    const {t} = useTranslation(`productContent:${serviceName}`);
+    const {t} = useTranslation(`${I18N_CONTENT_SERVICE_NS_PREFIX}${serviceName}`);
     const viewName = props.viewName;
     const actions = props.actions;
     const navigate = useNavigate();
