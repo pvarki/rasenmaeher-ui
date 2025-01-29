@@ -20,7 +20,10 @@ import { UnfoldableCard as UnfoldableCard2 } from "../../components/UnfoldableCa
 import { parseOperatingSystem } from "../../hook/helpers/getOperatingSystem";
 import { I18N_CONTENT_SERVICE_NS_PREFIX } from "../../i18n";
 import { DOWNLOAD_OPTIONS_SERVICE } from "./ContentService";
-import { isArray } from "./helpers/isArray";
+import {
+    isArray,
+    isArrayOf,
+} from "./helpers/isArray";
 import { isString } from "./helpers/isString";
 import { RendererContext } from "./RendererContextImpl";
 import { isBaseContent } from "./types/BaseContent";
@@ -35,7 +38,9 @@ import {
 } from "./types/CardContent";
 import { isComponentContent } from "./types/ComponentContent";
 import { Content } from "./types/Content";
-import { ContentType } from "./types/ContentType";
+import {
+    ContentType,
+} from "./types/ContentType";
 import { isDropdownOsSelectorContent } from "./types/DropdownOsSelectorContent";
 import { isFoldableCardContent } from "./types/FoldableCardContent";
 import {
@@ -224,6 +229,8 @@ export class ProductContentRenderer {
                     h3: <h3 />,
                     h4: <h4 />,
                     h5: <h5 />,
+                    code: <code />,
+                    pre: <pre />,
                     h6: <h6 />,
                     a: <a />,
                     span: <span />,
@@ -470,6 +477,23 @@ export class ProductContentRenderer {
             }
 
             if (content?.type === ContentType.CODE) {
+                const body = content.body;
+                if (isArrayOf<Content>(body)) {
+                    return (
+                        <code className={this.prepareClassName(content.classes, context)}>
+                            {body.map((item: Content) : ReactNode => {
+                                if (isString(item)) {
+                                    return <>{item}</>;
+                                }
+                                return <>{this.render(item, context)}</>;
+                            })}
+                        </code>
+                    )
+                }
+
+                if (isString(content?.body)) {
+                    return <code className={this.prepareClassName(content.classes, context)}>{content?.body}</code>
+                }
                 return <code className={this.prepareClassName(content.classes, context)}>{this.render(content?.body, context)}</code>
             }
 
