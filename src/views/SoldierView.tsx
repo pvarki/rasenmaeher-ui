@@ -2,7 +2,7 @@ import { Trans } from "react-i18next";
 import { Layout } from "../components/Layout";
 import { CardsContainer } from "../components/CardsContainer";
 import { TextCard } from "../components/TextCard";
-import { ServiceTak } from "./servicetak/ServiceTak";
+import { ServiceView } from "./products/ServiceView";
 import { useUserType } from "../hook/auth/useUserType";
 import taistelija from "../assets/heroimages/taistelija.jpeg";
 
@@ -28,7 +28,8 @@ export function SoldierView() {
           }
         />
       </CardsContainer>
-      <ServiceTak />
+      <ServiceView serviceName={'tak'} viewName={'ServiceTak'} />
+      <ServiceView serviceName={'livelog'} viewName={'ServiceLivelog'} />
     </Layout>
   );
 }

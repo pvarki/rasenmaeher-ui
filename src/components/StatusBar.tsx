@@ -1,5 +1,7 @@
-interface StatusBarProps {
-  title: string;
+import { ReactNode } from "react";
+
+export interface StatusBarProps {
+  title: ReactNode;
   progressMax: number;
   progressNow: number;
 }

@@ -2,7 +2,7 @@ import { UseMutationOptions, useMutation } from "react-query";
 
 async function testCertificate() {
   const res = await fetch(
-    "https://mtls.localmaeher.pvarki.fi:4439//api/v1/check-auth/mtls",
+    "https://mtls.localmaeher.dev.pvarki.fi:4439//api/v1/check-auth/mtls",
     {
       method: "GET",
       headers: {
