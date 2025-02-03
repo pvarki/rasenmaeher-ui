@@ -163,6 +163,10 @@
   "manageUsersView.addUsers": "Lisää käyttäjiä",
   "manageUsersView.approveUsers": "Hyväksy käyttäjiä",
   "manageUsersView.manageUsers": "Hallitse käyttäjiä",
+  "manageUsersView.keycloakAccess": "Avaa Keycloak (Beta)",
+  "manageUsersView.keycloakAccessDesc1": "<strong>Keycloak</strong> on taustapalvelu, joka synkronoi käyttäjien roolit ja ryhmät Deploy App-palvelimessasi mukana olevien palveluiden välillä. Sen käyttäminen <strong>ei</strong> ole tällä hetkellä välttämätöntä.",
+  "manageUsersView.keycloakAccessDesc2": "Jos osaat käyttää Keycloakia, voit avata sen alla olevasta painikkeesta. Myöhemmin käyttäjien rooli- ja ryhmähallinta tehdään <strong>suoraan Deploy Appissa</strong>, jotta käyttökokemus olisi mahdollisimman helppo.",
+  "manageUsersView.openKeycloak": "Avaa Keycloak",
 
   "USERMANAGEMENTVIEW": "USERMANAGEMENTVIEW",
   "userManagement.rejectionSuccessMessage": "Käyttäjän hylkääminen onnistui.",
