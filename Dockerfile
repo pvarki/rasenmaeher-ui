@@ -39,6 +39,10 @@ COPY . /app
 ARG VITE_ASSET_SET=neutral
 ENV VITE_ASSET_SET=$VITE_ASSET_SET
 
+# Set release tag so we can show our deployment version to users
+ARG VITE_RELEASE_TAG=Developing
+ENV VITE_RELEASE_TAG=$VITE_RELEASE_TAG
+
 RUN npm install  \
     && chmod a+x /docker-entrypoint.sh \
     && npm run build \
