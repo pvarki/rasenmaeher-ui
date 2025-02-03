@@ -9,7 +9,7 @@ export function Footer() {
 
   // Read the deployment version from VITE_RELEASE_TAG
   const deploymentVersion =
-    import.meta.env.VITE_RELEASE_TAG || t("footer.loading");
+    (import.meta.env.VITE_RELEASE_TAG as string) || t("footer.loading");
 
   const feedbackLink = t("footer.feedbackForm", { ns: "dynamic" });
   const { changeLanguage, availableLanguages } = useLanguageChange();
