@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { useOwnEnrollmentStatus } from "../../hook/api/useOwnEnrollmentStatus";
 import { useNavigate } from "react-router-dom";
@@ -16,30 +16,39 @@ export function EnrollmentView() {
   const { isCopied, copyError, handleCopy } = useCopyToClipboard();
   const callsign = localStorage.getItem("callsign") ?? undefined;
   const approveCode = localStorage.getItem("approveCode") ?? undefined;
+
+  // Build the approval URL.
   const protocol = window.location.protocol;
   const host = window.location.host;
   const approvalUrl = `${protocol}//mtls.${host}/app/admin/user-management/approval?callsign=${
     callsign ?? ""
   }&&approvalcode=${approveCode ?? ""}`;
 
-  // Redirect to login if approveCode or callsign is missing
+  // Local state to control polling behavior
+  const [shouldPoll, setShouldPoll] = useState(true);
+
+  // Redirect to login if approveCode or callsign is missing.
   useEffect(() => {
     if (!approveCode || !callsign) {
       navigate("/login");
     }
   }, [approveCode, callsign, navigate]);
 
-  // Check enrollment status periodically and navigate on success
-  useOwnEnrollmentStatus({
-    onSuccess: (enrolled) => {
-      if (enrolled) {
-        navigate("/login/createmtls");
-      }
-    },
-    refetchInterval: 1000,
+  // Use the enrollment status hook.
+  const { data: enrolled, isLoading } = useOwnEnrollmentStatus({
+    refetchInterval: shouldPoll ? 5000 : false, // Stop polling once enrolled
   });
 
-  // Render the waiting for approval view
+  // Effect to navigate on successful enrollment
+  useEffect(() => {
+    if (enrolled && shouldPoll) {
+      setShouldPoll(false); // Stop polling to prevent infinite re-renders
+
+      // Use hard redirect to force React to unmount the view
+      window.location.replace("/login/createmtls");
+    }
+  }, [enrolled, shouldPoll]);
+
   return (
     <Layout showNavbar={true} showFooter={false}>
       <CardsContainer>
@@ -110,6 +119,11 @@ export function EnrollmentView() {
               },
             ]}
           />
+          {isLoading && (
+            <div className="text-white mt-4">
+              {t("checking-enrollment-status")}
+            </div>
+          )}
         </div>
       </CardsContainer>
     </Layout>

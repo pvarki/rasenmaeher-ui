@@ -15,6 +15,13 @@ export default async ({ mode }) => {
       watch: {
         ignored: ["**/.env*"],
       },
+      host: process.env.SERVER_DOMAIN || "localhost",
+
+      allowedHosts: [
+        process.env.SERVER_DOMAIN, // Dynamically allow the current domain
+        "localhost", // Always allow localhost for local dev
+        "0.0.0.0", // Allow any network access (useful in Docker)
+      ].filter(Boolean), // Remove undefined values
       proxy: {
         "/api": {
           target: "http://rmapi:8000",

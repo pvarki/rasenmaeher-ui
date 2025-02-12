@@ -162,6 +162,10 @@
   "manageUsersView.addUsers": "Add Users",
   "manageUsersView.approveUsers": "Approve Users",
   "manageUsersView.manageUsers": "Manage Users",
+  "manageUsersView.keycloakAccess": "Access Keycloak (Beta)",
+  "manageUsersView.keycloakAccessDesc1": "<strong>Keycloak</strong> is a backend service, which syncs user's roles and groups across services integrated to Deploy App. Managing groups is <strong>not</strong> necessary right now.",
+  "manageUsersView.keycloakAccessDesc2": "If you know how to use it, you may access it from the button below. Later on, user role & group management will be <strong>done directly here in Deploy App</strong> for maximum ease of use.",
+  "manageUsersView.openKeycloak": "Open Keycloak",
 
   "USERMANAGEMENTVIEW": "USERMANAGEMENTVIEW",
   "userManagement.rejectionSuccessMessage": "Success: The user has been removed.",

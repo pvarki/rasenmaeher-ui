@@ -33,16 +33,20 @@ export function LoginView() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const params = useQueryParams();
+  // Retrieve the code from the URL (if provided)
+  const codeFromQuery = params.get("code");
   const { setOtpVerified } = useContext(UserTypeContext);
   const loginCodeStore = useLoginCodeStore();
   const { deployment } = useHealthcheck();
   const [codeNotValid, setCodeNotValid] = useState(false);
+  // Prevent auto-submit from running more than once.
   const [hasAutoSubmitted, setHasAutoSubmitted] = useState(false);
   const protocol = window.location.protocol;
   const host = window.location.host;
   const mtlsUrl = `${protocol}//mtls.${host}/app/admin/`;
   const buttonStyle = "min-h-[70px]";
 
+  // Validation schema using Yup.
   const CodeSchema = yup.object().shape({
     code: yup
       .string()
@@ -50,23 +54,31 @@ export function LoginView() {
       .matches(TOKEN_REGEX, t("code-is-wrong")),
   });
 
+  // If the user arrives with a code in the URL, we want to auto-validate.
+  // Otherwise, we disable auto-validation (and error messages) until submit.
+  const autoValidate = !!codeFromQuery;
+
   const formik = useFormik({
     initialValues: {
-      code: params.get("code")?.toUpperCase() ?? "",
+      code: codeFromQuery ? codeFromQuery.toUpperCase() : "",
     },
     validationSchema: CodeSchema,
-    validateOnMount: true,
+    // Only auto-validate if a code came in via the URL.
+    validateOnMount: autoValidate,
+    validateOnChange: autoValidate,
+    validateOnBlur: autoValidate,
     onSubmit: (values) => {
       checkCode(values.code);
     },
   });
 
-  // Destructure formik properties
-  const { values, isValid, submitForm, setFieldValue } = formik;
+  // Destructure useful Formik properties.
+  const { values, isValid, submitForm, setFieldValue, submitCount } = formik;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const upperCaseValue = e.target.value.toUpperCase();
-    // Using void to intentionally ignore the Promise returned by setFieldValue, to suppress eslint
+    setCodeNotValid(false); // Clear error
+    formik.setErrors({}); // Reset all Formik errors when user starts typing
     void setFieldValue("code", upperCaseValue, false);
   };
 
@@ -101,12 +113,26 @@ export function LoginView() {
     },
   });
 
+  // Auto-submit only if a code is provided in the URL
   useEffect(() => {
-    if (values.code && isValid && !isLoading && !hasAutoSubmitted) {
+    if (
+      codeFromQuery && // only auto-submit when arriving via URL
+      values.code &&
+      isValid &&
+      !isLoading &&
+      !hasAutoSubmitted
+    ) {
       setHasAutoSubmitted(true);
       void submitForm();
     }
-  }, [values.code, isValid, isLoading, hasAutoSubmitted, submitForm]);
+  }, [
+    codeFromQuery,
+    values.code,
+    isValid,
+    isLoading,
+    hasAutoSubmitted,
+    submitForm,
+  ]);
 
   return (
     <Layout showNavbar={false} showFooter={false} showPublicFooter={true}>
@@ -131,7 +157,10 @@ export function LoginView() {
                   onChange={handleChange}
                 />
                 <span className="text-red-500">
-                  <ErrorMessage name="code" />
+                  {/*
+                    Show Formik's error only after the user has attempted a submission
+                  */}
+                  {submitCount > 0 && <ErrorMessage name="code" />}
                   {codeNotValid && <div>{t("code-is-wrong")}</div>}
                   {isError && (
                     <div>
@@ -149,7 +178,7 @@ export function LoginView() {
                       width: "full",
                     }}
                     type="submit"
-                    disabled={!isValid || isLoading}
+                    disabled={!values.code || isLoading}
                     styling={buttonStyle}
                   >
                     <div className="flex items-center justify-center w-full h-full">

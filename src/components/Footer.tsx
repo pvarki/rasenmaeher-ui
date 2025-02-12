@@ -2,13 +2,15 @@ import { Trans, useTranslation } from "react-i18next";
 import { InfoModal } from "./InfoModal";
 import { DropdownMenu } from "./DropdownMenu";
 import { useLanguageChange } from "./Localization/LanguageChange";
-import useHealthCheck from "../hook/helpers/useHealthcheck";
 
 export function Footer() {
-  // Use both common and dynamic namespaces
   const { t } = useTranslation(["common", "dynamic"]);
   const isMtls = window.location.origin.includes("mtls.");
-  const { version } = useHealthCheck();
+
+  // Read the deployment version from VITE_RELEASE_TAG
+  const deploymentVersion =
+    (import.meta.env.VITE_RELEASE_TAG as string) || t("footer.loading");
+
   const feedbackLink = t("footer.feedbackForm", { ns: "dynamic" });
   const { changeLanguage, availableLanguages } = useLanguageChange();
 
@@ -21,9 +23,8 @@ export function Footer() {
   return (
     <div className="font-heading text-uppercase text-center text-sm text-gray-500 pt-5 mt-10 mx-auto max-w-screen-xl">
       <hr className="mx-auto" />
-
       <div className="pt-4 py-3">
-        RASENMAEHER {version || <Trans i18nKey="footer.loading" />} -{" "}
+        Deploy App {deploymentVersion} -{" "}
         <DropdownMenu
           triggerLabel="Language"
           items={languageItems}
@@ -36,9 +37,7 @@ export function Footer() {
           - <Trans i18nKey="footer.authenticatedWithMtls" />
         </div>
       )}
-
       <hr className="mx-auto w-56" />
-
       <div className="py-5 text-xs">
         <Trans i18nKey="footer.proudlyServedBy" />{" "}
         <a
@@ -81,7 +80,6 @@ export function Footer() {
           <Trans i18nKey="footer.feedbackFormText" ns="dynamic" />
         </a>
       </div>
-
       <hr className="mx-auto w-56" />
     </div>
   );
