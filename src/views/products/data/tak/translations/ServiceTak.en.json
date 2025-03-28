@@ -1,5 +1,4 @@
 {
-
   "SERVICETAK": "SERVICETAK",
   "serviceTak.foldableCardTitle": "TAK",
   "serviceTak.serviceInfoCardTitle": "TAK Situational Awareness Application",
@@ -9,45 +8,38 @@
   "serviceTak.step3Description": "Download the <strong>Client Package</strong> and install it to your TAK device according to the Quickstart Guide, to get using the app.",
   "serviceTak.guideButton.quickStart": "Quickstart",
   "serviceTak.guideButton.usage": "Usage Guide",
-
   "SERVICETAKUSAGECARD": "SERVICETAKUSAGECARD",
   "serviceTakUsageCard.title": "Purpose",
   "serviceTakUsageCard.content": "<ul><li>Real-time tracking of friendlies <em>(GPS).</em></li><li>Send observations to the command post (HQ) for interpretation.</li><li>Follow the <strong>Recon Feed</strong> that your command post (HQ) creates for your unit.</li></ul>",
-
   "SERVICETAKUSAGECONTENTS": "SERVICETAKUSAGECONTENTS",
-  "serviceTakUsageContents.title": "NOT USED: Guide sections",
-  "serviceTakUsageContent.details": "NOT USED: <ul><li>Move the map and see your own</li><li>Enable Recon Feed</li><li>Make observations with markers</li></ul>",
-
+  "serviceTakUsageContents.title": "Guide sections",
+  "serviceTakUsageContent.details": "<ul><li>Move the map and see your own</li><li>Enable Recon Feed</li><li>Make observations with markers</li></ul>",
   "SERVICETAKUSAGEATCPCARD": "SERVICETAKUSAGEATCPCARD",
   "serviceTakUsageAtCPCard.title": "Being a Command Post TAK User",
   "serviceTakUsageAtCPCard.description1": "1. TAK is a tool for collecting information from forces, and distributing it to them.",
   "serviceTakUsageAtCPCard.description2": "2. As a command post, you create the unit's Feeds and use the team role <strong>HQ</strong> in TAK to receive and interpet observations from the fighters.",
   "serviceTakUsageAtCPCard.description3": "3. Interpretating observations goes like this: Firstly, confirm the observation from its sender, then make conclusions <em>if possible</em>. Add all confirmed observations to the Recon Feed.",
   "serviceTakUsageAtCPCard.description4": "4. Maintain the Recon Feed by sending markers to it, changing the information of markers in it, and removing them either when the information or the situation changes",
-
   "SERVICETAKUSAGEBYFIGHTERCARD": "SERVICETAKUSAGEBYFIGHTERCARD",
   "serviceTakUsageByFighterCard.title": "Using TAK as a Fighter",
   "serviceTakUsageByFighterCard.description1": "1. When you make an observation, create a marker in TAK and <strong>send it</strong> to the HQ role.",
   "serviceTakUsageByFighterCard.description2": "2. Follow your orders in <strong>how to</strong> report observations - in addition to sending a marker, make the observation known via other mediums as you've been ordered to.",
   "serviceTakUsageByFighterCard.description3": "3. Follow the <strong>Recon Feed.</strong> Youe command post (HQ) creates and updates it for your unit.",
   "serviceTakUsageByFighterCard.description4": "4. The Recon Feed contains an interpreted intelligence situation picture of your unit's observations, as well as yours.",
-
   "SERVICETAKUSAGEFLOWCARD": "SERVICETAKUSAGEFLOWCARD",
   "serviceTakUsageFlowCard.title": "Flowchart: Observation Data Flow",
   "serviceTakUsageFlowCard.description1": "<small><strong>1. Fighter observes something reportable</strong><li>The fighter ensures their own group is informed.</li><li>The fighter sends a marker to the <em>HQ role.</em></li><li>Command post users are in the HQ role.</li><li>The command post receives the observation.</li></small>",
   "serviceTakUsageFlowCard.description2": "<small><strong>2. Command Post's action upon receiving an observation</strong><li>The command post <em>processes the observation:</em> </li><li>- i.e., verifies and interprets it, adding information</li><li>The command post sends a marker to the <strong>Recon Feed</strong></li></small>",
   "serviceTakUsageFlowCard.description3": "<small><strong>3. End situation</strong><li>All users are subscribers to the Recon Feed</li><li>All users see the new marker</li><li>Markers compose the <strong>intelligence situation picture</strong></li></small>",
   "serviceTakUsageFlowCard.description4": "<small>Goal: The entire unit is aware of essential events within minutes of their observation.</small>",
-
   "SERVICETAKUSAGEVIEW": "SERVICETAKUSAGEVIEW",
-  "serviceTakUsageView.usageModel": "NOT USED: Usage Model",
+  "serviceTakUsageView.usageModel": "Usage Model",
   "serviceTakUsageView.navbarTitle": "TAK: Usage",
   "serviceTakUsageView.serviceInfoCardTitle": "TAK - Usage",
   "serviceTakUsageView.serviceInfoCardDetails": "Take  TAK to use with each platform with the instructions below. <br/> <br/> The easiest way to do it, is to work <strong>with a partner</strong> where one fighter displays the instructions, and the other follows them.",
   "serviceTakUsageView.androidTitle": "Android",
   "serviceTakUsageView.iosTitle": "iOS",
   "serviceTakUsageView.windowsTitle": "Windows",
-
   "SERVICETAKQUICKSTARTVIEW": "SERVICETAKQUICKSTARTVIEW",
   "serviceTakQuickstartView.navbarTitle": "TAK: Quickstart",
   "serviceTakQuickstartView.serviceInfoCardTitle": "Get Started with TAK!",
@@ -55,7 +47,6 @@
   "serviceTakQuickstartView.androidTitle": "Android",
   "serviceTakQuickstartView.iosTitle": "iOS",
   "serviceTakQuickstartView.windowsTitle": "Windows",
-
   "TAKQUICKSTARTANDROID1": "TAKQUICKSTARTANDROID1",
   "takQuickstartAndroid1.navbarTitle": "ATAK Quickstart",
   "takQuickstartAndroid1.statusBarTitle": "Install the applications (1/5)",
@@ -70,7 +61,6 @@
   "takQuickstartAndroid1.unfoldableCard3.title": "3. Open the ATAK app and grant it the requested permissions",
   "takQuickstartAndroid1.unfoldableCard3.description1": "Open the app. Grant all permissions the application requests.",
   "takQuickstartAndroid1.unfoldableCard3.description2": "<em>If the application gives an error message, select Wait.</em>",
-
   "TAKQUICKSTARTANDROID2": "TAKQUICKSTARTANDROID2",
   "TakQuickstartAndroid2.navbarTitle": "ATAK Quickstart",
   "TakQuickstartAndroid2.statusBarTitle": "Import your Client Package (2/5)",
@@ -86,7 +76,6 @@
   "TakQuickstartAndroid2.unfoldableCard3.description2": "You will receive several notifications about the loading of configuration files.",
   "TakQuickstartAndroid2.unfoldableCard3.description3": "The initial configuration is complete.",
   "TakQuickstartAndroid2.unfoldableCard3.description4": "Check from the bottom right corner that your server connection has been activated (green light).",
-
   "TAKQUICKSTARTANDROID3": "TAKQUICKSTARTANDROID3",
   "TakQuickstartAndroid3.navbarTitle": "ATAK Quickstart",
   "TakQuickstartAndroid3.statusBarTitle": "Do the settings (3/5)",
@@ -98,7 +87,6 @@
   "TakQuickstartAndroid3.unfoldableCard2.description1": "Select <strong>My Team</strong> and choose the color you were instructed to.",
   "TakQuickstartAndroid3.unfoldableCard2.description2": "Select <strong>My Role.</strong> Unless otherwise specified by your superiors, everybut but command post users use the <strong>Team Member</strong> role.",
   "TakQuickstartAndroid3.unfoldableCard2.description3": "The role and team are now set.",
-
   "TAKQUICKSTARTANDROID4": "TAKQUICKSTARTANDROID4",
   "TakQuickstartAndroid4.navbarTitle": "ATAK Quickstart",
   "TakQuickstartAndroid4.statusBarTitle": "Enable Data Sync (4/5)",
@@ -121,7 +109,6 @@
   "TakQuickstartAndroid4.unfoldableCard3.step1": "Ensure Auto Download is on. Return to the main view of the hamburger menu (three lines at the top right).<br><br>Find <strong>Settings</strong>.",
   "TakQuickstartAndroid4.unfoldableCard3.step2": "Find the <strong>Auto Download Updates</strong> setting and ensure it is turned on.",
   "TakQuickstartAndroid4.unfoldableCard3.step3": "This setting ensures that ATAK automatically downloads updates for your subscribed feeds.",
-
   "TAKQUICKSTARTANDROID5": "TAKQUICKSTARTANDROID5",
   "TakQuickstartAndroid5.navbarTitle": "ATAK Quickstart",
   "TakQuickstartAndroid5.statusBarTitle": "Check Units and Map if Necessary (5/5)",
@@ -149,7 +136,7 @@
   "TakQuickstartAndroid5.unfoldableCard3.description5": "Enter the callsign you were assigned - for example, <strong>Rambo</strong>.",
   "TakQuickstartAndroid5.unfoldableCard3.description7": "Press <strong>OK.</strong>",
   "TakQuickstartAndroid5.alterForward": "Done! Go back.",
-
+  "serviceTak.grabZipButton": "Download your Client Package",
   "TAKQUICKSTARTIOS1": "TAKQUICKSTARTIOS1",
   "TakQuickstartIos1.navbarTitle": "iTAK Quickstart",
   "TakQuickstartIos1.statusBarTitle": "Install the Application (1/5)",
@@ -159,7 +146,6 @@
   "TakQuickstartIos1.unfoldableCard2.title": "2. Download your Client Package",
   "TakQuickstartIos1.unfoldableCard2.description1": "Download your client packege  by pressing the green <strong>Download your Client Package</strong> button. You can access the same button from the front page, too.<br><br>Save the .zip file.",
   "TakQuickstartIos1.unfoldableCard2.note": "NOTE! The zip file does not need to be extracted!",
-
   "TAKQUICKSTARTIOS2": "TAKQUICKSTARTIOS2",
   "TakQuickstartIos2.navbarTitle": "iTAK Quickstart",
   "TakQuickstartIos2.statusBarTitle": "Do the Basic Settings (2/5)",
@@ -177,7 +163,6 @@
   "TakQuickstartIos2.unfoldableCard4.description2": "b. iOS will then ask if you allow iTAK to send you <strong>notifications</strong> and <strong>use your location</strong>.<br><br>Choose <strong>Allow</strong> for notifications:",
   "TakQuickstartIos2.unfoldableCard4.description3": "c. Choose <strong>Allow While Using the App</strong> for location:",
   "TakQuickstartIos2.unfoldableCard4.description4": "After this, move on to establish the server connection with your Client Package.",
-
   "TAKQUICKSTARTIOS3": "TAKQUICKSTARTIOS3",
   "TakQuickstartIos3.navbarTitle": "iTAK Quickstart",
   "TakQuickstartIos3.statusBarTitle": "Connect to the Server (3/5)",
@@ -191,7 +176,6 @@
   "TakQuickstartIos3.unfoldableCard2.step3": "d. Select your package. It will be a zip file named <em>YourCallsign.zip.</em>",
   "TakQuickstartIos3.unfoldableCard2.step4": "e. As a sign of success, the Packages menu list will show <em>the server's callsign</em> and a green light. Return to the map view.",
   "TakQuickstartIos3.unfoldableCard2.step5": "The server connection is now established. As a sign, the bottom right of the map will display in green <strong>Connected.</strong>",
-
   "TAKQUICKSTARTIOS4": "TAKQUICKSTARTIOS4",
   "TakQuickstartIos4.navbarTitle": "iTAK Quickstart",
   "TakQuickstartIos4.statusBarTitle": "Set Units (4/5)",
@@ -207,7 +191,6 @@
   "TakQuickstartIos4.unfoldableCard3.description1": "a. If you want to change the map source, select <strong>Map Source</strong> from the main Settings menu.",
   "TakQuickstartIos4.unfoldableCard3.description2": "b. Choose your desired map source. Note! Availability may vary.",
   "TakQuickstartIos4.unfoldableCard3.description3": "Great! You have now set up iTAK for use.<br><br><em><small>If you need to edit your callsign, you can do so from the Settings menu by clicking your callsign.</small></em>",
-
   "TAKQUICKSTARTIOS5": "TAKQUICKSTARTIOS5",
   "TakQuickstartIos5.navbarTitle": "iTAK Quickstart",
   "TakQuickstartIos5.statusBarTitle": "Enable Data Sync (5/5)",
@@ -223,7 +206,6 @@
   "TakQuickstartIos5.unfoldableCard3.step1": "Starting from now, the <strong>Recon Feed</strong> created and updated by your Command Post users is at your disposal.",
   "TakQuickstartIos5.unfoldableCard3.step2": "The feed will appear in your Data Sync menu. Instructions for using the feed are in the <strong>Using in the group instructions.</strong>",
   "TakQuickstartIos5.alterForward": "Done! Return from here.",
-
   "TAKQUICKSTARTWIN1": "TAKQUICKSTARTWIN1",
   "TakQuickstartWin1.navbarTitle": "WinTAK Quickstart",
   "TakQuickstartWin1.statusBarTitle": "Set your Windows PC's Language to English (1/4)",
@@ -243,7 +225,6 @@
   "TakQuickstartWin1.unfoldableCard3.description2": "Press <strong>Install language pack.</strong> Wait for the language pack to install.",
   "TakQuickstartWin1.unfoldableCard3.description3": "Afterward, you can select English as the display language <strong>as described in step 2</strong>.<br>Finalize changing the display language by signing out and signing back in.",
   "TakQuickstartWin1.unfoldableCard3.description4": "The language settings are now complete. Next, we will install the WinTAK application itself.",
-
   "TAKQUICKSTARTWIN2": "TAKQUICKTARTWIN2",
   "TakQuickstartWin2.navbarTitle": "WinTAK Quickstart",
   "TakQuickstartWin2.statusBarTitle": "Download and Install WinTAK (2/4)",
@@ -264,7 +245,6 @@
   "TakQuickstartWin2.unfoldableCard3.description5": "d. Press <strong>Next</strong>. The Wizard is ready to start the installation, press <strong>Install</strong>.",
   "TakQuickstartWin2.unfoldableCard3.description6": "e. Press <strong>Next</strong>.",
   "TakQuickstartWin2.unfoldableCard3.description7": "The application is now installed.<br>Next, we will open the installed application.",
-
   "TAKQUICKSTARTWIN3": "TAKQUICKSTARTWIN3",
   "TakQuickstartWin3.navbarTitle": "WinTAK Quickstart",
   "TakQuickstartWin3.statusBarTitle": "Configure WinTAK (3/4)",
@@ -296,7 +276,6 @@
   "TakQuickstartWin3.unfoldableCard7.note": "If you are a command post user, your role should be HQ.",
   "TakQuickstartWin3.unfoldableCard7.description3": "Also, check the <strong>TAK Network Status.</strong> A green cloud means the server connection is OK, red means it is disconnected.",
   "TakQuickstartWin3.unfoldableCard7.description4": "If the connection has not been established, first check if your internet connection is working. If it is, and the TAK Network Status is still red, restart the application.<br><br>Troubleshooting help is available at the end of this guide.",
-
   "TAKQUICKSTARTWIN4": "TAKQUICKSTARTWIN4",
   "TakQuickstartWin4.navbarTitle": "WinTAK Quickstart",
   "TakQuickstartWin4.statusBarTitle": "Set Measurement Units (4/4)",
@@ -311,7 +290,6 @@
   "TakQuickstartWin4.unfoldableCard2.title": "2. Troubleshooting",
   "TakQuickstartWin4.unfoldableCard2.description1": "TBD: TroubleShoot.",
   "TakQuickstartWin4.alterForward": "Done! Go back.",
-
   "TAKUSAGEANDROID1": "TAKUSAGEANDROID1",
   "TakUsageAndroid1.navbarTitle": "ATAK: Usage Guide",
   "TakUsageAndroid1.statusBarTitle": "Move the Map and See Yourself (1/4)",
@@ -325,7 +303,6 @@
   "TakUsageAndroid1.unfoldableCard2.step1": "a. Your location is shown as an <strong>arrowhead.</strong>",
   "TakUsageAndroid1.unfoldableCard2.step2": "b. Other users' callsigns start to appear as you zoom in.",
   "TakUsageAndroid1.unfoldableCard2.step3": "c. The color of other users' circle icons indicates the team color (or another assigned meaning).",
-
   "TAKUSAGEANDROID2": "TAKUSAGEANDROID2",
   "TakUsageAndroid2.navbarTitle": "Usage Guide: ATAK",
   "TakUsageAndroid2.statusBarTitle": "Making Observations with Point Dropper (2/3)",
@@ -345,13 +322,12 @@
   "TakUsageAndroid2.unfoldableCard3.step6": "f. Add new attachments by pressing the <strong>+</strong> icon at the top of the menu:",
   "TakUsageAndroid2.unfoldableCard3.step7": "g. Once you have completed the observation details, <strong>send it to HQ</strong> with the <strong>Send</strong> button:",
   "TakUsageAndroid2.unfoldableCard3.note": "Users with HQ role will then receive your mark. According to our basic model, they should be your Command Post users. <br /> <br/> Remember, a sent marker is never a sufficient notice. Confirm by sending the recipient a message in the instructed manner.",
-
   "TAKUSAGEANDROID3": "TAKUSAGEANDROID3",
   "TakUsageAndroid3.navbarTitle": "Usage guide: ATAK",
   "TakUsageAndroid3.statusBarTitle": "Quick Pic (3/3)",
   "TakUsageAndroid3.serviceInfoCard.details": "Usage guide ATAK - part 3: <strong>Make observations: Quick Pic</strong><br>",
-  "TakUsageAndroid3.unfoldableCard1.title": "NOT USED: 1. ATAK's Observation Tools",
-  "TakUsageAndroid3.unfoldableCard1.description": "NOT USED: In ATAK, observations can be made in two ways: <strong>Point Dropper</strong> and <strong>Quick Pic</strong>.<br><br>With <strong>Point Dropper</strong>, you mark an observation to which attachments, including images from the device gallery, can be added. With <strong>Quick Pic</strong>, you take a picture directly into ATAK and complete the details.<br><br>Let's examine Quick Pic by second.",
+  "TakUsageAndroid3.unfoldableCard1.title": "1. ATAK's Observation Tools",
+  "TakUsageAndroid3.unfoldableCard1.description": "In ATAK, observations can be made in two ways: <strong>Point Dropper</strong> and <strong>Quick Pic</strong>.<br><br>With <strong>Point Dropper</strong>, you mark an observation to which attachments, including images from the device gallery, can be added. With <strong>Quick Pic</strong>, you take a picture directly into ATAK and complete the details.<br><br>Let's examine Quick Pic by second.",
   "TakUsageAndroid3.unfoldableCard2.title": "2. Making Observations with Quick Pic",
   "TakUsageAndroid3.unfoldableCard2.description1": "a. Open the three lines menu (hamburger menu), select <strong>Quick Pic</strong> (camera icon).",
   "TakUsageAndroid3.unfoldableCard2.description2": "b. The camera opens. Take a picture and approve it.",
@@ -365,7 +341,6 @@
   "TakUsageAndroid3.unfoldableCard3.description6": "Select <strong>HQ</strong> as the recipient and send.",
   "TakUsageAndroid3.unfoldableCard3.description7": "Great! You now know how to use the ATAK, according to our basic operating model.<br><br> Users with HQ role will then receive your mark. According to our basic model, they should be your Command Post users. <br /> <br/> Remember, a sent marker is never a sufficient notice. Confirm by sending the recipient a message in the instructed manner.",
   "TakUsageAndroid3.alterForward": "Done! Go back.",
-
   "TAKUSAGEIOS1": "TAKUSAGEIOS1",
   "TakUsageIos1.navbarTitle": "Usage Guide: iTAK",
   "TakUsageIos1.statusBarTitle": "Send Markers",
@@ -387,10 +362,9 @@
   "TakUsageIos1.unfoldableCard4.title": "4. Receive Markers from Recon Feed",
   "TakUsageIos1.unfoldableCard4.step1": "If you have activated the <strong>Recon Feed</strong> with Data Sync as instructed in the setup guide, its content will automatically update on your map.",
   "TakUsageIos1.unfoldableCard4.step2": "Explore the markers that are part of the situational picture received from the Recon Feed by pressing them.",
-
   "TAKUSAGEWIN1": "TAKUSAGEWIN1",
   "takUsageWin1.navbarTitle": "Usage Guide: WinTAK",
-  "takUsageWin1.statusBarTitle": "NOT USED: Locate Yourself (1/4)",
+  "takUsageWin1.statusBarTitle": "Locate Yourself (1/4)",
   "takUsageWin1.serviceInfoCard.title": "WinTAK",
   "takUsageWin1.serviceInfoCard.details": "Usage Guide WINTAK - Part 1: <strong>Locate Yourself</strong><br />",
   "takUsageWin1.unfoldableCard1.title": "1. Move and examine the map",
@@ -405,10 +379,9 @@
   "takUsageWin1.unfoldableCard3.title": "3. Change your manually defined location",
   "takUsageWin1.unfoldableCard3.step1": "When you want to change your own location, click on your own marker on the right <strong>(arrow symbol)</strong>",
   "takUsageWin1.unfoldableCard3.step2": "After that, you can select a new location by clicking.",
-
   "TAKUSAGEWIN2": "TAKUSAGEWIN2",
   "takUsageWin2.navbarTitle": "Usage Guide: WinTAK",
-  "takUsageWin2.statusBarTitle": "NOT USED: Maintain the Recon Feed (2/4)",
+  "takUsageWin2.statusBarTitle": "Maintain the Recon Feed (2/4)",
   "takUsageWin2.serviceInfoCard.title": "WinTAK",
   "takUsageWin2.serviceInfoCard.details": "Usage Guide: WinTAK - Part 2: <strong>Maintain the Recon Feed</strong><br />",
   "takUsageWin2.unfoldableCard1.title": "1. Create a Recon Feed",
@@ -446,10 +419,9 @@
   "takUsageWin2.unfoldableCard7.step2": "Choose <strong>Yes</strong> to the Include Attachments question.",
   "takUsageWin2.unfoldableCard7.step3": "Pressing the Send button in the Marker Details menu opens the <strong>Send To</strong> menu on the right side.",
   "takUsageWin2.unfoldableCard7.step4": "Proceed with each <strong>processed</strong> observation in this manner.",
-
   "TAKUSAGEWIN3": "TAKUSAGEWIN3",
   "takUsageWin3.navbarTitle": "Usage Guide: WinTAK",
-  "takUsageWin3.statusBarTitle": "NOT USED: Act as Command Post (3/4)",
+  "takUsageWin3.statusBarTitle": "Act as Command Post (3/4)",
   "takUsageWin3.serviceInfoCard.title": "WinTAK",
   "takUsageWin3.serviceInfoCard.details": "Usage Guide WinTAK - Part 3: <strong>Act as Command Post</strong><br />",
   "takUsageWin3.unfoldableCard1.title": "1. Acting as a Command Post",
@@ -457,10 +429,9 @@
   "takUsageWin3.unfoldableCard1.step2": "The command post must continuously perform the following tasks, among others:<br /><br /><li><strong>1. Know</strong> the mission of the force and its execution phase with the precision of a squad and team.</li><li><strong>2. Receive</strong> immediately reportable matters from the force.</li><li><strong>3. Receive</strong> periodic and formatted (arriving at a specific time) situation reports from the force.</li><li><strong>4. Maintain</strong> a message journal of all notifications received by all means.</li><li><strong>5. Maintain</strong> a numbered intelligence diary from own forces, neighbors, and top-down observations and enemy information.</li><li><strong>6. Maintain</strong> information systems, of which TAK is one.</li>",
   "takUsageWin3.unfoldableCard1.note": "These 6 tasks serve as information sources for the command post. Use these sources actively seek and inquire more information. Your task is to form a situational awareness - to understand what is happening around <em>now</em>, in <em>6 hours</em>, and in <em>24 hours</em>.<br>",
   "takUsageWin3.unfoldableCard1.step3": "In this mission, the TAK service <em>is just one tool</em>. Do not let the system and notifications take your attention - use them to collect information, and to share it with the force.<br>This creates information superiority in the environment for the force.",
-
   "TAKUSAGEWIN4": "TAKUSAGEWIN4",
-  "takUsageWin4.navbarTitle": "NOT USED: Usage Guide: WinTAK",
-  "takUsageWin4.statusBarTitle": "NOT USED: Post-Operation Data Cleansing (4/4)",
+  "takUsageWin4.navbarTitle": "Usage Guide: WinTAK",
+  "takUsageWin4.statusBarTitle": "Post-Operation Data Cleansing (4/4)",
   "takUsageWin4.serviceInfoCard.title": "WinTAK",
   "takUsageWin4.serviceInfoCard.details": "Usage Guide WinTAK - Part 4: <strong>Post-Operation Data Cleansing</strong><br />",
   "takUsageWin4.unfoldableCard1.title": "1. Move and examine the map",
