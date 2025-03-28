@@ -37,7 +37,7 @@ export function NavigateButtons({
   return (
     <div style={{ marginTop: "95px" }}>
       <div className="fixed bottom-2 left-0 right-0 flex justify-center">
-        <section className="items-start rounded bg-zinc-800 flex rounded-lg max-w min-h-[105px] max-w-full gap-2.5 mt-24 p-2.5 max-md:justify-center">
+        <section className="items-start rounded bg-zinc-800 flex rounded-lg max-w min-h-[105px] max-w-full gap-2.5 p-2.5 max-md:justify-center">
           <Button
             styling={`transform transition-transform duration-200 justify-center items-center rounded ${
               backClicked ? "scale-95" : "scale-100"
@@ -61,7 +61,7 @@ export function NavigateButtons({
             onPointerUp={() => setContinueClicked(false)}
             onClick={handleContinueClick}
           >
-            {alterForward || t("navigateButtons.continue")}
+            {t(alterForward) || t("navigateButtons.continue")}
           </Button>
         </section>
       </div>
