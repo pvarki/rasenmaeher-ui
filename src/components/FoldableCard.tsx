@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 interface FoldableCardProps {
   title: string;
@@ -7,6 +8,7 @@ interface FoldableCardProps {
 }
 
 export function FoldableCard({ title, imageSrc, children }: FoldableCardProps) {
+  const { t } = useTranslation(["common", "dynamic"]);
   const [isOpen, setIsOpen] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +46,7 @@ export function FoldableCard({ title, imageSrc, children }: FoldableCardProps) {
       )}
 
       <div className="absolute top-0 right-0 flex items-center space-x-2 bg-primary p-2 rounded-tl-lg">
-        <h3 className="text-l text-white">{title}</h3>
+        <h3 className="text-l text-white">{t(title)}</h3>
         <span
           className={`transform transition-transform duration-300 text-white ${
             isOpen ? "rotate-180" : ""
