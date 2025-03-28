@@ -74,4 +74,8 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography")],
+  safelist: [
+      // Classes which may be used in the dynamic HTML content (e.g. from product markdown/JSON content through API)
+      "m-1",
+  ],
 };
