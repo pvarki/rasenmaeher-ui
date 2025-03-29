@@ -7,7 +7,7 @@ import { ServiceView } from "./views/products/ServiceView";
 
 export function ServiceRouteWrapper( props: { serviceName : string }) {
     const serviceName = props.serviceName;
-    const contentService = ContentService.getContentService(serviceName);
+    const contentService = ContentService.getProductContentService(serviceName);
     const viewNames = contentService ? contentService.getAllViewNames() : [];
     const { t } = useTranslation();
     const { openDownloadModal, loading } = useDownloadTakZipModal();

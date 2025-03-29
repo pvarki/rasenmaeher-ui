@@ -18,7 +18,9 @@ import { StepProps } from "../../components/Step";
 import { DropdownOsSelector } from "../../components/tak/DropdownOsSelector";
 import { UnfoldableCard as UnfoldableCard2 } from "../../components/UnfoldableCard2";
 import { parseOperatingSystem } from "../../hook/helpers/getOperatingSystem";
-import { I18N_CONTENT_SERVICE_NS_PREFIX } from "../../i18n";
+import {
+    getContentI18nNamespace,
+} from "../../i18n";
 import { DOWNLOAD_OPTIONS_SERVICE } from "./ContentService";
 import {
     isArray,
@@ -236,7 +238,7 @@ export class ProductContentRenderer {
                     span: <span />,
                     small: <small />,
                 }}
-                ns={I18N_CONTENT_SERVICE_NS_PREFIX+context.contentService.getName()}
+                ns={getContentI18nNamespace(context.contentService.getName())}
             />;
         }
 

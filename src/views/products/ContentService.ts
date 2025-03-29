@@ -1,6 +1,16 @@
-import LIVELOG_CONTENT from "./data/livelog.json";
-import TAK_CONTENT from "./data/tak.json";
 import { DownloadOptionsServiceImpl } from "./DownloadOptionsService";
+import {
+    isProductDTO,
+    ProductDTO,
+} from "./dto/ProductDTO";
+import {
+    isProductHealthCheckDTO,
+    ProductHealthCheckDTO,
+} from "./dto/ProductHealthCheckDTO";
+import {
+    isProductListDTO,
+    ProductListDTO,
+} from "./dto/ProductListDTO";
 import {
     ObservableDestructor,
     ObservableListener,
@@ -12,24 +22,12 @@ import {
 } from "./ProductContentService";
 import { Content } from "./types/Content";
 
-const TAK_SERVICE_NAME = 'tak';
-const LIVELOG_SERVICE_NAME = 'livelog';
+const API_ENDPOINT_REQUEST_TIMEOUT = 30000;
+const PRODUCT_LIST_API_ENDPOINT = (product : string) : string => `/api/v1/instructions/${encodeURIComponent(product)}/en`;
+const PRODUCT_API_ENDPOINT = '/api/v1/descriptions/en';
+const PRODUCT_API_HEALTHCHECK_ENDPOINT = '/api/v1/healthcheck/services';
 
 const EMPTY_CONTENT_SERVICE : ProductContentService = ProductContentServiceImpl.create('__empty', [] );
-
-const TAK_CONTENT_SERVICE : ProductContentService = ProductContentServiceImpl.create(
-    TAK_SERVICE_NAME,
-    [
-        ...TAK_CONTENT as Content[],
-    ]
-);
-
-const LIVELOG_CONTENT_SERVICE : ProductContentService = ProductContentServiceImpl.create(
-    LIVELOG_SERVICE_NAME,
-    [
-        ...LIVELOG_CONTENT as Content[],
-    ]
-);
 
 export const DOWNLOAD_OPTIONS_SERVICE = DownloadOptionsServiceImpl.create();
 
@@ -70,7 +68,7 @@ export interface IContentService extends ObservableService<ContentServiceEvent> 
      * Returns the content service for the given product name.
      * @param name
      */
-    getContentService (name : string) : ProductContentService;
+    getProductContentService ( name : string) : ProductContentService;
 
     /**
      * Returns the current products.
@@ -94,6 +92,7 @@ export class ContentService {
     private static _state : ContentServiceState = ContentServiceState.UNINITIALIZED;
     private static _productChangedListeners: ObservableListener<ContentServiceEvent.PRODUCTS_CHANGED>[] = [];
     private static _currentProducts : readonly string[] = [];
+    private static _productContentServices : Map<string, ProductContentService> = new Map();
 
     /**
      * Check if the content service is ready
@@ -166,16 +165,12 @@ export class ContentService {
      * Returns the content service for the given product name.
      * @param name
      */
-    public static getContentService (name : string) : ProductContentService {
+    public static getProductContentService (name : string) : ProductContentService {
         if (this._state === ContentServiceState.UNINITIALIZED) {
             this._startInitialization();
         }
 
-        switch (name) {
-            case TAK_SERVICE_NAME: return TAK_CONTENT_SERVICE;
-            case LIVELOG_SERVICE_NAME: return LIVELOG_CONTENT_SERVICE;
-            default : return EMPTY_CONTENT_SERVICE;
-        }
+        return this._productContentServices.get(name) || EMPTY_CONTENT_SERVICE;
     }
 
     /**
@@ -205,29 +200,49 @@ export class ContentService {
     private static _startInitialization () {
         console.log('Initializing content service');
         this._state = ContentServiceState.INITIALIZING;
-
-        // FIXME: Simulates HTTP request to get products
-        setTimeout( () => {
-            try {
-                this._updateProducts([
-                    TAK_SERVICE_NAME,
-                    LIVELOG_SERVICE_NAME,
-                ]);
-            } catch (err) {
+        try {
+            this._initialize().catch((err) => {
                 console.error('Error initializing content service: ', err);
                 this._state = ContentServiceState.ERROR;
-            }
-        }, 5000);
-
+            });
+        } catch (err) {
+            console.error('Error initializing content service: ', err);
+            this._state = ContentServiceState.ERROR;
+        }
     }
 
     /**
-     * Update the current products and notify listeners
-     * @param products New list of products
+     * Initialize the content service
+     * @private
      */
-    private static _updateProducts(products: readonly string[]) {
-        console.log('Updating products: ', products);
-        this._currentProducts = products;
+    private static async _initialize () {
+        const productsTask = this._loadProductList();
+        const healthTask = this._loadProductHealthCheck();
+        const products = await productsTask;
+        const health = await healthTask;
+
+        const productNames = products.map( ( product ) => product.shortname );
+        const allProductsInHealthyApi = Object.keys(health.products);
+
+        const allUniqueProducts = Array.from(new Set([...productNames, ...allProductsInHealthyApi]));
+
+        console.log('Products: ', products);
+
+        console.log('Updating product names: ', allUniqueProducts);
+
+        for (const name of allUniqueProducts) {
+            try {
+                const product = await this._loadProduct( name );
+                console.log(`Product data: ${name}: ${JSON.stringify(product)}`);
+                const content = this._loadProductContent(name, product);
+                console.log(`Product content data: ${name}: ${JSON.stringify(content)}`);
+                this._productContentServices.set( name, ProductContentServiceImpl.create(name, content) );
+            } catch (err) {
+                console.log("Error loading product: ", err);
+            }
+        }
+
+        this._currentProducts = productNames;
         this._state = ContentServiceState.READY;
         this._notifyProductsChanged();
     }
@@ -246,4 +261,52 @@ export class ContentService {
         });
     }
 
+    private static async _loadProductList () : Promise<ProductListDTO> {
+        return await this._loadJsonResource<ProductListDTO>( PRODUCT_API_ENDPOINT, isProductListDTO );
+    }
+
+    private static async _loadProductHealthCheck () : Promise<ProductHealthCheckDTO> {
+        return await this._loadJsonResource<ProductHealthCheckDTO>( PRODUCT_API_HEALTHCHECK_ENDPOINT, isProductHealthCheckDTO );
+    }
+
+    private static async _loadJsonResource<T> (endpoint: string, isDTO : ((obj: unknown) => obj is T ) ) : Promise<T> {
+        const response = await fetch(
+          endpoint,
+          { signal: AbortSignal.timeout(API_ENDPOINT_REQUEST_TIMEOUT) }
+        );
+        const data = await response.json() as unknown;
+        if (!isDTO(data)) {
+            console.error(`Invalid data received from server at ${endpoint}: ${JSON.stringify(data)}`);
+            throw new TypeError(`Invalid data received from server from ${endpoint}`);
+        }
+        return data;
+    }
+
+    private static async _loadProduct (name : string) : Promise<ProductDTO> {
+        return await this._loadJsonResource<ProductDTO>( PRODUCT_LIST_API_ENDPOINT(name), isProductDTO );
+    }
+
+    private static _loadProductContent (name : string, product: ProductDTO) : readonly Content[] {
+        try {
+            const instructions : string | readonly Content[] = product.instructions;
+            if (isArray(instructions)) {
+                return instructions;
+            }
+
+            const content : unknown = JSON.parse(instructions);
+            if (!isArray(content)) {
+                console.error(`Invalid content data for ${name}: ${JSON.stringify(content)}`);
+                return [];
+            }
+            return content as readonly Content[];
+        } catch (err) {
+            console.error(`Error loading product content for ${name}: `, err);
+            return [];
+        }
+    }
+
+}
+
+function isArray (obj: unknown) : obj is readonly unknown[] {
+    return Array.isArray(obj);
 }

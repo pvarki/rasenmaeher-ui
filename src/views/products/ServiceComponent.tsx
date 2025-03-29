@@ -21,7 +21,7 @@ export function ServiceComponent (props: ServiceComponentProps) {
     const {t} = useTranslation(`productContent/${serviceName}`);
     const componentName = props.componentName;
     const navigate = useNavigate();
-    const contentService  = ContentService.getContentService(serviceName);
+    const contentService  = ContentService.getProductContentService(serviceName);
     let component = contentService.getComponent( componentName );
     if ( !(contentService && component) ) {
         // TODO: Implement 404 error component
