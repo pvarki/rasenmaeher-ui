@@ -74,8 +74,75 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography")],
+
+  // Classes which may be used in the dynamic HTML content (e.g. from product markdown/JSON content through API)
   safelist: [
-      // Classes which may be used in the dynamic HTML content (e.g. from product markdown/JSON content through API)
-      "m-1",
+
+    // Layout & Flexbox
+    'flex',
+    'flex-col',
+    'flex-1',
+    'flex-shrink-0',
+    'flex-wrap',
+    'items-center',
+    'items-stretch',
+    'justify-center',
+    'gap-2',
+
+    // Spacing (Padding & Margin)
+    'p-5',
+    'p-4',
+    'p-1',
+    'p-0',
+    'px-0',
+    'px-2',
+    'px-3',
+    'px-5',
+    'pr-5',
+    'pr-10',
+    'pr-12',
+    'pb-10',
+    'pb-20',
+    'm-1',
+    'm-2',
+    'm-3',
+    'mr-2',
+    'mx-2',
+    'mx-auto',
+
+    // Width & Height
+    'w-full',
+    'w-5',
+    'w-[200px]',
+    'w-[240px]',
+    'w-[250px]',
+    'w-[300px]',
+    'w-[400px]',
+    'w-[500px]',
+    'h-5',
+    'h-full',
+    'min-h-[4rem]',
+    'h-[calc(100vh - 4rem)]',
+
+    // Background & Text
+    'bg-backgroundLight',
+    'bg-success',
+    'text-white',
+    'prose',
+    'prose-white',
+
+    // Responsive Design
+    'md:px-[20%]',
+    'lg:px-[32%]',
+
+    // Other
+    'cursor-pointer',
+
+    // Custom Classes
+    'description',
+    'note',
+    'service-tak',
+    'cards-container'
+
   ],
 };
