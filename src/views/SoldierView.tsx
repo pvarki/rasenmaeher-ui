@@ -1,13 +1,16 @@
 import { Trans } from "react-i18next";
 import { Layout } from "../components/Layout";
 import { CardsContainer } from "../components/CardsContainer";
+import LoadingComponent from "../components/Loading/LoadingComponent";
 import { TextCard } from "../components/TextCard";
-import { ServiceView } from "./products/ServiceView";
+import { useCurrentProducts } from "./products/hooks/useCurrentProducts";
+import { ProductList } from "./products/ProductList";
 import { useUserType } from "../hook/auth/useUserType";
 import taistelija from "../assets/heroimages/taistelija.jpeg";
 
 export function SoldierView() {
   const { callsign } = useUserType();
+  const [products, isReady, hasErrors] = useCurrentProducts();
 
   return (
     <Layout showNavbar={true} heroImage={taistelija} showFooter={true}>
@@ -28,8 +31,17 @@ export function SoldierView() {
           }
         />
       </CardsContainer>
-      <ServiceView serviceName={'tak'} viewName={'ServiceTak'} />
-      <ServiceView serviceName={'livelog'} viewName={'ServiceLivelog'} />
+
+      { hasErrors ? (
+        <div>Error</div>
+      ) : (
+        isReady ? (
+          <ProductList products={ products } />
+        ) : (
+          <LoadingComponent />
+        )
+      ) }
+
     </Layout>
   );
 }
