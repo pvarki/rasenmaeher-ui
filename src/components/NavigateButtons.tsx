@@ -61,7 +61,7 @@ export function NavigateButtons({
             onPointerUp={() => setContinueClicked(false)}
             onClick={handleContinueClick}
           >
-            {t(alterForward) || t("navigateButtons.continue")}
+            {alterForward ? t(alterForward) : t("navigateButtons.continue")}
           </Button>
         </section>
       </div>
