@@ -1,19 +1,12 @@
-
 all: build
 
-build: update-rune tak.json livelog.json
-
-rune:
-	git clone https://github.com/hyperifyio/rune.git rune
-
-update-rune: rune
-	cd rune && git pull
+build: tak.json livelog.json
 
 clean:
 	rm -f tak.json livelog.json
 
-tak.json: tak/**/*.yml tak/**/*.html tak/**/*.json rune rune/rune.py Makefile
-	rune/rune.py tak json > $@
+tak.json: Makefile
+	wget https://github.com/pvarki/rune-tak-metadata/releases/latest/download/rune.json -O $@
 
-livelog.json: livelog/**/*.html livelog/**/*.md livelog/**/*.json rune rune/rune.py Makefile
-	rune/rune.py livelog json > $@
+livelog.json: Makefile
+	wget https://github.com/pvarki/rune-livelog-metadata/releases/latest/download/rune.json -O $@
