@@ -3,6 +3,7 @@ import { Layout } from "../components/Layout";
 import { CardsContainer } from "../components/CardsContainer";
 import LoadingComponent from "../components/Loading/LoadingComponent";
 import { TextCard } from "../components/TextCard";
+import { ErrorComponent } from "./products/ContentError";
 import { useCurrentProducts } from "./products/hooks/useCurrentProducts";
 import { ProductList } from "./products/ProductList";
 import { useUserType } from "../hook/auth/useUserType";
@@ -33,7 +34,7 @@ export function SoldierView() {
       </CardsContainer>
 
       { hasErrors ? (
-        <div>Error</div>
+        <ErrorComponent title={"Load Errors"} />
       ) : (
         isReady ? (
           <ProductList products={ products } />

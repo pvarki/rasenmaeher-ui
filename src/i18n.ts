@@ -9,13 +9,17 @@ import {
   ContentServiceEvent,
 } from "./views/products/ContentService";
 
-export const I18N_CONTENT_SERVICE_NS_PREFIX = 'productContent:';
+const I18N_CONTENT_SERVICE_NS_PREFIX = 'productContent:';
+
+export function getContentI18nNamespace ( serviceName : string ) : string {
+  return `${ I18N_CONTENT_SERVICE_NS_PREFIX }${ serviceName }`;
+}
 
 // Create a function to update namespaces and backends
 async function updateI18nConfiguration () {
 
   const products = ContentService.getAllProducts();
-  const allProductNamespaces = products.map( name => `${ I18N_CONTENT_SERVICE_NS_PREFIX }${ name }` );
+  const allProductNamespaces = products.map( name => getContentI18nNamespace(name) );
   const missingNamespaces = allProductNamespaces.filter( ns => !i18n.hasLoadedNamespace( ns ) );
 
   if ( missingNamespaces.length ) {
@@ -46,10 +50,10 @@ void i18n
       LocalStorageBackend,
       resourcesToBackend( async ( lang : string, namespace : string ) => {
         const serviceName : string | undefined = ContentService.getAllProducts().find( ( name : string ) => {
-          return namespace === `${ I18N_CONTENT_SERVICE_NS_PREFIX }${ name }`;
+          return namespace === getContentI18nNamespace(name);
         } );
         if ( serviceName ) {
-          return Promise.resolve( ContentService.getContentService( serviceName ).getTranslations( lang ) );
+          return Promise.resolve( ContentService.getProductContentService( serviceName ).getTranslations( lang ) );
         }
 
         if ( namespace === "dynamic" ) {
