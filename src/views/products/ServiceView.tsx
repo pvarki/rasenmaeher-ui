@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import LoadingComponent from "../../components/Loading/LoadingComponent";
 import { useContentView } from "./hooks/useContentView";
 import { useRendererContext } from "./hooks/useRendererContext";
 import { ProductContentRenderer } from "./ProductContentRenderer";
+import { ProductLoadingView } from "./ProductLoadingView";
 import { ContentActions } from "./types/ContentActions";
 
 export interface ServiceViewProps {
@@ -24,7 +24,7 @@ export function ServiceView ( props: ServiceViewProps ) {
 
     const context = useRendererContext(serviceName, actions);
     if (!context) {
-        return <LoadingComponent text={ 'loading' } />;
+        return <ProductLoadingView title={ serviceName } message={viewName} />;
     }
 
     return ProductContentRenderer.render( view, context );

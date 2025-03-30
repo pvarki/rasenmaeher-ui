@@ -21,6 +21,7 @@ import { parseOperatingSystem } from "../../hook/helpers/getOperatingSystem";
 import {
     getContentI18nNamespace,
 } from "../../i18n";
+import { CardView } from "./CardView";
 import { DOWNLOAD_OPTIONS_SERVICE } from "./ContentService";
 import {
     isArray,
@@ -299,7 +300,7 @@ export class ProductContentRenderer {
 
         if (isFoldableCardContent(content)) {
             return <FoldableCard
-                title={content.title}
+                title={this.render(content.title, context)}
                 imageSrc={content.image}
             >{this.render(content?.body, context)}</FoldableCard>;
         }
@@ -655,22 +656,3 @@ function parseInteger (value: unknown) : number | undefined {
     }
     return undefined
 }
-
-
-interface CardViewProps {
-    readonly title: string;
-    readonly message: string;
-}
-
-const CardView: React.FC<CardViewProps> = ({ title, message }) => {
-    return (
-      <div className="cards-container flex flex-col items-center justify-center mx-2 md:px-[20%] lg:px-[32%]">
-          <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full max-w-full mb-5 overflow-hidden prose prose-white">
-              <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full max-w-full mb-5 overflow-hidden prose prose-white">
-                  <h3 className="text-xl font-bold mt-1 mb-1">{title}</h3>
-                  <p className="text-center ml-2 mr-2">{message}</p>
-              </div>
-          </div>
-      </div>
-    );
-};

@@ -32,6 +32,11 @@ const API_ENDPOINT_REQUEST_TIMEOUT = 30000;
  */
 const API_ENDPOINT_RETRY_TIME = 5000;
 
+/**
+ * Time to wait before retrying a health check request (ms)
+ */
+const API_UNHEALTHY_ENDPOINT_WAIT_TIME = 5000;
+
 const PRODUCT_LIST_API_ENDPOINT = (product : string) : string => `/api/v1/instructions/${encodeURIComponent(product)}/en`;
 const PRODUCT_API_ENDPOINT = '/api/v1/descriptions/en';
 const PRODUCT_API_HEALTHCHECK_ENDPOINT = '/api/v1/healthcheck/services';
@@ -104,6 +109,7 @@ export class ContentService {
      */
     private static _retryFailedLoadTimeout : number | NodeJS.Timeout | undefined = undefined;
 
+    private static _health : ProductHealthCheckDTO | undefined;
     private static _state : ContentServiceState = ContentServiceState.UNINITIALIZED;
     private static _productChangedListeners: ObservableListener<ContentServiceEvent.PRODUCTS_CHANGED>[] = [];
     private static _currentProducts : readonly string[] = [];
@@ -238,6 +244,7 @@ export class ContentService {
 
         console.log('Products: ', products);
         console.log('Health: ', health);
+        this._health = health;
 
         const productNames = products.map( ( product ) => product.shortname );
         const allProductsInHealthyApi = Object.keys(health.products);
@@ -251,7 +258,24 @@ export class ContentService {
 
     }
 
+    private static async _updateHealth () {
+        try {
+            this._health = await this._loadProductHealthCheck();
+        } catch (err) {
+            console.error("Error in API health check: ", err);
+            this._health = undefined;
+        }
+    }
+
     private static async _loadAndSetProduct(name : string) {
+
+        if (!this._health?.products[name]) {
+            await wait(API_UNHEALTHY_ENDPOINT_WAIT_TIME);
+            console.warn(`Product has non healthy API: ${name}`);
+            return;
+        }
+        console.log(`Product is healthy: ${name}`);
+
         const product = await this._loadProduct( name );
         console.log(`Product data: ${name}: ${JSON.stringify(product)}`);
         const content = this._loadProductContent(name, product);
@@ -267,6 +291,8 @@ export class ContentService {
     }
 
     private static async _loadProductsByNames (names : readonly string[]) {
+
+        await this._updateHealth();
 
         console.log('Loading products: ', names);
         const failed : string[] = [];
@@ -362,4 +388,8 @@ export class ContentService {
 
 function isArray (obj: unknown) : obj is readonly unknown[] {
     return Array.isArray(obj);
+}
+
+function wait (ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
