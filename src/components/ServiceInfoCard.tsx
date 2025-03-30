@@ -14,7 +14,7 @@ export function ServiceInfoCard({
   children,
 }: ServiceInfoCardProps) {
   return (
-    <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full p-2 mb-2 overflow-hidden">
+    <div className="service-info-card flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full p-2 mb-2 overflow-hidden">
       {title && (
         <h3 className="text-white text-xl font-bold mt-1 mb-1">{title}</h3>
       )}
