@@ -22,7 +22,16 @@ import {
 } from "./ProductContentService";
 import { Content } from "./types/Content";
 
+/**
+ * Timeout for requests (ms)
+ */
 const API_ENDPOINT_REQUEST_TIMEOUT = 30000;
+
+/**
+ * Time to wait before retrying a failed request (ms)
+ */
+const API_ENDPOINT_RETRY_TIME = 5000;
+
 const PRODUCT_LIST_API_ENDPOINT = (product : string) : string => `/api/v1/instructions/${encodeURIComponent(product)}/en`;
 const PRODUCT_API_ENDPOINT = '/api/v1/descriptions/en';
 const PRODUCT_API_HEALTHCHECK_ENDPOINT = '/api/v1/healthcheck/services';
@@ -221,30 +230,64 @@ export class ContentService {
         const products = await productsTask;
         const health = await healthTask;
 
+        console.log('Products: ', products);
+        console.log('Health: ', health);
+
         const productNames = products.map( ( product ) => product.shortname );
         const allProductsInHealthyApi = Object.keys(health.products);
 
         const allUniqueProducts = Array.from(new Set([...productNames, ...allProductsInHealthyApi]));
 
-        console.log('Products: ', products);
+        await this._loadProductsByNames(allUniqueProducts);
 
-        console.log('Updating product names: ', allUniqueProducts);
+        this._state = ContentServiceState.READY;
+        this._notifyProductsChanged();
 
-        for (const name of allUniqueProducts) {
+    }
+
+    private static async _loadAndSetProduct(name : string) {
+        const product = await this._loadProduct( name );
+        console.log(`Product data: ${name}: ${JSON.stringify(product)}`);
+        const content = this._loadProductContent(name, product);
+        console.log(`Product content data: ${name}: ${JSON.stringify(content)}`);
+        this._productContentServices.set( name, ProductContentServiceImpl.create(name, content) );
+
+        this._currentProducts = [
+          ...this._currentProducts,
+          name
+        ];
+        this._notifyProductsChanged();
+
+    }
+
+    private static async _loadProductsByNames (names : readonly string[]) {
+
+        console.log('Loading products: ', names);
+        const failed : string[] = [];
+        const tasks = names.map( (name: string) : Promise<void> => this._loadAndSetProduct(name).catch(err => {
+            failed.push(name);
+            throw err;
+        }) );
+
+        for (const task of tasks) {
             try {
-                const product = await this._loadProduct( name );
-                console.log(`Product data: ${name}: ${JSON.stringify(product)}`);
-                const content = this._loadProductContent(name, product);
-                console.log(`Product content data: ${name}: ${JSON.stringify(content)}`);
-                this._productContentServices.set( name, ProductContentServiceImpl.create(name, content) );
+                await task;
             } catch (err) {
                 console.log("Error loading product: ", err);
             }
         }
 
-        this._currentProducts = productNames;
-        this._state = ContentServiceState.READY;
-        this._notifyProductsChanged();
+        // Schedule failed tasks for retry
+        if (failed.length > 0) {
+            console.log('Scheduling retry for failed products: ', failed);
+            setTimeout(() => {
+                console.warn('Retrying failed products: ', failed);
+                this._loadProductsByNames(failed).catch(err => {
+                    console.error('Error loading failed products: ', err);
+                });
+            }, API_ENDPOINT_RETRY_TIME);
+        }
+
     }
 
     /**
