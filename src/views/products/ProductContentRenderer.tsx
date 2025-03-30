@@ -288,13 +288,13 @@ export class ProductContentRenderer {
         if (content?.type === ContentType.COMPONENT_CHILDREN) {
             if (context.stateContent === undefined) {
                 console.warn(`Warning! No parent found for: ${content?.type}`);
-                return <></>;
+                return <CardView title={`${content?.type}`} message={"No parent found"} />;
             }
             if (isBaseParentContent(context.stateContent)) {
                 return this.render(context.stateContent.body, context.createContextWithoutParent());
             }
             console.warn(`Warning! No body found for: ${content?.type}: `, context.stateContent);
-            return <></>;
+            return <CardView title={`${content?.type}`} message={"No body found"} />;
         }
 
         if (isFoldableCardContent(content)) {
@@ -596,7 +596,7 @@ export class ProductContentRenderer {
         }
 
         console.warn(`Warning! Unimplemented content type: ${content?.type}`);
-        return <></>;
+        return <CardView title={`${content?.type}`} message={"Unimplemented content type"} />;
     }
 
     private static _getCardProps( value: CardContent, context : RendererContext ) : CardContentProps {
@@ -655,3 +655,22 @@ function parseInteger (value: unknown) : number | undefined {
     }
     return undefined
 }
+
+
+interface CardViewProps {
+    readonly title: string;
+    readonly message: string;
+}
+
+const CardView: React.FC<CardViewProps> = ({ title, message }) => {
+    return (
+      <div className="cards-container flex flex-col items-center justify-center mx-2 md:px-[20%] lg:px-[32%]">
+          <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full max-w-full mb-5 overflow-hidden prose prose-white">
+              <div className="flex flex-col items-center justify-center bg-backgroundLight rounded-lg w-full max-w-full mb-5 overflow-hidden prose prose-white">
+                  <h3 className="text-xl font-bold mt-1 mb-1">{title}</h3>
+                  <p className="text-center ml-2 mr-2">{message}</p>
+              </div>
+          </div>
+      </div>
+    );
+};
