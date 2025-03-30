@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import LoadingComponent from "../../components/Loading/LoadingComponent";
 import { useDownloadTakZipModal } from "../../components/tak/DownloadTakZipModal";
 import { ContentService } from "./ContentService";
 import { ProductContentRenderer } from "./ProductContentRenderer";
+import { ProductLoadingView } from "./ProductLoadingView";
 import {
     RendererContext,
     RendererContextImpl,
@@ -30,7 +30,7 @@ export function ServiceComponent (props: ServiceComponentProps) {
     }
     const { openDownloadModal, loading } = useDownloadTakZipModal();
     if ( loading ) {
-        return <LoadingComponent text={ 'loading' } />;
+        return <ProductLoadingView title={serviceName} message={componentName} />;
     }
     const context : RendererContext = RendererContextImpl.create(t, navigate, openDownloadModal, contentService);
     return ProductContentRenderer.render( component, context );
