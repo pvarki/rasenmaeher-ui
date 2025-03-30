@@ -98,6 +98,12 @@ export interface IContentService extends ObservableService<ContentServiceEvent> 
  */
 export class ContentService {
 
+    /**
+     *
+     * @private
+     */
+    private static _retryFailedLoadTimeout : number | NodeJS.Timeout | undefined = undefined;
+
     private static _state : ContentServiceState = ContentServiceState.UNINITIALIZED;
     private static _productChangedListeners: ObservableListener<ContentServiceEvent.PRODUCTS_CHANGED>[] = [];
     private static _currentProducts : readonly string[] = [];
@@ -280,7 +286,11 @@ export class ContentService {
         // Schedule failed tasks for retry
         if (failed.length > 0) {
             console.log('Scheduling retry for failed products: ', failed);
-            setTimeout(() => {
+            if (this._retryFailedLoadTimeout !== undefined) {
+                clearTimeout(this._retryFailedLoadTimeout);
+                this._retryFailedLoadTimeout = undefined;
+            }
+            this._retryFailedLoadTimeout = setTimeout(() => {
                 console.warn('Retrying failed products: ', failed);
                 this._loadProductsByNames(failed).catch(err => {
                     console.error('Error loading failed products: ', err);
