@@ -5,9 +5,7 @@ import pic2 from "../../assets/mtls/fi/mtls-android-2.jpg";
 import pic3 from "../../assets/mtls/fi/mtls-android-3.jpg";
 import pic4 from "../../assets/mtls/fi/mtls-android-4.jpg";
 
-
 export function AndroidInstructions() {
-
   return (
     <main className="flex flex-col w-full gap-3">
       <UnfoldableCard

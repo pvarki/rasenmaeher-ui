@@ -17,20 +17,18 @@ import pic6_fi from "../../assets/mtls/fi/mtls-windows-fi-6.png";
 import pic7_fi from "../../assets/mtls/fi/mtls-windows-fi-7.png";
 import pic8_fi from "../../assets/mtls/fi/mtls-windows-fi-8.png";
 
-
 export function WindowsInstructions() {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.language.startsWith("en");
 
-    const { i18n } = useTranslation();
-    const isEnglish = i18n.language.startsWith("en");
-
-    const pic1 = isEnglish ? pic1_en : pic1_fi;
-    const pic2 = isEnglish ? pic2_en : pic2_fi;
-    const pic3 = isEnglish ? pic3_en : pic3_fi;
-    const pic4 = isEnglish ? pic4_en : pic4_fi;
-    const pic5 = isEnglish ? pic5_en : pic5_fi;
-    const pic6 = isEnglish ? pic6_en : pic6_fi;
-    const pic7 = isEnglish ? pic7_en : pic7_fi;
-    const pic8 = isEnglish ? pic8_en : pic8_fi;
+  const pic1 = isEnglish ? pic1_en : pic1_fi;
+  const pic2 = isEnglish ? pic2_en : pic2_fi;
+  const pic3 = isEnglish ? pic3_en : pic3_fi;
+  const pic4 = isEnglish ? pic4_en : pic4_fi;
+  const pic5 = isEnglish ? pic5_en : pic5_fi;
+  const pic6 = isEnglish ? pic6_en : pic6_fi;
+  const pic7 = isEnglish ? pic7_en : pic7_fi;
+  const pic8 = isEnglish ? pic8_en : pic8_fi;
 
   return (
     <main className="flex flex-col w-full gap-3">
