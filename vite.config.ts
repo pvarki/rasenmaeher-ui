@@ -18,6 +18,7 @@ export default async ({ mode }) => {
       host: process.env.SERVER_DOMAIN || "localhost",
 
       allowedHosts: [
+        "mtls." + process.env.SERVER_DOMAIN,
         process.env.SERVER_DOMAIN, // Dynamically allow the current domain
         "localhost", // Always allow localhost for local dev
         "0.0.0.0", // Allow any network access (useful in Docker)
