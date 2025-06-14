@@ -1,9 +1,9 @@
 import { Trans } from "react-i18next";
 import { UnfoldableCard } from "../../components/UnfoldableCard2";
-import pic1 from "../../assets/mtls/mtls-android-1.jpg";
-import pic2 from "../../assets/mtls/mtls-android-2.jpg";
-import pic3 from "../../assets/mtls/mtls-android-3.jpg";
-import pic4 from "../../assets/mtls/mtls-android-4.jpg";
+import pic1 from "../../assets/mtls/fi/mtls-android-1.jpg";
+import pic2 from "../../assets/mtls/fi/mtls-android-2.jpg";
+import pic3 from "../../assets/mtls/fi/mtls-android-3.jpg";
+import pic4 from "../../assets/mtls/fi/mtls-android-4.jpg";
 
 export function AndroidInstructions() {
   return (

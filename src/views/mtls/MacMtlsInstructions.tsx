@@ -1,11 +1,11 @@
 import { Trans } from "react-i18next"; // Make sure to import Trans
 import { UnfoldableCard } from "../../components/UnfoldableCard";
-import pic1 from "../../assets/mtls/mtls-mac-1.png";
-import pic2 from "../../assets/mtls/mtls-mac-2.png";
-import pic3 from "../../assets/mtls/mtls-mac-3.png";
-import pic4 from "../../assets/mtls/mtls-mac-4.png";
-import pic5 from "../../assets/mtls/mtls-mac-5.png";
-import pic6 from "../../assets/mtls/mtls-mac-6.png";
+import pic1 from "../../assets/mtls/fi/mtls-mac-1.png";
+import pic2 from "../../assets/mtls/fi/mtls-mac-2.png";
+import pic3 from "../../assets/mtls/fi/mtls-mac-3.png";
+import pic4 from "../../assets/mtls/fi/mtls-mac-4.png";
+import pic5 from "../../assets/mtls/fi/mtls-mac-5.png";
+import pic6 from "../../assets/mtls/fi/mtls-mac-6.png";
 
 export function MacInstructions() {
   return (

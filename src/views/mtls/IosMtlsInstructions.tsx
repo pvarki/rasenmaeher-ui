@@ -1,14 +1,14 @@
 import { Trans } from "react-i18next";
 import { UnfoldableCard } from "../../components/UnfoldableCard2";
-import pic1 from "../../assets/mtls/mtls-ios-1.png";
-import pic2 from "../../assets/mtls/mtls-ios-2.png";
-import pic3 from "../../assets/mtls/mtls-ios-3.png";
-import pic4 from "../../assets/mtls/mtls-ios-4.png";
-import pic5 from "../../assets/mtls/mtls-ios-5.png";
-import pic6 from "../../assets/mtls/mtls-ios-6.png";
-import pic7 from "../../assets/mtls/mtls-ios-7.png";
-import pic8 from "../../assets/mtls/mtls-ios-8.png";
-import pic9 from "../../assets/mtls/mtls-ios-9.png";
+import pic1 from "../../assets/mtls/fi/mtls-ios-1.png";
+import pic2 from "../../assets/mtls/fi/mtls-ios-2.png";
+import pic3 from "../../assets/mtls/fi/mtls-ios-3.png";
+import pic4 from "../../assets/mtls/fi/mtls-ios-4.png";
+import pic5 from "../../assets/mtls/fi/mtls-ios-5.png";
+import pic6 from "../../assets/mtls/fi/mtls-ios-6.png";
+import pic7 from "../../assets/mtls/fi/mtls-ios-7.png";
+import pic8 from "../../assets/mtls/fi/mtls-ios-8.png";
+import pic9 from "../../assets/mtls/fi/mtls-ios-9.png";
 
 export function IosInstructions() {
   return (
