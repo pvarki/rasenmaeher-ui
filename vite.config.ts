@@ -24,6 +24,9 @@ export default async ({ mode }) => {
         "0.0.0.0", // Allow any network access (useful in Docker)
         "mtls.localmaeher.dev.pvarki.fi",
         "localmaeher.dev.pvarki.fi",
+        "mtls." + process.env.SERVER_DOMAIN,
+        "rmuidev",
+        "rmnginx"
       ].filter(Boolean), // Remove undefined values
       proxy: {
         "/api": {
