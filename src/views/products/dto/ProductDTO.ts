@@ -21,6 +21,7 @@ export function isProductDTO(obj: unknown): obj is ProductDTO {
     "callsign" in obj &&
     typeof obj.callsign === "string" &&
     "language" in obj &&
-    typeof obj.language === "string"
+    typeof obj.language === "string" &&
+    instructions in obj
   );
 }
