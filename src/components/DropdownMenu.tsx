@@ -8,7 +8,7 @@ interface DropdownItem {
 
 interface DropdownMenuProps {
   triggerLabel: string;
-  items: DropdownItem[];
+  items: readonly DropdownItem[];
   onSelect: (value: string) => void;
   contentStyle?: string;
   triggerStyle?: string;
