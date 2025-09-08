@@ -1,4 +1,3 @@
-
 /**
  * Data transfer object for product list
  */
@@ -17,16 +16,20 @@ export interface ProductListItemDTO {
  */
 export function isProductListItemDTO(obj: unknown): obj is ProductListItemDTO {
   return (
-    typeof obj === 'object' &&
+    typeof obj === "object" &&
     obj !== null &&
-    'shortname' in obj && typeof obj.shortname === 'string' &&
-    'title' in obj && typeof obj.title === 'string' &&
-    'icon' in obj && (typeof obj.icon === 'string' || obj.icon === null) &&
-    'description' in obj && typeof obj.description === 'string' &&
-    'language' in obj && typeof obj.language === 'string'
+    "shortname" in obj &&
+    typeof obj.shortname === "string" &&
+    "title" in obj &&
+    typeof obj.title === "string" &&
+    "icon" in obj &&
+    (typeof obj.icon === "string" || obj.icon === null) &&
+    "description" in obj &&
+    typeof obj.description === "string" &&
+    "language" in obj &&
+    typeof obj.language === "string"
   );
 }
-
 
 /**
  * Data transfer object for product list
@@ -41,4 +44,3 @@ export type ProductListDTO = readonly ProductListItemDTO[];
 export function isProductListDTO(obj: unknown): obj is ProductListDTO {
   return Array.isArray(obj) && obj.every(isProductListItemDTO);
 }
-

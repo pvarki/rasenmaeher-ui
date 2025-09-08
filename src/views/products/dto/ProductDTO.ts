@@ -16,10 +16,13 @@ export interface ProductDTO {
  */
 export function isProductDTO(obj: unknown): obj is ProductDTO {
   return (
-    typeof obj === 'object' &&
+    typeof obj === "object" &&
     obj !== null &&
-    'callsign' in obj && typeof obj.callsign === 'string' &&
-    'language' in obj && typeof obj.language === 'string' &&
-    'instructions' in obj && typeof obj.instructions === 'string'
+    "callsign" in obj &&
+    typeof obj.callsign === "string" &&
+    "language" in obj &&
+    typeof obj.language === "string" &&
+    "instructions" in obj &&
+    typeof obj.instructions === "string"
   );
 }

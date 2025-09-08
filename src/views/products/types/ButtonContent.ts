@@ -1,7 +1,4 @@
-import {
-    BaseParentContent,
-    isBaseParentContent,
-} from "./BaseParentContent";
+import { BaseParentContent, isBaseParentContent } from "./BaseParentContent";
 import { Content } from "./Content";
 import { ContentType } from "./ContentType";
 
@@ -9,19 +6,19 @@ import { ContentType } from "./ContentType";
  * Defines dynamic content DTO for {@link Button} component
  */
 export interface ButtonContent extends BaseParentContent {
-    readonly type      : ContentType;
+  readonly type: ContentType;
 
-    /**
-     * This will go to the "styles" property
-     */
-    readonly classes  ?: readonly string[];
+  /**
+   * This will go to the "styles" property
+   */
+  readonly classes?: readonly string[];
 
-    readonly onClick ?: {
-        readonly navigate ?: string;
-        readonly modal ?: string;
-    };
+  readonly onClick?: {
+    readonly navigate?: string;
+    readonly modal?: string;
+  };
 
-    readonly body     ?: Content | readonly Content[];
+  readonly body?: Content | readonly Content[];
 }
 
 /**
@@ -29,9 +26,6 @@ export interface ButtonContent extends BaseParentContent {
  *
  * @param value
  */
-export function isButtonContent (value: unknown) : value is ButtonContent {
-    return (
-        isBaseParentContent(value)
-        && value?.type === ContentType.BUTTON
-    );
+export function isButtonContent(value: unknown): value is ButtonContent {
+  return isBaseParentContent(value) && value?.type === ContentType.BUTTON;
 }

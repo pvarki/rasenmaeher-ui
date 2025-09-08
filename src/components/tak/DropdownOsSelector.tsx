@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { DropdownMenu } from "../DropdownMenu";
 
 export interface DropdownOsOption {
-  readonly label : string;
-  readonly value : string;
+  readonly label: string;
+  readonly value: string;
 }
 
 export interface DropdownOsSelectorProps {

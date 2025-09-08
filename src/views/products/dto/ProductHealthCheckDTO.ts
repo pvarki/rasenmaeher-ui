@@ -11,13 +11,17 @@ export interface ProductHealthCheckDTO {
  * @param obj The object to check
  * @returns True if the object is a valid ProductHealthCheckDTO, false otherwise
  */
-export function isProductHealthCheckDTO(obj: unknown): obj is ProductHealthCheckDTO {
+export function isProductHealthCheckDTO(
+  obj: unknown,
+): obj is ProductHealthCheckDTO {
   return (
-    typeof obj === 'object' &&
+    typeof obj === "object" &&
     obj !== null &&
-    'all_ok' in obj && typeof obj.all_ok === 'boolean' &&
-    'products' in obj && typeof obj.products === 'object' &&
+    "all_ok" in obj &&
+    typeof obj.all_ok === "boolean" &&
+    "products" in obj &&
+    typeof obj.products === "object" &&
     obj.products !== null &&
-    Object.values(obj.products).every(value => typeof value === 'boolean')
+    Object.values(obj.products).every((value) => typeof value === "boolean")
   );
 }

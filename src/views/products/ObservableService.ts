@@ -1,14 +1,16 @@
-
 export type ObservableEvent = string;
 
 export interface ObservableDestructor {
-    (): void;
+  (): void;
 }
 
 export interface ObservableListener<T> {
-    (event: T): void;
+  (event: T): void;
 }
 
 export interface ObservableService<EventT extends ObservableEvent> {
-    addEventListener(event: EventT, listener: ObservableListener<EventT>) : ObservableDestructor;
+  addEventListener(
+    event: EventT,
+    listener: ObservableListener<EventT>,
+  ): ObservableDestructor;
 }

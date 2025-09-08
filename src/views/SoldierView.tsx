@@ -33,16 +33,13 @@ export function SoldierView() {
         />
       </CardsContainer>
 
-      { hasErrors ? (
+      {hasErrors ? (
         <ErrorComponent title={"Load Errors"} />
+      ) : isReady ? (
+        <ProductList products={products} />
       ) : (
-        isReady ? (
-          <ProductList products={ products } />
-        ) : (
-          <LoadingComponent />
-        )
-      ) }
-
+        <LoadingComponent />
+      )}
     </Layout>
   );
 }

@@ -1,12 +1,6 @@
 import { isRegularObject } from "../helpers/isRegularObject";
-import {
-    isString,
-    isStringOrUndefined,
-} from "../helpers/isString";
-import {
-    BaseParentContent,
-    isBaseParentContent,
-} from "./BaseParentContent";
+import { isString, isStringOrUndefined } from "../helpers/isString";
+import { BaseParentContent, isBaseParentContent } from "./BaseParentContent";
 import { Content } from "./Content";
 import { ContentType } from "./ContentType";
 import { StepContent } from "./StepContent";
@@ -16,18 +10,18 @@ import { StepContent } from "./StepContent";
  * Note, is must be from the UnfoldableCard2.tsx!
  */
 export interface UnfoldableCardContent extends BaseParentContent {
-    readonly type         : ContentType;
-    readonly title        : Content | readonly Content[];
-    readonly steps       ?: readonly StepContent[];
-    readonly content     ?: Content | readonly Content[];
-    readonly body        ?: Content | readonly Content[];
+  readonly type: ContentType;
+  readonly title: Content | readonly Content[];
+  readonly steps?: readonly StepContent[];
+  readonly content?: Content | readonly Content[];
+  readonly body?: Content | readonly Content[];
 
-    /**
-     * This implements the `styling` property on the component
-     */
-    readonly classes     ?: readonly string[];
+  /**
+   * This implements the `styling` property on the component
+   */
+  readonly classes?: readonly string[];
 
-    readonly initialOpen ?: boolean;
+  readonly initialOpen?: boolean;
 }
 
 /**
@@ -35,12 +29,14 @@ export interface UnfoldableCardContent extends BaseParentContent {
  *
  * @param value
  */
-export function isUnfoldableCardContent (value: unknown) : value is UnfoldableCardContent {
-    return (
-        isBaseParentContent(value)
-        && isRegularObject(value)
-        && value?.type === ContentType.UNFOLDABLE_CARD
-        && isString(value?.title)
-        && isStringOrUndefined(value?.image)
-    );
+export function isUnfoldableCardContent(
+  value: unknown,
+): value is UnfoldableCardContent {
+  return (
+    isBaseParentContent(value) &&
+    isRegularObject(value) &&
+    value?.type === ContentType.UNFOLDABLE_CARD &&
+    isString(value?.title) &&
+    isStringOrUndefined(value?.image)
+  );
 }
