@@ -1,5 +1,5 @@
 import { TakDownloadModalContent } from "./TakDownloadModalContent";
 
 export interface OpenTakDownloadModalCallback {
-  ( model : TakDownloadModalContent ) : void;
+  (model: TakDownloadModalContent): void;
 }

@@ -1,7 +1,4 @@
-import {
-  Trans,
-  useTranslation,
-} from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 interface ErrorComponentProps {
   title: string;
@@ -12,13 +9,13 @@ interface ErrorComponentProps {
   returnLabel?: string;
 }
 
-export const ErrorComponent: React.FC<ErrorComponentProps> = ({ 
+export const ErrorComponent: React.FC<ErrorComponentProps> = ({
   title,
   details,
   feedbackLink,
   returnLink,
   returnLabel = "error.returnHome",
-  feedbackLabel = "error.reporting.linkText"
+  feedbackLabel = "error.reporting.linkText",
 }) => {
   const { t } = useTranslation();
   return (

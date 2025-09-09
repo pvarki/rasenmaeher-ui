@@ -11,28 +11,32 @@ import { ProductLoadingView } from "./ProductLoadingView";
 import { ContentActions } from "../../libs/rune/types/ContentActions";
 
 export interface ServiceViewProps {
-    readonly serviceName : string;
-    readonly viewName : string;
-    readonly actions ?: ContentActions;
+  readonly serviceName: string;
+  readonly viewName: string;
+  readonly actions?: ContentActions;
 }
 
-export function ServiceView ( props: ServiceViewProps ) {
-    const serviceName = props.serviceName;
-    const viewName = props.viewName;
-    const actions = props.actions;
+export function ServiceView(props: ServiceViewProps) {
+  const serviceName = props.serviceName;
+  const viewName = props.viewName;
+  const actions = props.actions;
 
-    const view = useContentView(serviceName, viewName);
-    const compiledView = useCompileContent(view);
+  const view = useContentView(serviceName, viewName);
+  const compiledView = useCompileContent(view);
 
-    const contentServiceOrNot : RuntimeContentService | undefined = useProductContentService(serviceName);
+  const contentServiceOrNot: RuntimeContentService | undefined =
+    useProductContentService(serviceName);
 
-    const context : RendererContext | undefined = useRendererContext(contentServiceOrNot, actions);
-    useScrollToTop(60);
-    useNavigateInContext(context);
-    useDownloadTakZipModalInContext(context);
+  const context: RendererContext | undefined = useRendererContext(
+    contentServiceOrNot,
+    actions,
+  );
+  useScrollToTop(60);
+  useNavigateInContext(context);
+  useDownloadTakZipModalInContext(context);
 
-    if (!context) {
-        return <ProductLoadingView title={ serviceName } message={viewName} />;
-    }
-    return compiledView(context);
+  if (!context) {
+    return <ProductLoadingView title={serviceName} message={viewName} />;
+  }
+  return compiledView(context);
 }

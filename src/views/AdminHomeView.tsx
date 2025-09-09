@@ -41,16 +41,13 @@ export function AdminHomeView() {
           />
         </CardsContainer>
 
-        { hasErrors ? (
+        {hasErrors ? (
           <div>Error</div>
+        ) : isReady ? (
+          <ProductList products={products} />
         ) : (
-          isReady ? (
-            <ProductList products={ products } />
-          ) : (
-            <LoadingComponent />
-          )
-        ) }
-
+          <LoadingComponent />
+        )}
       </div>
     </Layout>
   );

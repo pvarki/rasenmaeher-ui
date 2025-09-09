@@ -6,11 +6,14 @@ import { CompiledRenderer } from "../../../libs/rune/types/CompiledRenderer";
 import { RendererCompiler } from "../../../libs/rune/types/RendererCompiler";
 import { FoldableCardContent } from "../types/FoldableCardContent";
 
-export const foldableCard : RendererCompiler<BaseContent> = (content: FoldableCardContent) : CompiledRenderer => {
+export const foldableCard: RendererCompiler<BaseContent> = (
+  content: FoldableCardContent,
+): CompiledRenderer => {
   const titleFn = ProductContentRenderer.compile(content.title);
   const bodyFn = ProductContentRenderer.compile(content?.body);
-  return (context : RendererContext) => <FoldableCard
-    title={titleFn(context)}
-    imageSrc={content.image}
-  >{bodyFn(context)}</FoldableCard>;
-}
+  return (context: RendererContext) => (
+    <FoldableCard title={titleFn(context)} imageSrc={content.image}>
+      {bodyFn(context)}
+    </FoldableCard>
+  );
+};

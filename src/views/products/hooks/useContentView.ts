@@ -1,8 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { ContentServiceEvent } from "../services/ContentService";
 import { ContentType } from "../../../libs/rune/types/ContentType";
@@ -11,71 +7,76 @@ import { ViewContent } from "../../../libs/rune/types/ViewContent";
 import { useContentService } from "./useContentService";
 import { useProductContentService } from "./useProductContentService";
 
-export function useContentView (serviceName : string, viewName : string) {
+export function useContentView(serviceName: string, viewName: string) {
   const contentService = useContentService();
   const productServiceOrNot = useProductContentService(serviceName);
-  const [view, setView] = useState<ViewContent>(() => createLoadingView(viewName));
+  const [view, setView] = useState<ViewContent>(() =>
+    createLoadingView(viewName),
+  );
 
   const getView = useCallback(
-    (name : string) => {
-        if (!productServiceOrNot) {
-          return createProductNotFound(viewName);
-        }
+    (name: string) => {
+      if (!productServiceOrNot) {
+        return createProductNotFound(viewName);
+      }
 
-        const view = productServiceOrNot.getView( name );
-        if ( view ) {
-          return view;
-        } else {
-          return createViewNotFound(viewName);
-        }
-      },
-    [
-      productServiceOrNot,
-    ]
+      const view = productServiceOrNot.getView(name);
+      if (view) {
+        return view;
+      } else {
+        return createViewNotFound(viewName);
+      }
+    },
+    [productServiceOrNot, viewName],
   );
 
-  const updateView = useCallback(
-    () => {
-        setView(getView(viewName));
-      },
-    [
-      viewName,
-      getView,
-      setView
-    ]
-  );
+  const updateView = useCallback(() => {
+    setView(getView(viewName));
+  }, [viewName, getView, setView]);
 
   // Detect product changes
-  useEffect( () => {
+  useEffect(() => {
     updateView();
-    return contentService.addEventListener( ContentServiceEvent.PRODUCTS_CHANGED, () => {
-      updateView();
-    });
-  }, [
-    updateView,
-    contentService,
-  ]);
+    return contentService.addEventListener(
+      ContentServiceEvent.PRODUCTS_CHANGED,
+      () => {
+        updateView();
+      },
+    );
+  }, [updateView, contentService]);
 
   return view;
 }
 
-function createLoadingView (viewName: string) : ViewContent {
-  return createCardView(viewName, `Loading: ${viewName}`, "Please wait while we load the content.");
+function createLoadingView(viewName: string): ViewContent {
+  return createCardView(
+    viewName,
+    `Loading: ${viewName}`,
+    "Please wait while we load the content.",
+  );
 }
 
-function createProductNotFound (viewName: string) : ViewContent {
-  return createCardView(viewName, `${viewName}`, "The product you are looking for could not be found. Please try again later.");
+function createProductNotFound(viewName: string): ViewContent {
+  return createCardView(
+    viewName,
+    `${viewName}`,
+    "The product you are looking for could not be found. Please try again later.",
+  );
 }
 
-function createViewNotFound (viewName: string) : ViewContent {
-  return createCardView(viewName, `${viewName}`, "The product you are looking for could not be found. Please try again later.");
+function createViewNotFound(viewName: string): ViewContent {
+  return createCardView(
+    viewName,
+    `${viewName}`,
+    "The product you are looking for could not be found. Please try again later.",
+  );
 }
 
-function createCardView (
+function createCardView(
   viewName: string,
   title: string,
   message: string,
-) : ViewContent {
+): ViewContent {
   return {
     name: viewName,
     type: ContentType.VIEW,
@@ -129,29 +130,20 @@ function createCardView (
                 body: [
                   {
                     type: ContentType.H3,
-                    classes: [
-                      "text-xl",
-                      "font-bold",
-                      "mt-1",
-                      "mb-1"
-                    ],
+                    classes: ["text-xl", "font-bold", "mt-1", "mb-1"],
                     body: title,
                   },
                   {
                     type: ContentType.P,
-                    classes: [
-                      "text-center",
-                      "ml-2",
-                      "mr-2",
-                    ],
-                    body: message
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                    classes: ["text-center", "ml-2", "mr-2"],
+                    body: message,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
   };
 }

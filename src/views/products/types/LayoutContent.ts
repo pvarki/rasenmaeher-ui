@@ -1,7 +1,7 @@
 import { RmContentType } from "./RmContentType";
 import {
-    BaseParentContent,
-    isBaseParentContent,
+  BaseParentContent,
+  isBaseParentContent,
 } from "../../../libs/rune/types/BaseParentContent";
 import { Content } from "../../../libs/rune/types/Content";
 
@@ -9,28 +9,28 @@ import { Content } from "../../../libs/rune/types/Content";
  * Defines layout content type
  */
 export interface LayoutContent extends BaseParentContent {
-    readonly type  : RmContentType.LAYOUT | string;
-    readonly body ?: Content | readonly Content[];
-    readonly showNavbar       ?: boolean;
-    readonly showHeader       ?: boolean;
-    readonly showFooter       ?: boolean;
-    readonly showPublicFooter ?: boolean;
-    readonly navbarTitle      ?: Content | readonly Content[];
-    readonly backUrl          ?: string;
-    readonly heroImage        ?: string;
+  readonly type: RmContentType.LAYOUT | string;
+  readonly body?: Content | readonly Content[];
+  readonly showNavbar?: boolean;
+  readonly showHeader?: boolean;
+  readonly showFooter?: boolean;
+  readonly showPublicFooter?: boolean;
+  readonly navbarTitle?: Content | readonly Content[];
+  readonly backUrl?: string;
+  readonly heroImage?: string;
 }
 
 /**
  * Defines layout content type
  */
 export interface LayoutContentProps {
-    readonly showNavbar       ?: boolean;
-    readonly showHeader       ?: boolean;
-    readonly showFooter       ?: boolean;
-    readonly showPublicFooter ?: boolean;
-    readonly navbarTitle      ?: React.ReactNode;
-    readonly backUrl          ?: string;
-    readonly heroImage        ?: string;
+  readonly showNavbar?: boolean;
+  readonly showHeader?: boolean;
+  readonly showFooter?: boolean;
+  readonly showPublicFooter?: boolean;
+  readonly navbarTitle?: React.ReactNode;
+  readonly backUrl?: string;
+  readonly heroImage?: string;
 }
 
 /**
@@ -38,9 +38,6 @@ export interface LayoutContentProps {
  *
  * @param value
  */
-export function isLayoutContent ( value: unknown) : value is LayoutContent {
-    return (
-        isBaseParentContent(value)
-        && value.type === RmContentType.LAYOUT
-    );
+export function isLayoutContent(value: unknown): value is LayoutContent {
+  return isBaseParentContent(value) && value.type === RmContentType.LAYOUT;
 }

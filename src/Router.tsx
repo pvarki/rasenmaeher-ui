@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         requireAuthType="mtls"
         allowedUserTypes={["user", "admin"]}
       >
-        <ServiceRouteWrapper serviceName={'tak'} />
+        <ServiceRouteWrapper serviceName={"tak"} />
       </ProtectedRoute>
     ),
   },
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
         requireAuthType="mtls"
         allowedUserTypes={["user", "admin"]}
       >
-        <ServiceRouteWrapper serviceName={'livelog'} />
+        <ServiceRouteWrapper serviceName={"livelog"} />
       </ProtectedRoute>
     ),
   },
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
         requireAuthType="mtls"
         allowedUserTypes={["user", "admin"]}
       >
-        <ServiceRouteWrapper serviceName={'rune'} />
+        <ServiceRouteWrapper serviceName={"rune"} />
       </ProtectedRoute>
     ),
   },

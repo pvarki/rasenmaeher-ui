@@ -7,16 +7,22 @@ import { CompiledRenderer } from "../../../libs/rune/types/CompiledRenderer";
 import { RendererCompiler } from "../../../libs/rune/types/RendererCompiler";
 import { NavigateButtonsContent } from "../types/NavigateButtonsContent";
 
-function getNavigateButtonsProps( value: NavigateButtonsContent ) : NavigateButtonsProps {
+function getNavigateButtonsProps(
+  value: NavigateButtonsContent,
+): NavigateButtonsProps {
   return {
-    ... { backUrl : value.backUrl ?? '' },
-    ... { forwardUrl : value.forwardUrl ?? '' },
-    ... (value?.alterBack !== undefined ? { alterBack : value?.alterBack } : {}),
-    ... (value?.alterForward !== undefined ? { alterForward : value?.alterForward } : {}),
+    ...{ backUrl: value.backUrl ?? "" },
+    ...{ forwardUrl: value.forwardUrl ?? "" },
+    ...(value?.alterBack !== undefined ? { alterBack: value?.alterBack } : {}),
+    ...(value?.alterForward !== undefined
+      ? { alterForward: value?.alterForward }
+      : {}),
   };
 }
 
-export const navigateButtons : RendererCompiler<BaseContent> = (content: NavigateButtonsContent) : CompiledRenderer => {
+export const navigateButtons: RendererCompiler<BaseContent> = (
+  content: NavigateButtonsContent,
+): CompiledRenderer => {
   const props = getNavigateButtonsProps(content);
   return () => <NavigateButtons {...props} />;
-}
+};

@@ -15,15 +15,27 @@ import { unfoldableCard } from "./unfoldableCard";
 /**
  * These components extend Rune to allow using our own React components.
  */
-export function load () : void {
+export function load(): void {
   ProductContentRenderer.register(RmContentType.BUTTON, button);
   ProductContentRenderer.register(RmContentType.CARD, card);
-  ProductContentRenderer.register(RmContentType.DROPDOWN_OS_SELECTOR, dropdownOsSelector);
+  ProductContentRenderer.register(
+    RmContentType.DROPDOWN_OS_SELECTOR,
+    dropdownOsSelector,
+  );
   ProductContentRenderer.register(RmContentType.FOLDABLE_CARD, foldableCard);
   ProductContentRenderer.register(RmContentType.LAYOUT, layout);
-  ProductContentRenderer.register(RmContentType.NAVIGATE_BUTTONS, navigateButtons);
-  ProductContentRenderer.register(RmContentType.SERVICE_INFO_CARD, serviceInfoCard);
+  ProductContentRenderer.register(
+    RmContentType.NAVIGATE_BUTTONS,
+    navigateButtons,
+  );
+  ProductContentRenderer.register(
+    RmContentType.SERVICE_INFO_CARD,
+    serviceInfoCard,
+  );
   ProductContentRenderer.register(RmContentType.STATUS_BAR, statusBar);
-  ProductContentRenderer.register(RmContentType.UNFOLDABLE_CARD, unfoldableCard);
+  ProductContentRenderer.register(
+    RmContentType.UNFOLDABLE_CARD,
+    unfoldableCard,
+  );
   ProductContentRenderer.register(ContentType.TRANSLATE, translate);
 }

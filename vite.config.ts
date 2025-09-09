@@ -26,7 +26,7 @@ export default async ({ mode }) => {
         "localmaeher.dev.pvarki.fi",
         "mtls." + process.env.SERVER_DOMAIN,
         "rmuidev",
-        "rmnginx"
+        "rmnginx",
       ].filter(Boolean), // Remove undefined values
       proxy: {
         "/api": {

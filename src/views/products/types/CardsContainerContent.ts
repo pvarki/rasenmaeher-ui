@@ -1,6 +1,6 @@
 import {
-    BaseParentContent,
-    isBaseParentContent,
+  BaseParentContent,
+  isBaseParentContent,
 } from "../../../libs/rune/types/BaseParentContent";
 import { Content } from "../../../libs/rune/types/Content";
 import { RmContentType } from "./RmContentType";
@@ -9,8 +9,8 @@ import { RmContentType } from "./RmContentType";
  * Defines dynamic content DTO for {@link CardsContainer} component
  */
 export interface CardsContainerContent extends BaseParentContent {
-    readonly type  : RmContentType.CARDS_CONTAINER | string;
-    readonly body ?: Content | readonly Content[];
+  readonly type: RmContentType.CARDS_CONTAINER | string;
+  readonly body?: Content | readonly Content[];
 }
 
 /**
@@ -18,9 +18,10 @@ export interface CardsContainerContent extends BaseParentContent {
  *
  * @param value
  */
-export function isCardsContainerContent ( value: unknown) : value is CardsContainerContent {
-    return (
-        isBaseParentContent(value)
-        && value.type === RmContentType.CARDS_CONTAINER
-    );
+export function isCardsContainerContent(
+  value: unknown,
+): value is CardsContainerContent {
+  return (
+    isBaseParentContent(value) && value.type === RmContentType.CARDS_CONTAINER
+  );
 }

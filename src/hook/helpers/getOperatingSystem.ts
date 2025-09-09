@@ -1,4 +1,3 @@
-
 export enum OperatingSystem {
   MacOS = "MacOS",
   Windows = "Windows",
@@ -6,7 +5,7 @@ export enum OperatingSystem {
   iOS = "iOS",
 }
 
-export function getOperatingSystem() : OperatingSystem {
+export function getOperatingSystem(): OperatingSystem {
   const userAgent = window.navigator.userAgent;
   const platform = window.navigator.platform;
 
@@ -23,16 +22,21 @@ export function getOperatingSystem() : OperatingSystem {
 }
 
 /**
-* Parse operating system from a string.
-*
-* @param value
-*/
-export function parseOperatingSystem (value: string) : OperatingSystem {
+ * Parse operating system from a string.
+ *
+ * @param value
+ */
+export function parseOperatingSystem(value: string): OperatingSystem {
   switch (value.toLowerCase()) {
-    case 'macos': return OperatingSystem.MacOS;
-    case 'windows': return OperatingSystem.Windows;
-    case 'android': return OperatingSystem.Android;
-    case 'ios': return OperatingSystem.iOS;
-    default: return OperatingSystem.Android;
+    case "macos":
+      return OperatingSystem.MacOS;
+    case "windows":
+      return OperatingSystem.Windows;
+    case "android":
+      return OperatingSystem.Android;
+    case "ios":
+      return OperatingSystem.iOS;
+    default:
+      return OperatingSystem.Android;
   }
 }

@@ -1,8 +1,5 @@
-import {
-    ContentService,
-    IContentService,
-} from "../services/ContentService";
+import { ContentService, IContentService } from "../services/ContentService";
 
-export function useContentService () : IContentService {
-    return ContentService.getSingleton();
+export function useContentService(): IContentService {
+  return ContentService.getSingleton();
 }

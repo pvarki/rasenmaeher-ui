@@ -1,7 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-} from "react";
+import { useCallback, useEffect } from "react";
 import { useDownloadTakZipModal } from "../../../components/tak/DownloadTakZipModal";
 import {
   RendererContext,
@@ -12,25 +9,25 @@ import { isTakDownloadModalContent } from "../types/TakDownloadModalContent";
 /**
  * A hook that provides opening (modal) functionality within a renderer context.
  */
-export function useDownloadTakZipModalInContext ( context : RendererContext | undefined) : void {
-
+export function useDownloadTakZipModalInContext(
+  context: RendererContext | undefined,
+): void {
   const { openDownloadModal } = useDownloadTakZipModal();
 
   const openEventCallback = useCallback(
-    (_event: RendererEvent, target : unknown) => {
+    (_event: RendererEvent, target: unknown) => {
       if (isTakDownloadModalContent(target)) {
         openDownloadModal();
       } else {
         console.warn(`Warning: Invalid open target:`, target);
       }
     },
-    [openDownloadModal]
+    [openDownloadModal],
   );
 
   // Listen for open events from the renderer context
   useEffect(() => {
     if (!context) return;
-    return context.addEventListener( RendererEvent.OPEN, openEventCallback );
+    return context.addEventListener(RendererEvent.OPEN, openEventCallback);
   });
-
 }

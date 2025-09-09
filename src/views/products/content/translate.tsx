@@ -5,8 +5,10 @@ import { CompiledRenderer } from "../../../libs/rune/types/CompiledRenderer";
 import { RendererCompiler } from "../../../libs/rune/types/RendererCompiler";
 import { TranslateContent } from "../../../libs/rune/types/TranslateContent";
 
-export const translate : RendererCompiler<BaseContent> = ( content: TranslateContent) : CompiledRenderer => {
-  const body = content?.body ?? '';
+export const translate: RendererCompiler<BaseContent> = (
+  content: TranslateContent,
+): CompiledRenderer => {
+  const body = content?.body ?? "";
   return (context) => (
     <Trans
       i18nKey={body}
@@ -32,4 +34,4 @@ export const translate : RendererCompiler<BaseContent> = ( content: TranslateCon
       ns={getContentI18nNamespace(context.contentService.getName())}
     />
   );
-}
+};

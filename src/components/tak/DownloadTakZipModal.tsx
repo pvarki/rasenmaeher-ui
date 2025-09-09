@@ -1,9 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { useTranslation, Trans } from "react-i18next";
 import { DropdownOsSelector } from "./DropdownOsSelector";
-import {
-  useFetchZipFile,
-} from "../../hook/api/tak/useFetchZipFile";
+import { useFetchZipFile } from "../../hook/api/tak/useFetchZipFile";
 import { getOperatingSystem } from "../../hook/helpers/getOperatingSystem";
 import { useAlertDialog } from "../AlertDialogService";
 
@@ -14,7 +12,8 @@ interface DownloadTakZipModalReturn {
 
 export function useDownloadTakZipModal(): DownloadTakZipModalReturn {
   const { t } = useTranslation();
-  const initialOS : "iOS" | "Other" = getOperatingSystem() === "iOS" ? "iOS" : "Other";
+  const initialOS: "iOS" | "Other" =
+    getOperatingSystem() === "iOS" ? "iOS" : "Other";
   const [selectedOS, setSelectedOS] = useState<"iOS" | "Other">(initialOS);
   const { openDialog } = useAlertDialog();
   const [loading, setLoading] = useState(false);
