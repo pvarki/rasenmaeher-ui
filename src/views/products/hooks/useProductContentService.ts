@@ -2,31 +2,34 @@ import {
   useEffect,
   useState,
 } from "react";
+
+import { RuntimeContentService } from "../../../libs/rune/services/RuntimeContentService";
+
 import {
   ContentServiceEvent,
   IContentService,
-} from "../ContentService";
-import { ProductContentService } from "../ProductContentService";
+} from "../services/ContentService";
+
 import { useContentService } from "./useContentService";
 
 export function useProductContentService (
   serviceName: string
-) : ProductContentService | undefined {
+) : RuntimeContentService | undefined {
   const contentService : IContentService = useContentService();
 
-  const [productService, setProductService] = useState<ProductContentService>(
+  const [runtimeContentService, setRuntimeContentService] = useState<RuntimeContentService>(
     () => contentService.getProductContentService( serviceName )
   );
 
   useEffect( () => {
-    setProductService( contentService.getProductContentService( serviceName ) );
+    setRuntimeContentService( contentService.getProductContentService( serviceName ) );
     return contentService.addEventListener( ContentServiceEvent.PRODUCTS_CHANGED, () => {
-      setProductService( contentService.getProductContentService( serviceName ) );
+      setRuntimeContentService( contentService.getProductContentService( serviceName ) );
     });
   }, [
     contentService,
     serviceName,
   ]);
 
-  return productService;
+  return runtimeContentService;
 }

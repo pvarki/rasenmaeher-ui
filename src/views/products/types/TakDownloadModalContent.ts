@@ -1,15 +1,15 @@
 import {
     isRootContent,
     RootContent,
-} from "./RootContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/RootContent";
+import { Content } from "../../../libs/rune/types/Content";
+import { RmContentType } from "./RmContentType";
 
 /**
  * Defines dynamic content DTO for {@link useTakDownloadModal} hook
  */
 export interface TakDownloadModalContent extends RootContent {
-    readonly type: ContentType;
+    readonly type: RmContentType.TAK_DOWNLOAD_MODAL | string;
     readonly name: string;
     readonly title: string;
     readonly genericErrorMessage: string;
@@ -32,6 +32,6 @@ export interface TakDownloadModalContent extends RootContent {
 export function isTakDownloadModalContent ( value: unknown) : value is TakDownloadModalContent {
     return (
         isRootContent(value)
-        && value?.type === ContentType.TAK_DOWNLOAD_MODAL
+        && value?.type === RmContentType.TAK_DOWNLOAD_MODAL
     );
 }

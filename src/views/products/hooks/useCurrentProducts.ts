@@ -2,7 +2,9 @@ import {
     useEffect,
     useState,
 } from "react";
-import { ContentServiceEvent } from "../ContentService";
+
+import { ContentServiceEvent } from "../services/ContentService";
+
 import { useContentService } from "./useContentService";
 
 export function useCurrentProducts () : [readonly string[], boolean, boolean] {

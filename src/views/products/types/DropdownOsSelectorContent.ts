@@ -2,16 +2,16 @@ import { DropdownOsOption } from "../../../components/tak/DropdownOsSelector";
 import {
     BaseContent,
     isBaseContent,
-} from "./BaseContent";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseContent";
+import { RmContentType } from "./RmContentType";
 
 /**
  * Defines dynamic content DTO for {@link DropdownOsSelector} component
  */
 export interface DropdownOsSelectorContent extends BaseContent {
-    readonly type       : ContentType;
+    readonly type       : RmContentType.DROPDOWN_OS_SELECTOR | string;
     readonly initialOS ?: string;
-    readonly options    : readonly DropdownOsOption[];
+    readonly options   ?: readonly DropdownOsOption[];
 }
 
 /**
@@ -22,6 +22,6 @@ export interface DropdownOsSelectorContent extends BaseContent {
 export function isDropdownOsSelectorContent (value: unknown) : value is DropdownOsSelectorContent {
     return (
         isBaseContent(value)
-        && value?.type === ContentType.DROPDOWN_OS_SELECTOR
+        && value?.type === RmContentType.DROPDOWN_OS_SELECTOR
     );
 }

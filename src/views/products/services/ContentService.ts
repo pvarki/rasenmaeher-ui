@@ -1,26 +1,27 @@
-import { DownloadOptionsServiceImpl } from "./DownloadOptionsService";
+import { isArray } from "../../../libs/rune/helpers/isArray";
+import { wait } from "../../../libs/rune/helpers/wait";
 import {
     isProductDTO,
     ProductDTO,
-} from "./dto/ProductDTO";
+} from "../dto/ProductDTO";
 import {
     isProductHealthCheckDTO,
     ProductHealthCheckDTO,
-} from "./dto/ProductHealthCheckDTO";
+} from "../dto/ProductHealthCheckDTO";
 import {
     isProductListDTO,
     ProductListDTO,
-} from "./dto/ProductListDTO";
+} from "../dto/ProductListDTO";
 import {
     ObservableDestructor,
     ObservableListener,
     ObservableService,
-} from "./ObservableService";
+} from "../../../libs/rune/services/ObservableService";
 import {
-    ProductContentService,
-    ProductContentServiceImpl,
-} from "./ProductContentService";
-import { Content } from "./types/Content";
+    RuntimeContentService,
+    RuntimeContentServiceImpl,
+} from "../../../libs/rune/services/RuntimeContentService";
+import { Content } from "../../../libs/rune/types/Content";
 
 /**
  * Timeout for requests (ms)
@@ -41,9 +42,7 @@ const PRODUCT_LIST_API_ENDPOINT = (product : string) : string => `/api/v1/instru
 const PRODUCT_API_ENDPOINT = '/api/v1/descriptions/en';
 const PRODUCT_API_HEALTHCHECK_ENDPOINT = '/api/v1/healthcheck/services';
 
-const EMPTY_CONTENT_SERVICE : ProductContentService = ProductContentServiceImpl.create('__empty', [] );
-
-export const DOWNLOAD_OPTIONS_SERVICE = DownloadOptionsServiceImpl.create();
+const EMPTY_CONTENT_SERVICE : RuntimeContentService = RuntimeContentServiceImpl.create('__empty', [] );
 
 export enum ContentServiceEvent {
     PRODUCTS_CHANGED = 'ContentService:productsChanged',
@@ -82,7 +81,7 @@ export interface IContentService extends ObservableService<ContentServiceEvent> 
      * Returns the content service for the given product name.
      * @param name
      */
-    getProductContentService ( name : string) : ProductContentService;
+    getProductContentService ( name : string) : RuntimeContentService;
 
     /**
      * Returns the current products.
@@ -113,7 +112,7 @@ export class ContentService {
     private static _state : ContentServiceState = ContentServiceState.UNINITIALIZED;
     private static _productChangedListeners: ObservableListener<ContentServiceEvent.PRODUCTS_CHANGED>[] = [];
     private static _currentProducts : readonly string[] = [];
-    private static _productContentServices : Map<string, ProductContentService> = new Map();
+    private static _productContentServices : Map<string, RuntimeContentService> = new Map();
 
     /**
      * Check if the content service is ready
@@ -186,7 +185,7 @@ export class ContentService {
      * Returns the content service for the given product name.
      * @param name
      */
-    public static getProductContentService (name : string) : ProductContentService {
+    public static getProductContentService (name : string) : RuntimeContentService {
         if (this._state === ContentServiceState.UNINITIALIZED) {
             this._startInitialization();
         }
@@ -280,7 +279,7 @@ export class ContentService {
         console.log(`Product data: ${name}: ${JSON.stringify(product)}`);
         const content = this._loadProductContent(name, product);
         console.log(`Product content data: ${name}: ${JSON.stringify(content)}`);
-        this._productContentServices.set( name, ProductContentServiceImpl.create(name, content) );
+        this._productContentServices.set( name, RuntimeContentServiceImpl.create(name, content) );
 
         this._currentProducts = [
           ...this._currentProducts,
@@ -367,29 +366,16 @@ export class ContentService {
 
     private static _loadProductContent (name : string, product: ProductDTO) : readonly Content[] {
         try {
-            const instructions : string | readonly Content[] = product.instructions;
-            if (isArray(instructions)) {
-                return instructions;
-            }
-
-            const content : unknown = JSON.parse(instructions);
-            if (!isArray(content)) {
-                console.error(`Invalid content data for ${name}: ${JSON.stringify(content)}`);
+            const instructions : readonly Content[] = product.instructions;
+            if (!isArray(instructions)) {
+                console.error(`Invalid content data for ${name}: ${JSON.stringify(instructions)}`);
                 return [];
             }
-            return content as readonly Content[];
+            return instructions;
         } catch (err) {
             console.error(`Error loading product content for ${name}: `, err);
             return [];
         }
     }
 
-}
-
-function isArray (obj: unknown) : obj is readonly unknown[] {
-    return Array.isArray(obj);
-}
-
-function wait (ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }

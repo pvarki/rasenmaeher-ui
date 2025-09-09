@@ -1,0 +1,4 @@
+[submodule "src/libs/rune"]
+	path = src/libs/rune
+	url = https://github.com/pvarki/typescript-rune.git
+        branch = rune-core

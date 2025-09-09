@@ -1,4 +1,4 @@
-import { Content } from "../types/Content";
+import { Content } from "../../../libs/rune/types/Content";
 
 /**
  * Data transfer object for product
@@ -6,7 +6,7 @@ import { Content } from "../types/Content";
 export interface ProductDTO {
   readonly callsign: string;
   readonly language: string;
-  readonly instructions: string | readonly Content[];
+  readonly instructions: readonly Content[];
 }
 
 /**
@@ -19,7 +19,6 @@ export function isProductDTO(obj: unknown): obj is ProductDTO {
     typeof obj === 'object' &&
     obj !== null &&
     'callsign' in obj && typeof obj.callsign === 'string' &&
-    'language' in obj && typeof obj.language === 'string' &&
-    'instructions' in obj && typeof obj.instructions === 'string'
+    'language' in obj && typeof obj.language === 'string'
   );
 }

@@ -1,21 +1,21 @@
-import { isRegularObject } from "../helpers/isRegularObject";
+import { isRegularObject } from "../../../libs/rune/helpers/isRegularObject";
 import {
     isString,
     isStringOrUndefined,
-} from "../helpers/isString";
+} from "../../../libs/rune/helpers/isString";
 import {
     BaseParentContent,
     isBaseParentContent,
-} from "./BaseParentContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseParentContent";
+import { Content } from "../../../libs/rune/types/Content";
+import { RmContentType } from "./RmContentType";
 
 /**
  * Defines dynamic content DTO for {@link FoldableCard} component
  */
 export interface FoldableCardContent extends BaseParentContent {
-    readonly type      : ContentType;
-    readonly title     : string;
+    readonly type      : RmContentType.FOLDABLE_CARD | string;
+    readonly title    ?: string;
     readonly image    ?: string;
     readonly body     ?: Content | readonly Content[];
 }
@@ -29,7 +29,7 @@ export function isFoldableCardContent (value: unknown) : value is FoldableCardCo
     return (
         isBaseParentContent(value)
         && isRegularObject(value)
-        && value?.type === ContentType.FOLDABLE_CARD
+        && value?.type === RmContentType.FOLDABLE_CARD
         && isString(value?.title)
         && isStringOrUndefined(value?.image)
     );

@@ -1,23 +1,23 @@
-import { isRegularObject } from "../helpers/isRegularObject";
+import { isRegularObject } from "../../../libs/rune/helpers/isRegularObject";
 import {
     isString,
     isStringOrUndefined,
-} from "../helpers/isString";
+} from "../../../libs/rune/helpers/isString";
 import {
     BaseParentContent,
     isBaseParentContent,
-} from "./BaseParentContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseParentContent";
+import { Content } from "../../../libs/rune/types/Content";
 import { StepContent } from "./StepContent";
+import { RmContentType } from "./RmContentType";
 
 /**
  * Defines dynamic content DTO for {@link UnfoldableCard} component.
  * Note, is must be from the UnfoldableCard2.tsx!
  */
 export interface UnfoldableCardContent extends BaseParentContent {
-    readonly type         : ContentType;
-    readonly title        : Content | readonly Content[];
+    readonly type         : RmContentType.UNFOLDABLE_CARD | string;
+    readonly title       ?: Content | readonly Content[];
     readonly steps       ?: readonly StepContent[];
     readonly content     ?: Content | readonly Content[];
     readonly body        ?: Content | readonly Content[];
@@ -39,7 +39,7 @@ export function isUnfoldableCardContent (value: unknown) : value is UnfoldableCa
     return (
         isBaseParentContent(value)
         && isRegularObject(value)
-        && value?.type === ContentType.UNFOLDABLE_CARD
+        && value?.type === RmContentType.UNFOLDABLE_CARD
         && isString(value?.title)
         && isStringOrUndefined(value?.image)
     );

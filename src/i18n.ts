@@ -7,7 +7,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import {
   ContentService,
   ContentServiceEvent,
-} from "./views/products/ContentService";
+} from "./views/products/services/ContentService";
 
 const I18N_CONTENT_SERVICE_NS_PREFIX = 'productContent:';
 

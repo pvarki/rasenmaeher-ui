@@ -5,7 +5,7 @@ import {
 import {
     PublicEventCallback,
     PublicEventDestructor,
-} from "./ProductContentService";
+} from "../../libs/rune/services/RuntimeContentService";
 
 enum ContentEvent {
     DROPDOWN_OS_SELECTOR_CHANGE,

@@ -1,7 +1,7 @@
 import {
     ContentService,
     IContentService,
-} from "../ContentService";
+} from "../services/ContentService";
 
 export function useContentService () : IContentService {
     return ContentService.getSingleton();

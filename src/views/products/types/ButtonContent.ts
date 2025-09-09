@@ -1,15 +1,16 @@
+import { RmContentType } from "./RmContentType";
 import {
     BaseParentContent,
     isBaseParentContent,
-} from "./BaseParentContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseParentContent";
+import { Content } from "../../../libs/rune/types/Content";
+import { ContentType } from "../../../libs/rune/types/ContentType";
 
 /**
  * Defines dynamic content DTO for {@link Button} component
  */
 export interface ButtonContent extends BaseParentContent {
-    readonly type      : ContentType;
+    readonly type      : RmContentType.BUTTON | RmContentType | ContentType | string;
 
     /**
      * This will go to the "styles" property
@@ -32,6 +33,6 @@ export interface ButtonContent extends BaseParentContent {
 export function isButtonContent (value: unknown) : value is ButtonContent {
     return (
         isBaseParentContent(value)
-        && value?.type === ContentType.BUTTON
+        && value?.type === RmContentType.BUTTON
     );
 }

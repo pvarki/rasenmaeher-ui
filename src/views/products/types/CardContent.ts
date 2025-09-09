@@ -2,17 +2,17 @@ import { ReactNode } from "react";
 import {
     BaseParentContent,
     isBaseParentContent,
-} from "./BaseParentContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseParentContent";
+import { Content } from "../../../libs/rune/types/Content";
+import { RmContentType } from "./RmContentType";
 
 /**
  * Defines dynamic content DTO for {@link Card} component
  */
 export interface CardContent extends BaseParentContent {
-    readonly type  : ContentType.CARD;
+    readonly type  : RmContentType.CARD | string;
     readonly body ?: Content | readonly Content[];
-    readonly title : Content | readonly Content[];
+    readonly title ?: Content | readonly Content[];
     readonly details ?: Content | readonly Content[];
     readonly image ?: string;
     readonly url ?: string;
@@ -36,6 +36,6 @@ export interface CardContentProps {
 export function isCardContent ( value: unknown) : value is CardContent {
     return (
         isBaseParentContent(value)
-        && value.type === ContentType.CARD
+        && value.type === RmContentType.CARD
     );
 }

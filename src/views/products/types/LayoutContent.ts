@@ -1,15 +1,15 @@
+import { RmContentType } from "./RmContentType";
 import {
     BaseParentContent,
     isBaseParentContent,
-} from "./BaseParentContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseParentContent";
+import { Content } from "../../../libs/rune/types/Content";
 
 /**
  * Defines layout content type
  */
 export interface LayoutContent extends BaseParentContent {
-    readonly type  : ContentType.LAYOUT;
+    readonly type  : RmContentType.LAYOUT | string;
     readonly body ?: Content | readonly Content[];
     readonly showNavbar       ?: boolean;
     readonly showHeader       ?: boolean;
@@ -41,6 +41,6 @@ export interface LayoutContentProps {
 export function isLayoutContent ( value: unknown) : value is LayoutContent {
     return (
         isBaseParentContent(value)
-        && value.type === ContentType.LAYOUT
+        && value.type === RmContentType.LAYOUT
     );
 }

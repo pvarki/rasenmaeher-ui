@@ -3,9 +3,11 @@ import {
   useEffect,
   useState,
 } from "react";
-import { ContentServiceEvent } from "../ContentService";
-import { ContentType } from "../types/ContentType";
-import { ViewContent } from "../types/ViewContent";
+
+import { ContentServiceEvent } from "../services/ContentService";
+import { ContentType } from "../../../libs/rune/types/ContentType";
+import { ViewContent } from "../../../libs/rune/types/ViewContent";
+
 import { useContentService } from "./useContentService";
 import { useProductContentService } from "./useProductContentService";
 

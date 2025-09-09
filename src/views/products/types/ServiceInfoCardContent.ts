@@ -1,17 +1,17 @@
-import { isRegularObject } from "../helpers/isRegularObject";
-import { isStringOrUndefined } from "../helpers/isString";
+import { isRegularObject } from "../../../libs/rune/helpers/isRegularObject";
+import { isStringOrUndefined } from "../../../libs/rune/helpers/isString";
 import {
     BaseParentContent,
     isBaseParentContent,
-} from "./BaseParentContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseParentContent";
+import { Content } from "../../../libs/rune/types/Content";
+import { RmContentType } from "./RmContentType";
 
 /**
  * Defines dynamic content DTO for {@link ServiceInfoCard} component
  */
 export interface ServiceInfoCardContent extends BaseParentContent {
-    readonly type      : ContentType;
+    readonly type      : RmContentType.SERVICE_INFO_CARD | string;
     readonly title    ?: Content | readonly Content[];
     readonly image    ?: string;
     readonly details  ?: Content | readonly Content[];
@@ -27,7 +27,7 @@ export function isServiceInfoCardContent (value: unknown) : value is ServiceInfo
     return (
         isBaseParentContent(value)
         && isRegularObject(value)
-        && value.type === ContentType.SERVICE_INFO_CARD
+        && value.type === RmContentType.SERVICE_INFO_CARD
         && isStringOrUndefined(value?.image)
     );
 }

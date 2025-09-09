@@ -1,15 +1,15 @@
+import { RmContentType } from "./RmContentType";
 import {
     BaseParentContent,
     isBaseParentContent,
-} from "./BaseParentContent";
-import { Content } from "./Content";
-import { ContentType } from "./ContentType";
+} from "../../../libs/rune/types/BaseParentContent";
+import { Content } from "../../../libs/rune/types/Content";
 
 /**
  * Defines dynamic content DTO for {@link Step} component
  */
 export interface StepContent extends BaseParentContent {
-    readonly type : ContentType;
+    readonly type : RmContentType.STEP | string;
     readonly image ?: string;
     readonly imageLink ?: string;
     readonly imageClasses ?: readonly string[];
@@ -25,6 +25,6 @@ export interface StepContent extends BaseParentContent {
 export function isStepContent ( value: unknown) : value is StepContent {
     return (
         isBaseParentContent(value)
-        && value?.type === ContentType.STEP
+        && value?.type === RmContentType.STEP
     );
 }

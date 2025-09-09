@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Routes, Route } from "react-router-dom";
 import LoadingComponent from "./components/Loading/LoadingComponent";
 import { useDownloadTakZipModal } from "./components/tak/DownloadTakZipModal";
-import { ContentService } from "./views/products/ContentService";
+import { ContentService } from "./views/products/services/ContentService";
 import { ServiceView } from "./views/products/ServiceView";
 
 export function ServiceRouteWrapper( props: { serviceName : string }) {
