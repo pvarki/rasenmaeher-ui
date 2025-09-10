@@ -6,7 +6,7 @@ import { Content } from "../../../libs/rune/types/Content";
 export interface ProductDTO {
   readonly callsign: string;
   readonly language: string;
-  readonly instructions: readonly Content[];
+  readonly instructions: readonly Content[] | string;
 }
 
 /**

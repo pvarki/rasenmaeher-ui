@@ -5,7 +5,7 @@ import { RuntimeContentService } from "../../libs/rune/services/RuntimeContentSe
 import { useContentView } from "./hooks/useContentView";
 import { useRendererContext } from "../../libs/rune/hooks/useRendererContext";
 import { useDownloadTakZipModalInContext } from "./hooks/useDownloadTakZipModalInContext";
-import { useInitRune } from "./hooks/useInitRune";
+import { useInitRuneContent } from "./hooks/useInitRuneContent";
 import { useProductContentService } from "./hooks/useProductContentService";
 import { useScrollToTop } from "./hooks/useScrollToTop";
 import { ProductLoadingView } from "./ProductLoadingView";
@@ -32,7 +32,7 @@ export function ServiceView(props: ServiceViewProps) {
     contentServiceOrNot,
     actions,
   );
-  useInitRune();
+  useInitRuneContent();
   useScrollToTop(60);
   useNavigateInContext(context);
   useDownloadTakZipModalInContext(context);

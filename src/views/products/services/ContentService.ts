@@ -1,4 +1,5 @@
 import { isArray } from "../../../libs/rune/helpers/isArray";
+import { isString } from "../../../libs/rune/helpers/isString";
 import { wait } from "../../../libs/rune/helpers/wait";
 import { isProductDTO, ProductDTO } from "../dto/ProductDTO";
 import {
@@ -396,7 +397,10 @@ export class ContentService {
     product: ProductDTO,
   ): readonly Content[] {
     try {
-      const instructions: readonly Content[] = product.instructions;
+      let instructions: readonly Content[] | string = product.instructions;
+      if (isString(instructions)) {
+        instructions = JSON.parse(instructions) as readonly Content[];
+      }
       if (!isArray(instructions)) {
         console.error(
           `Invalid content data for ${name}: ${JSON.stringify(instructions)}`,
