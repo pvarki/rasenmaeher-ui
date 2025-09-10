@@ -4,6 +4,7 @@ import { RmContentType } from "../types/RmContentType";
 import { button } from "./button";
 import { card } from "./card";
 import { dropdownOsSelector } from "./dropdownOsSelector";
+import { errorView } from "./errorView";
 import { foldableCard } from "./foldableCard";
 import { layout } from "./layout";
 import { navigateButtons } from "./navigateButtons";
@@ -15,7 +16,10 @@ import { unfoldableCard } from "./unfoldableCard";
 /**
  * These components extend Rune to allow using our own React components.
  */
-export function load(): void {
+export function loadCustomizedRuneContent(): void {
+  ProductContentRenderer.register(ContentType.TRANSLATE, translate);
+  ProductContentRenderer.register(ContentType.ERROR_VIEW, errorView);
+
   ProductContentRenderer.register(RmContentType.BUTTON, button);
   ProductContentRenderer.register(RmContentType.CARD, card);
   ProductContentRenderer.register(
@@ -37,5 +41,4 @@ export function load(): void {
     RmContentType.UNFOLDABLE_CARD,
     unfoldableCard,
   );
-  ProductContentRenderer.register(ContentType.TRANSLATE, translate);
 }
